@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
+		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
 		2461FAB37C197E6AB8147749 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD0EE6780CBF2E6F6A3B99A /* libPods.a */; };
 		7A2464D61B7C2A34007FD1D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D51B7C2A34007FD1D4 /* main.m */; };
 		7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */; };
@@ -112,6 +114,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22200DD81B7D4A9500CCB120 /* ApplyFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFixViewController.h; sourceTree = "<group>"; };
+		22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFixViewController.m; sourceTree = "<group>"; };
+		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
+		22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixProgressViewController.m; sourceTree = "<group>"; };
 		6BD0EE6780CBF2E6F6A3B99A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D01B7C2A34007FD1D4 /* MachineDataShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineDataShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D41B7C2A34007FD1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -454,6 +460,10 @@
 			children = (
 				7A7562011B7C6B7700BA2B69 /* FixViewController.h */,
 				7A7562021B7C6B7700BA2B69 /* FixViewController.m */,
+				22200DD81B7D4A9500CCB120 /* ApplyFixViewController.h */,
+				22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */,
+				22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */,
+				22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */,
 			);
 			path = fix1;
 			sourceTree = "<group>";
@@ -722,6 +732,7 @@
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
 				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
 				7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */,
+				22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */,
 				7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */,
 				7A7561661B7C4A3A00BA2B69 /* ProductDetailViewController.m in Sources */,
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
@@ -739,6 +750,7 @@
 				7A75617C1B7C4A5400BA2B69 /* BaseObject.m in Sources */,
 				7A75621D1B7C706400BA2B69 /* HomeCell.m in Sources */,
 				7A7562061B7C6B8000BA2B69 /* MeViewController.m in Sources */,
+				22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */,
 				7A75622F1B7C90B000BA2B69 /* InfoViewController.m in Sources */,
 				7A7561651B7C4A3A00BA2B69 /* NavViewController.m in Sources */,
 			);

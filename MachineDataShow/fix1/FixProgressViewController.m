@@ -1,22 +1,19 @@
 //
-//  ServerViewController.m
+//  FixProgressViewController.m
 //  MachineDataShow
 //
-//  Created by 中联信 on 15/8/13.
+//  Created by tim on 15-8-13.
 //  Copyright (c) 2015年 Tim.rabbit. All rights reserved.
 //
 
-#import "ServerViewController.h"
+#import "FixProgressViewController.h"
 
-@interface ServerViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface FixProgressViewController ()
 
 @end
 
-@implementation ServerViewController
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-}
+@implementation FixProgressViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
