@@ -1,0 +1,31 @@
+//
+//  PrefixHeader.pch
+//  Wangou
+//
+//  Created by 中联信 on 15/8/10.
+//  Copyright (c) 2015年 Tim.rabbit. All rights reserved.
+//
+
+#ifndef Wangou_PrefixHeader_pch
+#define Wangou_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <RDVTabBarController/RDVTabBarController.h>
+#import <EasyIOS/Easy.h>
+#import "NavViewController.h"
+#import "Config.h"
+#import <MJExtension/MJExtension.h>
+#import <AFNetworking/AFNetworking.h>
+#import <TOWebViewController/TOWebViewController.h>
+//#import "WebViewController.h"
+
+
+//#import <ShareSDK/ShareSDK.h>
+//#import "WeiboSDK.h"
+//#import "WXApi.h"
+//#import "WXApiObject.h"
+#import "HomeCell.h""
+
+#endif
