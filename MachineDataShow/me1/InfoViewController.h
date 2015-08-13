@@ -1,5 +1,5 @@
 //
-//  MeViewController.h
+//  InfoViewController.h
 //  MachineDataShow
 //
 //  Created by 中联信 on 15/8/13.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface MeViewController : UITableViewController
+@interface InfoViewController : BaseViewController
 
 @end

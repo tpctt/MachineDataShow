@@ -25,7 +25,7 @@
 -(UIBarButtonItem*) createBackButton
 
 {
-    UIButton *btn = [[UIButton alloc]initNavigationButton:[UIImage imageNamed:@"nav_back"]];
+    UIButton *btn = [[UIButton alloc]initNavigationButton:[UIImage imageNamed:@"back"]];
 
     [btn addTarget:self action:@selector(popself) forControlEvents:UIControlEventTouchUpInside];
 

@@ -1,37 +1,22 @@
-
 //
-//  FixViewController.m
+//  RegViewController.m
 //  MachineDataShow
 //
 //  Created by 中联信 on 15/8/13.
 //  Copyright (c) 2015年 Tim.rabbit. All rights reserved.
 //
 
-#import "FixViewController.h"
-#import <MJRefresh/MJRefresh.h>
+#import "RegViewController.h"
 
-@interface FixViewController ()
+@interface RegViewController ()
 
 @end
 
-@implementation FixViewController
+@implementation RegViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.mtable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 320) style:UITableViewStylePlain];
-    [self.view addSubview:self.mtable];
-    [self.mtable alignToView:self.view];
-    self.mtable.dataSource = self;
-    self.mtable.delegate = self;
-    
-    self.mtable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        
-    }];
-    self.mtable.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
-        
-    }];
-    
 }
 
 - (void)didReceiveMemoryWarning {
