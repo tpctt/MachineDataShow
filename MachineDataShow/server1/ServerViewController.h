@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ServerViewController : BaseViewController
+@interface ServerViewController : UITableViewController
 
 @end

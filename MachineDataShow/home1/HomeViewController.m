@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ScrollADView.h"
+#import "AppDelegate.h"
 
 @interface HomeViewController ()
 
@@ -24,8 +25,12 @@
 @implementation HomeViewController
 - (IBAction)btnAct:(id)sender {
     if (sender == _b1) {
+        [[AppDelegate sharedInstance].homeVC setSelectedIndex:1];
         
-    }else{
+    }else if (sender ==_b2){
+    
+    }
+    else{
         [UIAlertView showWithTitle:@"" message:@"模块正在开发,敬请期待!" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             
         }];
