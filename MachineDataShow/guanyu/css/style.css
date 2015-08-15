@@ -1,0 +1,44 @@
+/* CSS Document */
+
+.box{
+	
+	width:100%;
+	height:auto;
+	font-size:36px;
+	line-height:25px;
+	text-indent:2em;
+	margin-left: auto;
+    margin-right: auto;
+	}
+	.gywm{
+	width:100%;
+	height:auto;
+	font-size:36px;
+	line-height:25px;
+	text-indent:2em;
+	margin-left:8px;
+	margin-right:8px;
+		}
+	.sysm{
+	width:100%;
+	height:auto;
+	font-size:36px;
+	line-height:25px;
+	text-indent:2em;
+	margin-left:8px;
+	margin-right:8px;
+
+		}
+	.box2{
+	
+	width:100%;
+	height:auto;
+	font-size:36px;
+	line-height:25px;
+	text-indent:2em;
+	}
+# sysm img{
+    text-align:center;
+	}
+	
+

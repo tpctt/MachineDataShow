@@ -45,6 +45,10 @@
     [super viewDidLoad];
     self.enableAnimation = YES;
     
+    self.view.backgroundColor = RGB(236, 236, 236);
+    self.mtable.backgroundColor = [UIColor clearColor];
+    
+    
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     

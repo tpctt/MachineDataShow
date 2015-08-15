@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        self.page = @"1";
+        self.page = 1;
         
     }
     return self;
@@ -25,11 +25,21 @@
 
 -(NSMutableDictionary *)requestParams{
     NSMutableDictionary *dict = [[super requestParams] mutableCopy];
-    [dict setObject: self.page forKey:@"page"];
+    [dict setObject: @(self.page) forKey:@"page"];
     
     return dict;
     
 }
+
+-(void)pageAdd
+{
+    self.page++;
+}
+-(void)initPage{
+    self.page=0;
+}
+
+
 @end
 
 ///////////////BaseObjectRequest////////////////////
@@ -106,10 +116,37 @@ DEF_SINGLETON(BaseObjectRequest)
 -(void)loadSceneModel
 {
     [super loadSceneModel];
-    self.dataArray = [NSMutableArray array];
+    self.allDataArray = [NSMutableArray array];
+    
+    
 }
+-(void)loadNextPage
+{
+    [self.request pageAdd];
+    self.request.requestNeedActive = YES;
 
-
+}
+-(void)loadFirstPage;
+{
+    
+    [self.request initPage];
+    self.request.requestNeedActive = YES;
+    
+}
+-(void)getArray:(NSArray*)list totalPage:(NSInteger)totalPage
+{
+    self.hadNextPage = self.request.page<totalPage;
+    
+    if (self.request.page == 1) {
+        [self.allDataArray removeAllObjects];
+    }
+    if([list  count]>0){
+        [self.allDataArray addObjectsFromArray:list];
+    }
+    
+    self.currestList = list;
+    
+}
 @end
 
 

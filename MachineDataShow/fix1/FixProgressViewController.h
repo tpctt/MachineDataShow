@@ -7,7 +7,15 @@
 //
 
 #import "BaseViewController.h"
-
+#import "DeviceObject.h"
 @interface FixProgressViewController : BaseViewController
+@property(strong,nonatomic)DeviceObject *o;
+
+@end
+@interface FixedProgressInfo :BaseObject
+@property (strong, nonatomic)   NSString *icon;
+@property (strong, nonatomic)   NSString *name;
+@property (strong, nonatomic)   NSString *phone;
+@property (strong, nonatomic)   NSString *process;
 
 @end

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "TabbarViewController.h"
 
+#define AppHostAddress @"www.taoqian123.com/api.php/Index/"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

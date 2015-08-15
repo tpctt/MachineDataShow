@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
+		22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B581B7F421700A3C9BA /* AboutViewController.m */; };
+		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
+		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
+		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
+		22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */; };
+		22EF7FCD1B7F5A46000F02DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCC1B7F5A46000F02DA /* Foundation.framework */; };
+		22EF7FCF1B7F5A4D000F02DA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */; };
+		22EF7FD11B7F7F1F000F02DA /* guanyu in Resources */ = {isa = PBXBuildFile; fileRef = 22EF7FD01B7F7F1F000F02DA /* guanyu */; };
+		22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */; };
+		22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD61B7F86F9000F02DA /* DeviceObject.m */; };
+		22EF7FDA1B7FAA7F000F02DA /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD91B7FAA7F000F02DA /* ContactUsViewController.m */; };
+		22EF7FDC1B7FAB4F000F02DA /* 联系我们.html in Resources */ = {isa = PBXBuildFile; fileRef = 22EF7FDB1B7FAB4F000F02DA /* 联系我们.html */; };
 		2461FAB37C197E6AB8147749 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD0EE6780CBF2E6F6A3B99A /* libPods.a */; };
 		7A2464D61B7C2A34007FD1D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D51B7C2A34007FD1D4 /* main.m */; };
 		7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */; };
@@ -118,6 +130,23 @@
 		22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFixViewController.m; sourceTree = "<group>"; };
 		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
 		22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixProgressViewController.m; sourceTree = "<group>"; };
+		22435B571B7F421700A3C9BA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		22435B581B7F421700A3C9BA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
+		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		22EF7FC81B7F5A39000F02DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
+		22EF7FCC1B7F5A46000F02DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		22EF7FD01B7F7F1F000F02DA /* guanyu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = guanyu; sourceTree = "<group>"; };
+		22EF7FD21B7F856F000F02DA /* FixedInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedInfoViewController.h; sourceTree = "<group>"; };
+		22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixedInfoViewController.m; sourceTree = "<group>"; };
+		22EF7FD51B7F86F9000F02DA /* DeviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceObject.h; sourceTree = "<group>"; };
+		22EF7FD61B7F86F9000F02DA /* DeviceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceObject.m; sourceTree = "<group>"; };
+		22EF7FD81B7FAA7F000F02DA /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
+		22EF7FD91B7FAA7F000F02DA /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
+		22EF7FDB1B7FAB4F000F02DA /* 联系我们.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "联系我们.html"; sourceTree = "<group>"; };
 		6BD0EE6780CBF2E6F6A3B99A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D01B7C2A34007FD1D4 /* MachineDataShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineDataShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D41B7C2A34007FD1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -251,6 +280,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EF7FCF1B7F5A4D000F02DA /* ImageIO.framework in Frameworks */,
+				22EF7FCD1B7F5A46000F02DA /* Foundation.framework in Frameworks */,
+				22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */,
+				22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */,
+				22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */,
 				2461FAB37C197E6AB8147749 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +302,11 @@
 		6323E31ACBD8F1DB8F6D085F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */,
+				22EF7FCC1B7F5A46000F02DA /* Foundation.framework */,
+				22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */,
+				22EF7FC81B7F5A39000F02DA /* UIKit.framework */,
+				22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */,
 				6BD0EE6780CBF2E6F6A3B99A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -318,6 +357,7 @@
 		7A2464D31B7C2A34007FD1D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				22EF7FD01B7F7F1F000F02DA /* guanyu */,
 				7A7561A71B7C5F9900BA2B69 /* UI */,
 				7A7561841B7C4A5C00BA2B69 /* PrefixHeader.pch */,
 				7A7561851B7C4BB500BA2B69 /* 64@2x.png */,
@@ -378,6 +418,8 @@
 				7A75616A1B7C4A5400BA2B69 /* BandingObject.m */,
 				7A75616B1B7C4A5400BA2B69 /* BaseObject.h */,
 				7A75616C1B7C4A5400BA2B69 /* BaseObject.m */,
+				22EF7FD51B7F86F9000F02DA /* DeviceObject.h */,
+				22EF7FD61B7F86F9000F02DA /* DeviceObject.m */,
 				7A75616D1B7C4A5400BA2B69 /* Config.h */,
 				7A75616E1B7C4A5400BA2B69 /* Config.m */,
 				7A75616F1B7C4A5400BA2B69 /* LoginObject.h */,
@@ -464,6 +506,8 @@
 				22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */,
 				22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */,
 				22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */,
+				22EF7FD21B7F856F000F02DA /* FixedInfoViewController.h */,
+				22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */,
 			);
 			path = fix1;
 			sourceTree = "<group>";
@@ -484,6 +528,10 @@
 				7A7562341B7C917F00BA2B69 /* LoginViewController.m */,
 				7A7562361B7C918900BA2B69 /* RegViewController.h */,
 				7A7562371B7C918900BA2B69 /* RegViewController.m */,
+				22435B571B7F421700A3C9BA /* AboutViewController.h */,
+				22435B581B7F421700A3C9BA /* AboutViewController.m */,
+				22435B5A1B7F422700A3C9BA /* HelpViewController.h */,
+				22435B5B1B7F422700A3C9BA /* HelpViewController.m */,
 			);
 			path = me1;
 			sourceTree = "<group>";
@@ -493,6 +541,9 @@
 			children = (
 				7A7562071B7C6B8E00BA2B69 /* ServerViewController.h */,
 				7A7562081B7C6B8E00BA2B69 /* ServerViewController.m */,
+				22EF7FD81B7FAA7F000F02DA /* ContactUsViewController.h */,
+				22EF7FD91B7FAA7F000F02DA /* ContactUsViewController.m */,
+				22EF7FDB1B7FAB4F000F02DA /* 联系我们.html */,
 			);
 			path = server1;
 			sourceTree = "<group>";
@@ -672,6 +723,8 @@
 				7A7561DE1B7C5F9900BA2B69 /* fix_green@2x.png in Resources */,
 				7A7562241B7C773400BA2B69 /* Banner_3.jpg in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,
+				22EF7FD11B7F7F1F000F02DA /* guanyu in Resources */,
+				22EF7FDC1B7FAB4F000F02DA /* 联系我们.html in Resources */,
 				7A7561861B7C4BB500BA2B69 /* 64@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +776,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EF7FDA1B7FAA7F000F02DA /* ContactUsViewController.m in Sources */,
 				7A7561821B7C4A5400BA2B69 /* ThirdObject.m in Sources */,
 				7A7561901B7C570F00BA2B69 /* ScrollADView.m in Sources */,
 				7A7561811B7C4A5400BA2B69 /* SmallObject.m in Sources */,
@@ -737,18 +791,22 @@
 				7A7561661B7C4A3A00BA2B69 /* ProductDetailViewController.m in Sources */,
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
+				22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */,
 				7A75617B1B7C4A5400BA2B69 /* BandingObject.m in Sources */,
 				7A75617D1B7C4A5400BA2B69 /* Config.m in Sources */,
 				7A7562381B7C918900BA2B69 /* RegViewController.m in Sources */,
+				22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */,
 				7A75617E1B7C4A5400BA2B69 /* LoginObject.m in Sources */,
 				7A7561671B7C4A3A00BA2B69 /* TabbarViewController.m in Sources */,
 				7A7561891B7C4BFB00BA2B69 /* ShowMeViewController.m in Sources */,
 				7A7562031B7C6B7700BA2B69 /* FixViewController.m in Sources */,
 				7A7561801B7C4A5400BA2B69 /* RequestConfig.m in Sources */,
 				7A2464D61B7C2A34007FD1D4 /* main.m in Sources */,
+				22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */,
 				7A7561831B7C4A5400BA2B69 /* UserObject.m in Sources */,
 				7A75617C1B7C4A5400BA2B69 /* BaseObject.m in Sources */,
 				7A75621D1B7C706400BA2B69 /* HomeCell.m in Sources */,
+				22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */,
 				7A7562061B7C6B8000BA2B69 /* MeViewController.m in Sources */,
 				22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */,
 				7A75622F1B7C90B000BA2B69 /* InfoViewController.m in Sources */,
@@ -899,6 +957,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b48752d6-6f17-4e2c-86bd-ff1228cef9d6";
 			};
 			name = Release;
 		};

@@ -23,7 +23,10 @@ AS_SINGLETON(BaseObjectRequest)
 
 
 @interface BaseListObjectRequest : BaseObjectRequest
-@property(strong,nonatomic) NSString *page;
+@property(assign,nonatomic) NSInteger page;
+-(void)pageAdd;
+-(void)initPage;
+
 @end
 
 
@@ -31,7 +34,17 @@ AS_SINGLETON(BaseObjectRequest)
 @end
 
 @interface BaseSceneModel : SceneModel
-@property(nonatomic,retain) NSMutableArray *dataArray;
+@property (nonatomic,strong) BaseListObjectRequest *request;
+
+
+@property(nonatomic,retain) NSMutableArray *allDataArray;
+@property(nonatomic,retain) NSArray *currestList;
+@property(nonatomic,assign) BOOL hadNextPage;
+
+-(void)loadNextPage;
+-(void)loadFirstPage;
+-(void)getArray:(NSArray*)list totalPage:(NSInteger)totalPage ;
+
 @end
 
 

@@ -12,9 +12,57 @@
 #import "AppDelegate.h"
 #import "BaseObject.h"
 
+#import "FixProgressViewController.h"
+
 #define AppHostAddress @"abcd"
 
 @implementation NetManager
++(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block
+{
+    NSString *PATH = [[RequestConfig sharedInstance]home];
+
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+
+    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+
+        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        if (state == 1  ) {
+            FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject];
+ 
+            block(@[OBJ],nil,[jsonObject objectAtPath:@"msg"]);
+
+
+        }else{
+            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+
+        }
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+        block(nil, error,nil);
+
+    }];
+
+    return op;
+}
+
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block
 {

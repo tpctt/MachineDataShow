@@ -13,6 +13,8 @@
 #import "LoginObject.h" 
 //#import "UMSocial.h"
 #import "BandingObject.h"
+#import "DeviceObject.h"
+
 ///请求配置
 typedef void(^DataDataBlock)(DakaObject *object,NSError *error,NSString *msg);
 typedef void(^HotKeyBlock)(NSArray *array,NSError *error,NSString *msg);
@@ -28,6 +30,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 
 @interface NetManager:NSObject
++(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block;
 +(AFHTTPRequestOperation*)daka:(DataDataBlock)block;

@@ -15,7 +15,7 @@
 #import "Config.h"
 //#import "TabbarViewController.h"
 #import <RDVTabBarController/RDVTabBarItem.h>
-
+#import <EasyIOS/Action.h>
 @interface AppDelegate ()
 
 @end
@@ -94,6 +94,7 @@ static AppDelegate* shareApp;
         [self.homeVC.navigationController pushViewController:[[ShowMeViewController alloc] init]  animated:NO];
         
     }
+    [Action actionConfigHost:AppHostAddress client:@"APP" codeKey:@"state" rightCode:1 msgKey:@"msg"];
     
     return YES;
 }

@@ -119,76 +119,76 @@ __OSX_AVAILABLE_STARTING(__MAC_NA, __IPHONE_8_0);
 + (void)setDefaultService:(NSString *)defaultService;
 
 + (UICKeyChainStore *)keyChainStore;
-+ (UICKeyChainStore *)keyChainStoreWithService:(nullable NSString *)service;
-+ (UICKeyChainStore *)keyChainStoreWithService:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
++ (UICKeyChainStore *)keyChainStoreWithService:( NSString *)service;
++ (UICKeyChainStore *)keyChainStoreWithService:( NSString *)service accessGroup:( NSString *)accessGroup;
 
 + (UICKeyChainStore *)keyChainStoreWithServer:(NSURL *)server protocolType:(UICKeyChainStoreProtocolType)protocolType;
 + (UICKeyChainStore *)keyChainStoreWithServer:(NSURL *)server protocolType:(UICKeyChainStoreProtocolType)protocolType authenticationType:(UICKeyChainStoreAuthenticationType)authenticationType;
 
 - (instancetype)init;
-- (instancetype)initWithService:(nullable NSString *)service;
-- (instancetype)initWithService:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
+- (instancetype)initWithService:( NSString *)service;
+- (instancetype)initWithService:( NSString *)service accessGroup:( NSString *)accessGroup;
 
 - (instancetype)initWithServer:(NSURL *)server protocolType:(UICKeyChainStoreProtocolType)protocolType;
 - (instancetype)initWithServer:(NSURL *)server protocolType:(UICKeyChainStoreProtocolType)protocolType authenticationType:(UICKeyChainStoreAuthenticationType)authenticationType;
 
-+ (nullable NSString *)stringForKey:(NSString *)key;
-+ (nullable NSString *)stringForKey:(NSString *)key service:(nullable NSString *)service;
-+ (nullable NSString *)stringForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
++ ( NSString *)stringForKey:(NSString *)key;
++ ( NSString *)stringForKey:(NSString *)key service:( NSString *)service;
++ ( NSString *)stringForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup;
 
-+ (nullable NSData *)dataForKey:(NSString *)key;
-+ (nullable NSData *)dataForKey:(NSString *)key service:(nullable NSString *)service;
-+ (nullable NSData *)dataForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
++ ( NSData *)dataForKey:(NSString *)key;
++ ( NSData *)dataForKey:(NSString *)key service:( NSString *)service;
++ ( NSData *)dataForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup;
 
-- (BOOL)contains:(nullable NSString *)key;
+- (BOOL)contains:( NSString *)key;
 
-- (BOOL)setString:(nullable NSString *)string forKey:(nullable NSString *)key;
-- (BOOL)setString:(nullable NSString *)string forKey:(nullable NSString *)key label:(nullable NSString *)label comment:(nullable NSString *)comment;
-- (nullable NSString *)stringForKey:(NSString *)key;
+- (BOOL)setString:( NSString *)string forKey:( NSString *)key;
+- (BOOL)setString:( NSString *)string forKey:( NSString *)key label:( NSString *)label comment:( NSString *)comment;
+- ( NSString *)stringForKey:(NSString *)key;
 
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key;
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key label:(nullable NSString *)label comment:(nullable NSString *)comment;
-- (nullable NSData *)dataForKey:(NSString *)key;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key label:( NSString *)label comment:( NSString *)comment;
+- ( NSData *)dataForKey:(NSString *)key;
 
 + (BOOL)removeItemForKey:(NSString *)key;
-+ (BOOL)removeItemForKey:(NSString *)key service:(nullable NSString *)service;
-+ (BOOL)removeItemForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
++ (BOOL)removeItemForKey:(NSString *)key service:( NSString *)service;
++ (BOOL)removeItemForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup;
 
 + (BOOL)removeAllItems;
-+ (BOOL)removeAllItemsForService:(nullable NSString *)service;
-+ (BOOL)removeAllItemsForService:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup;
++ (BOOL)removeAllItemsForService:( NSString *)service;
++ (BOOL)removeAllItemsForService:( NSString *)service accessGroup:( NSString *)accessGroup;
 
 - (BOOL)removeItemForKey:(NSString *)key;
 
 - (BOOL)removeAllItems;
 
-- (nullable NSString *)objectForKeyedSubscript:(NSString<NSCopying> *)key;
-- (void)setObject:(nullable NSString *)obj forKeyedSubscript:(NSString<NSCopying> *)key;
+- ( NSString *)objectForKeyedSubscript:(NSString<NSCopying> *)key;
+- (void)setObject:( NSString *)obj forKeyedSubscript:(NSString<NSCopying> *)key;
 
-+ (nullable NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass;
-- (nullable NSArray *)allKeys;
++ ( NSArray *)allKeysWithItemClass:(UICKeyChainStoreItemClass)itemClass;
+- ( NSArray *)allKeys;
 
-+ (nullable NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass;
-- (nullable NSArray *)allItems;
++ ( NSArray *)allItemsWithItemClass:(UICKeyChainStoreItemClass)itemClass;
+- ( NSArray *)allItems;
 
 - (void)setAccessibility:(UICKeyChainStoreAccessibility)accessibility authenticationPolicy:(UICKeyChainStoreAuthenticationPolicy)authenticationPolicy
 __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 #if TARGET_OS_IPHONE
-- (void)sharedPasswordWithCompletion:(nullable void (^)(NSString * __nullable account, NSString * __nullable password, NSError * __nullable error))completion;
-- (void)sharedPasswordForAccount:(NSString *)account completion:(nullable void (^)(NSString * __nullable password, NSError * __nullable error))completion;
+- (void)sharedPasswordWithCompletion:( void (^)(NSString *  account, NSString *  password, NSError *  error))completion;
+- (void)sharedPasswordForAccount:(NSString *)account completion:( void (^)(NSString *  password, NSError *  error))completion;
 
-- (void)setSharedPassword:(nullable NSString *)password forAccount:(NSString *)account completion:(nullable void (^)(NSError * __nullable error))completion;
-- (void)removeSharedPasswordForAccount:(NSString *)account completion:(nullable void (^)(NSError * __nullable error))completion;
+- (void)setSharedPassword:( NSString *)password forAccount:(NSString *)account completion:( void (^)(NSError *  error))completion;
+- (void)removeSharedPasswordForAccount:(NSString *)account completion:( void (^)(NSError *  error))completion;
 
-+ (void)requestSharedWebCredentialWithCompletion:(nullable void (^)(NSArray * credentials, NSError * __nullable error))completion;
-+ (void)requestSharedWebCredentialForDomain:(nullable NSString *)domain account:(nullable NSString *)account completion:(nullable void (^)(NSArray * credentials, NSError * __nullable error))completion;
++ (void)requestSharedWebCredentialWithCompletion:( void (^)(NSArray * credentials, NSError *  error))completion;
++ (void)requestSharedWebCredentialForDomain:( NSString *)domain account:( NSString *)account completion:( void (^)(NSArray * credentials, NSError *  error))completion;
 
 + (NSString *)generatePassword;
 #endif
@@ -197,76 +197,76 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @interface UICKeyChainStore (ErrorHandling)
 
-+ (nullable NSString *)stringForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (nullable NSString *)stringForKey:(NSString *)key service:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (nullable NSString *)stringForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ ( NSString *)stringForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
++ ( NSString *)stringForKey:(NSString *)key service:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ ( NSString *)stringForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (nullable NSData *)dataForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (nullable NSData *)dataForKey:(NSString *)key service:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (nullable NSData *)dataForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ ( NSData *)dataForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
++ ( NSData *)dataForKey:(NSString *)key service:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ ( NSData *)dataForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-- (BOOL)setString:(nullable NSString *)string forKey:(NSString * )key error:(NSError * __nullable __autoreleasing * __nullable)error;
-- (BOOL)setString:(nullable NSString *)string forKey:(NSString * )key label:(nullable NSString *)label comment:(nullable NSString *)comment error:(NSError * __nullable __autoreleasing * __nullable)error;
+- (BOOL)setString:( NSString *)string forKey:(NSString * )key error:(NSError *  __autoreleasing * __nullable)error;
+- (BOOL)setString:( NSString *)string forKey:(NSString * )key label:( NSString *)label comment:( NSString *)comment error:(NSError *  __autoreleasing * __nullable)error;
 
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key label:(nullable NSString *)label comment:(nullable NSString *)comment error:(NSError * __nullable __autoreleasing * __nullable)error;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key label:( NSString *)label comment:( NSString *)comment error:(NSError *  __autoreleasing * __nullable)error;
 
-- (nullable NSString *)stringForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-- (nullable NSData *)dataForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
+- ( NSString *)stringForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
+- ( NSData *)dataForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)removeItemForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)removeItemForKey:(NSString *)key service:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)removeItemForKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)removeItemForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)removeItemForKey:(NSString *)key service:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)removeItemForKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)removeAllItemsWithError:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)removeAllItemsForService:(nullable NSString *)service error:(NSError * __nullable __autoreleasing * __nullable)error;
-+ (BOOL)removeAllItemsForService:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)removeAllItemsWithError:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)removeAllItemsForService:( NSString *)service error:(NSError *  __autoreleasing * __nullable)error;
++ (BOOL)removeAllItemsForService:( NSString *)service accessGroup:( NSString *)accessGroup error:(NSError *  __autoreleasing * __nullable)error;
 
-- (BOOL)removeItemForKey:(NSString *)key error:(NSError * __nullable __autoreleasing * __nullable)error;
-- (BOOL)removeAllItemsWithError:(NSError * __nullable __autoreleasing * __nullable)error;
+- (BOOL)removeItemForKey:(NSString *)key error:(NSError *  __autoreleasing * __nullable)error;
+- (BOOL)removeAllItemsWithError:(NSError *  __autoreleasing * __nullable)error;
 
 @end
 
 @interface UICKeyChainStore (ForwardCompatibility)
 
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key genericAttribute:( id)genericAttribute;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service genericAttribute:( id)genericAttribute;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setString:(nullable NSString *)value forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup genericAttribute:( id)genericAttribute;
++ (BOOL)setString:( NSString *)value forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key genericAttribute:( id)genericAttribute;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service genericAttribute:( id)genericAttribute;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup genericAttribute:(nullable id)genericAttribute;
-+ (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key service:(nullable NSString *)service accessGroup:(nullable NSString *)accessGroup genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup genericAttribute:( id)genericAttribute;
++ (BOOL)setData:( NSData *)data forKey:(NSString *)key service:( NSString *)service accessGroup:( NSString *)accessGroup genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-- (BOOL)setString:(nullable NSString *)string forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute;
-- (BOOL)setString:(nullable NSString *)string forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
+- (BOOL)setString:( NSString *)string forKey:(NSString *)key genericAttribute:( id)genericAttribute;
+- (BOOL)setString:( NSString *)string forKey:(NSString *)key genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute;
-- (BOOL)setData:(nullable NSData *)data forKey:(NSString *)key genericAttribute:(nullable id)genericAttribute error:(NSError * __nullable __autoreleasing * __nullable)error;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key genericAttribute:( id)genericAttribute;
+- (BOOL)setData:( NSData *)data forKey:(NSString *)key genericAttribute:( id)genericAttribute error:(NSError *  __autoreleasing * __nullable)error;
 
 @end
 
 @interface UICKeyChainStore (Deprecation)
 
 - (void)synchronize __attribute__((deprecated("calling this method is no longer required")));
-- (BOOL)synchronizeWithError:(NSError * __nullable __autoreleasing * __nullable)error __attribute__((deprecated("calling this method is no longer required")));
+- (BOOL)synchronizeWithError:(NSError *  __autoreleasing * __nullable)error __attribute__((deprecated("calling this method is no longer required")));
 
 @end
 

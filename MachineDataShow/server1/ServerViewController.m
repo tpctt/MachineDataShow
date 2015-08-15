@@ -15,11 +15,34 @@
 @implementation ServerViewController
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *TEL = nil;
+    if (indexPath.row ==0) {
+        TEL = @"10086";
+    }else if(indexPath.row == 1){
+        TEL = @"10000";
+    }
+    if (TEL) {
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",TEL]];
+        if ( [[UIApplication sharedApplication] canOpenURL:url] ) {
+             [[UIApplication sharedApplication] openURL:url];
+        }else{
+            [UIAlertView showWithTitle:TEL message:@"不支持电话拨打" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                
+            }];
+        }
+       
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:1];
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.view.backgroundColor = RGB(236, 236, 236);
+    self.title = @"服务";
+    
 }
 
 - (void)didReceiveMemoryWarning {
