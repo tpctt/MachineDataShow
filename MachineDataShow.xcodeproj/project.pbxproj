@@ -21,6 +21,8 @@
 		22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD61B7F86F9000F02DA /* DeviceObject.m */; };
 		22EF7FDA1B7FAA7F000F02DA /* ContactUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD91B7FAA7F000F02DA /* ContactUsViewController.m */; };
 		22EF7FDC1B7FAB4F000F02DA /* 联系我们.html in Resources */ = {isa = PBXBuildFile; fileRef = 22EF7FDB1B7FAB4F000F02DA /* 联系我们.html */; };
+		22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FDE1B7FB35F000F02DA /* DemoViewController.m */; };
+		22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FE11B7FB36D000F02DA /* DataShowViewController.m */; };
 		2461FAB37C197E6AB8147749 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD0EE6780CBF2E6F6A3B99A /* libPods.a */; };
 		7A2464D61B7C2A34007FD1D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D51B7C2A34007FD1D4 /* main.m */; };
 		7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */; };
@@ -147,6 +149,10 @@
 		22EF7FD81B7FAA7F000F02DA /* ContactUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactUsViewController.h; sourceTree = "<group>"; };
 		22EF7FD91B7FAA7F000F02DA /* ContactUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactUsViewController.m; sourceTree = "<group>"; };
 		22EF7FDB1B7FAB4F000F02DA /* 联系我们.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "联系我们.html"; sourceTree = "<group>"; };
+		22EF7FDD1B7FB35F000F02DA /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		22EF7FDE1B7FB35F000F02DA /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		22EF7FE01B7FB36D000F02DA /* DataShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataShowViewController.h; sourceTree = "<group>"; };
+		22EF7FE11B7FB36D000F02DA /* DataShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataShowViewController.m; sourceTree = "<group>"; };
 		6BD0EE6780CBF2E6F6A3B99A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D01B7C2A34007FD1D4 /* MachineDataShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MachineDataShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464D41B7C2A34007FD1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -554,6 +560,10 @@
 				7A75621F1B7C773400BA2B69 /* Banner_1.jpg */,
 				7A7562201B7C773400BA2B69 /* Banner_2.jpg */,
 				7A7562211B7C773400BA2B69 /* Banner_3.jpg */,
+				22EF7FDD1B7FB35F000F02DA /* DemoViewController.h */,
+				22EF7FDE1B7FB35F000F02DA /* DemoViewController.m */,
+				22EF7FE01B7FB36D000F02DA /* DataShowViewController.h */,
+				22EF7FE11B7FB36D000F02DA /* DataShowViewController.m */,
 				7A75620B1B7C6E0C00BA2B69 /* HomeViewController.h */,
 				7A75620C1B7C6E0C00BA2B69 /* HomeViewController.m */,
 				7A75620D1B7C6E0C00BA2B69 /* HomeViewController.xib */,
@@ -785,12 +795,14 @@
 				7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */,
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
 				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
+				22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */,
 				7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */,
 				22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */,
 				7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */,
 				7A7561661B7C4A3A00BA2B69 /* ProductDetailViewController.m in Sources */,
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
+				22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */,
 				22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */,
 				7A75617B1B7C4A5400BA2B69 /* BandingObject.m in Sources */,
 				7A75617D1B7C4A5400BA2B69 /* Config.m in Sources */,

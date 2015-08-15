@@ -33,7 +33,7 @@
     [self.navigationController popViewControllerAnimated:YES];
     
     
-    
+    return;
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
