@@ -1,5 +1,5 @@
 //
-//  FixedInfoViewController.h
+//  DataShowViewController.h
 //  MachineDataShow
 //
 //  Created by tim on 15-8-15.
@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-@interface FixedInfoViewController : BaseViewController
+
+@interface DataShowViewController : BaseViewController
 @property(strong,nonatomic)DeviceObject *o;
 
 @end
