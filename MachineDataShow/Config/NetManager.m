@@ -343,7 +343,17 @@
     return op;
 }
 
-+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block
+//+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block
++(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
+                           password:(NSString *)password
+                           trueName:(NSString*)trueName
+                        companyName:(NSString*)companyName
+                               duty:(NSString*)duty
+                              email:(NSString*)email
+                                fax:(NSString*)fax
+                            address:(NSString*)address
+
+                             block:(LoinBlock)block
 {
     NSString *PATH = [[RequestConfig sharedInstance] emailReg];
     
@@ -356,9 +366,16 @@
     }
     
     NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    [requestParams setObject:email forKey:@"emai"];
-    [requestParams setObject:pwd forKey:@"password"];
-    [requestParams setObject:name forKey:@"username"];
+//    [requestParams setObject:userName atPath:@"userName"];
+    [requestParams setObject:password atPath:@"password"];
+    [requestParams setObject:trueName atPath:@"trueName"];
+    [requestParams setObject:companyName atPath:@"companyName"];
+    [requestParams setObject:duty atPath:@"duty"];
+    [requestParams setObject:mobile atPath:@"mobile"];
+    [requestParams setObject:email atPath:@"email"];
+    [requestParams setObject:fax atPath:@"fax"];
+    [requestParams setObject:address atPath:@"address"];
+    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

@@ -40,7 +40,19 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 +(AFHTTPRequestOperation*)getUserData:(GetUserDataBlock)block;
 
-+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block;
+///性别(0-保密、1-男、2-女)
+//+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block;
++(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
+                          password:(NSString *)password
+                          trueName:(NSString*)trueName
+                       companyName:(NSString*)companyName
+                              duty:(NSString*)duty
+                             email:(NSString*)email
+                               fax:(NSString*)fax
+                           address:(NSString*)address
+ 
+                             block:(LoinBlock)block;
+
 +(AFHTTPRequestOperation*)login:(NSString*)name pwd:(NSString*)pwd aps:(NSString *)aps block:(LoinBlock)block;
 +(AFHTTPRequestOperation*)thirdLogin:(NSString*)client_id type:(NSString*)type code:(NSString*)code aps:(NSString *)aps block:(LoinBlock)block;
 +(AFHTTPRequestOperation*)thirdLoginAddressType:(NSString*)type block:(LoinBlock)block;

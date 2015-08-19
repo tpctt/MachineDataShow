@@ -1198,82 +1198,149 @@
                         <viewControllerLayoutGuide type="bottom" id="jld-vV-NBl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="89D-eN-1E3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="572"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="i5W-Ye-E58">
-                                <rect key="frame" x="16" y="80" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EEd-cA-qiH">
-                                <rect key="frame" x="16" y="118" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="确认密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eUN-y4-hHx">
-                                <rect key="frame" x="16" y="156" width="288" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="edw-h7-GMS">
-                                <rect key="frame" x="16" y="212" width="160" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1v-JG-9bD">
-                                <rect key="frame" x="16" y="260" width="288" height="34"/>
-                                <state key="normal" title="注册" backgroundImage="button_bg_long.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="regAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="cX6-o8-VDu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vG2-C2-NxN">
-                                <rect key="frame" x="184" y="210" width="120" height="34"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zD9-MR-e8u">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="572"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OA0-tJ-BNc">
+                                        <rect key="frame" x="16" y="73" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h60-QF-PKv">
+                                        <rect key="frame" x="16" y="417" width="158" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VSQ-9f-veC">
+                                        <rect key="frame" x="182" y="415" width="120" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="Ish-na-dNW"/>
+                                        </constraints>
+                                        <state key="normal" title="获取验证码" backgroundImage="button_bg_long.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="verfiyAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="3dz-tx-WF5"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="公司名称" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="vxa-g4-X23">
+                                        <rect key="frame" x="16" y="111" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="姓名" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7ac-dL-9TH">
+                                        <rect key="frame" x="16" y="149" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="职务" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cnb-V2-rai">
+                                        <rect key="frame" x="16" y="187" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="邮件" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cwL-lE-Lto">
+                                        <rect key="frame" x="16" y="225" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="传真" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bsi-e2-StP">
+                                        <rect key="frame" x="16" y="263" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="地址" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zBZ-af-39d">
+                                        <rect key="frame" x="16" y="301" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="s7l-of-7p1">
+                                        <rect key="frame" x="16" y="339" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="确认密码" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="02E-go-0jf">
+                                        <rect key="frame" x="16" y="377" width="286" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdo-Yr-RHg">
+                                        <rect key="frame" x="16" y="465" width="278" height="34"/>
+                                        <state key="normal" title="注册" backgroundImage="button_bg_long.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="regAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="cvL-BR-fYx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="sfE-KJ-Caw"/>
+                                    <constraint firstItem="VSQ-9f-veC" firstAttribute="leading" secondItem="h60-QF-PKv" secondAttribute="trailing" constant="8" id="1yG-Ae-2or"/>
+                                    <constraint firstItem="VSQ-9f-veC" firstAttribute="top" secondItem="02E-go-0jf" secondAttribute="bottom" constant="8" id="24t-zE-Sz0"/>
+                                    <constraint firstItem="Cnb-V2-rai" firstAttribute="top" secondItem="7ac-dL-9TH" secondAttribute="bottom" constant="8" id="4QH-YV-tYI"/>
+                                    <constraint firstItem="02E-go-0jf" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="4x2-IY-c4g"/>
+                                    <constraint firstItem="zBZ-af-39d" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="51L-yi-I8u"/>
+                                    <constraint firstItem="7ac-dL-9TH" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="6eE-GL-8wg"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hdo-Yr-RHg" secondAttribute="trailing" constant="8" id="7bR-o9-5AV"/>
+                                    <constraint firstItem="vxa-g4-X23" firstAttribute="top" secondItem="OA0-tJ-BNc" secondAttribute="bottom" constant="8" id="99W-pC-k8l"/>
+                                    <constraint firstItem="cwL-lE-Lto" firstAttribute="top" secondItem="Cnb-V2-rai" secondAttribute="bottom" constant="8" id="B7C-1Z-yHp"/>
+                                    <constraint firstItem="zBZ-af-39d" firstAttribute="top" secondItem="bsi-e2-StP" secondAttribute="bottom" constant="8" id="Cz7-R6-dbo"/>
+                                    <constraint firstItem="bsi-e2-StP" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="FwZ-r7-1ej"/>
+                                    <constraint firstItem="bsi-e2-StP" firstAttribute="top" secondItem="cwL-lE-Lto" secondAttribute="bottom" constant="8" id="PMC-kb-qyw"/>
+                                    <constraint firstAttribute="trailing" secondItem="VSQ-9f-veC" secondAttribute="trailing" id="RvR-ZB-8IA"/>
+                                    <constraint firstAttribute="trailing" secondItem="cwL-lE-Lto" secondAttribute="trailing" id="TH7-l7-4Zq"/>
+                                    <constraint firstAttribute="trailing" secondItem="7ac-dL-9TH" secondAttribute="trailing" id="XSE-l5-uou"/>
+                                    <constraint firstAttribute="trailing" secondItem="vxa-g4-X23" secondAttribute="trailing" id="Xah-42-Xpj"/>
+                                    <constraint firstAttribute="trailing" secondItem="OA0-tJ-BNc" secondAttribute="trailing" id="YWW-AD-leb"/>
+                                    <constraint firstItem="cwL-lE-Lto" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="YxJ-D8-XjE"/>
+                                    <constraint firstItem="h60-QF-PKv" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="Zue-VO-nbX"/>
+                                    <constraint firstItem="02E-go-0jf" firstAttribute="top" secondItem="s7l-of-7p1" secondAttribute="bottom" constant="8" id="cLx-ps-z4Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="zBZ-af-39d" secondAttribute="trailing" id="dta-U9-pkn"/>
+                                    <constraint firstItem="7ac-dL-9TH" firstAttribute="top" secondItem="vxa-g4-X23" secondAttribute="bottom" constant="8" id="fjf-io-cYp"/>
+                                    <constraint firstItem="vxa-g4-X23" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="fjx-cw-xF3"/>
+                                    <constraint firstItem="OA0-tJ-BNc" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="gph-0m-qXD"/>
+                                    <constraint firstAttribute="trailing" secondItem="bsi-e2-StP" secondAttribute="trailing" id="kmD-VN-VYt"/>
+                                    <constraint firstItem="Cnb-V2-rai" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="ltE-xi-lI5"/>
+                                    <constraint firstItem="h60-QF-PKv" firstAttribute="top" secondItem="02E-go-0jf" secondAttribute="bottom" constant="10" id="mEB-Zw-CCa"/>
+                                    <constraint firstItem="Hdo-Yr-RHg" firstAttribute="top" secondItem="VSQ-9f-veC" secondAttribute="bottom" constant="16" id="muv-2S-cfm"/>
+                                    <constraint firstItem="s7l-of-7p1" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="p99-7w-gBc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Cnb-V2-rai" secondAttribute="trailing" id="pbj-7g-HFt"/>
+                                    <constraint firstAttribute="trailing" secondItem="02E-go-0jf" secondAttribute="trailing" id="rwb-Hq-sdZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="s7l-of-7p1" secondAttribute="trailing" id="vQb-aG-zHe"/>
+                                    <constraint firstItem="Hdo-Yr-RHg" firstAttribute="leading" secondItem="zD9-MR-e8u" secondAttribute="leading" constant="16" id="wyg-MG-DJh"/>
+                                    <constraint firstItem="s7l-of-7p1" firstAttribute="top" secondItem="zBZ-af-39d" secondAttribute="bottom" constant="8" id="zOn-KL-pmm"/>
+                                    <constraint firstItem="OA0-tJ-BNc" firstAttribute="top" secondItem="zD9-MR-e8u" secondAttribute="top" constant="73" id="zci-hm-vaw"/>
                                 </constraints>
-                                <state key="normal" title="获取验证码" backgroundImage="button_bg_long.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="verfiyAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="1Uw-rV-ISh"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vG2-C2-NxN" firstAttribute="leading" secondItem="edw-h7-GMS" secondAttribute="trailing" constant="8" id="IJg-i0-Exn"/>
-                            <constraint firstItem="i5W-Ye-E58" firstAttribute="trailing" secondItem="89D-eN-1E3" secondAttribute="trailingMargin" id="IhZ-X9-phW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="vG2-C2-NxN" secondAttribute="trailing" id="Ivc-EN-yfa"/>
-                            <constraint firstItem="EEd-cA-qiH" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leadingMargin" id="KSR-ME-n0J"/>
-                            <constraint firstItem="EEd-cA-qiH" firstAttribute="top" secondItem="i5W-Ye-E58" secondAttribute="bottom" constant="8" id="LvJ-et-sWg"/>
-                            <constraint firstItem="EEd-cA-qiH" firstAttribute="trailing" secondItem="89D-eN-1E3" secondAttribute="trailingMargin" id="Mfb-Pm-LiK"/>
-                            <constraint firstItem="eUN-y4-hHx" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leadingMargin" id="NW3-bG-QDE"/>
-                            <constraint firstItem="eUN-y4-hHx" firstAttribute="top" secondItem="EEd-cA-qiH" secondAttribute="bottom" constant="8" id="RQB-G3-LqA"/>
-                            <constraint firstItem="eUN-y4-hHx" firstAttribute="trailing" secondItem="89D-eN-1E3" secondAttribute="trailingMargin" id="YCb-Ds-o57"/>
-                            <constraint firstItem="vG2-C2-NxN" firstAttribute="top" secondItem="eUN-y4-hHx" secondAttribute="bottom" constant="24" id="YeA-7c-zq3"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="X1v-JG-9bD" secondAttribute="trailing" id="Z2d-8V-WEv"/>
-                            <constraint firstItem="i5W-Ye-E58" firstAttribute="top" secondItem="0Qj-UR-BRY" secondAttribute="bottom" constant="16" id="cJQ-uY-x2D"/>
-                            <constraint firstItem="i5W-Ye-E58" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leadingMargin" id="dLG-px-jPk"/>
-                            <constraint firstItem="edw-h7-GMS" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leadingMargin" id="qGt-kI-d48"/>
-                            <constraint firstItem="X1v-JG-9bD" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leadingMargin" id="uaY-qP-Btl"/>
-                            <constraint firstItem="X1v-JG-9bD" firstAttribute="top" secondItem="vG2-C2-NxN" secondAttribute="bottom" constant="16" id="vCM-3t-r61"/>
-                            <constraint firstItem="vG2-C2-NxN" firstAttribute="centerY" secondItem="edw-h7-GMS" secondAttribute="centerY" id="yRH-cX-ydh"/>
+                            <constraint firstItem="zD9-MR-e8u" firstAttribute="leading" secondItem="89D-eN-1E3" secondAttribute="leading" id="25x-e6-U1h"/>
+                            <constraint firstAttribute="trailing" secondItem="zD9-MR-e8u" secondAttribute="trailing" id="EHt-UF-pMQ"/>
+                            <constraint firstAttribute="bottom" secondItem="zD9-MR-e8u" secondAttribute="bottom" id="Nou-Ey-j1U"/>
+                            <constraint firstItem="zD9-MR-e8u" firstAttribute="top" secondItem="89D-eN-1E3" secondAttribute="top" id="TcE-aD-SPS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="W34-8o-KDs"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="572"/>
                     <connections>
-                        <outlet property="name" destination="i5W-Ye-E58" id="674-66-D5N"/>
-                        <outlet property="p1" destination="EEd-cA-qiH" id="OXg-jN-2wm"/>
-                        <outlet property="p2" destination="eUN-y4-hHx" id="LzH-u8-WuU"/>
-                        <outlet property="regBtn" destination="X1v-JG-9bD" id="Pao-5X-cxW"/>
-                        <outlet property="verfiyBtn" destination="vG2-C2-NxN" id="5a6-69-Q8m"/>
-                        <outlet property="verifyText" destination="edw-h7-GMS" id="QlT-V0-Czw"/>
+                        <outlet property="addresss" destination="zBZ-af-39d" id="LJh-Yj-Ic8"/>
+                        <outlet property="company" destination="vxa-g4-X23" id="rdg-YH-b2e"/>
+                        <outlet property="email" destination="cwL-lE-Lto" id="tCa-r7-wBL"/>
+                        <outlet property="fax" destination="bsi-e2-StP" id="bdT-Ej-Knd"/>
+                        <outlet property="job" destination="Cnb-V2-rai" id="ozV-8z-80a"/>
+                        <outlet property="phone" destination="OA0-tJ-BNc" id="V9f-MF-fJt"/>
+                        <outlet property="pwd1" destination="s7l-of-7p1" id="W6I-sn-Gds"/>
+                        <outlet property="pwd2" destination="02E-go-0jf" id="G53-uc-c9b"/>
+                        <outlet property="regBtn" destination="Hdo-Yr-RHg" id="wVe-ZO-bro"/>
+                        <outlet property="username" destination="7ac-dL-9TH" id="51a-kU-V00"/>
+                        <outlet property="verfiyBtn" destination="VSQ-9f-veC" id="Cvs-3s-5JJ"/>
+                        <outlet property="verifyText" destination="h60-QF-PKv" id="P3Z-6s-jYq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bre-SH-nqx" userLabel="First Responder" sceneMemberID="firstResponder"/>

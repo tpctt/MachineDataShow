@@ -11,6 +11,7 @@
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
 		22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B581B7F421700A3C9BA /* AboutViewController.m */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
+		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
 		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
 		22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */; };
@@ -136,6 +137,7 @@
 		22435B581B7F421700A3C9BA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
+		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
 		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		22EF7FC81B7F5A39000F02DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
@@ -342,6 +344,7 @@
 			isa = PBXGroup;
 			children = (
 				7A75622B1B7C8E3F00BA2B69 /* 需求.doc */,
+				2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */,
 				7A2464D71B7C2A34007FD1D4 /* AppDelegate.h */,
 				7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */,
 				7A2464DA1B7C2A34007FD1D4 /* ViewController.h */,
@@ -704,6 +707,7 @@
 				7A7561F11B7C5F9900BA2B69 /* member_border_red.png in Resources */,
 				7A7561D81B7C5F9900BA2B69 /* button_sign_out@2x.png in Resources */,
 				7A2464E41B7C2A34007FD1D4 /* LaunchScreen.xib in Resources */,
+				2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */,
 				7A7561E11B7C5F9900BA2B69 /* home_gray@2x.png in Resources */,
 				7A7561E41B7C5F9900BA2B69 /* icon_help@2x.png in Resources */,
 				7A7561F01B7C5F9900BA2B69 /* logo.png in Resources */,

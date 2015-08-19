@@ -12,17 +12,6 @@
 #import "BaseObject.h"
 
 @interface RegViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *name;
-@property (weak, nonatomic) IBOutlet UITextField *p1;
-@property (weak, nonatomic) IBOutlet UITextField *p2;
-@property (weak, nonatomic) IBOutlet UITextField *verifyText;
-@property (weak, nonatomic) IBOutlet UIButton *verfiyBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *regBtn;
-@property (weak, nonatomic) IBOutlet UIButton * checkBtn;
-
-@property (strong, nonatomic)   RACDisposable *timer;
-@property (assign, nonatomic)   NSTimeInterval timeIN;
 
 @end
 
@@ -93,20 +82,49 @@
 //        [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
 //        return NO;
 //    }
-    BOOL nameValie = self.name.text.length>=3&&self.name.text.length<=15;
-    if (nameValie==NO) {
-        [DialogUtil showDlgAlert:@"请输入正确的用户名,3-15个字符"];
+    BOOL phoneV = self.phone.text.length == 11;
+    if (phoneV==NO) {
+        [DialogUtil showDlgAlert:@"请输入正确的手机号,15个字符"];
         return NO;
     }
-    BOOL pwd1Valie = self.p1.text.length>=6&&self.p2.text.length<=20;
+    BOOL pwd1Valie = self.pwd1.text.length>=6&&self.pwd2.text.length<=20;
     if (pwd1Valie==NO) {
         [DialogUtil showDlgAlert:@"请输入正确的密码,6-20个字符"];
         return NO;
     }
-    if ([self.p1.text isEqualToString:self.p2.text  ]==NO) {
+    if ([self.pwd1.text isEqualToString:self.pwd2.text  ]==NO) {
         [DialogUtil showDlgAlert:@"2次输入的密码不一样"];
         return NO;
     }
+    
+    if (self.company.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入公司名称"];
+        return NO;
+    }
+    
+    if (self.username.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入姓名"];
+        return NO;
+    }
+    if (self.job.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入职务"];
+        return NO;
+    }
+    if (self.email.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入邮箱"];
+        return NO;
+    }
+    if (self.fax.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入传真"];
+        return NO;
+    }
+    
+    if (self.addresss.text.length == 0) {
+        [DialogUtil showDlgAlert:@"请输入地址"];
+        return NO;
+    }
+    
+    
     return 1;
     
 }
@@ -116,8 +134,8 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    
-    [NetManager emailReg:self.name.text name:self.name.text pwd:self.p1.text block:^(LoginObject *object, NSError *error, NSString *msg) {
+    [NetManager RegMobile:self.phone.text password:self.pwd1.text trueName:self.username.text companyName:self.company.text duty:self.job.text email:self.email.text fax:self.fax.text address:self.addresss.text block:^(LoginObject *object, NSError *error, NSString *msg) {
+        
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (object) {
@@ -164,15 +182,15 @@
 }
 -(BOOL)checkPwd
 {
-    BOOL value = [_p1.text isEqualToString:_p2.text];
+    BOOL value = [_pwd1.text isEqualToString:_pwd2.text];
     return value;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     RAC(self.verfiyBtn,enabled) = [RACSignal
-                                  combineLatest:@[self.name.rac_textSignal,
-                                                  self.p1.rac_textSignal,self.p2.rac_textSignal
+                                  combineLatest:@[self.phone.rac_textSignal,
+                                                  self.pwd1.rac_textSignal,self.pwd2.rac_textSignal
                                                   ]
                                   reduce:^(NSString *name, NSString *p1 , NSString *p2){
                                       return @(name.length > 0 && p1.length > 0  && p2.length> 0  );
@@ -180,21 +198,21 @@
     
     
     RAC(self.regBtn,enabled) = [RACSignal
-                                   combineLatest:@[self.name.rac_textSignal,
-                                                   self.p1.rac_textSignal,self.p2.rac_textSignal,self.verifyText.rac_textSignal
+                                   combineLatest:@[self.phone.rac_textSignal,
+                                                   self.pwd1.rac_textSignal,self.pwd2.rac_textSignal,self.verifyText.rac_textSignal
                                                    ]
                                    reduce:^(NSString *name, NSString *p1 , NSString *p2,NSString *verifyText ){
                                        return @(name.length > 0 && p1.length > 0  && p2.length> 0&& verifyText.length> 0  );
                                    }];
     
-    [RACObserve(self.name, rac_textSignal)
+    [RACObserve(self.phone, rac_textSignal)
      subscribeNext:^(id x) {
          
-         if (self.name.text.length>=3&&self.name.text.length<=16 ) {
-             self.name.textColor = [UIColor blackColor];
+         if (self.phone.text.length==11) {
+             self.phone.textColor = [UIColor blackColor];
              
          }else{
-             self.name.textColor = [UIColor redColor];
+             self.phone.textColor = [UIColor redColor];
              
          }
      }];
