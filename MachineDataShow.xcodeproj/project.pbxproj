@@ -116,6 +116,7 @@
 		7A7562321B7C90BE00BA2B69 /* PViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7562311B7C90BE00BA2B69 /* PViewController.m */; };
 		7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7562341B7C917F00BA2B69 /* LoginViewController.m */; };
 		7A7562381B7C918900BA2B69 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7562371B7C918900BA2B69 /* RegViewController.m */; };
+		7A756AEF1B85DDBC004BB943 /* button_bg_long_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -279,6 +280,7 @@
 		7A7562341B7C917F00BA2B69 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7A7562361B7C918900BA2B69 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		7A7562371B7C918900BA2B69 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
+		7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_bg_long_gray@2x.png"; sourceTree = "<group>"; };
 		8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -461,6 +463,7 @@
 		7A7561A71B7C5F9900BA2B69 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */,
 				7A7561A81B7C5F9900BA2B69 /* aboutus_first_detail.png */,
 				7A7561A91B7C5F9900BA2B69 /* back@2x.png */,
 				7A7561AA1B7C5F9900BA2B69 /* button.png */,
@@ -701,6 +704,7 @@
 				7A7561F61B7C5F9900BA2B69 /* vip.png in Resources */,
 				7A7561F41B7C5F9900BA2B69 /* repair.png in Resources */,
 				7A7561E71B7C5F9900BA2B69 /* icon_share@2x.png in Resources */,
+				7A756AEF1B85DDBC004BB943 /* button_bg_long_gray@2x.png in Resources */,
 				7A7561D21B7C5F9900BA2B69 /* back@2x.png in Resources */,
 				7A7561981B7C572A00BA2B69 /* logo_180.png in Resources */,
 				7A7561DC1B7C5F9900BA2B69 /* fix_blue@2x.png in Resources */,

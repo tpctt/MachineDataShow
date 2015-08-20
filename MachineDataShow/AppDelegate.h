@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TabbarViewController.h"
 
-#define AppHostAddress @"www.taoqian123.com/api.php/Index/"
+#define AppHostAddress @"http://banzi7.vicp.net:28535"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -220,6 +220,10 @@
     [self.verfiyBtn setTitle:@"获取验证码" forState:0];
     [self.verfiyBtn setTitle:@"获取验证码" forState:UIControlStateDisabled];
     
+    [self.verfiyBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
+    [self.regBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
+    
+    
     NSMutableAttributedString *str = [self.checkBtn.titleLabel.attributedText mutableCopy];
     NSRange strRange = [self.checkBtn.titleLabel.text rangeOfString:@"注册协议"];
     

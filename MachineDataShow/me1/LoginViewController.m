@@ -93,6 +93,7 @@
                                        return @(name.length > 0 && pwd.length > 0  );
                                    }];
     self.title = @"登陆";
+    [self.loginBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
 }
 
