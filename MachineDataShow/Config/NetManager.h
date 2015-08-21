@@ -16,7 +16,7 @@
 #import "DeviceObject.h"
 #import "HomeAD.h"
 
-#define requestOK @"ok"
+#define requestOK @"1"
 
 
 ///请求配置

@@ -10,7 +10,7 @@
 
 @interface DeviceObject : BaseObject
 @property(strong,nonatomic) NSString *name;
-@property(strong,nonatomic) NSString *mode;
+@property(strong,nonatomic) NSString *model;
 @property(strong,nonatomic) NSString *serial;
 @property(strong,nonatomic) NSString *buydate;
 @property(strong,nonatomic) NSString *image;

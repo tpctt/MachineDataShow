@@ -37,7 +37,7 @@
 -(void)config1
 {
     
-    self.MODEL.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mode];
+    self.MODEL.text = [NSString stringWithFormat:@"设备型号:%@",self.o.model];
     self.SN.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
     self.name.text = [UserObject sharedInstance].trueName;

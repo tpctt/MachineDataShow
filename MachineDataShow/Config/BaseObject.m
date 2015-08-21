@@ -80,17 +80,18 @@ DEF_SINGLETON(BaseObjectRequest)
 +(NSMutableDictionary*)getBaseRequestInfos
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary ];
-    [dict setObject: [BaseObjectRequest sharedInstance].device forKey:@"device"];
-    [dict setObject: [BaseObjectRequest sharedInstance].version forKey:@"version"];
-    if ([BaseObjectRequest sharedInstance].userid.length) {
-        [dict setObject: [BaseObjectRequest sharedInstance].userid forKey:@"userid"];
-        
-    }
-    if ([BaseObjectRequest sharedInstance].session_token.length) {
-        [dict setObject: [BaseObjectRequest sharedInstance].session_token forKey:@"session_token"];
-        
-    }
+//    [dict setObject: [BaseObjectRequest sharedInstance].device forKey:@"device"];
+//    [dict setObject: [BaseObjectRequest sharedInstance].version forKey:@"version"];
+//   
+//    if ([BaseObjectRequest sharedInstance].session_token.length) {
+//        [dict setObject: [BaseObjectRequest sharedInstance].session_token forKey:@"session_token"];
+//        
+//    }
     
+    if ([BaseObjectRequest sharedInstance].userid.length) {
+        [dict setObject: [BaseObjectRequest sharedInstance].userid forKey:@"uid"];
+        
+    }
     return dict;
     
 }

@@ -7,6 +7,7 @@
 //
 
 #import "DeviceObject.h"
+#import "AppDelegate.h"
 
 @implementation DeviceObject
  
@@ -17,8 +18,9 @@
 {
     [super loadRequest];
     self.page = 1;
-    self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"getUserEquipmentList";
+//    self.PATH = [[RequestConfig sharedInstance] home];
+    self.PATH = @"/getUserEquipmentList.php";
+//    self.HOST = AppHostAddress;
     
 }
 -(NSMutableDictionary *)requestParams{
@@ -48,17 +50,18 @@
     [[RACObserve(self.request, state)
       filter:^BOOL(NSNumber *state) { //过滤请求状态
           @strongify(self);
-          return 1 || self.request.succeed;
+          return  self.request.succeed;
       }]
      subscribeNext:^(NSNumber *state) {
          @strongify(self);
-         NSError *error;
+         NSError *error = self.request.error;
          
-         NSDictionary *dict = [self.request.output objectAtPath:@"data"];
+         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
 //         NSDictionary *dict =  self.request.output  ;
          
-         NSArray* list  =  [[DeviceObject objectArrayWithKeyValuesArray:dict[@"list"] error:&error]mutableCopy ] ;
+         NSArray* list  =  [[DeviceObject objectArrayWithKeyValuesArray:dict[@"dataList"] error:&error]mutableCopy ] ;
          NSInteger totalPage = [dict[@"total_page"] integerValue];
+         totalPage  =10;
          
          [self getArray:list totalPage:totalPage];
          

@@ -60,7 +60,7 @@
 -(void)config1
 {
     
-    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mode];
+    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.model];
     self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
 }

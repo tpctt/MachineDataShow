@@ -42,7 +42,7 @@
     self.name.text = [self.name.text stringByAppendingString:_oo.name];
     
     self.deviceMode.text = @"设备型号:" ;
-    self.deviceMode.text = [self.deviceMode.text stringByAppendingString:_oo.mode];
+    self.deviceMode.text = [self.deviceMode.text stringByAppendingString:_oo.model];
     
     self.n.text = @"设备序号:" ;
     self.n.text = [self.n.text stringByAppendingString:_oo.serial];

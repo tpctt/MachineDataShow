@@ -327,7 +327,7 @@
     }
     
     self.prePage = page1;
-    NSLog(@"%d",self.prePage);
+//    NSLog(@"%d",self.prePage);
     
     if (self.adScrollBlock) {
         self.adScrollBlock(self, page1);
@@ -372,13 +372,13 @@
                 
             }
         }
-        NSLog(@"%@",imageView);
+//        NSLog(@"%@",imageView);
 
     }
-    NSLog(@"SELF %@",self);
-    NSLog(@"SELF.adScrollview %@",self.adScrollview);
-
-    NSLog(@"%d",self.prePage);
+//    NSLog(@"SELF %@",self);
+//    NSLog(@"SELF.adScrollview %@",self.adScrollview);
+//
+//    NSLog(@"%d",self.prePage);
     
 //    if (self.circle) {
 //        [self.adScrollview setContentOffset:CGPointMake((self.prePage +1) * self.frame.size.width/self.rowNumber, 0) animated:YES];

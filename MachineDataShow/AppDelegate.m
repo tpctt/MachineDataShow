@@ -89,7 +89,7 @@ static AppDelegate* shareApp;
 //    [self customizeTabBarForController:_homeVC];
 //    [self.homeVC setSelectedIndex:0];
 
-    _homeNav = self.window.rootViewController;
+    _homeNav = (NavViewController*)self.window.rootViewController;
     _homeVC = _homeNav.viewControllers[0];
     
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
@@ -98,7 +98,9 @@ static AppDelegate* shareApp;
         [self.homeVC.navigationController pushViewController:[[ShowMeViewController alloc] init]  animated:NO];
         
     }
-    [Action actionConfigHost:AppHostAddress client:@"APP" codeKey:@"state" rightCode:1 msgKey:@"response/errorText"];
+    
+    [Action actionConfigHost:[AppHostAddress stringByReplacingOccurrencesOfString:@"http://" withString:@""] client:@"APP" codeKey:@"result" rightCode:1 msgKey:@"response/errorText"];
+    
     
     return YES;
 }

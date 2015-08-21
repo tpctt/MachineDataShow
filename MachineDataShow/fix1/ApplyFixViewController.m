@@ -84,7 +84,8 @@
     }
     DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
 
-    CELL.textLabel.text = [o.name stringByAppendingString:o.serial];
+    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.name,o.serial];
+//    [o.name stringByAppendingString:o.serial];
     return CELL;
     
 }
