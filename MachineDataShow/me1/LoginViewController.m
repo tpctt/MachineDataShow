@@ -95,6 +95,23 @@
     self.title = @"登陆";
     [self.loginBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
+    [[[self.name.rac_textSignal
+       map:^id(NSString*text){
+           return @(text.length);
+       }]
+      filter:^BOOL(NSNumber*length){
+          return[length integerValue] > 8;
+      }]
+     subscribeNext:^(id x){
+         if (self.name.text.length==11) {
+             self.name.textColor = [UIColor blackColor];
+             
+         }else{
+             self.name.textColor = [UIColor redColor];
+             
+         }
+     }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,10 +12,17 @@
 #import "BaseObject.h"
 
 @interface RegViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
 
 @end
 
 @implementation RegViewController
+-(void)updateViewConstraints
+{
+    [super updateViewConstraints];
+    self.w1.constant = self.view.width;
+    
+}
 - (IBAction)regAct:(id)sender {
     if ([self checkPwd]==NO) {
         [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
@@ -205,9 +212,14 @@
                                        return @(name.length > 0 && p1.length > 0  && p2.length> 0&& verifyText.length> 0  );
                                    }];
     
-    [RACObserve(self.phone, rac_textSignal)
-     subscribeNext:^(id x) {
-         
+    [[[self.phone.rac_textSignal
+       map:^id(NSString*text){
+           return @(text.length);
+       }]
+      filter:^BOOL(NSNumber*length){
+          return[length integerValue] > 8;
+      }]
+     subscribeNext:^(id x){
          if (self.phone.text.length==11) {
              self.phone.textColor = [UIColor blackColor];
              
@@ -215,6 +227,12 @@
              self.phone.textColor = [UIColor redColor];
              
          }
+     }];
+    
+    [RACObserve(self.phone, rac_textSignal)
+     subscribeNext:^(id x) {
+         
+        
      }];
     
     [self.verfiyBtn setTitle:@"获取验证码" forState:0];
