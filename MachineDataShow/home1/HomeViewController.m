@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "ScrollADView.h"
 #import "AppDelegate.h"
+#import "NetManager.h"
 
 @interface HomeViewController ()
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *b2;
 @property (weak, nonatomic) IBOutlet UIButton *b3;
 @property (weak, nonatomic) IBOutlet UIButton *b4;
+@property (strong, nonatomic)   NSArray *adArray;
 
 @end
 
@@ -49,11 +51,34 @@
     
     [self.scrollAdView setImages:@[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]]  withTitles:nil];
     
-    NSArray *a = @[];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if (nil == _adArray) {
+        [NetManager getHomeAdsblock:^(NSArray *array, NSError *error, NSString *msg) {
+            if (array) {
+                _adArray = array;
+                
+                NSArray *array2 = [array valueForKey:@"image"];
+                [self.scrollAdView setImages:array2 withTitles:nil];
+                self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
+                    HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];
+                    TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
+                    [self.navigationController pushViewController:web animated:1];
+                    
+                }  ;
+            }else{
+                [self showMsg:msg error:error];
+            }
+        }];
+    }
+ 
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

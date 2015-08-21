@@ -51,5 +51,6 @@
 
 -(id)getCellWithClass:(Class)class1;
 +(id)getCellWithClass:(Class)class1;
+-(void)showMsg:(NSString*)msg error:(NSError*)error;
 
 @end

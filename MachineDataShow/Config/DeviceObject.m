@@ -9,23 +9,7 @@
 #import "DeviceObject.h"
 
 @implementation DeviceObject
-+ (instancetype)objectWithKeyValues:(id)keyValues context:(NSManagedObjectContext *)context error:(NSError *__autoreleasing *)error
-{
-    if (keyValues == nil) return nil;
-    DeviceObject *o  =[[DeviceObject alloc]init];
-    o.name = keyValues[@"company_name"];
-    o.mode = keyValues[@"city"];
-    o.sn = keyValues[@"id"];
-    o.date = keyValues[@"createtime"];
-    
-    
-    return o;
-    
-    if ([self isSubclassOfClass:[NSManagedObject class]] && context) {
-        return [[NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass(self) inManagedObjectContext:context] setKeyValues:keyValues context:context error:error];
-    }
-    return [[[self alloc] init] setKeyValues:keyValues error:error];
-}
+ 
 @end
 
 @implementation DeviceObjectRequest
@@ -34,7 +18,7 @@
     [super loadRequest];
     self.page = 1;
     self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"home_rank_user";
+    self.PATH = @"getUserEquipmentList";
     
 }
 -(NSMutableDictionary *)requestParams{

@@ -14,6 +14,7 @@
 //#import "UMSocial.h"
 #import "BandingObject.h"
 #import "DeviceObject.h"
+#import "HomeAD.h"
 
 #define requestOK @"ok"
 
@@ -21,6 +22,8 @@
 ///请求配置
 typedef void(^DataDataBlock)(DakaObject *object,NSError *error,NSString *msg);
 typedef void(^HotKeyBlock)(NSArray *array,NSError *error,NSString *msg);
+
+
 typedef void(^TBurlWithKey)(NSString *search_url , NSString *type, NSError *error,NSString *msg);
 
 typedef void(^GetUserDataBlock)(UserObject *object,NSError *error,NSString *msg);
@@ -34,6 +37,18 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 @interface NetManager:NSObject
 +(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
+                                  companyName:(NSString*)companyName
+                                         duty:(NSString*)duty
+                                        email:(NSString*)email
+                                          fax:(NSString*)fax
+                                      address:(NSString*)address
+                                          sex:(int)sex
+
+                                        block:(HotKeyBlock)block;
+
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block;
 +(AFHTTPRequestOperation*)daka:(DataDataBlock)block;

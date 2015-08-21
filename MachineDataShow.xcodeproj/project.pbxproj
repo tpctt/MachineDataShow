@@ -32,6 +32,7 @@
 		7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464E01B7C2A34007FD1D4 /* Images.xcassets */; };
 		7A2464E41B7C2A34007FD1D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464E21B7C2A34007FD1D4 /* LaunchScreen.xib */; };
 		7A2464F01B7C2A34007FD1D4 /* MachineDataShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464EF1B7C2A34007FD1D4 /* MachineDataShowTests.m */; };
+		7A743BE91B86F359002095F4 /* HomeAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A743BE81B86F359002095F4 /* HomeAD.m */; };
 		7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75615D1B7C4A3A00BA2B69 /* BaseViewController.m */; };
 		7A7561651B7C4A3A00BA2B69 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75615F1B7C4A3A00BA2B69 /* NavViewController.m */; };
 		7A7561661B7C4A3A00BA2B69 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561611B7C4A3A00BA2B69 /* ProductDetailViewController.m */; };
@@ -170,6 +171,8 @@
 		7A2464E91B7C2A34007FD1D4 /* MachineDataShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MachineDataShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464EE1B7C2A34007FD1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A2464EF1B7C2A34007FD1D4 /* MachineDataShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachineDataShowTests.m; sourceTree = "<group>"; };
+		7A743BE71B86F359002095F4 /* HomeAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAD.h; sourceTree = "<group>"; };
+		7A743BE81B86F359002095F4 /* HomeAD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeAD.m; sourceTree = "<group>"; };
 		7A75615C1B7C4A3A00BA2B69 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		7A75615D1B7C4A3A00BA2B69 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		7A75615E1B7C4A3A00BA2B69 /* NavViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavViewController.h; sourceTree = "<group>"; };
@@ -445,6 +448,8 @@
 				7A7561781B7C4A5400BA2B69 /* ThirdObject.m */,
 				7A7561791B7C4A5400BA2B69 /* UserObject.h */,
 				7A75617A1B7C4A5400BA2B69 /* UserObject.m */,
+				7A743BE71B86F359002095F4 /* HomeAD.h */,
+				7A743BE81B86F359002095F4 /* HomeAD.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -795,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22EF7FDA1B7FAA7F000F02DA /* ContactUsViewController.m in Sources */,
+				7A743BE91B86F359002095F4 /* HomeAD.m in Sources */,
 				7A7561821B7C4A5400BA2B69 /* ThirdObject.m in Sources */,
 				7A7561901B7C570F00BA2B69 /* ScrollADView.m in Sources */,
 				7A7561811B7C4A5400BA2B69 /* SmallObject.m in Sources */,

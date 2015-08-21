@@ -11,12 +11,15 @@
 @interface UserObject : NSObject
 
 
-@property (nonatomic, strong ) NSString *username;
-@property (nonatomic, strong ) NSString *photo;
-@property (nonatomic, strong ) NSString * money;
-@property (nonatomic, strong ) NSString * jifenbao;
-@property (nonatomic, strong ) NSString * withdrawFlag;
-@property (nonatomic, strong ) NSString *exchangeFlag;
+@property (nonatomic, strong ) NSString *uid;
+@property (nonatomic, strong ) NSString *trueName;
+@property (nonatomic, strong ) NSString * companyName;
+@property (nonatomic, strong ) NSString * duty;
+@property (nonatomic, strong ) NSString * mobile;
+@property (nonatomic, strong ) NSString *email;
+@property (nonatomic, strong ) NSString *fax;
+@property (nonatomic, strong ) NSString *address;
+@property (nonatomic, strong ) NSString *head;
 
 +(BOOL)hadLog;
  

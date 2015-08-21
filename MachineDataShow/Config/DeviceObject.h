@@ -11,8 +11,10 @@
 @interface DeviceObject : BaseObject
 @property(strong,nonatomic) NSString *name;
 @property(strong,nonatomic) NSString *mode;
-@property(strong,nonatomic) NSString *sn;
-@property(strong,nonatomic) NSString *date;
+@property(strong,nonatomic) NSString *serial;
+@property(strong,nonatomic) NSString *buydate;
+@property(strong,nonatomic) NSString *image;
+
 //@property(strong,nonatomic) NSString *buyDate;
 
 @property(assign,nonatomic) BOOL isFixing;

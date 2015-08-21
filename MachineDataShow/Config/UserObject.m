@@ -13,7 +13,7 @@
 DEF_SINGLETON(UserObject)
 +(BOOL)hadLog
 {
-    return [[LoginObject sharedInstance] session_token].length != 0;
+    return [[UserObject sharedInstance] uid].length != 0;
     
     return NO;
 }

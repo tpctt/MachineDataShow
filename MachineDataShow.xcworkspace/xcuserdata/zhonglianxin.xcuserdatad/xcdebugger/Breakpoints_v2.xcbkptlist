@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "461827497.498836"
+            timestampString = "461829757.016779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "+RegMobile:password:trueName:companyName:duty:email:fax:address:block:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "461827500.222152"
+            timestampString = "461829757.016779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "382"
-            endingLineNumber = "382"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "+RegMobile:password:trueName:companyName:duty:email:fax:address:block:"
             landmarkType = "5">
          </BreakpointContent>

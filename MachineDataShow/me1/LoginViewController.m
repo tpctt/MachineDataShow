@@ -28,12 +28,12 @@
     [LoginObject sharedInstance].username = _name.text;
     [LoginObject sharedInstance].session_token = _name.text;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
-
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    
-    return;
+//    [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
+//
+//    [self.navigationController popViewControllerAnimated:YES];
+//    
+//    
+//    return;
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     

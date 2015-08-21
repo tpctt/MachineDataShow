@@ -227,6 +227,16 @@ static CGPoint prePoint;
     return cell;
     
 }
+-(void)showMsg:(NSString*)msg error:(NSError*)error{
+    if(msg){
+        [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+        
+    }else{
+        
+        [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+        
+    }
+}
 /*
 #pragma mark - Navigation
 
