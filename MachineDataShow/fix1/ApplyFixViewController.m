@@ -8,10 +8,11 @@
 
 #import "ApplyFixViewController.h"
 #import "FixProgressViewController.h"
+#import "MyFixingObject.h"
 
 @interface ApplyFixViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
-@property (strong, nonatomic)   DeviceObjectSceneModel *vm;
+@property (strong, nonatomic)   MyFixingObjectSceneModel *vm;
 
 @end
 
@@ -27,7 +28,7 @@
    
     
     
-    self.vm = [DeviceObjectSceneModel SceneModel];
+    self.vm = [MyFixingObjectSceneModel SceneModel];
     
     self.vm.action.aDelegaete = self;
     self.vm.request.requestNeedActive = YES;
@@ -82,7 +83,7 @@
         CELL.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
-    DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    MyFixingObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
 
     CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.name,o.serial];
 //    [o.name stringByAppendingString:o.serial];
@@ -91,7 +92,7 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    MyFixingObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"Weixiujintu" sender:o];
     
 }

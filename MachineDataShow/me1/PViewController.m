@@ -7,7 +7,7 @@
 //
 
 #import "PViewController.h"
-
+#import "NetManager.h"
 @interface PViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sure;
 @property (weak, nonatomic) IBOutlet UITextField *p1;
@@ -22,9 +22,22 @@
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:1];
-    sleep(2);
-    [self.navigationController popViewControllerAnimated:1];
     
+    [NetManager setpassword:nil password:self.p1.text block:^(NSArray *array, NSError *error, NSString *msg) {
+
+        [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+        
+        if (array != nil) {
+            [[GCDQueue mainQueue]queueBlock:^{
+                [self.navigationController popViewControllerAnimated:1];
+                
+            }];
+            
+        }else{
+            [self showMsg:msg error:error];
+        }
+        
+    }];
     
 
 }

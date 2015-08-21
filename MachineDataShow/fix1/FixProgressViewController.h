@@ -7,9 +7,9 @@
 //
 
 #import "BaseViewController.h"
-#import "DeviceObject.h"
+#import "MyFixingObject.h"
 @interface FixProgressViewController : BaseViewController
-@property(strong,nonatomic)DeviceObject *o;
+@property(strong,nonatomic)MyFixingObject *o;
 
 @end
 @interface FixedProgressInfo :BaseObject

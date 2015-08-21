@@ -36,7 +36,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 
 @interface NetManager:NSObject
-+(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
@@ -59,7 +59,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                        videoId:(NSString*)videoId
 
                                          block:(HotKeyBlock)block;
-+(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)oldpwd
++(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
                                   password:(NSString*)password
 
                                         block:(HotKeyBlock)block;

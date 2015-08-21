@@ -118,6 +118,7 @@
 		7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7562341B7C917F00BA2B69 /* LoginViewController.m */; };
 		7A7562381B7C918900BA2B69 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7562371B7C918900BA2B69 /* RegViewController.m */; };
 		7A756AEF1B85DDBC004BB943 /* button_bg_long_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */; };
+		7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25B091B872F130073D440 /* MyFixingObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +285,8 @@
 		7A7562361B7C918900BA2B69 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		7A7562371B7C918900BA2B69 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_bg_long_gray@2x.png"; sourceTree = "<group>"; };
+		7AB25B081B872F130073D440 /* MyFixingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFixingObject.h; sourceTree = "<group>"; };
+		7AB25B091B872F130073D440 /* MyFixingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFixingObject.m; sourceTree = "<group>"; };
 		8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,6 +437,8 @@
 				7A75616C1B7C4A5400BA2B69 /* BaseObject.m */,
 				22EF7FD51B7F86F9000F02DA /* DeviceObject.h */,
 				22EF7FD61B7F86F9000F02DA /* DeviceObject.m */,
+				7AB25B081B872F130073D440 /* MyFixingObject.h */,
+				7AB25B091B872F130073D440 /* MyFixingObject.m */,
 				7A75616D1B7C4A5400BA2B69 /* Config.h */,
 				7A75616E1B7C4A5400BA2B69 /* Config.m */,
 				7A75616F1B7C4A5400BA2B69 /* LoginObject.h */,
@@ -808,6 +813,7 @@
 				7A2464DC1B7C2A34007FD1D4 /* ViewController.m in Sources */,
 				7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */,
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
+				7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */,
 				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
 				22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */,
 				7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */,

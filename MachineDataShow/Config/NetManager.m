@@ -202,7 +202,7 @@
     
     return op;
 }
-+(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)oldpwd
++(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
                                      password:(NSString*)password
 
                                         block:(HotKeyBlock)block{
@@ -306,9 +306,9 @@
     return op;
     
 }
-+(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block
++(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block
 {
-    NSString *PATH = [[RequestConfig sharedInstance]home];
+    NSString *PATH = @"/getUserRepairInfo.php";
 
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -319,7 +319,12 @@
     }
 
     NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-
+    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    //    [requestParams setValue:equipmentId forKey:@"equipmentId"];
+    [requestParams setValue:objid forKey:@"repairId"];
+    
+    
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
 
