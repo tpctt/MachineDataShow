@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r5H-kl-sOD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r5H-kl-sOD">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -604,6 +604,60 @@
             </objects>
             <point key="canvasLocation" x="-387" y="-797"/>
         </scene>
+        <!--意见反馈-->
+        <scene sceneID="9mJ-4K-esj">
+            <objects>
+                <viewController title="意见反馈" id="m2N-69-j8z" customClass="SuggestViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ARo-Ni-WPS"/>
+                        <viewControllerLayoutGuide type="bottom" id="jMu-8b-wjE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="SWY-xG-5Jx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="反馈意见" translatesAutoresizingMaskIntoConstraints="NO" id="LRr-G6-pay">
+                                <rect key="frame" x="16" y="80" width="288" height="119"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="119" id="0a6-Up-ft1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="联系方式" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qzo-Sv-4iH">
+                                <rect key="frame" x="16" y="234" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="联系方式" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-Sh-FV3">
+                                <rect key="frame" x="16" y="212" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="LRr-G6-pay" secondAttribute="trailing" id="7TU-cR-Xgj"/>
+                            <constraint firstItem="LRr-G6-pay" firstAttribute="top" secondItem="ARo-Ni-WPS" secondAttribute="bottom" constant="16" id="9CU-Aa-0fp"/>
+                            <constraint firstItem="LRr-G6-pay" firstAttribute="leading" secondItem="SWY-xG-5Jx" secondAttribute="leadingMargin" id="Bnb-tz-lDC"/>
+                            <constraint firstItem="Qzo-Sv-4iH" firstAttribute="trailing" secondItem="SWY-xG-5Jx" secondAttribute="trailingMargin" id="C8s-gW-n30"/>
+                            <constraint firstItem="Qzo-Sv-4iH" firstAttribute="leading" secondItem="SWY-xG-5Jx" secondAttribute="leadingMargin" id="KNk-pd-QBb"/>
+                            <constraint firstItem="nm4-Sh-FV3" firstAttribute="leading" secondItem="SWY-xG-5Jx" secondAttribute="leadingMargin" id="V5N-lK-j40"/>
+                            <constraint firstItem="Qzo-Sv-4iH" firstAttribute="top" secondItem="nm4-Sh-FV3" secondAttribute="bottom" constant="1" id="Y2g-tZ-abh"/>
+                            <constraint firstItem="nm4-Sh-FV3" firstAttribute="top" secondItem="LRr-G6-pay" secondAttribute="bottom" constant="13" id="x3C-vg-kXi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="H4p-U9-D2f"/>
+                    <connections>
+                        <outlet property="contactText" destination="Qzo-Sv-4iH" id="UCX-wI-3WM"/>
+                        <outlet property="suggestText" destination="LRr-G6-pay" id="mmZ-ge-oND"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33G-xn-w84" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-51" y="-1359"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="xgl-IV-7HH">
             <objects>
@@ -674,6 +728,7 @@
                                 </state>
                                 <connections>
                                     <action selector="btnAct:" destination="fb7-9N-NPs" eventType="touchUpInside" id="jLF-rK-skv"/>
+                                    <segue destination="m2N-69-j8z" kind="push" id="oaS-uf-1EY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1127,7 +1182,7 @@
         <!--登陆-->
         <scene sceneID="ERE-xf-XCD">
             <objects>
-                <viewController id="7o5-Vk-ibH" userLabel="登陆" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="7o5-Vk-ibH" userLabel="登陆" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xBc-Hz-Dlt"/>
                         <viewControllerLayoutGuide type="bottom" id="AOz-66-RqI"/>

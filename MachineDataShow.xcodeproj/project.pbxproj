@@ -12,6 +12,7 @@
 		22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B581B7F421700A3C9BA /* AboutViewController.m */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
+		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
 		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
 		22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */; };
@@ -141,6 +142,8 @@
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
+		229020111B87C6DB009A6782 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
+		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		22EF7FC81B7F5A39000F02DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
@@ -583,6 +586,8 @@
 				7A75620B1B7C6E0C00BA2B69 /* HomeViewController.h */,
 				7A75620C1B7C6E0C00BA2B69 /* HomeViewController.m */,
 				7A75620D1B7C6E0C00BA2B69 /* HomeViewController.xib */,
+				229020111B87C6DB009A6782 /* SuggestViewController.h */,
+				229020121B87C6DB009A6782 /* SuggestViewController.m */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -823,6 +828,7 @@
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
 				22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */,
+				229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */,
 				22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */,
 				7A75617B1B7C4A5400BA2B69 /* BandingObject.m in Sources */,
 				7A75617D1B7C4A5400BA2B69 /* Config.m in Sources */,

@@ -7,6 +7,9 @@
 //
 
 #import "TabbarViewController.h"
+#import "UserObject.h"
+#import "LoginViewController.h"
+
 
 @interface TabbarViewController ()
 
@@ -75,9 +78,51 @@
 
     }
     
-    
-}
+    self.delegate = self;
+//    self.tabBar.delegate = self;
 
+}
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    if (![UserObject hadLog]) {
+        if ([tabBar.items indexOfObject:item] == 1 ) {
+            
+            UIStoryboard*  sb = self.storyboard;
+            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
+            
+            if (controller) {
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+            
+        }
+    }
+}
+-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if (![UserObject hadLog]) {
+        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
+            
+            UIStoryboard*  sb = self.storyboard;
+            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
+            
+            if (controller) {
+                [self.navigationController pushViewController:controller animated:YES];
+            }
+            
+        }
+    }
+}
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+{
+    if (![UserObject hadLog]) {
+        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
+            return 0;
+        }
+    }
+
+    return 1;
+
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

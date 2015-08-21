@@ -10,6 +10,8 @@
 #import "ScrollADView.h"
 #import "AppDelegate.h"
 #import "NetManager.h"
+#import "LoginViewController.h"
+
 
 @interface HomeViewController ()
 
@@ -27,14 +29,21 @@
 @implementation HomeViewController
 - (IBAction)btnAct:(id)sender {
     if (sender == _b1) {
-        [[AppDelegate sharedInstance].homeVC setSelectedIndex:1];
+//        [[AppDelegate sharedInstance].homeVC.tabBar setSelectedItem:[[AppDelegate sharedInstance].homeVC.tabBar.items objectAtIndex:1]];
+        [[AppDelegate sharedInstance].homeVC
+                     tabBarController:[AppDelegate sharedInstance].homeVC
+                     didSelectViewController:[[AppDelegate sharedInstance].homeVC.viewControllers objectAtIndex:1] ];
+        
         
     }else if (sender ==_b2){
     
+    }else if (sender ==_b4){
+        
     }
     else{
         [UIAlertView showWithTitle:@"" message:@"模块正在开发,敬请期待!" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            
+
+           
         }];
         
     }
@@ -72,7 +81,8 @@
                     
                 }  ;
             }else{
-                [self showMsg:msg error:error];
+//                [self showMsg:msg error:error];
+                
             }
         }];
     }

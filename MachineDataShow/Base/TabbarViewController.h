@@ -13,7 +13,7 @@
 
 
 @end
-@interface TabbarViewController2 : UITabBarController
+@interface TabbarViewController2 : UITabBarController<UITabBarControllerDelegate>
 
 
 @end
