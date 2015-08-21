@@ -84,7 +84,7 @@
     }
     DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
 
-    CELL.textLabel.text = [o.name stringByAppendingString:o.sn];
+    CELL.textLabel.text = [o.name stringByAppendingString:o.serial];
     return CELL;
     
 }

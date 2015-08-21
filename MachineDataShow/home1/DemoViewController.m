@@ -48,7 +48,7 @@
     
     
     self.model.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mode];
-    self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.sn];
+    self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
     
     self.image.image = [UIImage imageNamed:@"Banner_1.jpg"];

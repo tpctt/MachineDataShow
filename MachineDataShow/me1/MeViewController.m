@@ -55,13 +55,13 @@
         self.myInfoCell.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
         
         
-        [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].username ]
+        [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].head ]
                     forState:0
                     placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         }];
         
-        self.phone.text = [UserObject sharedInstance].username ;
+        self.phone.text = [UserObject sharedInstance].mobile ;
         
         
         

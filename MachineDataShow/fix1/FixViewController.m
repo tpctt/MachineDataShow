@@ -45,10 +45,10 @@
     self.deviceMode.text = [self.deviceMode.text stringByAppendingString:_oo.mode];
     
     self.n.text = @"设备序号:" ;
-    self.n.text = [self.n.text stringByAppendingString:_oo.sn];
+    self.n.text = [self.n.text stringByAppendingString:_oo.serial];
     
     self.d .text = @"购买时间:" ;
-    self.d .text = [self.d .text stringByAppendingString:_oo.date];
+    self.d .text = [self.d .text stringByAppendingString:_oo.buydate];
      
 }
 -(void)awakeFromNib

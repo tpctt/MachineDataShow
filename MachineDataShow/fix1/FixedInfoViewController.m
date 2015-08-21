@@ -38,7 +38,7 @@
 {
     
     self.MODEL.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mode];
-    self.SN.text = [NSString stringWithFormat:@"设备序号:%@",self.o.sn];
+    self.SN.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
     self.name.text = [UserObject sharedInstance].trueName;
     self.phone.text = [UserObject sharedInstance].mobile;

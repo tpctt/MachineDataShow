@@ -31,7 +31,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "438"
             endingLineNumber = "438"
-            landmarkName = "+RegMobile:password:trueName:companyName:duty:email:fax:address:block:"
+            landmarkName = "+getTBurlByNUM:tc:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -47,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "428"
             endingLineNumber = "428"
-            landmarkName = "+RegMobile:password:trueName:companyName:duty:email:fax:address:block:"
+            landmarkName = "+getTBurlByNUM:tc:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

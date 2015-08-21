@@ -18,7 +18,7 @@
 
 @implementation NetManager
 +(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block{
-    NSString *PATH = @"getUserInfo";
+    NSString *PATH = @"getUserInfo.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -44,7 +44,7 @@
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"Response"]];
             
@@ -76,7 +76,7 @@
 
                                         block:(HotKeyBlock)block
 {
-    NSString *PATH = @"setUserInfo";
+    NSString *PATH = @"setUserInfo.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -110,7 +110,7 @@
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"Response"]];
             
@@ -134,7 +134,7 @@
 }
 
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
-    NSString *PATH = @"getFlash";
+    NSString *PATH = @"getFlash.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -157,7 +157,7 @@
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
 
             NSArray *array = [HomeAD objectArrayWithKeyValuesArray:[jsonObject objectAtPath:@"response/dataList"] error:nil];
@@ -203,7 +203,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject];
  
@@ -250,7 +250,7 @@
     
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSError *error = nil;
             DakaObject *data = [DakaObject objectWithKeyValues:jsonObject[@"data"] error:&error];
@@ -295,7 +295,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSError *error = nil;
             DakaObject *data = [DakaObject objectWithKeyValues:jsonObject[@"data"] error:&error];
@@ -390,7 +390,7 @@
   
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString*url  =  [jsonObject objectAtPath:@"data/search_url" ];
             NSString*type  =  [jsonObject objectAtPath:@"data/type"]  ;
@@ -441,7 +441,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString*url  =  [jsonObject objectAtPath:@"data/url" ];
  
@@ -485,7 +485,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             UserObject *OBJ  =  [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
 
@@ -516,7 +516,7 @@
 
                              block:(LoinBlock)block
 {
-    NSString *PATH = @"userRegister";
+    NSString *PATH = @"userRegister.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -551,7 +551,7 @@
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
             if(OBJ){
@@ -584,7 +584,7 @@
 }
 +(AFHTTPRequestOperation*)login:(NSString*)name pwd:(NSString*)pwd aps:(NSString *)aps block:(LoinBlock)block
 {
-    NSString *PATH = @"userLogin";
+    NSString *PATH = @"userLogin.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -610,7 +610,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
             if(OBJ){
@@ -683,7 +683,7 @@
  
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
             if(OBJ){
@@ -741,7 +741,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
 
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
@@ -796,7 +796,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/email_goto_url"]; ;
 
@@ -843,7 +843,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/success"]; ;
 
@@ -902,7 +902,7 @@
  
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
 
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
@@ -970,7 +970,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
 
             NSString *goUrl =  [jsonObject stringAtPath:@"data/success"]; ;
@@ -1020,7 +1020,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
 
             NSString *goUrl =  [jsonObject objectAtPath:@"data/success"]; ;
@@ -1068,7 +1068,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/mobile"]; ;
 
@@ -1117,7 +1117,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
  
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *alipay_account =  [jsonObject objectAtPath:@"data/alipay_account"]; ;
             NSString *alipay_realname =  [jsonObject objectAtPath:@"data/alipay_realname"]; ;
@@ -1163,7 +1163,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
             block(success,nil,[jsonObject objectAtPath:@"msg"]);
@@ -1207,7 +1207,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *is_validate_mobile = [jsonObject objectAtPath:@"data/is_validate_mobile"];
             NSString*is_validate_account= [jsonObject objectAtPath:@"data/is_validate_account"];
@@ -1277,7 +1277,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/email"]; ;
             block(success,nil,[jsonObject objectAtPath:@"msg"]);
@@ -1324,7 +1324,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
 
@@ -1373,7 +1373,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
             block(success,nil,[jsonObject objectAtPath:@"msg"]);
@@ -1425,7 +1425,7 @@
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
 
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
             block(success,nil,[jsonObject objectAtPath:@"msg"]);
@@ -1466,7 +1466,7 @@
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
             NSString *checkSessionExpiredString = [jsonObject objectAtPath:@"data/checkSessionExpired"];
@@ -1523,7 +1523,7 @@
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject numberAtPath:@"status"] integerValue];
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
             block(success,nil,[jsonObject objectAtPath:@"msg"]);
