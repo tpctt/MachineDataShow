@@ -9,6 +9,7 @@
 #import "BaseObject.h"
 
 @interface DeviceObject : BaseObject
+@property(strong,nonatomic) NSString *id;
 @property(strong,nonatomic) NSString *name;
 @property(strong,nonatomic) NSString *model;
 @property(strong,nonatomic) NSString *serial;

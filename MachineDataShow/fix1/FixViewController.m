@@ -28,7 +28,7 @@
 
 @end
 
-@interface FixViewController ()
+@interface FixViewController ()<ActionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
 @property (strong, nonatomic)   DeviceObjectSceneModel *vm;
 
@@ -51,6 +51,7 @@
     self.d .text = [self.d .text stringByAppendingString:_oo.buydate];
      
 }
+
 -(void)awakeFromNib
 {
     self.backgroundColor = [UIColor clearColor];
@@ -66,6 +67,17 @@
 
 
 @implementation FixViewController
+-(void)handleActionMsg:(Request *)msg
+{
+    [super handleActionMsg:msg];
+    if (msg.state ==    SuccessState   ||
+        msg.state ==   FailState   ) {
+        
+        [self.mytable.footer endRefreshing];
+        [self.mytable.header endRefreshing];
+        
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -133,11 +145,12 @@
     
     
     [[cell.b rac_signalForControlEvents:UIControlEventTouchUpInside]
+      
      subscribeNext:^(id x) {
          cell.b.enabled=0;
          [self performSegueWithIdentifier:@"baoxiu" sender:o];
          cell.b.enabled=1;
-
+         
      }];
     
     return cell;

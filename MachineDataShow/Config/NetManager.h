@@ -49,6 +49,22 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
                                         block:(HotKeyBlock)block;
 
++(AFHTTPRequestOperation*)setEquipmentRepairID:(NSString*)equipmentId
+                                       contact:(NSString*)contact
+                                          tele:(NSString*)tele
+                                        detail:(NSString*)detail
+
+                                       voiceId:(NSString*)voiceId
+                                       imageId:(NSString*)imageId
+                                       videoId:(NSString*)videoId
+
+                                         block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)oldpwd
+                                  password:(NSString*)password
+
+                                        block:(HotKeyBlock)block;
+
+
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block;
 +(AFHTTPRequestOperation*)daka:(DataDataBlock)block;

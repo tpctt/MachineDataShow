@@ -7,6 +7,7 @@
 //
 
 #import "FixedInfoViewController.h"
+#import "NetManager.h"
 
 @interface FixedInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
@@ -51,11 +52,54 @@
 - (IBAction)video:(id)sender {
 }
 - (IBAction)commitAct:(id)sender {
+    if (NO == [self checkData]) {
+        return;
+    }
     [MBProgressHUD showHUDAddedTo:self.view animated:1];
-    sleep(2);
-    [self.navigationController popViewControllerAnimated:1];
+
+ 
+    [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text voiceId:nil imageId:nil videoId:nil block:^(NSArray *array, NSError *error, NSString *msg) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+        
+        if (array != nil) {
+            
+            
+            [[GCDQueue mainQueue]queueBlock:^{
+                [self.navigationController popViewControllerAnimated:1];
+
+            }];
+            
+
+        }else{
+            [self showMsg:msg error:error];
+        }
+        
+    }];
+    
+    
     
 }
+-(BOOL)checkData
+{
+    if (self.name.text.length == 0) {
+        [self.name becomeFirstResponder];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入联系人"];
+        return NO;
+    }
+    if (self.phone.text.length == 0) {
+        [self.phone becomeFirstResponder];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入联系人电话"];
+        return NO;
+    }
+    if (self.remark.text.length == 0) {
+        [self.remark becomeFirstResponder];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入保修详情"];
+        return NO;
+    }
+    
+    return 1;
+}
+
 
 
 - (void)didReceiveMemoryWarning {
