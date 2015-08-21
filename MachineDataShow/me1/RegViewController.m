@@ -46,14 +46,17 @@
 
     }else{
         
-        self.timer = [[RACScheduler scheduler] after:[NSDate date] repeatingEvery:1 withLeeway:1 schedule:^{
+        self.timer = [[RACScheduler scheduler] after:[NSDate date] repeatingEvery:1 withLeeway:0.1 schedule:^{
             [[GCDQueue mainQueue]queueBlock:^{
                 _timeIN--;
                 if (_timeIN >1 ) {
-                    NSString *STR = [NSString stringWithFormat:@"%.0f S",_timeIN ];
+                    NSString *STR = [NSString stringWithFormat:@"%.0f 秒",_timeIN ];
+                    
                     [self.verfiyBtn setTitle:STR forState:UIControlStateDisabled];
+                    [self.verfiyBtn setTitle:STR forState:0];
                     self.verfiyBtn.titleLabel.text = STR;
                     self.verfiyBtn.enabled = 0;
+                    
                     
                 }
             }];
@@ -141,7 +144,15 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager RegMobile:self.phone.text password:self.pwd1.text trueName:self.username.text companyName:self.company.text duty:self.job.text email:self.email.text fax:self.fax.text address:self.addresss.text block:^(LoginObject *object, NSError *error, NSString *msg) {
+    [NetManager RegMobile:self.phone.text
+                 password:self.pwd1.text
+                 trueName:self.username.text
+              companyName:self.company.text
+                     duty:self.job.text
+                    email:self.email.text
+                      fax:self.fax.text
+                  address:self.addresss.text
+                    block:^(LoginObject *object, NSError *error, NSString *msg) {
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         

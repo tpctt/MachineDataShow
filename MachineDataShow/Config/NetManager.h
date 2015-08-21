@@ -15,6 +15,9 @@
 #import "BandingObject.h"
 #import "DeviceObject.h"
 
+#define requestOK @"ok"
+
+
 ///请求配置
 typedef void(^DataDataBlock)(DakaObject *object,NSError *error,NSString *msg);
 typedef void(^HotKeyBlock)(NSArray *array,NSError *error,NSString *msg);

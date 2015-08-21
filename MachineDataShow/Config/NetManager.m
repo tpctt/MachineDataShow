@@ -14,7 +14,7 @@
 
 #import "FixProgressViewController.h"
 
-#define AppHostAddress @"abcd"
+#define AppHostAddress @"http://banzi7.vicp.net:28535/"
 
 @implementation NetManager
 +(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block
@@ -355,7 +355,7 @@
 
                              block:(LoinBlock)block
 {
-    NSString *PATH = [[RequestConfig sharedInstance] emailReg];
+    NSString *PATH = @"userRegister";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -375,7 +375,9 @@
     [requestParams setObject:email atPath:@"email"];
     [requestParams setObject:fax atPath:@"fax"];
     [requestParams setObject:address atPath:@"address"];
-    
+    ///性别(0-保密、1-男、2-女)
+    [requestParams setObject:@"0" atPath:@"sex"];
+
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];

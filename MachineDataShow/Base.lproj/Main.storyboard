@@ -1278,6 +1278,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="regAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="cvL-BR-fYx"/>
+                                                    <action selector="regBtnAct:" destination="X8O-h1-9S8" eventType="touchUpInside" id="udQ-k8-UUa"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2h-tw-XRT">
