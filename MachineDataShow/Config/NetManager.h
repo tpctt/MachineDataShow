@@ -27,7 +27,7 @@ typedef void(^HotKeyBlock)(NSArray *array,NSError *error,NSString *msg);
 typedef void(^TBurlWithKey)(NSString *search_url , NSString *type, NSError *error,NSString *msg);
 
 typedef void(^GetUserDataBlock)(UserObject *object,NSError *error,NSString *msg);
-typedef void(^LoinBlock)(LoginObject *object,NSError *error,NSString *msg);
+typedef void(^LoinBlock)(UserObject *object,NSError *error,NSString *msg);
 typedef void(^checkSessionExpiredBlock)(BOOL update_session,LoginObject *object,NSError *error,NSString *msg);
 
 typedef void(^SendMailBlock)(NSString *email_goto_url,NSError *error,NSString *msg);

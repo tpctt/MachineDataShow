@@ -35,21 +35,27 @@
 //    
 //    return;
     
+    ///apia31235    123456
+    [[NSUserDefaults standardUserDefaults] setObject:self.name.text forKey:@"name"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.pwd.text forKey:@"pwd"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [NetManager login:self.name.text pwd:self.pwd.text aps:[[Config sharedInstance] aps_token] block:^(LoginObject *object, NSError *error, NSString *msg) {
+    [NetManager login:self.name.text pwd:self.pwd.text aps:[[Config sharedInstance] aps_token] block:^(UserObject *object, NSError *error, NSString *msg) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (object) {
             
             [[GCDQueue mainQueue] queueBlock:^{
-                [LoginObject sharedInstance].userid = object.userid;
-                [LoginObject sharedInstance].session_token = object.session_token;
-                [LoginObject sharedInstance].username = object.username;
-                [LoginObject sharedInstance].avatar = object.avatar;
+//                [LoginObject sharedInstance].userid = object.userid;
+//                [LoginObject sharedInstance].session_token = object.session_token;
+//                [LoginObject sharedInstance].username = object.username;
+//                [LoginObject sharedInstance].avatar = object.avatar;
                 
-                [BaseObjectRequest sharedInstance].userid = object.userid;
-                [BaseObjectRequest sharedInstance].session_token = object.session_token;
+//                [BaseObjectRequest sharedInstance].userid = object.userid;
+//                [BaseObjectRequest sharedInstance].session_token = object.session_token;
                 
                 [self.navigationController popViewControllerAnimated:YES];
             }];
@@ -74,10 +80,13 @@
 {
     if (self.name.text.length == 0  ) {
         [self.name becomeFirstResponder];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入用户名"];
         return NO;
     }else if (self.pwd.text.length == 0)
     {
         [self.pwd becomeFirstResponder];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入密码"];
+
         return NO;
     }
     return YES;
@@ -85,32 +94,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    RAC(self.loginBtn,enabled) = [RACSignal
-                                   combineLatest:@[self.name.rac_textSignal,
-                                                   self.pwd.rac_textSignal
-                                                   ]
-                                   reduce:^(NSString *name, NSString *pwd ){
-                                       return @(name.length > 0 && pwd.length > 0  );
-                                   }];
+//    RAC(self.loginBtn,enabled) = [RACSignal
+//                                   combineLatest:@[self.name.rac_textSignal,
+//                                                   self.pwd.rac_textSignal
+//                                                   ]
+//                                   reduce:^(NSString *name, NSString *pwd ){
+//                                       return @(name.length > 0 && pwd.length > 0  );
+//                                   }];
     self.title = @"登陆";
     [self.loginBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
-    [[[self.name.rac_textSignal
-       map:^id(NSString*text){
-           return @(text.length);
-       }]
-      filter:^BOOL(NSNumber*length){
-          return[length integerValue] > 8;
-      }]
-     subscribeNext:^(id x){
-         if (self.name.text.length==11) {
-             self.name.textColor = [UIColor blackColor];
-             
-         }else{
-             self.name.textColor = [UIColor redColor];
-             
-         }
-     }];
+//    [[[self.name.rac_textSignal
+//       map:^id(NSString*text){
+//           return @(text.length);
+//       }]
+//      filter:^BOOL(NSNumber*length){
+//          return[length integerValue] > 8;
+//      }]
+//     subscribeNext:^(id x){
+//         if (self.name.text.length==11) {
+//             self.name.textColor = [UIColor blackColor];
+//             
+//         }else{
+//             self.name.textColor = [UIColor redColor];
+//             
+//         }
+//     }];
+    self.name.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
+    self.pwd.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    
     
 }
 

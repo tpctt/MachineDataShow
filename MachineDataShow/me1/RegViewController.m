@@ -87,11 +87,6 @@
 }
 -(BOOL)checkData
 {
-//    BOOL emailValie = [self isValidateEmail:self.email.text ];
-//    if (emailValie==NO) {
-//        [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
-//        return NO;
-//    }
     BOOL phoneV = self.phone.text.length == 11;
     if (phoneV==NO) {
         [DialogUtil showDlgAlert:@"请输入正确的手机号,15个字符"];
@@ -120,10 +115,17 @@
         [DialogUtil showDlgAlert:@"请输入职务"];
         return NO;
     }
-    if (self.email.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入邮箱"];
+    
+    BOOL emailValie = [self isValidateEmail:self.email.text ];
+    if (emailValie==NO) {
+        [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
         return NO;
     }
+
+//    if (self.email.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入邮箱"];
+//        return NO;
+//    }
     if (self.fax.text.length == 0) {
         [DialogUtil showDlgAlert:@"请输入传真"];
         return NO;
@@ -152,29 +154,29 @@
                     email:self.email.text
                       fax:self.fax.text
                   address:self.addresss.text
-                    block:^(LoginObject *object, NSError *error, NSString *msg) {
+                    block:^(UserObject *object, NSError *error, NSString *msg) {
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (object) {
             
             [[GCDQueue mainQueue] queueBlock:^{
-                [LoginObject sharedInstance].userid = object.userid;
-                [LoginObject sharedInstance].session_token = object.session_token;
-                [LoginObject sharedInstance].username = object.username;
-                [LoginObject sharedInstance].avatar = object.avatar;
+//                [LoginObject sharedInstance].userid = object.userid;
+//                [LoginObject sharedInstance].session_token = object.session_token;
+//                [LoginObject sharedInstance].username = object.username;
+//                [LoginObject sharedInstance].avatar = object.avatar;
+//                
+//                [BaseObjectRequest sharedInstance].userid = object.userid;
+//                [BaseObjectRequest sharedInstance].session_token = object.session_token;
                 
-                [BaseObjectRequest sharedInstance].userid = object.userid;
-                [BaseObjectRequest sharedInstance].session_token = object.session_token;
-                
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }];
             
         }
-        //        else
+        else
         {
-            if(msg){
+            if(msg.length){
                 [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
                 
             }else{

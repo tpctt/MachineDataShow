@@ -50,11 +50,11 @@
             
             
             
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"msg"]);
+            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
         
@@ -116,11 +116,11 @@
             
             
             
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"msg"]);
+            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
         
@@ -162,11 +162,11 @@
 
             NSArray *array = [HomeAD objectArrayWithKeyValuesArray:[jsonObject objectAtPath:@"response/dataList"] error:nil];
             
-            block(array,nil,[jsonObject objectAtPath:@"msg"]);
+            block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
         
@@ -176,7 +176,10 @@
         
     }];
     
+    
+     
     return op;
+    
 }
 +(AFHTTPRequestOperation*)getFixedProgressInfo:(DeviceObject*)obj block:(HotKeyBlock)block
 {
@@ -207,11 +210,11 @@
         if (state == 1  ) {
             FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject];
  
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"msg"]);
+            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
 
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }
 
@@ -255,11 +258,11 @@
             NSError *error = nil;
             DakaObject *data = [DakaObject objectWithKeyValues:jsonObject[@"data"] error:&error];
             
-            block(data,nil,[jsonObject objectAtPath:@"msg"]);
+            block(data,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -300,10 +303,10 @@
             NSError *error = nil;
             DakaObject *data = [DakaObject objectWithKeyValues:jsonObject[@"data"] error:&error];
             
-            block(data,nil,[jsonObject objectAtPath:@"msg"]);
+            block(data,nil,[jsonObject objectAtPath:@"response/errorText"]);
  
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }
 
@@ -395,10 +398,10 @@
             NSString*url  =  [jsonObject objectAtPath:@"data/search_url" ];
             NSString*type  =  [jsonObject objectAtPath:@"data/type"]  ;
  
-            block(url,type,nil,[jsonObject objectAtPath:@"msg"]);
+            block(url,type,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -445,10 +448,10 @@
         if (state == 1  ) {
             NSString*url  =  [jsonObject objectAtPath:@"data/url" ];
  
-            block(url,nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(url,nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -489,10 +492,10 @@
         if (state == 1  ) {
             UserObject *OBJ  =  [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
 
-            block(OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(OBJ,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -553,25 +556,25 @@
         
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-            LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
+            UserObject *OBJ  =  [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]]  ;
             if(OBJ){
-                [LoginObject sharedInstance].userid = OBJ.userid;
-                [LoginObject sharedInstance].session_token = OBJ.session_token;
-                [LoginObject sharedInstance].username =OBJ.username;
-                [LoginObject sharedInstance].avatar = OBJ.avatar;
-                
-                [BaseObjectRequest sharedInstance].userid = OBJ.userid;
-                [BaseObjectRequest sharedInstance].session_token = OBJ.session_token;
+//                [LoginObject sharedInstance].userid = OBJ.userid;
+//                [LoginObject sharedInstance].session_token = OBJ.session_token;
+//                [LoginObject sharedInstance].username =OBJ.username;
+//                [LoginObject sharedInstance].avatar = OBJ.avatar;
+                [UserObject setDataFrom:OBJ];
+                [BaseObjectRequest sharedInstance].userid = OBJ.uid;
+//                [BaseObjectRequest sharedInstance].session_token = OBJ.session_token;
                 
                 
 //                [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
                 
             }
             
-            block(OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(OBJ,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -597,7 +600,7 @@
     NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
 //    [requestParams setObject:aps forKey:@"aps_token"];
     [requestParams setObject:pwd forKey:@"password"];
-    [requestParams setObject:name forKey:@"username"];
+    [requestParams setObject:name forKey:@"userName"];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -612,25 +615,25 @@
 
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-            LoginObject *OBJ  =  [LoginObject objectWithKeyValues:[jsonObject objectAtPath:@"data"]]  ;
+            UserObject *OBJ  =  [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]]  ;
             if(OBJ){
-                [LoginObject sharedInstance].userid = OBJ.userid;
-                [LoginObject sharedInstance].session_token = OBJ.session_token;
-                [LoginObject sharedInstance].username =OBJ.username;
-                [LoginObject sharedInstance].avatar = OBJ.avatar;
+//                [LoginObject sharedInstance].userid = OBJ.userid;
+//                [LoginObject sharedInstance].session_token = OBJ.session_token;
+//                [LoginObject sharedInstance].username =OBJ.username;
+//                [LoginObject sharedInstance].avatar = OBJ.avatar;
                 
-                [BaseObjectRequest sharedInstance].userid = OBJ.userid;
-                [BaseObjectRequest sharedInstance].session_token = OBJ.session_token;
+                [UserObject setDataFrom:OBJ];
+                [BaseObjectRequest sharedInstance].userid = OBJ.uid;
                 
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
-                
+                                 
             }
 
-            block(OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(OBJ,nil,[jsonObject objectAtPath:@"response/text"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -699,10 +702,10 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
 
             }
-            block(OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(OBJ,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -800,10 +803,10 @@
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/email_goto_url"]; ;
 
-            block(goUrl,nil,[jsonObject objectAtPath:@"msg"]);
+            block(goUrl,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -847,10 +850,10 @@
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/success"]; ;
 
-            block(goUrl,nil,[jsonObject objectAtPath:@"msg"]);
+            block(goUrl,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
  
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -918,11 +921,11 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
             }
             
-            block(OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(OBJ,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
 
@@ -975,10 +978,10 @@
 
             NSString *goUrl =  [jsonObject stringAtPath:@"data/success"]; ;
 
-            block(goUrl,nil,[jsonObject objectAtPath:@"msg"]);
+            block(goUrl,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
 
@@ -1025,10 +1028,10 @@
 
             NSString *goUrl =  [jsonObject objectAtPath:@"data/success"]; ;
 
-            block(goUrl,nil,[jsonObject objectAtPath:@"msg"]);
+            block(goUrl,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -1072,10 +1075,10 @@
         if (state == 1  ) {
             NSString *goUrl =  [jsonObject objectAtPath:@"data/mobile"]; ;
 
-            block(goUrl,nil,[jsonObject objectAtPath:@"msg"]);
+            block(goUrl,nil,[jsonObject objectAtPath:@"response/errorText"]);
  
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
         
@@ -1122,10 +1125,10 @@
             NSString *alipay_account =  [jsonObject objectAtPath:@"data/alipay_account"]; ;
             NSString *alipay_realname =  [jsonObject objectAtPath:@"data/alipay_realname"]; ;
 
-            block(alipay_account,alipay_realname,nil,[jsonObject objectAtPath:@"msg"]);
+            block(alipay_account,alipay_realname,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -1166,10 +1169,10 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
   
@@ -1234,10 +1237,10 @@
             bandingObject.card_id =card_id;
             bandingObject.real_name =real_name;
   
-            block( bandingObject ,nil,[jsonObject objectAtPath:@"msg"]);
+            block( bandingObject ,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block( nil,   nil,[jsonObject objectAtPath:@"msg"]);
+            block( nil,   nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
 
@@ -1280,11 +1283,11 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/email"]; ;
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -1328,11 +1331,11 @@
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
 
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }
 
@@ -1376,10 +1379,10 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error,nil);
@@ -1428,10 +1431,10 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -1484,9 +1487,9 @@
                 
 //                [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
             }
-            block(checkSessionExpired,OBJ,nil,[jsonObject objectAtPath:@"msg"]);
+            block(checkSessionExpired,OBJ,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }else{
-            block(NO,nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(NO,nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(NO,nil, error,nil);
@@ -1526,13 +1529,15 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSString *success =  [jsonObject objectAtPath:@"data/success"]; ;
-            block(success,nil,[jsonObject objectAtPath:@"msg"]);
+            block(success,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"msg"]);
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         block(nil, error,nil);
     }];
+    
+   
     
     return op;
 }

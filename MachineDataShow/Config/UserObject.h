@@ -22,7 +22,8 @@
 @property (nonatomic, strong ) NSString *head;
 
 +(BOOL)hadLog;
- 
++(void)setDataFrom:(UserObject*)obj;
+
 AS_SINGLETON(UserObject)
 
 @end

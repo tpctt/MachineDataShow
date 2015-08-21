@@ -38,6 +38,10 @@ static AppDelegate* shareApp;
     [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleLightContent;
     
     
+    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
+    [NSURLCache setSharedURLCache:URLCache];
+    
+    
 }
 - (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
     //    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
@@ -94,7 +98,7 @@ static AppDelegate* shareApp;
         [self.homeVC.navigationController pushViewController:[[ShowMeViewController alloc] init]  animated:NO];
         
     }
-    [Action actionConfigHost:AppHostAddress client:@"APP" codeKey:@"state" rightCode:1 msgKey:@"msg"];
+    [Action actionConfigHost:AppHostAddress client:@"APP" codeKey:@"state" rightCode:1 msgKey:@"response/errorText"];
     
     return YES;
 }
