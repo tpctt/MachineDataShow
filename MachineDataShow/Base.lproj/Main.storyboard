@@ -158,6 +158,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mytable" destination="fBn-iW-p3f" id="fXd-4b-UkJ"/>
+                        <outlet property="tableTopConstaint" destination="gko-es-42n" id="1gq-ao-G8s"/>
                         <segue destination="5eH-4y-KrT" kind="push" identifier="baoxiu" id="HNB-Wt-bcC"/>
                         <segue destination="0DK-37-Ner" kind="push" identifier="weixiujindu" id="C6A-Os-fNS"/>
                     </connections>
@@ -1747,7 +1748,7 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
         <image name="vip_gray.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="C6A-Os-fNS"/>
         <segue reference="hg5-1w-aQn"/>
-        <segue reference="Ffs-Rt-btG"/>
     </inferredMetricsTieBreakers>
 </document>

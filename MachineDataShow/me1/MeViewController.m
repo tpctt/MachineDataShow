@@ -235,6 +235,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+#if USENormalPush
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif
+    
     _icon.layer.cornerRadius = _icon.width/2;
     _icon.clipsToBounds= 1;
     self.title = @"我的";

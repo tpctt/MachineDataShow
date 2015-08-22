@@ -33,4 +33,7 @@
 
 
 #import <EasyIOS/DialogUtil.h>
+
+#import "AppDelegate.h"
+
 #endif

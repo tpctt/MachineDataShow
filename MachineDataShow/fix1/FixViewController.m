@@ -24,6 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIView *baseView;
 @property (weak, nonatomic) IBOutlet UILabel *line;
 @property (strong, nonatomic)  DeviceObject  *oo;
+
+
+
 -(void)config:(id)o;
 
 @end
@@ -31,6 +34,8 @@
 @interface FixViewController ()<ActionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
 @property (strong, nonatomic)   DeviceObjectSceneModel *vm;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableTopConstaint;
 
 @end
 @implementation DeviceCell
@@ -93,6 +98,10 @@
 //    [self.mtable alignToView:self.view];
 //    self.mtable.dataSource = self;
 //    self.mtable.delegate = self;
+
+#if USENormalPush
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif
     
     self.title = @"我的设备";
     self.view.backgroundColor = RGB(236, 236, 236);

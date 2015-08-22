@@ -45,6 +45,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+#if USENormalPush
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+#endif
+    
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.view.backgroundColor = RGB(236, 236, 236);
     self.title = @"服务";
