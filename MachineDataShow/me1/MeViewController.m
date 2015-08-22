@@ -252,7 +252,13 @@
     
 }
 
-
+#if USENormalPush
+-(UINavigationController *)navigationController
+{
+    
+    return self.tabBarController.navigationController;
+}
+#endif
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

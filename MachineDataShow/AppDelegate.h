@@ -10,6 +10,7 @@
 #import "TabbarViewController.h"
 
 #define AppHostAddress @"http://banzi7.vicp.net:28535"
+#define USENormalPush 1
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

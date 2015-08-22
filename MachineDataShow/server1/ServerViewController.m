@@ -35,7 +35,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:1];
     
 }
-
+#if USENormalPush
+-(UINavigationController *)navigationController
+{
+    
+    return self.tabBarController.navigationController;
+}
+#endif
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
