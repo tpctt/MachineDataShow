@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface MeViewController : UITableViewController
+@property (strong,nonatomic ) UIImage  *image;
++(MeViewController *)sharedInstance;
 
 @end

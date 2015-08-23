@@ -12,6 +12,8 @@
 #import "NetManager.h"
 #import "LoginViewController.h"
 
+#import "DemoViewController.h"
+#import "SuggestViewController.h"
 
 @interface HomeViewController ()
 
@@ -36,8 +38,17 @@
         
         
     }else if (sender ==_b2){
-    
+        DemoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sqkzvc"];
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+        
+//        [self performSegueWithIdentifier:@"SQKZ" sender:nil];
+
     }else if (sender ==_b4){
+        SuggestViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"yjfkvc"];
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+//        [self performSegueWithIdentifier:@"Suggest" sender:nil];
         
     }
     else{

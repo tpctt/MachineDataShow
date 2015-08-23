@@ -152,15 +152,16 @@
                     <navigationItem key="navigationItem" id="pSP-1E-jwC">
                         <barButtonItem key="rightBarButtonItem" title="我的报修" id="fR6-d0-UBy">
                             <connections>
-                                <segue destination="aak-GL-KFY" kind="push" id="5q8-2d-tlu"/>
+                                <action selector="gotoBaoxiu:" destination="yIv-0Q-czj" id="jhn-jz-Jy7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mytable" destination="fBn-iW-p3f" id="fXd-4b-UkJ"/>
                         <outlet property="tableTopConstaint" destination="gko-es-42n" id="1gq-ao-G8s"/>
-                        <segue destination="5eH-4y-KrT" kind="push" identifier="baoxiu" id="HNB-Wt-bcC"/>
-                        <segue destination="0DK-37-Ner" kind="push" identifier="weixiujindu" id="C6A-Os-fNS"/>
+                        <segue destination="aak-GL-KFY" kind="push" id="CD9-ZX-ECy"/>
+                        <segue destination="5eH-4y-KrT" kind="push" id="oGg-ld-a2r"/>
+                        <segue destination="0DK-37-Ner" kind="push" id="Cpt-bn-rmP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZd-AY-FNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -170,7 +171,7 @@
         <!--维修进度查询-->
         <scene sceneID="Vcg-eJ-MQn">
             <objects>
-                <viewController title="维修进度查询" id="0DK-37-Ner" customClass="FixProgressViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="weixiujinduvc" title="维修进度查询" id="0DK-37-Ner" customClass="FixProgressViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tst-xT-eTy"/>
                         <viewControllerLayoutGuide type="bottom" id="Z4w-UL-xpG"/>
@@ -287,12 +288,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I60-66-tuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366" y="-1213"/>
+            <point key="canvasLocation" x="384" y="-369"/>
         </scene>
         <!--体验-->
         <scene sceneID="kDo-KH-Qmr">
             <objects>
-                <viewController title="体验" id="riW-Eo-P63" customClass="DemoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sqkzvc" title="体验" id="riW-Eo-P63" customClass="DemoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E3S-hG-lUR"/>
                         <viewControllerLayoutGuide type="bottom" id="KO9-FQ-n4F"/>
@@ -429,7 +430,7 @@
         <!--设备报修-->
         <scene sceneID="4ez-xr-cIo">
             <objects>
-                <viewController title="设备报修" id="5eH-4y-KrT" customClass="FixedInfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="XBBXVC" title="设备报修" id="5eH-4y-KrT" customClass="FixedInfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MnX-fu-VGM"/>
                         <viewControllerLayoutGuide type="bottom" id="jbu-eS-bvM"/>
@@ -562,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVB-eT-IuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="-1509"/>
+            <point key="canvasLocation" x="433" y="-136"/>
         </scene>
         <!--Tabbar View Controller2-->
         <scene sceneID="Y4y-bz-UEr">
@@ -599,6 +600,7 @@
                     </navigationBar>
                     <connections>
                         <segue destination="fb7-9N-NPs" kind="relationship" relationship="rootViewController" id="7OE-ir-6WS"/>
+                        <segue destination="riW-Eo-P63" kind="push" identifier="SQKZ" id="jQQ-kd-ZLa"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PA5-wm-mWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -608,7 +610,7 @@
         <!--意见反馈-->
         <scene sceneID="9mJ-4K-esj">
             <objects>
-                <viewController title="意见反馈" id="m2N-69-j8z" customClass="SuggestViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="yjfkvc" title="意见反馈" id="m2N-69-j8z" customClass="SuggestViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ARo-Ni-WPS"/>
                         <viewControllerLayoutGuide type="bottom" id="jMu-8b-wjE"/>
@@ -702,7 +704,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnAct:" destination="fb7-9N-NPs" eventType="touchUpInside" id="VAy-vb-HJe"/>
-                                    <segue destination="riW-Eo-P63" kind="push" id="8Qk-V2-ujT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTq-D0-mIq">
@@ -729,7 +730,6 @@
                                 </state>
                                 <connections>
                                     <action selector="btnAct:" destination="fb7-9N-NPs" eventType="touchUpInside" id="jLF-rK-skv"/>
-                                    <segue destination="m2N-69-j8z" kind="push" id="oaS-uf-1EY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -756,6 +756,7 @@
                         <outlet property="b3" destination="UTq-D0-mIq" id="FgU-qS-jnd"/>
                         <outlet property="b4" destination="YEW-yH-xUS" id="aMr-so-RVK"/>
                         <outlet property="scrollAdView" destination="cQW-wt-rsP" id="57p-kf-AIR"/>
+                        <segue destination="m2N-69-j8z" kind="push" identifier="Suggest" id="EAq-Lx-WBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yND-AJ-qHJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -811,7 +812,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzI-a2-two" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-387" y="826"/>
+            <point key="canvasLocation" x="-507" y="900"/>
         </scene>
         <!--Me View Controller-->
         <scene sceneID="c8g-eK-GG1">
@@ -856,7 +857,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="btnAct:" destination="4Yd-EW-Rp9" eventType="touchUpInside" id="6mM-uN-okC"/>
-                                                <segue destination="X8e-RQ-oD2" kind="push" identifier="InfoSeg" id="sgH-rm-weO"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzP-Ce-FjF">
@@ -870,7 +870,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="btnAct:" destination="4Yd-EW-Rp9" eventType="touchUpInside" id="AMr-qR-i4I"/>
-                                                <segue destination="ceg-bS-QLi" kind="push" id="Pgu-A1-09x"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13800138000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xlJ-lS-1He">
@@ -902,7 +901,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="login:" destination="4Yd-EW-Rp9" eventType="touchUpInside" id="kZe-GA-9dN"/>
-                                                <segue destination="7o5-Vk-ibH" kind="push" identifier="loginSeg" id="y9p-hl-pKJ"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -1020,9 +1018,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="hlK-8u-Fjz" kind="push" id="t9z-bo-yL2"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="GFc-7y-uqP">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1056,9 +1051,6 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Pj8-sJ-sG9" kind="push" id="lyC-Ge-pk9"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sAd-HY-bEB">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -1115,16 +1107,21 @@
                         <outlet property="notLoginView" destination="iPh-72-Ib9" id="Mbz-Oy-OTA"/>
                         <outlet property="p" destination="jzP-Ce-FjF" id="Kbv-cu-MDp"/>
                         <outlet property="phone" destination="xlJ-lS-1He" id="Isv-Db-WFQ"/>
+                        <segue destination="Pj8-sJ-sG9" kind="push" id="ack-xE-2OK"/>
+                        <segue destination="hlK-8u-Fjz" kind="push" id="XH6-iV-9W0"/>
+                        <segue destination="ceg-bS-QLi" kind="push" id="JYj-As-8XP"/>
+                        <segue destination="X8e-RQ-oD2" kind="push" id="08z-qb-3Bp"/>
+                        <segue destination="7o5-Vk-ibH" kind="push" id="ubD-ea-YeF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0GC-Oh-gXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="662"/>
+            <point key="canvasLocation" x="55" y="757"/>
         </scene>
         <!--我的报修记录-->
         <scene sceneID="BuV-H3-w9o">
             <objects>
-                <viewController title="我的报修记录" id="aak-GL-KFY" customClass="ApplyFixViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WDBXJL" title="我的报修记录" id="aak-GL-KFY" customClass="ApplyFixViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TTg-Ll-BG2"/>
                         <viewControllerLayoutGuide type="bottom" id="GMU-yi-rdw"/>
@@ -1433,7 +1430,7 @@
         <!--联系我们-->
         <scene sceneID="fxR-X3-cGB">
             <objects>
-                <viewController title="联系我们" id="cZR-gG-4rD" customClass="ContactUsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LXWM" title="联系我们" id="cZR-gG-4rD" customClass="ContactUsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="OqY-K0-iNb"/>
                         <viewControllerLayoutGuide type="bottom" id="tLP-az-beh"/>
@@ -1447,12 +1444,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LX3-n3-pn1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="1668"/>
+            <point key="canvasLocation" x="102" y="1593"/>
         </scene>
         <!--帮助-->
         <scene sceneID="P7P-Gi-85c">
             <objects>
-                <viewController title="帮助" id="Pj8-sJ-sG9" customClass="HelpViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bangzhuvc" title="帮助" id="Pj8-sJ-sG9" customClass="HelpViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kzq-te-Otq"/>
                         <viewControllerLayoutGuide type="bottom" id="L0v-C0-irn"/>
@@ -1474,12 +1471,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwB-8X-Y1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="1764"/>
+            <point key="canvasLocation" x="-65" y="1506"/>
         </scene>
         <!--关于-->
         <scene sceneID="xId-cq-t9x">
             <objects>
-                <viewController title="关于" id="hlK-8u-Fjz" customClass="AboutViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="guanyuvc" title="关于" id="hlK-8u-Fjz" customClass="AboutViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rXf-iR-qIh"/>
                         <viewControllerLayoutGuide type="bottom" id="4Tz-NB-o7f"/>
@@ -1517,12 +1514,12 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRk-lq-Pwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="1752"/>
+            <point key="canvasLocation" x="254" y="1506"/>
         </scene>
         <!--Info View Controller-->
         <scene sceneID="TNb-HT-eHf">
             <objects>
-                <viewController id="X8e-RQ-oD2" customClass="InfoViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="xgzl" id="X8e-RQ-oD2" customClass="InfoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sv8-t9-ym4"/>
                         <viewControllerLayoutGuide type="bottom" id="PJT-Sv-OaF"/>
@@ -1634,12 +1631,12 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZE-UD-f9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="676"/>
+            <point key="canvasLocation" x="566" y="708"/>
         </scene>
         <!--pwassword-->
         <scene sceneID="x3D-4E-cT1">
             <objects>
-                <viewController title="修改密码" id="ceg-bS-QLi" userLabel="pwassword" customClass="PViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="xgmm" title="修改密码" id="ceg-bS-QLi" userLabel="pwassword" customClass="PViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iQ7-qU-eM9"/>
                         <viewControllerLayoutGuide type="bottom" id="Akx-lC-IiJ"/>
@@ -1691,7 +1688,7 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vlx-Mr-Oxe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508" y="1137"/>
+            <point key="canvasLocation" x="575" y="1026"/>
         </scene>
         <!--服务-->
         <scene sceneID="f6Q-gP-Hff">
@@ -1805,9 +1802,6 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cZR-gG-4rD" kind="push" id="iSU-aY-dwL"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1818,6 +1812,9 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="JM3-AW-PpK"/>
+                    <connections>
+                        <segue destination="cZR-gG-4rD" kind="push" id="jYk-oD-bXs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVA-Wm-fjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1845,6 +1842,6 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
         <image name="vip_gray.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="C6A-Os-fNS"/>
+        <segue reference="Cpt-bn-rmP"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -237,6 +237,15 @@ static CGPoint prePoint;
         
     }
 }
+-(void)setbackLabelString1:(NSString*)STRINg to:(UITableView *)tabble
+{
+    if (self.backLabel==nil) {
+        self.backLabel = [[UILabel alloc]initWithFrame:tabble.bounds];
+        [tabble setBackgroundView:self.backLabel];
+    }
+    self.backLabel.text = STRINg;
+}
+
 /*
 #pragma mark - Navigation
 

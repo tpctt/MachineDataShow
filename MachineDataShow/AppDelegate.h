@@ -10,7 +10,8 @@
 #import "TabbarViewController.h"
 
 #define AppHostAddress @"http://45.56.122.170:8100"
-#define USENormalPush 1
+#define USENormalPush 0
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

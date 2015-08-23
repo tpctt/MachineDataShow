@@ -7,6 +7,8 @@
 //
 
 #import "BaseViewController.h"
+
+///申请维修
 @interface FixedInfoViewController : BaseViewController
 @property(strong,nonatomic)DeviceObject *o;
 

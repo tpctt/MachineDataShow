@@ -7,7 +7,7 @@
 //
 
 #import "ServerViewController.h"
-
+#import "ContactUsViewController.h"
 @interface ServerViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -31,6 +31,12 @@
             }];
         }
        
+    }
+    if (indexPath.row ==  2) {
+        ContactUsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LXWM"];
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+        
     }
     [tableView deselectRowAtIndexPath:indexPath animated:1];
     

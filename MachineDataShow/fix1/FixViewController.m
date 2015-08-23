@@ -72,6 +72,12 @@
 
 
 @implementation FixViewController
+- (IBAction)gotoBaoxiu:(id)sender {
+    FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WDBXJL"];
+    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    
+}
+
 -(void)handleActionMsg:(Request *)msg
 {
     [super handleActionMsg:msg];
@@ -113,7 +119,8 @@
     self.vm.action.aDelegaete = self;
     self.vm.request.requestNeedActive = YES;
    
-    
+//    [self setbackLabelString1:@"暂无设备" to:self.mtable];
+
     self.mytable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.vm loadFirstPage ];
     }];
@@ -140,6 +147,7 @@
 
          }
          
+         
       } ];
     
 }
@@ -163,7 +171,8 @@
       
      subscribeNext:^(id x) {
          cell.b.enabled=0;
-         [self performSegueWithIdentifier:@"baoxiu" sender:o];
+         ApplyFixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"XBBXVC"];
+         [self.tabBarController.navigationController pushViewController:vc animated:1];
          cell.b.enabled=1;
          
      }];
@@ -173,8 +182,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"weixiujindu" sender:o];
+//    [self performSegueWithIdentifier:@"weixiujindu" sender:o];
 
+    FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"weixiujinduvc"];
+    vc.o = o;
+    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    
+    
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

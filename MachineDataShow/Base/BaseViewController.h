@@ -53,4 +53,6 @@
 +(id)getCellWithClass:(Class)class1;
 -(void)showMsg:(NSString*)msg error:(NSError*)error;
 
+-(void)setbackLabelString1:(NSString*)STRINg to:(UITableView *)tabble;
+
 @end

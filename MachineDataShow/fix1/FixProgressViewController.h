@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "MyFixingObject.h"
+///我的设备维修进度,77乖乖的界面
 @interface FixProgressViewController : BaseViewController
 @property(strong,nonatomic)MyFixingObject *o;
 

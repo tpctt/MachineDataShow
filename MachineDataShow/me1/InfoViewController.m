@@ -234,7 +234,16 @@
                     if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
                         [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
                     }
-                   
+                    UserObject *INFO = [[UserObject alloc] init];
+                    INFO.trueName = INFOS[1] ;
+                    INFO.companyName = INFOS[0] ;
+                    INFO.duty = INFOS[2] ;
+                    INFO.email = INFOS[3] ;
+                    INFO.fax = INFOS[4] ;
+                    INFO.address = INFOS[5] ;
+                    
+                    [[NSNotificationCenter defaultCenter]postNotificationName:UseriNFOChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:INFO,@"info", nil]];
+
                     [self.navigationController popViewControllerAnimated:1];
                     
                 }];
@@ -279,10 +288,10 @@
 -(void)iconAct:(UIButton*)SENDER
 {
     [UIActionSheet showInView:self.view withTitle:@"设置头像" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照",@"相册" ] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if (buttonIndex ==  1) {
+        if (buttonIndex ==  0) {
             [self takePhotoFromAlbum:0 isPhoto:1];
-        }else if (buttonIndex ==  2){
-            [self takePhotoFromAlbum:0 isPhoto:0];
+        }else if (buttonIndex ==  1){
+            [self takePhotoFromAlbum:1 isPhoto:1];
         }
     }];
 }
@@ -395,8 +404,11 @@
                     if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
                         [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
                     }
+                    [UserObject sharedInstance].head = STRING;
+
+                    [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
                     
-//                    [self.navigationController popViewControllerAnimated:1];
+                     
                     
                 }];
                 

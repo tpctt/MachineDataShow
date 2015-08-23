@@ -19,7 +19,9 @@ DEF_SINGLETON(UserObject)
 }
 +(void)setDataFrom:(UserObject*)obj
 {
-    [UserObject sharedInstance].uid = obj.uid ;
+    if(obj.uid )
+        [UserObject sharedInstance].uid = obj.uid ;
+    
     [UserObject sharedInstance].trueName =obj.trueName ;
     [UserObject sharedInstance].companyName =obj.companyName ;
     [UserObject sharedInstance].duty = obj.duty;

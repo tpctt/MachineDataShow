@@ -7,6 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#define HeadImageChandedNoti @"HeadImageChandedNoti"
+#define UseriNFOChandedNoti @"UseriNFOChandedNoti"
+
 
 @interface InfoViewController : BaseViewController
 

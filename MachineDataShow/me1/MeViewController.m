@@ -14,6 +14,10 @@
 #import "LoginObject.h"
 #import "InfoViewController.h"
 #import <SDWebImage/UIButton+WebCache.h>
+#import "NetManager.h"
+#import "HelpViewController.h"
+#import "AboutViewController.h"
+#import "LoginViewController.h"
 
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -45,6 +49,19 @@
 @end
 
 @implementation MeViewController
+
+static MeViewController* shareApp;
+
++(MeViewController *)sharedInstance
+{
+    return shareApp;
+}
+-(void)setImage:(UIImage *)image
+{
+    _image = image;
+    [self.icon setImage:image forState:0];
+    
+}
 -(void)dealView
 {
     if ([UserObject hadLog]     ) {
@@ -54,12 +71,14 @@
         
         self.myInfoCell.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
         
-        
-        [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].head ]
+        if(_image   ){
+            [self.icon setImage:_image forState:0];
+        }else
+            [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].head ]
                     forState:0
                     placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        }];
+                            }];
         
         self.phone.text = [UserObject sharedInstance].mobile ;
         
@@ -78,23 +97,39 @@
     
 }
 - (IBAction)btnAct:(id)sender {
+    if(sender == self.editInfoBtn   ){
+        InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"xgzl"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }else if(sender == self.p   ){
+        InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"xgmm"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }
 }
 - (IBAction)logout:(id)sender {
-    [UserObject sharedInstance].uid = nil;
-    
-    
-    [self dealView];
-    
+    [UIAlertView showWithTitle:@"是否退出？" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认" ] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex == 1 ) {
+            [UserObject sharedInstance].uid = nil;
+            [self dealView];
+        }
+    }];
     
 }
 - (IBAction)login:(id)sender {
+    LoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+    
+    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    
 }
 - (IBAction)headIconBtnAct:(id)sender {
-    [UIActionSheet showInView:self.view withTitle:@"设置头像" cancelButtonTitle:@"取消" destructiveButtonTitle:@"相册" otherButtonTitles:@[@"相机"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if (buttonIndex==0) {
-            [self takePhotoFromAlbum:1 isPhoto:1];
-        }else if (buttonIndex==1) {
+    [UIActionSheet showInView:self.view withTitle:@"设置头像" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        if (buttonIndex ==  0) {
             [self takePhotoFromAlbum:0 isPhoto:1];
+        }else if (buttonIndex ==  1){
+            [self takePhotoFromAlbum:1 isPhoto:1];
         }
     }];
    
@@ -110,7 +145,7 @@
     picker.allowsEditing = 1 ;
     picker.mediaTypes = [NSArray arrayWithObjects:@"public.image", nil];
     
-   
+    
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
         ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
@@ -124,18 +159,9 @@
             
         } else{
             
-            //        ALAuthorizationStatusNotDetermined = 0, // User has not yet made a choice with regards to this application
-            //        ALAuthorizationStatusRestricted,        // This application is not authorized to access photo data.
-            //        // The user cannot change this application’s status, possibly due to active restrictions
-            //        //  such as parental controls being in place.
-            //        ALAuthorizationStatusDenied,            // User has explicitly denied this application access to photos data.
-            //        ALAuthorizationStatusAuthorized
-            
-            
-            
-            //            [self presentViewController:picker animated:YES completion:^{
-            //                //        NSLog(@" 显示 picker  的view");
-            //            }];
+            [self presentViewController:picker animated:YES completion:^{
+                //        NSLog(@" 显示 picker  的view");
+            }];
             
         }
     }
@@ -145,20 +171,20 @@
         
         
         
-        //        [self.navigationController presentViewController:picker animated:YES completion:^{
-        //            //        NSLog(@" 显示 picker  的view");
-        //        }];
+        [self.navigationController presentViewController:picker animated:YES completion:^{
+            //        NSLog(@" 显示 picker  的view");
+        }];
         
     }
     
     
-//    if (isPhoto) {
-//        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-//    }else{
-//        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
-//        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
-//        
-//    }
+    //    if (isPhoto) {
+    //        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    //    }else{
+    //        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    //        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+    //
+    //    }
     
     
     if (FromAlbum) {
@@ -196,10 +222,36 @@
 //    self.image.contentMode = UIViewContentModeScaleAspectFit;
 
     [self.icon setImage:image forState:0];
-    
+    self.image = image;
     
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [MBProgressHUD showHUDAddedTo:self.view animated:1];
         
+        [NetManager uploadHead:image block:^(NSArray *array, NSError *error, NSString *msg) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+            
+            if (array != nil) {
+                
+                [[GCDQueue mainQueue]queueBlock:^{
+                    
+                    NSString *STRING = [array firstObject];
+                    if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                    }
+                    
+                    
+                    //                    [self.navigationController popViewControllerAnimated:1];
+                    
+                    [UserObject sharedInstance].head = STRING;
+                    [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
+
+                }];
+                
+            }else{
+                [self showMsg:msg error:error];
+            }
+            
+        }];
     }];
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
@@ -213,17 +265,31 @@
 {
     if(indexPath.row == 0){
         if ([UserObject hadLog]     ) {
-            [self performSegueWithIdentifier:@"InfoSeg" sender:nil];
+//            [self performSegueWithIdentifier:@"InfoSeg" sender:nil];
 
+            [self btnAct:self.editInfoBtn];
+            
         }else{
             [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
                 if (buttonIndex==1) {
                     
-                    [self performSegueWithIdentifier:@"loginSeg" sender:nil];
+//                    [self performSegueWithIdentifier:@"loginSeg" sender:nil];
+                    [self login:nil];
                     
                 }
             }];
         }
+    }
+    else if (indexPath.row == 1){
+        HelpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"bangzhuvc"];
+    
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }else if (indexPath.row == 2){
+        AboutViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"guanyuvc"];
+   
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
     }else if (indexPath.row == 3){
         [UIAlertView showWithTitle:@"" message:@"去掉此功能?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             
@@ -249,12 +315,70 @@
 //
     self.view.backgroundColor = RGB(236, 236, 236);
     
+    
     [self dealView];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin object:nil] subscribeNext:^(id x) {
         [self dealView];
 
     }];
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:HeadImageChandedNoti object:nil] subscribeNext:^(id x) {
+        NSNotification *noti = x;
+        NSDictionary *info = noti.userInfo;
+        UIImage *image = info[@"image"];
+        _image = image;
+        
+        [self dealView];
+        
+    }];
     
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:UseriNFOChandedNoti object:nil] subscribeNext:^(id x) {
+        NSNotification *noti = x;
+        NSDictionary *info = noti.userInfo;
+        
+        UserObject *OBJ = info[@"info"];
+        
+        [MBProgressHUD showHUDAddedTo:self.view animated:1];
+        [NetManager getUserInfoblock:^(NSArray *array, NSError *error, NSString *msg) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+            
+            if (array != nil) {
+                UserObject *OBJ1 = [array firstObject];
+                if (OBJ1) {
+                    [UserObject setDataFrom:OBJ1];
+                }
+                
+                [[GCDQueue mainQueue]queueBlock:^{
+                    
+                    NSString *STRING = [array firstObject];
+                    if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                    }
+                    
+                    
+                }];
+                
+            }else{
+                [self showMsg:msg error:error];
+                
+                
+            }
+
+        }];
+        
+    }];
+}
+-(void)showMsg:(NSString*)msg error:(NSError*)error{
+    if(msg){
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:msg];;
+//        [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+        
+    }else{
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:   error.localizedDescription];;
+
+     
+//        [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+        
+    }
 }
 
 #if USENormalPush
@@ -275,6 +399,10 @@
 //        [self.navigationController pushViewController:vc animated:1];
 //        
 //    }
+    
+    
+    
+    
 }
 /*
 #pragma mark - Navigation
