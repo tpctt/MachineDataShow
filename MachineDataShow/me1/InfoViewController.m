@@ -315,18 +315,9 @@
             
         } else{
             
-            //        ALAuthorizationStatusNotDetermined = 0, // User has not yet made a choice with regards to this application
-            //        ALAuthorizationStatusRestricted,        // This application is not authorized to access photo data.
-            //        // The user cannot change this application’s status, possibly due to active restrictions
-            //        //  such as parental controls being in place.
-            //        ALAuthorizationStatusDenied,            // User has explicitly denied this application access to photos data.
-            //        ALAuthorizationStatusAuthorized
-            
-            
-            
-            //            [self presentViewController:picker animated:YES completion:^{
-            //                //        NSLog(@" 显示 picker  的view");
-            //            }];
+            [self presentViewController:picker animated:YES completion:^{
+                //        NSLog(@" 显示 picker  的view");
+            }];
             
         }
     }
@@ -336,9 +327,9 @@
         
         
         
-        //        [self.navigationController presentViewController:picker animated:YES completion:^{
-        //            //        NSLog(@" 显示 picker  的view");
-        //        }];
+        [self.navigationController presentViewController:picker animated:YES completion:^{
+            //        NSLog(@" 显示 picker  的view");
+        }];
         
     }
     
@@ -390,6 +381,31 @@
     self.image = image;
     
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
+
+        [MBProgressHUD showHUDAddedTo:self.view animated:1];
+
+        [NetManager uploadHead:image block:^(NSArray *array, NSError *error, NSString *msg) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+            
+            if (array != nil) {
+                
+                [[GCDQueue mainQueue]queueBlock:^{
+                    
+                    NSString *STRING = [array firstObject];
+                    if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                    }
+                    
+//                    [self.navigationController popViewControllerAnimated:1];
+                    
+                }];
+                
+            }else{
+                [self showMsg:msg error:error];
+            }
+
+        }];
+        
         
     }];
 }

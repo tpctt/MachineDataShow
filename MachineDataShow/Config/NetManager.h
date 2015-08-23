@@ -49,6 +49,8 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                           sex:(int)sex
 
                                         block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
+                                block:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)setEquipmentRepairID:(NSString*)equipmentId
                                        contact:(NSString*)contact

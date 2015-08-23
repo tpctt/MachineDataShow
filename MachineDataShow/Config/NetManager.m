@@ -17,6 +17,60 @@
 #define AppHostAddress @"http://banzi7.vicp.net:28535/"
 
 @implementation NetManager
++(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
+                               block:(HotKeyBlock)block
+{
+    NSString *PATH = @"uploadHead.php";
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        NSData *data = UIImageJPEGRepresentation(image, 0.5);
+        [formData appendPartWithFileData:data name:@"head" fileName:[@"head" stringByAppendingString:@".jpg"] mimeType:@"image/jpg"];
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
+        if (state == 1  ) {
+            NSString *string = [jsonObject stringAtPath:@"response/text"];
+            if (!string) {
+                string=@"";
+            }
+            
+            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
+            
+            
+        }else{
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
 +(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block{
     NSString *PATH = @"getUserInfo.php";
     
