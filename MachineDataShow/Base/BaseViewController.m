@@ -135,7 +135,7 @@
 //    [LoginObject save];
     
     [[GCDQueue mainQueue] queueBlock:^{
-        [self.navigationController popToViewController:self animated:YES];
+//        [self.navigationController popToViewController:self animated:YES];
     }];
 }
 

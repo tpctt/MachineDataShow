@@ -112,11 +112,12 @@
         
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"Response"]];
+            NSString *string = [jsonObject stringAtPath:@"response/text"];
+            if (!string) {
+                string=@"";
+            }
             
-            
-            
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
+            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
             
             
         }else{
@@ -239,8 +240,10 @@
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"Response"]];
-            NSString *string = @"";
-            
+            NSString *string = [jsonObject stringAtPath:@"response/text"];
+            if (!string) {
+                string=@"";
+            }
             
             block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
             

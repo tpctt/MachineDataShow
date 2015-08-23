@@ -17,7 +17,17 @@
 @end
 
 @implementation ApplyFixViewController
-
+-(void)handleActionMsg:(Request *)msg
+{
+    [super handleActionMsg:msg];
+    if (msg.state ==    SuccessState   ||
+        msg.state ==   FailState   ) {
+        
+        [self.mytable.footer endRefreshing];
+        [self.mytable.header endRefreshing];
+        
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

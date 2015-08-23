@@ -80,12 +80,12 @@
 - (IBAction)btnAct:(id)sender {
 }
 - (IBAction)logout:(id)sender {
-    [LoginObject sharedInstance].username = nil;
-    [LoginObject sharedInstance].session_token = nil;
+    [UserObject sharedInstance].uid = nil;
     
     
     [self dealView];
-
+    
+    
 }
 - (IBAction)login:(id)sender {
 }

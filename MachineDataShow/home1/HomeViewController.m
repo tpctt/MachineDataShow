@@ -41,6 +41,9 @@
         
     }
     else{
+        TOWebViewController *WEB = [[TOWebViewController  alloc]initWithURLString:@"HTTP://www.baidu.com"];
+        [self.tabBarController.navigationController pushViewController:WEB animated:1];
+        return;
         [UIAlertView showWithTitle:@"" message:@"模块正在开发,敬请期待!" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
 
            

@@ -10,4 +10,16 @@
 
 @interface InfoViewController : BaseViewController
 
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImage;
+
+
+@property (weak, nonatomic) IBOutlet UIView *loginView;
+@property (weak, nonatomic) IBOutlet UIButton *icon;
+@property (weak, nonatomic) IBOutlet UIButton *editInfoBtn;
+@property (weak, nonatomic) IBOutlet UIButton *p;
+
+@property (weak, nonatomic) IBOutlet UILabel *phone;
+
+
 @end

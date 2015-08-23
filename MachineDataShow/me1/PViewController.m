@@ -19,6 +19,7 @@
 - (IBAction)btnAct:(id)sender {
     if ([self checkPwd]==NO) {
         [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
+        return;
     }
     
     [MBProgressHUD showHUDAddedTo:self.view animated:1];
@@ -28,7 +29,15 @@
         [MBProgressHUD hideAllHUDsForView:self.view animated:1];
         
         if (array != nil) {
+            
             [[GCDQueue mainQueue]queueBlock:^{
+                NSString *STRING = [array firstObject];
+                if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                    [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                }
+                [[NSUserDefaults standardUserDefaults]setObject:self.p1.text forKey:@"pwd"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+                
                 [self.navigationController popViewControllerAnimated:1];
                 
             }];
@@ -58,6 +67,13 @@
                                   reduce:^(NSString *name, NSString *pwd ){
                                       return @(name.length > 0 && pwd.length > 0  );
                                   }];
+    [self.sure setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
+    self.p1.secureTextEntry = 1;
+    self.p2.secureTextEntry = 1;
+    self.p1.clearsOnBeginEditing=1;
+    self.p2.clearsOnBeginEditing=1;
+    self.p1.clearButtonMode=UITextFieldViewModeWhileEditing;
+    self.p2.clearButtonMode=UITextFieldViewModeWhileEditing;
     
 }
 

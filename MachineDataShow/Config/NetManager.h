@@ -39,6 +39,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 +(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block;
+///￼性别(0-保密、1-男、2-女)
 +(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
                                   companyName:(NSString*)companyName
                                          duty:(NSString*)duty
