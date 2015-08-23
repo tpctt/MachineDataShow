@@ -58,8 +58,8 @@
          //         NSDictionary *dict =  self.request.output  ;
          
          NSArray* list  =  [[MyFixingObject objectArrayWithKeyValuesArray:dict[@"dataList"] error:&error]mutableCopy ] ;
-         NSInteger totalPage = [dict[@"total_page"] integerValue];
-         totalPage  =10;
+         NSInteger totalPage = [dict[@"totalPage"] integerValue];
+        
          
          [self getArray:list totalPage:totalPage];
          
