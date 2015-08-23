@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TabbarViewController.h"
 
-#define AppHostAddress @"http://banzi7.vicp.net:28535"
+#define AppHostAddress @"http://45.56.122.170:8100"
 #define USENormalPush 1
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>

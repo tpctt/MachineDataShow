@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
+		22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */; };
 		22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B581B7F421700A3C9BA /* AboutViewController.m */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
@@ -137,6 +138,7 @@
 		22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFixViewController.m; sourceTree = "<group>"; };
 		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
 		22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixProgressViewController.m; sourceTree = "<group>"; };
+		22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V2.0.pdf"; sourceTree = "<group>"; };
 		22435B571B7F421700A3C9BA /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		22435B581B7F421700A3C9BA /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 			children = (
 				7A75622B1B7C8E3F00BA2B69 /* 需求.doc */,
 				2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */,
+				22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */,
 				7A2464D71B7C2A34007FD1D4 /* AppDelegate.h */,
 				7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */,
 				7A2464DA1B7C2A34007FD1D4 /* ViewController.h */,
@@ -756,6 +759,7 @@
 				7A7561DE1B7C5F9900BA2B69 /* fix_green@2x.png in Resources */,
 				7A7562241B7C773400BA2B69 /* Banner_3.jpg in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,
+				22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */,
 				22EF7FD11B7F7F1F000F02DA /* guanyu in Resources */,
 				22EF7FDC1B7FAB4F000F02DA /* 联系我们.html in Resources */,
 				7A7561861B7C4BB500BA2B69 /* 64@2x.png in Resources */,
