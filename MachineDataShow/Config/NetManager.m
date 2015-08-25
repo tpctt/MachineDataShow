@@ -14,7 +14,6 @@
 
 #import "FixProgressViewController.h"
 
-#define AppHostAddress @"http://banzi7.vicp.net:28535/"
 
 @implementation NetManager
 +(AFHTTPRequestOperation*)uploadHead:(UIImage *)image

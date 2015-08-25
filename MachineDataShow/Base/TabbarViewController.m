@@ -131,7 +131,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     if (self.navigationController) {
-        [self.navigationController setNavigationBarHidden:YES animated:animated];
+        [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
 //    [self setTabBarHidden:NO animated:1];
     
@@ -139,7 +139,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     if (self.navigationController) {
-        [self.navigationController setNavigationBarHidden:NO animated:animated];
+        [self.navigationController setNavigationBarHidden:NO animated:NO];
     }
 //    [self setTabBarHidden:1 animated:1];
     

@@ -10,6 +10,7 @@
 #import "BaseObject.h"
 #import "LoginObject.h"
 
+#define FirstPageNum 1
 ///////////////BaseListObjectRequest////////////////////
 @implementation BaseListObjectRequest
 
@@ -17,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        self.page = 1;
+        self.page = FirstPageNum ;
         
     }
     return self;
@@ -36,7 +37,7 @@
     self.page++;
 }
 -(void)initPage{
-    self.page=0;
+    self.page = FirstPageNum;
 }
 
 
@@ -123,9 +124,13 @@ DEF_SINGLETON(BaseObjectRequest)
 }
 -(void)loadNextPage
 {
-    [self.request pageAdd];
-    self.request.requestNeedActive = YES;
-
+    if(self.hadNextPage){
+        [self.request pageAdd];
+        self.request.requestNeedActive = YES;
+    }else{
+        self.currestList = nil;
+        
+    }
 }
 -(void)loadFirstPage;
 {
@@ -136,7 +141,7 @@ DEF_SINGLETON(BaseObjectRequest)
 }
 -(void)getArray:(NSArray*)list totalPage:(NSInteger)totalPage
 {
-    self.hadNextPage = self.request.page<totalPage;
+    self.hadNextPage = totalPage > self.request.page ;
     
     if (self.request.page == 1) {
         [self.allDataArray removeAllObjects];

@@ -124,28 +124,30 @@
     self.mytable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.vm loadFirstPage ];
     }];
-    self.mytable.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+    self.mytable.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self.vm loadNextPage];
     }];
     
     @weakify(self);
     [[RACObserve(self.vm, currestList)
       filter:^BOOL(NSArray *value) {
-          return value!=nil;
+          return  value!=nil;
       }]
      subscribeNext:^(NSArray *value) {
          @strongify(self);
          
-         [self.mytable reloadData];
-         [self.mytable.header endRefreshing ];
-         [self.mytable.footer endRefreshing ];
-         
-         if (self.vm.hadNextPage == NO) {
-             [self.mtable.footer noticeNoMoreData];
-         }else{
-             [self.mtable.footer resetNoMoreData];
-
-         }
+         [[GCDQueue mainQueue]queueBlock:^{
+             [self.mytable reloadData];
+             [self.mytable.header endRefreshing ];
+             [self.mytable.footer endRefreshing ];
+             
+             if (self.vm.hadNextPage == NO) {
+                 [self.mytable.footer noticeNoMoreData];
+             }else{
+                 [self.mytable.footer resetNoMoreData];
+             }
+             
+         }];
          
          
       } ];

@@ -281,14 +281,27 @@ static MeViewController* shareApp;
         }
     }
     else if (indexPath.row == 1){
-        HelpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"bangzhuvc"];
-    
+        
+        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/Help.html"]];
+        vc.navigationButtonsHidden = YES;
+
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
+        
+//        HelpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"bangzhuvc"];
+//    
+//        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
     }else if (indexPath.row == 2){
-        AboutViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"guanyuvc"];
-   
+        
+        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/About.html"]];
+        vc.navigationButtonsHidden = YES;
+        
         [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+//        AboutViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"guanyuvc"];
+//   
+//        [self.tabBarController.navigationController pushViewController:vc animated:1];
         
     }else if (indexPath.row == 3){
         [UIAlertView showWithTitle:@"" message:@"去掉此功能?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
@@ -314,7 +327,7 @@ static MeViewController* shareApp;
 //    self.mytableview.dataSource = self;
 //
     self.view.backgroundColor = RGB(236, 236, 236);
-    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self dealView];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin object:nil] subscribeNext:^(id x) {

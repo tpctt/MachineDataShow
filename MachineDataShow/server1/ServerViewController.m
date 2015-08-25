@@ -33,9 +33,14 @@
        
     }
     if (indexPath.row ==  2) {
-        ContactUsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LXWM"];
+        
+        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/Lianxi.html"]];
+        vc.navigationButtonsHidden = YES;
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
+//        ContactUsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LXWM"];
+//        [self.tabBarController.navigationController pushViewController:vc animated:1];
+//        
         
     }
     [tableView deselectRowAtIndexPath:indexPath animated:1];
@@ -54,7 +59,8 @@
 #if USENormalPush
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
-    
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.view.backgroundColor = RGB(236, 236, 236);
     self.title = @"服务";
