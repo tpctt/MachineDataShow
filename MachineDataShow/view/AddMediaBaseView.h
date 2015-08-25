@@ -12,6 +12,7 @@
 @interface AddMediaBaseView : UIView
 
 @property (assign,nonatomic) SEL addSelecter;
+@property (strong,nonatomic) id tagert;
 
 -(void)addNewResoure:(id)resoure;
 

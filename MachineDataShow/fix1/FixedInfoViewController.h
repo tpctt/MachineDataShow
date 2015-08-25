@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "UIViewController+TakeImage.h"
 
 ///申请维修
 @interface FixedInfoViewController : BaseViewController

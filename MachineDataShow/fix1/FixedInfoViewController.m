@@ -9,6 +9,7 @@
 #import "FixedInfoViewController.h"
 #import "NetManager.h"
 #import "AddMediaBaseView.h"
+#import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
 
 @interface FixedInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
@@ -38,6 +39,60 @@
     
     [self config1];
     
+    [self.addimageBaseView setTagert:self];
+    [self.addimageBaseView setAddSelecter:@selector(showActsheet)];
+    
+}
+-(void)showActsheet
+{
+    [UIActionSheet showInView:self.view withTitle:@"选择上传的资源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"图片",@"录像",@"录音"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+       
+//        NSLog(@"%d-%@",buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
+        
+        if(buttonIndex == 0 ){
+            [UIActionSheet showInView:self.view withTitle:@"选择图片来源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"相机",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+            
+                if(buttonIndex == 0 ){
+                    [self takePhotoFromAlbum:NO isPhoto:YES withBlock:^(NSDictionary *info, UIImage *image) {
+                      
+                        [self.addimageBaseView addNewResoure:image];
+
+                    } withVC:self];
+                    
+                }else if(buttonIndex == 1 ){
+                    [self takePhotoFromAlbum:YES isPhoto:YES withBlock:^(NSDictionary *info, UIImage *image) {
+                        
+                        [self.addimageBaseView addNewResoure:image];
+
+                    } withVC:self];
+ 
+                }
+                
+            }];
+        }else if (buttonIndex == 1){
+            [UIActionSheet showInView:self.view withTitle:@"选择视频来源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"相机",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+
+                if(buttonIndex == 0 ){
+                    [self takePhotoFromAlbum:NO isPhoto:NO withBlock:^(NSDictionary *info, UIImage *image) {
+
+                        [self.addimageBaseView addNewResoure:image];
+
+                    } withVC:self];
+                }else if(buttonIndex == 1 ){
+                    [self takePhotoFromAlbum:YES isPhoto:NO withBlock:^(NSDictionary *info, UIImage *image) {
+                       
+                        [self.addimageBaseView addNewResoure:image];
+
+                    } withVC:self];
+                }
+                 
+            }];
+        }else if (buttonIndex == 2){
+            ///录音
+            
+        }
+        
+    }];
 }
 -(void)config1
 {
