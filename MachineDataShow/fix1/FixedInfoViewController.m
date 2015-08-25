@@ -10,6 +10,8 @@
 #import "NetManager.h"
 #import "AddMediaBaseView.h"
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+
 
 @interface FixedInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
@@ -48,7 +50,8 @@
     [UIActionSheet showInView:self.view withTitle:@"选择上传的资源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"图片",@"录像",@"录音"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
        
 //        NSLog(@"%d-%@",buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
-        
+
+        UIViewController *withvc = self;
         if(buttonIndex == 0 ){
             [UIActionSheet showInView:self.view withTitle:@"选择图片来源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"相机",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
             
@@ -57,14 +60,14 @@
                       
                         [self.addimageBaseView addNewResoure:image];
 
-                    } withVC:self];
+                    } withVC:withvc];
                     
                 }else if(buttonIndex == 1 ){
                     [self takePhotoFromAlbum:YES isPhoto:YES withBlock:^(NSDictionary *info, UIImage *image) {
                         
                         [self.addimageBaseView addNewResoure:image];
 
-                    } withVC:self];
+                    } withVC:withvc];
  
                 }
                 
@@ -77,13 +80,13 @@
 
                         [self.addimageBaseView addNewResoure:image];
 
-                    } withVC:self];
+                    } withVC:withvc];
                 }else if(buttonIndex == 1 ){
                     [self takePhotoFromAlbum:YES isPhoto:NO withBlock:^(NSDictionary *info, UIImage *image) {
                        
                         [self.addimageBaseView addNewResoure:image];
 
-                    } withVC:self];
+                    } withVC:withvc];
                 }
                  
             }];
@@ -165,7 +168,114 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto withBlock:(TakeImageBlock)withBlock withVC:(UIViewController*)withVC{
+//    self.block1 = withBlock;
+//    self.withVC = withVC;
+    
+    [self takePhotoFromAlbum:FromAlbum isPhoto:isPhoto  ];
+    
+}
 
+
+///相册/相机 视频、照片
+- (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto
+{
+    //    [self takePhotoAndVideoWithIndex: 2 ];
+    
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = 1 ;
+    picker.mediaTypes = [NSArray arrayWithObjects:@"public.image", nil];
+    
+    
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0) {
+        ALAuthorizationStatus author = [ALAssetsLibrary authorizationStatus];
+        
+        if ( author == ALAuthorizationStatusDenied)
+        {
+            //        NSLog(@"设备不支持 相册");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"软件没有使用相册的权限,请在设置->隐私->相册中开启权限" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil ];
+            [alert show];
+            return;
+            
+        } else{
+            
+            [self.withVC presentViewController:picker animated:YES completion:^{
+                //        NSLog(@" 显示 picker  的view");
+            }];
+            
+        }
+    }
+    
+    else{
+        
+        
+        
+        
+        [self.withVC presentViewController:picker animated:YES completion:^{
+            //        NSLog(@" 显示 picker  的view");
+        }];
+        
+    }
+    
+    
+    //    if (isPhoto) {
+    //        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+    //    }else{
+    //        picker.cameraCaptureMode = UIImagePickerControllerCameraCaptureModeVideo;
+    //        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
+    //
+    //    }
+    
+    
+    if (FromAlbum) {
+        if ( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+            picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            
+        }else if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeSavedPhotosAlbum ]){
+            picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"软件没有使用相册的权限,请在设置->隐私->相册中开启权限" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil ];
+            [alert show];
+            return;
+        }
+    }else{
+        if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera ]){
+            picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"软件没有使用相机的权限,请在设置->隐私->相机中开启权限" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil ];
+            [alert show];
+            return;
+        }
+    }
+    
+    [self.withVC  presentViewController:picker animated:YES completion:^{
+        //   NSLog(@" 显示 picker  的view");
+        
+        
+    }];
+    
+}
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image =  info[UIImagePickerControllerOriginalImage];;
+    //    self.image.image = image;
+    //    self.image.contentMode = UIViewContentModeScaleAspectFit;
+    if(self.block1)
+        self.block1(info,image);
+    
+    
+//    [self imagePickerControllerDidCancel:picker];
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+//    [self.withVC dismissViewControllerAnimated:YES completion:^{
+//        
+//    }];
+    
+}
 /*
 #pragma mark - Navigation
 

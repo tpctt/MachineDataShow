@@ -13,7 +13,7 @@ typedef void(^TakeImageBlock)(NSDictionary *info,UIImage *image);
 
 @interface UIViewController (TakeImage)<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
-@property (nonatomic,copy) TakeImageBlock blcok1;
+@property (nonatomic,copy) TakeImageBlock block1;
 @property (strong,nonatomic) UIViewController *withVC;
 
 - (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto withBlock:(TakeImageBlock)withBlock withVC:(UIViewController*)withVC;

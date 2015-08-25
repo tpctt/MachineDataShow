@@ -8,24 +8,21 @@
 
 #import "UIViewController+TakeImage.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+ 
 
 @implementation UIViewController (TakeImage)
 
 - (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto withBlock:(TakeImageBlock)withBlock withVC:(UIViewController*)withVC{
-//    self.blcok1 = withBlock;
-//    self.withVC = withVC;
+    self.block1 = withBlock;
+    self.withVC = withVC;
     
-    [self takePhotoFromAlbum:FromAlbum isPhoto:isPhoto  ];
+     [self takePhotoFromAlbum:FromAlbum isPhoto:isPhoto  ];
     
 }
-//-(void)setBlcok1:(TakeImageBlock)blcok1
-//{
-//    _blcok1 = nil;
-//    _blcok1 = [blcok1 copy];
-//    
-//}
+
+
 ///相册/相机 视频、照片
-- (IBAction)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto
+- (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto
 {
     //    [self takePhotoAndVideoWithIndex: 2 ];
     
@@ -49,7 +46,7 @@
             
         } else{
             
-            [self.withVC presentViewController:picker animated:YES completion:^{
+            [self presentViewController:picker animated:YES completion:^{
                 //        NSLog(@" 显示 picker  的view");
             }];
             
@@ -61,7 +58,7 @@
         
         
         
-        [self.withVC presentViewController:picker animated:YES completion:^{
+        [self presentViewController:picker animated:YES completion:^{
             //        NSLog(@" 显示 picker  的view");
         }];
         
@@ -98,7 +95,7 @@
         }
     }
     
-    [self.withVC  presentViewController:picker animated:YES completion:^{
+    [self  presentViewController:picker animated:YES completion:^{
         //   NSLog(@" 显示 picker  的view");
         
         
@@ -110,15 +107,15 @@
     UIImage *image =  info[UIImagePickerControllerOriginalImage];;
     //    self.image.image = image;
     //    self.image.contentMode = UIViewContentModeScaleAspectFit;
-    if(self.blcok1)
-        self.blcok1(info,image);
+    if(self.block1)
+        self.block1(info,image);
     
     
     [self imagePickerControllerDidCancel:picker];
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self.withVC dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
         
     }];
     

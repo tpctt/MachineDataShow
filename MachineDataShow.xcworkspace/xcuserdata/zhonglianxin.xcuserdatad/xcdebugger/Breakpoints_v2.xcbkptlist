@@ -13,5 +13,213 @@
             stopOnStyle = "0">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/UIViewController+TakeImage.m"
+            timestampString = "462189620.129472"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-takePhotoFromAlbum:isPhoto:withBlock:withVC:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "462190283.56179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-showActsheet"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.822084"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "607">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke51"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.82226"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "51">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "462190570.005101"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-showActsheet"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke_2"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.824002"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "317">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke39"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.824492"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "462190283.56179"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-showActsheet"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke_2"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.826575"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "105">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke_3"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.827239"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "67">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "462190586.402301"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-showActsheet"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.830656"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[FixedInfoViewController showActsheet]_block_invoke_2"
+                  moduleName = "MachineDataShow"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
+                  timestampString = "462190605.831571"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "51">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
