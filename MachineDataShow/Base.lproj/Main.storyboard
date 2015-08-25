@@ -475,7 +475,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-Xk-f4a">
-                                <rect key="frame" x="16" y="304" width="136" height="34"/>
+                                <rect key="frame" x="16" y="378" width="136" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1yN-5R-SYn"/>
                                 </constraints>
@@ -497,7 +497,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-oN-kja">
-                                <rect key="frame" x="168" y="304" width="136" height="34"/>
+                                <rect key="frame" x="168" y="378" width="136" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="j3H-70-Kf7"/>
                                 </constraints>
@@ -510,7 +510,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-Tb-xG8">
-                                <rect key="frame" x="16" y="354" width="288" height="34"/>
+                                <rect key="frame" x="16" y="428" width="288" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="RnK-kt-Mfo"/>
                                 </constraints>
@@ -522,26 +522,36 @@
                                     <action selector="commitAct:" destination="5eH-4y-KrT" eventType="touchUpInside" id="E5p-sW-O80"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kO0-XX-Fms" customClass="AddMediaBaseView">
+                                <rect key="frame" x="16" y="296" width="288" height="70"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="x6V-Zu-31y"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="hvR-so-G6i" secondAttribute="trailing" constant="16" id="5mS-YD-hxi"/>
                             <constraint firstAttribute="trailing" secondItem="EPk-R8-8yX" secondAttribute="trailing" id="6rU-HI-F5h"/>
+                            <constraint firstItem="kO0-XX-Fms" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leadingMargin" id="A8s-NZ-BN3"/>
                             <constraint firstItem="EPk-R8-8yX" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leading" id="BG5-bg-Qee"/>
+                            <constraint firstItem="kO0-XX-Fms" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="8" id="Bd0-Km-6R7"/>
                             <constraint firstAttribute="trailing" secondItem="R5z-Tg-Yfs" secondAttribute="trailing" constant="16" id="CKf-Xc-Avu"/>
                             <constraint firstItem="R5z-Tg-Yfs" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leading" constant="16" id="FcB-Gq-e7o"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NA6-oN-kja" secondAttribute="trailing" id="Fq3-ff-x2Z"/>
                             <constraint firstItem="D3D-mp-3tv" firstAttribute="top" secondItem="hvR-so-G6i" secondAttribute="bottom" constant="8" id="GRf-Xw-KOn"/>
                             <constraint firstItem="O2z-Xk-f4a" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leadingMargin" id="Mv2-Yk-DKw"/>
-                            <constraint firstItem="O2z-Xk-f4a" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="16" id="PWI-8w-1ul"/>
                             <constraint firstItem="rtY-Tb-xG8" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leading" constant="16" id="PZz-Kd-HiC"/>
                             <constraint firstItem="D3D-mp-3tv" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leadingMargin" id="VmH-kt-qdl"/>
                             <constraint firstItem="R5z-Tg-Yfs" firstAttribute="top" secondItem="EPk-R8-8yX" secondAttribute="bottom" constant="8" id="Y1K-le-ZHJ"/>
                             <constraint firstItem="rtY-Tb-xG8" firstAttribute="top" secondItem="NA6-oN-kja" secondAttribute="bottom" constant="16" id="Yer-YD-7Iq"/>
                             <constraint firstItem="hvR-so-G6i" firstAttribute="leading" secondItem="QGf-y1-Jc3" secondAttribute="leading" constant="16" id="YzP-Ro-zwy"/>
+                            <constraint firstItem="kO0-XX-Fms" firstAttribute="trailing" secondItem="QGf-y1-Jc3" secondAttribute="trailingMargin" id="emT-DP-XDw"/>
+                            <constraint firstItem="O2z-Xk-f4a" firstAttribute="centerY" secondItem="NA6-oN-kja" secondAttribute="centerY" id="hMy-qt-qHh"/>
                             <constraint firstItem="NA6-oN-kja" firstAttribute="width" secondItem="O2z-Xk-f4a" secondAttribute="width" id="hhe-Vd-n7Q"/>
                             <constraint firstItem="EPk-R8-8yX" firstAttribute="top" secondItem="MnX-fu-VGM" secondAttribute="bottom" id="m17-l5-aNz"/>
-                            <constraint firstItem="NA6-oN-kja" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="16" id="qFv-c1-eDW"/>
+                            <constraint firstItem="NA6-oN-kja" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="90" id="qFv-c1-eDW"/>
                             <constraint firstAttribute="trailing" secondItem="rtY-Tb-xG8" secondAttribute="trailing" constant="16" id="qOE-UK-7Qg"/>
                             <constraint firstItem="NA6-oN-kja" firstAttribute="leading" secondItem="O2z-Xk-f4a" secondAttribute="trailing" constant="16" id="qtP-JQ-Dda"/>
                             <constraint firstItem="hvR-so-G6i" firstAttribute="top" secondItem="R5z-Tg-Yfs" secondAttribute="bottom" constant="8" id="qzY-4D-mhf"/>
@@ -553,6 +563,7 @@
                         <outlet property="MODEL" destination="8Ly-24-Omr" id="1oo-8u-2MG"/>
                         <outlet property="SN" destination="teO-XC-XFg" id="yRQ-Xe-FQc"/>
                         <outlet property="TOPvIEW" destination="EPk-R8-8yX" id="HbB-Xw-21o"/>
+                        <outlet property="addimageBaseView" destination="kO0-XX-Fms" id="qtn-uw-GOB"/>
                         <outlet property="commit" destination="rtY-Tb-xG8" id="D5I-zR-zU4"/>
                         <outlet property="name" destination="R5z-Tg-Yfs" id="Hgc-0x-nKW"/>
                         <outlet property="phone" destination="hvR-so-G6i" id="EeI-Mj-rJn"/>
@@ -563,7 +574,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVB-eT-IuG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="433" y="-136"/>
+            <point key="canvasLocation" x="884" y="-523"/>
         </scene>
         <!--Tabbar View Controller2-->
         <scene sceneID="Y4y-bz-UEr">
@@ -1174,7 +1185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vlf-1w-JrB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="475" y="-378"/>
+            <point key="canvasLocation" x="523" y="-891"/>
         </scene>
         <!--登陆-->
         <scene sceneID="ERE-xf-XCD">
@@ -1842,6 +1853,6 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
         <image name="vip_gray.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cpt-bn-rmP"/>
+        <segue reference="Ffs-Rt-btG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import "FixedInfoViewController.h"
 #import "NetManager.h"
+#import "AddMediaBaseView.h"
 
 @interface FixedInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
@@ -21,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *takeVideo;
 
 @property (weak, nonatomic) IBOutlet UIButton *commit;
+
+
+@property (weak, nonatomic) IBOutlet AddMediaBaseView *addimageBaseView;
 
 @end
 
