@@ -19,4 +19,18 @@
 @property (strong, nonatomic)   NSString *phone;
 @property (strong, nonatomic)   NSString *process;
 
+//@property (strong, nonatomic)   NSString *flag;
+//@property (strong, nonatomic)   NSString *lastUpdateTime;
+//@property (strong, nonatomic)   NSArray  *dataList;
+
+@end
+
+/// 工程师的信息
+@interface GCSInfo :BaseObject
+@property (strong, nonatomic)   NSString *completetime;
+@property (strong, nonatomic)   NSString *head;
+@property (strong, nonatomic)   NSString *name;
+@property (strong, nonatomic)   NSString *no;
+@property (strong, nonatomic)   NSString *tele;
+
 @end

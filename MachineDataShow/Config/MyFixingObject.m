@@ -39,7 +39,7 @@
     [super loadSceneModel];
     
     @weakify(self);
-    self.request  = [DeviceObjectRequest RequestWithBlock:^{
+    self.request  = [MyFixingObjectRequest RequestWithBlock:^{
         @strongify(self);
         [self SEND_IQ_ACTION:self.request];
         

@@ -396,7 +396,9 @@
         if (state == 1  ) {
             FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject];
  
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
+            NSArray *array = [FixedProgressInfo keyValuesArrayWithObjectArray:[jsonObject arrayAtPath:@"response/dataList"]];
+            
+            block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
 
 
         }else{

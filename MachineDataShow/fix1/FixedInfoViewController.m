@@ -66,7 +66,7 @@
             
             [[GCDQueue mainQueue]queueBlock:^{
                 [self.navigationController popViewControllerAnimated:1];
-
+                
             }];
             
 

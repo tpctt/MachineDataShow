@@ -173,7 +173,9 @@
       
      subscribeNext:^(id x) {
          cell.b.enabled=0;
-         ApplyFixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"XBBXVC"];
+         FixedInfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"XBBXVC"];
+         vc.o = o;
+         
          [self.tabBarController.navigationController pushViewController:vc animated:1];
          cell.b.enabled=1;
          

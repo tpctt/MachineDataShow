@@ -45,11 +45,11 @@
 
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager getFixedProgressInfo:_o block:^(NSArray *array, NSError *error, NSString *msg) {
+    [NetManager getFixedProgressInfo:_o.id block:^(NSArray *array, NSError *error, NSString *msg) {
         _fixedProgressInfo = [array safeObjectAtIndex:0];
         
         [self config2];
-
+        
         sleep(2);
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:1 ];
@@ -60,7 +60,7 @@
 -(void)config1
 {
     
-//    self.modeL.text = [NSString stringWithFormat:@"设备型号:%@",self.o.model];
+//    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mo];
     self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
 }

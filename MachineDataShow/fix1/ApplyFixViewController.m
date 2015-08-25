@@ -10,7 +10,7 @@
 #import "FixProgressViewController.h"
 #import "MyFixingObject.h"
 
-@interface ApplyFixViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ApplyFixViewController ()<UITableViewDataSource,UITableViewDelegate,ActionDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
 @property (strong, nonatomic)   MyFixingObjectSceneModel *vm;
 
@@ -95,7 +95,7 @@
     }
     MyFixingObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
 
-    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.name,o.serial];
+    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.equipmentName,o.serial];
 //    [o.name stringByAppendingString:o.serial];
     return CELL;
     
@@ -104,6 +104,7 @@
 {
     MyFixingObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
     [self performSegueWithIdentifier:@"Weixiujintu" sender:o];
+    [tableView deselectRowAtIndexPath:indexPath animated:1];
     
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -114,10 +115,10 @@
 //        
 //    }else
         if ([segue.identifier isEqualToString:@"Weixiujintu"]) {
-        FixProgressViewController *VC = segue.destinationViewController;
-        VC.o = sender;
+            FixProgressViewController *VC = segue.destinationViewController;
+            VC.o = sender;
         
-    }
+        }
 }
 
 
