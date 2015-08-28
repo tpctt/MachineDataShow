@@ -8,7 +8,7 @@
 
 #import "AddMediaBaseView.h"
 
-static CGFloat delt = 5;
+static CGFloat delt = 10;
 static NSArray *audio = nil;
 
 @protocol ButtonWithDelDelegate <NSObject>
@@ -41,6 +41,14 @@ static NSArray *audio = nil;
     
     return NO;
 }
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
 -(void)commonInit
 {
     self.btn = [[UIButton alloc]initWithFrame:[self getBtnRect]];
@@ -51,6 +59,8 @@ static NSArray *audio = nil;
     
     [self.btn addTarget:self action:@selector(btnAct:) forControlEvents:UIControlEventTouchUpInside];
     [self.delBtn addTarget:self action:@selector(delbtnAct:) forControlEvents:UIControlEventTouchUpInside];
+    [self.delBtn setTitle:@"x" forState:0];
+    [self.delBtn setTitleColor:[UIColor redColor] forState:0];
     
     
 }
@@ -59,10 +69,10 @@ static NSArray *audio = nil;
     if (_resoure != resoure) {
         _resoure = resoure;
         
-    
         UIButton *btn = self.btn;
         if([resoure isKindOfClass:[UIImage class]]){
             [btn setImage:(UIImage*)resoure forState:0];
+            
         }else if([resoure isKindOfClass:[NSString class]]){
             NSString *path = (NSString *)resoure;
             
@@ -101,7 +111,7 @@ static NSArray *audio = nil;
 -(CGRect)getDelBtnRect
 {
     CGFloat h = self.frame.size.height - 2* delt;
-    return CGRectMake(delt, delt, h, h);
+    return CGRectMake(h, 0, 2*delt, 2*delt);
     return CGRectZero;
 }
 @end
@@ -130,19 +140,22 @@ static NSArray *audio = nil;
 {
     CGRect rect = [self getBtnRect];
     CGFloat h = rect.size.height;
-    CGFloat x = (index +1 ) * delt + index * rect.size.width;
+    CGFloat x = (index*2 +1 ) * delt + index * rect.size.width;
     
     return CGRectMake(x, delt, h, h);
     return CGRectZero;
 }
 -(CGRect)getBtnRectForButtonWithDelAt:(NSInteger)index
 {
-    CGRect rect = [self getBtnRect];
-    CGFloat h = rect.size.height;
-    CGFloat x = (index +1 ) * delt + index * rect.size.width;
+    CGFloat w = self.frame.size.height;
+    return CGRectMake(index * w, 0, w, w );
     
-    return CGRectMake(x-delt, 0, h+delt, h+delt);
-    return CGRectZero;
+//    CGRect rect = [self getBtnRect];
+//    CGFloat h = rect.size.height;
+//    CGFloat x = (index +1 ) * delt + index * rect.size.width;
+//    
+//    return CGRectMake(x-delt, 0, h+delt, h+delt);
+//    return CGRectZero;
 }
 
 -(UIButton*)addBtnAt:(NSInteger)Index
@@ -158,6 +171,7 @@ static NSArray *audio = nil;
 -(void)addNewResoure:(id)resoure
 {
     if(resoure==nil)return;
+    
     ButtonWithDel *view = [[ButtonWithDel alloc]initWithFrame:[self getBtnRectForButtonWithDelAt:self.subBtnArray.count]];
     [view setResoure:resoure];
     view.delegate = self;
@@ -171,14 +185,18 @@ static NSArray *audio = nil;
     self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
     self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
     
+    
 }
 ///删除一个i
 -(void)tapDelFor:(NSInteger)index
 {
+    ButtonWithDel *view  = self.subBtnArray[index];
+    [view removeFromSuperview];
+    
     [self.subBtnArray removeObjectAtIndex:index];
     [self.resoureArray removeObjectAtIndex:index];
     
-    for(NSInteger i = index; i<self.subBtnArray.count; i++)
+    for(NSInteger i = 0; i<self.subBtnArray.count; i++)
     {
         ///重新布局
         ButtonWithDel *view  = self.subBtnArray[i];
@@ -193,6 +211,7 @@ static NSArray *audio = nil;
 
 -(void)commonInit
 {
+    if (self.scrollView)return;
     self.scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
     [self addSubview:self.scrollView];
     
@@ -201,8 +220,10 @@ static NSArray *audio = nil;
     
     self.addBtn = [self addBtnAt:0  ];
     [self.addBtn addTarget:self action:self.addSelecter forControlEvents:UIControlEventTouchUpInside];
-    [self.addBtn setTitle:@"add" forState:0];
+    [self.addBtn setTitle:@"+" forState:0];
     [self.addBtn setTitleColor:[UIColor blackColor] forState:0];
+    self.addBtn.layer.borderColor = [[UIColor grayColor]CGColor];
+    self.addBtn.layer.borderWidth = 0.5;
     
     [self.scrollView addSubview:self.addBtn];
     
@@ -243,7 +264,7 @@ static NSArray *audio = nil;
 {
     self = [super initWithCoder:coder];
     if (self) {
-        [self commonInit];
+//        [self commonInit];
 
     }
     return self;

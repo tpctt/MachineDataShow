@@ -169,8 +169,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)takePhotoFromAlbum:(BOOL)FromAlbum isPhoto:(BOOL)isPhoto withBlock:(TakeImageBlock)withBlock withVC:(UIViewController*)withVC{
-//    self.block1 = withBlock;
-//    self.withVC = withVC;
+    self.block1 = withBlock;
+    self.withVC = withVC;
     
     [self takePhotoFromAlbum:FromAlbum isPhoto:isPhoto  ];
     
@@ -202,9 +202,9 @@
             
         } else{
             
-            [self.withVC presentViewController:picker animated:YES completion:^{
-                //        NSLog(@" 显示 picker  的view");
-            }];
+//            [self.withVC presentViewController:picker animated:YES completion:^{
+//                //        NSLog(@" 显示 picker  的view");
+//            }];
             
         }
     }
@@ -214,9 +214,9 @@
         
         
         
-        [self.withVC presentViewController:picker animated:YES completion:^{
-            //        NSLog(@" 显示 picker  的view");
-        }];
+//        [self.withVC presentViewController:picker animated:YES completion:^{
+//            //        NSLog(@" 显示 picker  的view");
+//        }];
         
     }
     
@@ -263,17 +263,22 @@
     UIImage *image =  info[UIImagePickerControllerOriginalImage];;
     //    self.image.image = image;
     //    self.image.contentMode = UIViewContentModeScaleAspectFit;
-    if(self.block1)
-        self.block1(info,image);
     
+    [[GCDQueue mainQueue]queueBlock:^{
+        if(self.block1)
+            self.block1(info,image);
+        
+    }];
+   
     
-//    [self imagePickerControllerDidCancel:picker];
+    [self imagePickerControllerDidCancel:picker];
+    
 }
 -(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-//    [self.withVC dismissViewControllerAnimated:YES completion:^{
-//        
-//    }];
+    [self.withVC dismissViewControllerAnimated:YES completion:^{
+        
+    }];
     
 }
 /*

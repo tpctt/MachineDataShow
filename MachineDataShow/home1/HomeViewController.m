@@ -98,7 +98,7 @@
                 self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
                     HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];
                     TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
-                    [self.navigationController pushViewController:web animated:1];
+                    [self.tabBarController.navigationController pushViewController:web animated:1];
                     
                 }  ;
             }else{
