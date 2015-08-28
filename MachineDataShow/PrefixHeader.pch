@@ -35,5 +35,10 @@
 #import <EasyIOS/DialogUtil.h>
 
 #import "AppDelegate.h"
+#import "FixedInfoViewController.h"
+#import "FixProgressViewController.h"
+#import "FixViewController.h"
+
+
 
 #endif

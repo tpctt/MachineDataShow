@@ -118,9 +118,18 @@
         return;
     }
     [MBProgressHUD showHUDAddedTo:self.view animated:1];
-
- 
-    [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text voiceId:nil imageId:nil videoId:nil block:^(NSArray *array, NSError *error, NSString *msg) {
+    NSMutableArray *images = [NSMutableArray array];
+    NSMutableArray *videos = [NSMutableArray array];
+    for (id resoure in self.addimageBaseView.resoureArray ) {
+        if ([resoure isKindOfClass:[UIImage class]]) {
+            [images addObject:resoure];
+        }else{
+            [videos addObject:resoure];
+        }
+    }
+    
+    
+    [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos  block:^(NSArray *array, NSError *error, NSString *msg) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:1];
         
         if (array != nil) {

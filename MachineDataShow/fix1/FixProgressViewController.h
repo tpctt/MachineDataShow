@@ -13,15 +13,15 @@
 @property(strong,nonatomic)MyFixingObject *o;
 
 @end
-@interface FixedProgressInfo :BaseObject
-@property (strong, nonatomic)   NSString *icon;
-@property (strong, nonatomic)   NSString *name;
-@property (strong, nonatomic)   NSString *phone;
-@property (strong, nonatomic)   NSString *process;
+@interface FixedProgressInfo :BaseObject 
+//@property (strong, nonatomic)   NSString *icon;
+//@property (strong, nonatomic)   NSString *name;
+//@property (strong, nonatomic)   NSString *phone;
+//@property (strong, nonatomic)   NSString *process;
 
-//@property (strong, nonatomic)   NSString *flag;
-//@property (strong, nonatomic)   NSString *lastUpdateTime;
-//@property (strong, nonatomic)   NSArray  *dataList;
+@property (strong, nonatomic)   NSString *flag;
+@property (strong, nonatomic)   NSString *lastUpdateTime;
+@property (strong, nonatomic)   NSArray  *dataList;
 
 @end
 

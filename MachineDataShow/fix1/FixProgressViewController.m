@@ -8,12 +8,19 @@
 
 #import "FixProgressViewController.h"
 #import "NetManager.h"
-
+#import <MJExtension/NSObject+MJKeyValue.h>
 
 @implementation FixedProgressInfo
 
 
 @end
+
+@implementation GCSInfo
+
+
+@end
+
+
 @interface FixProgressViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *mode;
@@ -66,14 +73,28 @@
 }
 -(void)config2
 {
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.icon] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
+    NSInteger flag = [self.fixedProgressInfo.flag integerValue];
+    GCSInfo *obj = [self.fixedProgressInfo.dataList safeObjectAtIndex:flag];
+    
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:obj.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
+    self.manName.text = [NSString stringWithFormat:@"联系人:%@",obj.name];
+    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",obj.tele];
     
     
-    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name];
-    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.phone];
+    NSArray*ARRAY=  @[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
+    self.image.image = [ARRAY safeObjectAtIndex:flag];
     
-    NSArray*ARRAY=    @[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
-    self.image = [ARRAY safeObjectAtIndex:arc4random()%3];
+    
+    
+    
+//    [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.icon] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
+//    
+//    
+//    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name];
+//    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.phone];
+//    
+//    NSArray*ARRAY=    @[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
+//    self.image = [ARRAY safeObjectAtIndex:arc4random()%3];
     
 }
 - (void)didReceiveMemoryWarning {

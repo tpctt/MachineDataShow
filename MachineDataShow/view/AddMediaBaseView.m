@@ -196,7 +196,6 @@ static NSArray *audio = nil;
 
 @property (strong,nonatomic) UIScrollView *scrollView;
 @property (strong,nonatomic) NSMutableArray *subBtnArray;
-@property (strong,nonatomic) NSMutableArray *resoureArray;
 
 @property (strong,nonatomic) UIButton *addBtn;
 

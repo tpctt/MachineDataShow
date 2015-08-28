@@ -191,9 +191,8 @@
                                           tele:(NSString*)tele
                                         detail:(NSString*)detail
 
-                                       voiceId:(NSString*)voiceId
-                                       imageId:(NSString*)imageId
-                                       videoId:(NSString*)videoId
+                                        images:(NSArray*)images
+                                        videos:(NSArray*)videos
 
                                          block:(HotKeyBlock)block
 {
@@ -214,9 +213,9 @@
     [requestParams setValue:tele forKey:@"tele"];
     [requestParams setValue:detail forKey:@"detail"];
     
-    [requestParams setValue:voiceId forKey:@"voiceId"];
-    [requestParams setValue:imageId forKey:@"imageId"];
-    [requestParams setValue:videoId forKey:@"videoId"];
+//    [requestParams setValue:voiceId forKey:@"voiceId"];
+//    [requestParams setValue:imageId forKey:@"imageId"];
+//    [requestParams setValue:videoId forKey:@"videoId"];
 
     [requestParams setValue:@"12345678901" forKey:@"time"];
     
@@ -394,11 +393,21 @@
 
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-            FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject];
- 
-            NSArray *array = [FixedProgressInfo keyValuesArrayWithObjectArray:[jsonObject arrayAtPath:@"response/dataList"]];
             
-            block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
+//            [FixedProgressInfo setupObjectClassInArray:^NSDictionary *{
+//                return @{
+//                         @"dataLists" : @"GCSInfo",
+//                         // @"statuses" : [Status class],
+//                         @"ads" : @"Ad"
+//                         // @"ads" : [Ad class]
+//                         };
+//            }];
+            
+            FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
+            NSArray *array = [GCSInfo objectArrayWithKeyValuesArray:[jsonObject arrayAtPath:@"response/dataList"]];
+            OBJ.dataList = array;
+            
+            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/text"]);
 
 
         }else{

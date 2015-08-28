@@ -57,9 +57,8 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                           tele:(NSString*)tele
                                         detail:(NSString*)detail
 
-                                       voiceId:(NSString*)voiceId
-                                       imageId:(NSString*)imageId
-                                       videoId:(NSString*)videoId
+                                        images:(NSArray*)images
+                                        videos:(NSArray*)videos
 
                                          block:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd

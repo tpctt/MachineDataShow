@@ -475,7 +475,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2z-Xk-f4a">
-                                <rect key="frame" x="16" y="378" width="136" height="34"/>
+                                <rect key="frame" x="16" y="328" width="136" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="1yN-5R-SYn"/>
                                 </constraints>
@@ -497,7 +497,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA6-oN-kja">
-                                <rect key="frame" x="168" y="378" width="136" height="34"/>
+                                <rect key="frame" x="168" y="328" width="136" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="j3H-70-Kf7"/>
                                 </constraints>
@@ -510,7 +510,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtY-Tb-xG8">
-                                <rect key="frame" x="16" y="428" width="288" height="34"/>
+                                <rect key="frame" x="16" y="378" width="288" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="RnK-kt-Mfo"/>
                                 </constraints>
@@ -551,7 +551,7 @@
                             <constraint firstItem="O2z-Xk-f4a" firstAttribute="centerY" secondItem="NA6-oN-kja" secondAttribute="centerY" id="hMy-qt-qHh"/>
                             <constraint firstItem="NA6-oN-kja" firstAttribute="width" secondItem="O2z-Xk-f4a" secondAttribute="width" id="hhe-Vd-n7Q"/>
                             <constraint firstItem="EPk-R8-8yX" firstAttribute="top" secondItem="MnX-fu-VGM" secondAttribute="bottom" id="m17-l5-aNz"/>
-                            <constraint firstItem="NA6-oN-kja" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="90" id="qFv-c1-eDW"/>
+                            <constraint firstItem="NA6-oN-kja" firstAttribute="top" secondItem="D3D-mp-3tv" secondAttribute="bottom" constant="40" id="qFv-c1-eDW"/>
                             <constraint firstAttribute="trailing" secondItem="rtY-Tb-xG8" secondAttribute="trailing" constant="16" id="qOE-UK-7Qg"/>
                             <constraint firstItem="NA6-oN-kja" firstAttribute="leading" secondItem="O2z-Xk-f4a" secondAttribute="trailing" constant="16" id="qtP-JQ-Dda"/>
                             <constraint firstItem="hvR-so-G6i" firstAttribute="top" secondItem="R5z-Tg-Yfs" secondAttribute="bottom" constant="8" id="qzY-4D-mhf"/>
