@@ -124,6 +124,9 @@
 		7AA3F6C31B8C75BD00996667 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA3F6C21B8C75BC00996667 /* libz.dylib */; };
 		7AA3F6C51B8C75D500996667 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA3F6C41B8C75D500996667 /* QuartzCore.framework */; };
 		7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AB25B091B872F130073D440 /* MyFixingObject.m */; };
+		7AC6930A1B9042450039C88B /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693041B9042450039C88B /* SDBrowserImageView.m */; };
+		7AC6930B1B9042450039C88B /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693061B9042450039C88B /* SDPhotoBrowser.m */; };
+		7AC6930C1B9042450039C88B /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693091B9042450039C88B /* SDWaitingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -299,6 +302,13 @@
 		7AA3F6C41B8C75D500996667 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		7AB25B081B872F130073D440 /* MyFixingObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFixingObject.h; sourceTree = "<group>"; };
 		7AB25B091B872F130073D440 /* MyFixingObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFixingObject.m; sourceTree = "<group>"; };
+		7AC693031B9042450039C88B /* SDBrowserImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDBrowserImageView.h; sourceTree = "<group>"; };
+		7AC693041B9042450039C88B /* SDBrowserImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDBrowserImageView.m; sourceTree = "<group>"; };
+		7AC693051B9042450039C88B /* SDPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowser.h; sourceTree = "<group>"; };
+		7AC693061B9042450039C88B /* SDPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotoBrowser.m; sourceTree = "<group>"; };
+		7AC693071B9042450039C88B /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
+		7AC693081B9042450039C88B /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
+		7AC693091B9042450039C88B /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
 		8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -391,6 +401,7 @@
 		7A2464D31B7C2A34007FD1D4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7AC693021B9042450039C88B /* SDPhotoBrowser */,
 				22EF7FD01B7F7F1F000F02DA /* guanyu */,
 				7A7561A71B7C5F9900BA2B69 /* UI */,
 				7A7561841B7C4A5C00BA2B69 /* PrefixHeader.pch */,
@@ -616,6 +627,20 @@
 				7AA3F6B91B8C562900996667 /* AddMediaBaseView.m */,
 			);
 			path = view;
+			sourceTree = "<group>";
+		};
+		7AC693021B9042450039C88B /* SDPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				7AC693031B9042450039C88B /* SDBrowserImageView.h */,
+				7AC693041B9042450039C88B /* SDBrowserImageView.m */,
+				7AC693051B9042450039C88B /* SDPhotoBrowser.h */,
+				7AC693061B9042450039C88B /* SDPhotoBrowser.m */,
+				7AC693071B9042450039C88B /* SDPhotoBrowserConfig.h */,
+				7AC693081B9042450039C88B /* SDWaitingView.h */,
+				7AC693091B9042450039C88B /* SDWaitingView.m */,
+			);
+			path = SDPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		98B7711491D432A3645A3230 /* Pods */ = {
@@ -844,8 +869,11 @@
 				7A7561661B7C4A3A00BA2B69 /* ProductDetailViewController.m in Sources */,
 				7AA3F6BA1B8C562900996667 /* AddMediaBaseView.m in Sources */,
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
+				7AC6930A1B9042450039C88B /* SDBrowserImageView.m in Sources */,
+				7AC6930C1B9042450039C88B /* SDWaitingView.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
 				22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */,
+				7AC6930B1B9042450039C88B /* SDPhotoBrowser.m in Sources */,
 				229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */,
 				22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */,
 				7A75617B1B7C4A5400BA2B69 /* BandingObject.m in Sources */,

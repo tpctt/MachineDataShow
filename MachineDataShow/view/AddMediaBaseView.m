@@ -7,6 +7,7 @@
 //
 
 #import "AddMediaBaseView.h"
+#import "SDPhotoBrowser.h"
 
 static CGFloat delt = 10;
 static NSArray *audio = nil;
@@ -15,7 +16,7 @@ static NSArray *audio = nil;
 -(void)tapDelFor:(NSInteger)index;
 
 @end
-@interface ButtonWithDel:UIView
+@interface ButtonWithDel:UIView<SDPhotoBrowserDelegate>
 @property (strong,nonatomic) UIButton *btn;
 @property (strong,nonatomic) UIButton *delBtn;
 @property (assign,nonatomic) NSInteger index;
@@ -87,13 +88,22 @@ static NSArray *audio = nil;
 {
     UIButton *btn = self.btn;
     if([_resoure isKindOfClass:[UIImage class]]){
- 
+        
+        SDPhotoBrowser *browser = [[SDPhotoBrowser alloc] init];
+        browser.sourceImagesContainerView = self ;
+        browser.imageCount =1;
+        browser.currentImageIndex = 0 ;
+        browser.delegate = self ;
+        [browser show]; // 展示图片浏览器
+        
+        
     }else if([_resoure isKindOfClass:[NSString class]]){
         NSString *path = (NSString *)_resoure;
         
         
     }
 }
+
 -(void)delbtnAct:(UIButton*)sender
 {
     if(self.delegate && [self.delegate respondsToSelector:@selector(tapDelFor:)])
@@ -114,6 +124,19 @@ static NSArray *audio = nil;
     return CGRectMake(h, 0, 2*delt, 2*delt);
     return CGRectZero;
 }
+
+////DELEGATE 返回临时占位图片（即原来的小图）
+
+-(UIImage *)photoBrowser:(SDPhotoBrowser *)browser placeholderImageForIndex:(NSInteger)index {
+    return (UIImage*)_resoure;
+}
+
+// 返回高质量图片的url
+//-(NSURL *)photoBrowser:(SDPhotoBrowser *)browser highQualityImageURLForIndex:(NSInteger)index {
+//    return <#expression#>
+//}
+
+
 @end
 
 @interface AddMediaBaseView ()<ButtonWithDelDelegate>
