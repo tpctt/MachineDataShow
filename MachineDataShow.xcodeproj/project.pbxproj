@@ -131,6 +131,7 @@
 		7AC693101B9047060039C88B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC6930F1B9047060039C88B /* CoreMedia.framework */; };
 		7AC693121B90477A0039C88B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC693111B90477A0039C88B /* CoreVideo.framework */; };
 		7AC693141B9047C40039C88B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC693131B9047C40039C88B /* MediaPlayer.framework */; };
+		7AC693161B905DAF0039C88B /* progress_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AC693151B905DAF0039C88B /* progress_1@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +318,7 @@
 		7AC6930F1B9047060039C88B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		7AC693111B90477A0039C88B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		7AC693131B9047C40039C88B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7AC693151B905DAF0039C88B /* progress_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress_1@2x.png"; sourceTree = "<group>"; };
 		8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -574,6 +576,7 @@
 				22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */,
 				22EF7FD21B7F856F000F02DA /* FixedInfoViewController.h */,
 				22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */,
+				7AC693151B905DAF0039C88B /* progress_1@2x.png */,
 			);
 			path = fix1;
 			sourceTree = "<group>";
@@ -773,6 +776,7 @@
 				7A75620F1B7C6E0C00BA2B69 /* HomeViewController.xib in Resources */,
 				7A7561D61B7C5F9900BA2B69 /* button_immediately@2x.png in Resources */,
 				7A7561F51B7C5F9900BA2B69 /* tel.png in Resources */,
+				7AC693161B905DAF0039C88B /* progress_1@2x.png in Resources */,
 				7A7561F61B7C5F9900BA2B69 /* vip.png in Resources */,
 				7A7561F41B7C5F9900BA2B69 /* repair.png in Resources */,
 				7A7561E71B7C5F9900BA2B69 /* icon_share@2x.png in Resources */,

@@ -37,11 +37,20 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 @property (strong, nonatomic)   FixedProgressInfo *fixedProgressInfo;
+ 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
 
 @end
 
 @implementation FixProgressViewController
-
+-(void)updateViewConstraints
+{
+    [super updateViewConstraints];
+    self.w1.constant = self.view.width;
+    self.scroll.contentSize = CGSizeMake(self.view.width, CGRectGetMaxY(self.image.frame));
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -57,7 +66,7 @@
         
         [self config2];
         
-        sleep(2);
+//        sleep(2);
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:1 ];
         
@@ -81,7 +90,7 @@
     self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",obj.tele];
     
     
-    NSArray*ARRAY=  @[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
+    NSArray*ARRAY=  @[[UIImage imageNamed:@"progress_1"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
     self.image.image = [ARRAY safeObjectAtIndex:flag];
     
     

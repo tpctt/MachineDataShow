@@ -180,11 +180,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TU1-gh-dUx">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TU1-gh-dUx">
                                 <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQ5-mt-BgL">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="298" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备型号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5h3-6P-rhw">
                                                 <rect key="frame" x="8" y="8" width="68" height="21"/>
@@ -203,13 +203,14 @@
                                         <constraints>
                                             <constraint firstItem="qLu-aP-spG" firstAttribute="leading" secondItem="pQ5-mt-BgL" secondAttribute="leading" constant="8" id="GHu-vv-6ZH"/>
                                             <constraint firstItem="qLu-aP-spG" firstAttribute="top" secondItem="5h3-6P-rhw" secondAttribute="bottom" constant="8" id="RxO-7z-vQI"/>
+                                            <constraint firstAttribute="width" constant="298" id="X5u-9s-oEo"/>
                                             <constraint firstItem="5h3-6P-rhw" firstAttribute="top" secondItem="pQ5-mt-BgL" secondAttribute="top" constant="8" id="hZh-nT-YiV"/>
                                             <constraint firstItem="5h3-6P-rhw" firstAttribute="leading" secondItem="pQ5-mt-BgL" secondAttribute="leading" constant="8" id="jLa-Hz-5mv"/>
                                             <constraint firstAttribute="height" constant="60" id="yvq-ud-6vm"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJf-BF-Gv8">
-                                        <rect key="frame" x="0.0" y="63" width="320" height="67"/>
+                                        <rect key="frame" x="0.0" y="63" width="298" height="67"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Upo-M8-aDl">
                                                 <rect key="frame" x="14" y="0.0" width="71" height="73"/>
@@ -243,11 +244,18 @@
                                             <constraint firstItem="z6U-Ln-xvf" firstAttribute="leading" secondItem="Upo-M8-aDl" secondAttribute="trailing" constant="8" id="zal-2d-BkY"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PWt-IC-Caa">
-                                        <rect key="frame" x="0.0" y="138" width="320" height="229"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="PWt-IC-Caa">
+                                        <rect key="frame" x="11" y="138" width="299" height="341"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="229" id="5O4-mC-Am0"/>
+                                            <constraint firstAttribute="width" secondItem="PWt-IC-Caa" secondAttribute="height" multiplier="149:170" id="50r-n5-H8g"/>
+                                            <constraint firstAttribute="height" constant="340" id="5O4-mC-Am0"/>
+                                            <constraint firstAttribute="width" constant="299" id="IrA-6A-Zzs"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="5O4-mC-Am0"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -257,12 +265,27 @@
                                     <constraint firstItem="pQ5-mt-BgL" firstAttribute="top" secondItem="TU1-gh-dUx" secondAttribute="top" id="HBE-8l-xWb"/>
                                     <constraint firstAttribute="trailing" secondItem="KJf-BF-Gv8" secondAttribute="trailing" id="U0D-AU-JZp"/>
                                     <constraint firstAttribute="trailing" secondItem="PWt-IC-Caa" secondAttribute="trailing" id="UdB-QD-yvd"/>
+                                    <constraint firstAttribute="trailing" secondItem="KJf-BF-Gv8" secondAttribute="trailing" id="W5D-Vy-cns"/>
+                                    <constraint firstItem="pQ5-mt-BgL" firstAttribute="leading" secondItem="TU1-gh-dUx" secondAttribute="leading" id="WKn-kK-uVd"/>
                                     <constraint firstAttribute="bottom" secondItem="PWt-IC-Caa" secondAttribute="bottom" id="Xkm-UH-2yF"/>
                                     <constraint firstItem="KJf-BF-Gv8" firstAttribute="top" secondItem="pQ5-mt-BgL" secondAttribute="bottom" constant="3" id="XrL-fz-SxY"/>
                                     <constraint firstAttribute="trailing" secondItem="pQ5-mt-BgL" secondAttribute="trailing" id="a9X-X2-7yl"/>
                                     <constraint firstItem="PWt-IC-Caa" firstAttribute="top" secondItem="KJf-BF-Gv8" secondAttribute="bottom" constant="8" id="bW7-Ld-oRn"/>
                                     <constraint firstItem="PWt-IC-Caa" firstAttribute="leading" secondItem="TU1-gh-dUx" secondAttribute="leading" id="eFq-G4-LTU"/>
+                                    <constraint firstItem="KJf-BF-Gv8" firstAttribute="leading" secondItem="TU1-gh-dUx" secondAttribute="leading" id="hBn-8e-WhJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="pQ5-mt-BgL" secondAttribute="trailing" id="izN-ro-IGj"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="BGn-7Q-Gkl"/>
+                                        <exclude reference="a9X-X2-7yl"/>
+                                        <exclude reference="7Ce-SH-qIX"/>
+                                        <exclude reference="U0D-AU-JZp"/>
+                                        <exclude reference="UdB-QD-yvd"/>
+                                        <exclude reference="Xkm-UH-2yF"/>
+                                        <exclude reference="eFq-G4-LTU"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -284,6 +307,7 @@
                         <outlet property="scroll" destination="TU1-gh-dUx" id="uQz-jg-7Dg"/>
                         <outlet property="sn" destination="qLu-aP-spG" id="TCz-rJ-kH2"/>
                         <outlet property="topView" destination="pQ5-mt-BgL" id="e5x-Vr-jcx"/>
+                        <outlet property="w1" destination="X5u-9s-oEo" id="Z4t-F1-cmd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I60-66-tuP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1850,6 +1874,7 @@ SHOWROOM展厅模式：在国外很少有批发市场这个词，都是SHOWROOM�
         <image name="link_3.png" width="99" height="100"/>
         <image name="link_4.png" width="99" height="100"/>
         <image name="logo_80.png" width="80" height="80"/>
+        <image name="progress_1.png" width="298" height="340"/>
         <image name="vip_gray.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
