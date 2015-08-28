@@ -13,6 +13,7 @@
 
 @property (assign,nonatomic) SEL addSelecter;
 @property (strong,nonatomic) id tagert;
+@property (assign,nonatomic) BOOL isShow;
 
 -(void)addNewResoure:(id)resoure;
 

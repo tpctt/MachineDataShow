@@ -8,6 +8,10 @@
 
 #import "AddMediaBaseView.h"
 #import "SDPhotoBrowser.h"
+#import <AVFoundation/AVFoundation.h>
+#import <MediaPlayer/MediaPlayer.h>
+#import <IQKeyboardManager/IQUIView+Hierarchy.h>
+
 
 static CGFloat delt = 10;
 static NSArray *audio = nil;
@@ -20,6 +24,7 @@ static NSArray *audio = nil;
 @property (strong,nonatomic) UIButton *btn;
 @property (strong,nonatomic) UIButton *delBtn;
 @property (assign,nonatomic) NSInteger index;
+@property (assign,nonatomic) BOOL hideDel;
 
 @property (strong,nonatomic) id  resoure;
 @property (assign,nonatomic) id<ButtonWithDelDelegate> delegate;
@@ -65,6 +70,12 @@ static NSArray *audio = nil;
     
     
 }
+-(void)setHideDel:(BOOL)hideDel
+{
+    _hideDel = hideDel;
+    self.delBtn.hidden = _hideDel;
+    
+}
 -(void)setResoure:(id)resoure
 {
     if (_resoure != resoure) {
@@ -79,9 +90,41 @@ static NSArray *audio = nil;
             
             [btn setTitle:path forState:0];
             
+        }else if ([resoure isKindOfClass:[NSDictionary class]]){
+            ///UIImagePickerControllerReferenceURL
+            ///UIImagePickerControllerMediaURL
+            UIImage *image = [[self class] getImage:[(NSDictionary*)resoure objectForKey:@"UIImagePickerControllerReferenceURL"]];
+            [btn setImage:image forState:0];
+
         }
         
     }
+    
+}
++(UIImage *)getImage:(NSURL *)videoURL
+
+{
+    
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL: videoURL  options:nil];
+    
+    AVAssetImageGenerator *gen = [[AVAssetImageGenerator alloc] initWithAsset:asset];
+    
+    gen.appliesPreferredTrackTransform = YES;
+    
+    CMTime time = CMTimeMakeWithSeconds(0.0, 600);
+    
+    NSError *error = nil;
+    
+    CMTime actualTime;
+    
+    CGImageRef image = [gen copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    
+    UIImage *thumb = [[UIImage alloc] initWithCGImage:image];
+    
+    CGImageRelease(image);
+    
+    return thumb;
+    
     
 }
 -(void)btnAct:(UIButton*)sender
@@ -99,7 +142,17 @@ static NSArray *audio = nil;
         
     }else if([_resoure isKindOfClass:[NSString class]]){
         NSString *path = (NSString *)_resoure;
+        if([[self class] isAudio:path]){
+            
+        }
         
+    }else if ([_resoure isKindOfClass:[NSDictionary class]]){
+        ///UIImagePickerControllerReferenceURL
+        ///UIImagePickerControllerMediaURL
+        
+        NSURL *url = [(NSDictionary*)_resoure objectForKey:@"UIImagePickerControllerReferenceURL"];
+        MPMoviePlayerViewController *vc =    [[MPMoviePlayerViewController alloc] initWithContentURL:url];
+        [[self viewController] presentMoviePlayerViewControllerAnimated:vc];
         
     }
 }
@@ -198,6 +251,7 @@ static NSArray *audio = nil;
     ButtonWithDel *view = [[ButtonWithDel alloc]initWithFrame:[self getBtnRectForButtonWithDelAt:self.subBtnArray.count]];
     [view setResoure:resoure];
     view.delegate = self;
+    view.hideDel = _isShow;
     
     
     [self.scrollView addSubview:view];
@@ -231,7 +285,32 @@ static NSArray *audio = nil;
     self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
 
 }
+-(void)setIsShow:(BOOL)isShow
+{
+    _isShow = isShow;
+    if (_isShow) {
+        [self.addBtn removeFromSuperview];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX([self getBtnRectForButtonWithDelAt:self.resoureArray.count]), self.scrollView.frame.size.height);
+        
+    }else{
+        [self.scrollView addSubview:self.addBtn];
+        ///重新布局
+        self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
 
+    }
+    
+    for(NSInteger i = 0; i<self.subBtnArray.count; i++)
+    {
+        ///重新布局
+        ButtonWithDel *view  = self.subBtnArray[i];
+        view.frame = [self getBtnRectForButtonWithDelAt:i];
+        view.hideDel = _isShow;
+        
+    }
+    
+    
+}
 -(void)commonInit
 {
     if (self.scrollView)return;

@@ -127,6 +127,10 @@
 		7AC6930A1B9042450039C88B /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693041B9042450039C88B /* SDBrowserImageView.m */; };
 		7AC6930B1B9042450039C88B /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693061B9042450039C88B /* SDPhotoBrowser.m */; };
 		7AC6930C1B9042450039C88B /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AC693091B9042450039C88B /* SDWaitingView.m */; };
+		7AC6930E1B9047000039C88B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC6930D1B9047000039C88B /* AVFoundation.framework */; };
+		7AC693101B9047060039C88B /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC6930F1B9047060039C88B /* CoreMedia.framework */; };
+		7AC693121B90477A0039C88B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC693111B90477A0039C88B /* CoreVideo.framework */; };
+		7AC693141B9047C40039C88B /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC693131B9047C40039C88B /* MediaPlayer.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +313,10 @@
 		7AC693071B9042450039C88B /* SDPhotoBrowserConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotoBrowserConfig.h; sourceTree = "<group>"; };
 		7AC693081B9042450039C88B /* SDWaitingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWaitingView.h; sourceTree = "<group>"; };
 		7AC693091B9042450039C88B /* SDWaitingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWaitingView.m; sourceTree = "<group>"; };
+		7AC6930D1B9047000039C88B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7AC6930F1B9047060039C88B /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7AC693111B90477A0039C88B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		7AC693131B9047C40039C88B /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,6 +326,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AC693141B9047C40039C88B /* MediaPlayer.framework in Frameworks */,
+				7AC693121B90477A0039C88B /* CoreVideo.framework in Frameworks */,
+				7AC693101B9047060039C88B /* CoreMedia.framework in Frameworks */,
+				7AC6930E1B9047000039C88B /* AVFoundation.framework in Frameworks */,
 				7AA3F6C51B8C75D500996667 /* QuartzCore.framework in Frameworks */,
 				7AA3F6C31B8C75BD00996667 /* libz.dylib in Frameworks */,
 				22EF7FCF1B7F5A4D000F02DA /* ImageIO.framework in Frameworks */,
@@ -342,6 +354,10 @@
 		6323E31ACBD8F1DB8F6D085F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7AC693131B9047C40039C88B /* MediaPlayer.framework */,
+				7AC693111B90477A0039C88B /* CoreVideo.framework */,
+				7AC6930F1B9047060039C88B /* CoreMedia.framework */,
+				7AC6930D1B9047000039C88B /* AVFoundation.framework */,
 				7AA3F6C41B8C75D500996667 /* QuartzCore.framework */,
 				7AA3F6C21B8C75BC00996667 /* libz.dylib */,
 				22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */,
@@ -1027,6 +1043,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "46a3f277-a297-4a4e-b2cf-b97d74a7eaf1";
 			};
 			name = Debug;
 		};
