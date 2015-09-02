@@ -13,6 +13,7 @@
 		22435B591B7F421700A3C9BA /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B581B7F421700A3C9BA /* AboutViewController.m */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
+		227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
 		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
@@ -155,6 +156,7 @@
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
+		227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品需求文档.ppt"; sourceTree = "<group>"; };
 		229020111B87C6DB009A6782 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				7A75622B1B7C8E3F00BA2B69 /* 需求.doc */,
+				227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */,
 				2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */,
 				22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */,
 				7A2464D71B7C2A34007FD1D4 /* AppDelegate.h */,
@@ -769,6 +772,7 @@
 				7A7561971B7C572A00BA2B69 /* logo_120.png in Resources */,
 				7A2464DF1B7C2A34007FD1D4 /* Main.storyboard in Resources */,
 				7A75621E1B7C706400BA2B69 /* HomeCell.xib in Resources */,
+				227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */,
 				7A75622C1B7C8E3F00BA2B69 /* 需求.doc in Resources */,
 				7A7561EE1B7C5F9900BA2B69 /* link_3@2x.png in Resources */,
 				7A7561ED1B7C5F9900BA2B69 /* link_2@2x.png in Resources */,
