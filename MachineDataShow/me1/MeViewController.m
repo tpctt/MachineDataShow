@@ -16,8 +16,10 @@
 #import <SDWebImage/UIButton+WebCache.h>
 #import "NetManager.h"
 #import "HelpViewController.h"
-#import "AboutViewController.h"
+
 #import "LoginViewController.h"
+#import "ApplyFixViewController.h"
+#import "YuyueTableViewController.h"
 
 @interface MeViewController ()<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -263,51 +265,48 @@ static MeViewController* shareApp;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == 0){
-        if ([UserObject hadLog]     ) {
-//            [self performSegueWithIdentifier:@"InfoSeg" sender:nil];
-
-            [self btnAct:self.editInfoBtn];
-            
-        }else{
-            [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                if (buttonIndex==1) {
-                    
-//                    [self performSegueWithIdentifier:@"loginSeg" sender:nil];
-                    [self login:nil];
-                    
-                }
-            }];
-        }
-    }
-    else if (indexPath.row == 1){
-        
-        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/Help.html"]];
-        vc.navigationButtonsHidden = YES;
-
-        [self.tabBarController.navigationController pushViewController:vc animated:1];
-        
-        
-//        HelpViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"bangzhuvc"];
-//    
-//        [self.tabBarController.navigationController pushViewController:vc animated:1];
-        
-    }else if (indexPath.row == 2){
-        
-        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/About.html"]];
-        vc.navigationButtonsHidden = YES;
-        
-        [self.tabBarController.navigationController pushViewController:vc animated:1];
-        
-//        AboutViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"guanyuvc"];
-//   
-//        [self.tabBarController.navigationController pushViewController:vc animated:1];
-        
-    }else if (indexPath.row == 3){
-        [UIAlertView showWithTitle:@"" message:@"去掉此功能?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            
+    int row = indexPath.row;
+    
+    if( (row == 0 || row == 1 ) && ![UserObject hadLog] ){
+        [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex==1) {
+                
+                //                    [self performSegueWithIdentifier:@"loginSeg" sender:nil];
+                [self login:nil];
+                
+            }
         }];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+        return;
     }
+    
+    if (row == 0 ) {
+        ApplyFixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WDBXJL"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }else if (row == 1){
+        YuyueTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"yuyueSB"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }else if (row==2){
+        ///关于我们
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/about.html"]];
+        
+        [self.tabBarController.navigationController pushViewController:web animated:1];
+
+    }else if (row==3){
+        ///帮助中心
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/help.html"]];
+        
+        [self.tabBarController.navigationController pushViewController:web animated:1];
+        
+    }
+    
+    
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }

@@ -66,8 +66,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSArray *array = @[@"home_blue",@"fix_blue",@"contact_blue",@"vip_blue"];
-    for (int i = 0 ; i<4; i++) {
+    NSArray *array = @[@"home_blue",@"contact_blue",@"vip_blue"];
+    for (int i = 0 ; i<3; i++) {
         UITabBarItem *ti1 = [self.tabBar.items objectAtIndex:i];
 //        ti1.title = @"梦见";
 //        ti1.image = [[UIImage imageNamed:@"qr_tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -82,47 +82,47 @@
 //    self.tabBar.delegate = self;
 
 }
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    if (![UserObject hadLog]) {
-        if ([tabBar.items indexOfObject:item] == 1 ) {
-            
-            UIStoryboard*  sb = self.storyboard;
-            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
-            
-            if (controller) {
-                [self.navigationController pushViewController:controller animated:YES];
-            }
-            
-        }
-    }
-}
--(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
-{
-    if (![UserObject hadLog]) {
-        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
-            
-            UIStoryboard*  sb = self.storyboard;
-            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
-            
-            if (controller) {
-                [self.navigationController pushViewController:controller animated:YES];
-            }
-            
-        }
-    }
-}
--(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
-{
-    if (![UserObject hadLog]) {
-        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
-            return 0;
-        }
-    }
-
-    return 1;
-
-}
+//-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+//{
+//    if (![UserObject hadLog]) {
+//        if ([tabBar.items indexOfObject:item] == 1 ) {
+//            
+//            UIStoryboard*  sb = self.storyboard;
+//            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
+//            
+//            if (controller) {
+//                [self.navigationController pushViewController:controller animated:YES];
+//            }
+//            
+//        }
+//    }
+//}
+//-(void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+//{
+//    if (![UserObject hadLog]) {
+//        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
+//            
+//            UIStoryboard*  sb = self.storyboard;
+//            LoginViewController* controller = [sb instantiateViewControllerWithIdentifier:@"loginVC" ];
+//            
+//            if (controller) {
+//                [self.navigationController pushViewController:controller animated:YES];
+//            }
+//            
+//        }
+//    }
+//}
+//-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
+//{
+//    if (![UserObject hadLog]) {
+//        if ([tabBarController.viewControllers indexOfObject:viewController] == 1 ) {
+//            return 0;
+//        }
+//    }
+//
+//    return 1;
+//
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

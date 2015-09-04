@@ -7,7 +7,9 @@
 //
 
 #import "ServerViewController.h"
-#import "ContactUsViewController.h"
+#import "HelpViewController.h"
+#import "SuggestViewController.h"
+
 @interface ServerViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @end
@@ -15,34 +17,30 @@
 @implementation ServerViewController
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *TEL = nil;
-    if (indexPath.row ==0) {
-        TEL = @"10086";
-    }else if(indexPath.row == 1){
-        TEL = @"10000";
-    }
-    if (TEL) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",TEL]];
-        if ( [[UIApplication sharedApplication] canOpenURL:url] ) {
-             [[UIApplication sharedApplication] openURL:url];
-        }else{
-            [UIAlertView showWithTitle:TEL message:@"不支持电话拨打" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                
-            }];
-        }
-       
-    }
-    if (indexPath.row ==  2) {
+    
+    NSString *url = nil;
+    NSInteger row = indexPath.row;
+    
+    ///销售，售后，服务流程，联系我们
+    NSArray *array = @[@"page/consulation.html",@"page/service.html",@"page/process.html",@"page/contact.html"];
+    
+    if(row< 4){
+        ///关于我们
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,array[row]]];
         
-        TOWebViewController *vc = [[TOWebViewController alloc]initWithURLString:[AppHostAddress stringByAppendingString:@"page/Lianxi.html"]];
-        vc.navigationButtonsHidden = YES;
+        [self.tabBarController.navigationController pushViewController:web animated:1];
+        [tableView deselectRowAtIndexPath:indexPath animated:1];
+
+        return;
+    }else{
+        ///意见
+        SuggestViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"yjfkvc"];
+        
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
-//        ContactUsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"LXWM"];
-//        [self.tabBarController.navigationController pushViewController:vc animated:1];
-//        
-        
     }
+   
+    
     [tableView deselectRowAtIndexPath:indexPath animated:1];
     
 }

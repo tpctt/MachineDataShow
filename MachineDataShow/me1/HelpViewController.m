@@ -18,11 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *path = nil;
-//    path = [[NSBundle mainBundle]pathForResource:@"gywm" ofType:@"html" inDirectory:@"guanyu"];
-    path = [[NSBundle mainBundle]pathForResource:@"sysm" ofType:@"html" inDirectory:@"guanyu"];
-
-    self.url =  [NSURL fileURLWithPath:path];
+    
     self.navigationButtonsHidden = YES;
     
     
