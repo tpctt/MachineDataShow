@@ -20,7 +20,6 @@
 		22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */; };
 		22EF7FCD1B7F5A46000F02DA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCC1B7F5A46000F02DA /* Foundation.framework */; };
 		22EF7FCF1B7F5A4D000F02DA /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */; };
-		22EF7FD11B7F7F1F000F02DA /* guanyu in Resources */ = {isa = PBXBuildFile; fileRef = 22EF7FD01B7F7F1F000F02DA /* guanyu */; };
 		22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */; };
 		22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD61B7F86F9000F02DA /* DeviceObject.m */; };
 		22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FDE1B7FB35F000F02DA /* DemoViewController.m */; };
@@ -162,7 +161,6 @@
 		22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
 		22EF7FCC1B7F5A46000F02DA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		22EF7FCE1B7F5A4D000F02DA /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		22EF7FD01B7F7F1F000F02DA /* guanyu */ = {isa = PBXFileReference; lastKnownFileType = folder; path = guanyu; sourceTree = "<group>"; };
 		22EF7FD21B7F856F000F02DA /* FixedInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixedInfoViewController.h; sourceTree = "<group>"; };
 		22EF7FD31B7F856F000F02DA /* FixedInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixedInfoViewController.m; sourceTree = "<group>"; };
 		22EF7FD51B7F86F9000F02DA /* DeviceObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceObject.h; sourceTree = "<group>"; };
@@ -418,7 +416,6 @@
 			isa = PBXGroup;
 			children = (
 				7AC693021B9042450039C88B /* SDPhotoBrowser */,
-				22EF7FD01B7F7F1F000F02DA /* guanyu */,
 				7A7561A71B7C5F9900BA2B69 /* UI */,
 				7A7561841B7C4A5C00BA2B69 /* PrefixHeader.pch */,
 				7A7561851B7C4BB500BA2B69 /* 64@2x.png */,
@@ -814,7 +811,6 @@
 				7A7562241B7C773400BA2B69 /* Banner_3.jpg in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,
 				22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */,
-				22EF7FD11B7F7F1F000F02DA /* guanyu in Resources */,
 				7A7561861B7C4BB500BA2B69 /* 64@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 #import "SuggestViewController.h"
 
 @interface SuggestViewController ()
-@property (weak, nonatomic) IBOutlet UITextView *suggestText;
+@property (weak, nonatomic) IBOutlet GCPlaceholderTextView *suggestText;
 @property (weak, nonatomic) IBOutlet UITextField *contactText;
 
 @end
@@ -21,7 +21,7 @@
     // Do any additional setup after loading the view.
     [self showBarButton:NAV_RIGHT title:@"提交" fontColor:[UIColor whiteColor]];
     self.title = @"意见反馈";
-    
+    self.suggestText.placeholder = @"请输入意见建议";
     
 }
 -(void)rightButtonTouch

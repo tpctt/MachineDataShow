@@ -30,7 +30,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "RequestConfig.h"
 #import "DeviceObject.h"
-
+#import <GCPlaceholderTextView/GCPlaceholderTextView.h>
 
 #import <EasyIOS/DialogUtil.h>
 
