@@ -16,6 +16,7 @@
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
 		227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */; };
+		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
@@ -161,6 +162,8 @@
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
 		227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品需求文档.ppt"; sourceTree = "<group>"; };
+		2284E8FA1B9B19430017DF8F /* GCSBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBViewController.h; sourceTree = "<group>"; };
+		2284E8FB1B9B19430017DF8F /* GCSBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBViewController.m; sourceTree = "<group>"; };
 		229020111B87C6DB009A6782 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 				229020121B87C6DB009A6782 /* SuggestViewController.m */,
 				220B5A2C1B9B044A001FF2D6 /* SQyuyueViewController.h */,
 				220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */,
+				2284E8FA1B9B19430017DF8F /* GCSBViewController.h */,
+				2284E8FB1B9B19430017DF8F /* GCSBViewController.m */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -910,6 +915,7 @@
 				22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */,
 				7A75617E1B7C4A5400BA2B69 /* LoginObject.m in Sources */,
 				7A7561671B7C4A3A00BA2B69 /* TabbarViewController.m in Sources */,
+				2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */,
 				7A7561891B7C4BFB00BA2B69 /* ShowMeViewController.m in Sources */,
 				7A7562031B7C6B7700BA2B69 /* FixViewController.m in Sources */,
 				7A7561801B7C4A5400BA2B69 /* RequestConfig.m in Sources */,
