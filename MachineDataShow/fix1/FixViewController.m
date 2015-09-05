@@ -98,6 +98,22 @@
     return self.tabBarController.navigationController;
 }
 #endif
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+  
+        
+    if (self.searchBar.text.length ) {
+        
+        FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+        vc.keyword = self.searchBar.text;
+        
+        [self.navigationController pushViewController:vc animated:1];
+        
+    }
+        
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -132,21 +148,19 @@
         self.searchBar.placeholder = @"输入搜索关键字";
         self.searchBar.delegate = self;
         
-        [[self.searchBar rac_signalForSelector:@selector(searchBar:textDidChange:)]
-         subscribeNext:^(id x) {
-            NSLog(@"%@",x);
-        }];
-        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
-            
-            if (self.searchBar.text.length ) {
-                
-                FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
-                
-                [self.navigationController pushViewController:vc animated:1];
-             
-            }
-            
-        }];
+        self.title = @"设备搜索结果";
+
+//        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
+//            
+//            if (self.searchBar.text.length ) {
+//                
+//                FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+//                
+//                [self.navigationController pushViewController:vc animated:1];
+//             
+//            }
+//            
+//        }];
         
         
     }else{
