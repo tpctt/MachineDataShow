@@ -8,6 +8,7 @@
 
 #import "GCSBViewController.h"
 #import "SZGCObject.h"
+#import "GCDetailViewController.h"
 
 ///工厂设备cell
 @interface GCSBCell :UITableViewCell
@@ -42,7 +43,7 @@
         self.stateBtn.backgroundColor = [UIColor redColor];
     }
     
-    self.deviceName.text = name;
+    self.deviceName.text = name?name:@"设备名称不详";
     self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all];
     
     self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check];
@@ -108,6 +109,8 @@
     self.mytable.backgroundColor = [UIColor clearColor];
     self.mytable.tableFooterView = [[UIView alloc]init];
     
+    self.mytable.delegate = self;
+    self.mytable.dataSource = self;
     
     
     self.vm = [SZGCObjectSceneModel SceneModel];
@@ -148,19 +151,39 @@
     
     
 }
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    static NSArray *titles ;
+    if (titles==nil) {
+        titles = @[@"设备站点",@"人员状态"];
+
+    }
+    
+    return [titles safeObjectAtIndex:section];
+    
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        return 100;
+    }else
+        return 44;
+    
+}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 2;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return self.vm.allDataArray.count;
+    return self.vm.allDataArray.count+1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        GCSBCell *CELL = [tableView dequeueReusableCellWithIdentifier:@"GCSBCell" forIndexPath:indexPath];
+        GCSBCell *CELL = [tableView dequeueReusableCellWithIdentifier:@"GCSBCell" ];
         SZGCObject *OBJ = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
         
         [CELL setName:OBJ.NAME state:OBJ.state all:OBJ.all check:OBJ.check good:OBJ.good checkrate:OBJ.checkrate goodrate:OBJ.goodrate];
@@ -168,7 +191,7 @@
         
         return CELL;
     }else{
-        PeopleCell *cell  = [tableView dequeueReusableCellWithIdentifier:@"PeopleCell" forIndexPath:indexPath];
+        PeopleCell *cell  = [tableView dequeueReusableCellWithIdentifier:@"PeopleCell" ];
         
         
         return cell;
@@ -179,8 +202,12 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SZGCObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
     
+    GCDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gcdetail"];
+    vc.index = indexPath.row;
+    vc.deviceArray = self.vm.allDataArray;
+    
+    [self.navigationController pushViewController:vc animated:1];
     
     
     [tableView deselectRowAtIndexPath:indexPath animated:1];

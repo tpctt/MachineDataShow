@@ -10,4 +10,7 @@
 
 @interface GCDetailViewController : BaseViewController
 
+@property (nonatomic,strong) NSArray *deviceArray;
+@property (assign,nonatomic) int index;
+
 @end

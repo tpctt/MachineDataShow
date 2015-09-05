@@ -18,6 +18,8 @@
 #import "SQyuyueViewController.h"
 #import <TMCache/TMCache.h>
 
+#import "GCSBViewController.h"
+
 @interface HomeViewController ()
 
 @property (weak, nonatomic) IBOutlet ScrollADView *scrollAdView;
@@ -65,8 +67,9 @@
         
         
     }else if (sender ==_b1){
-        DemoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sqkzvc"];
+        GCSBViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GCSBvc"];
         [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
         
         
 //        [self performSegueWithIdentifier:@"SQKZ" sender:nil];

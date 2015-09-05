@@ -46,6 +46,7 @@ PODS:
   - FontIcon (1.0)
   - GCDObjC (0.2.0)
   - GCPlaceholderTextView (1.0.1)
+  - HTHorizontalSelectionList (0.6.2)
   - IQKeyboardManager (3.2.4)
   - MBProgressHUD (0.9.1)
   - MJExtension (2.5.6)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - EasyIOS (~> 2.2.2)
   - EasyIOS-Extention (~> 1.2)
   - GCPlaceholderTextView
+  - HTHorizontalSelectionList
   - IQKeyboardManager
   - MJExtension
   - MJRefresh
@@ -112,6 +114,7 @@ SPEC CHECKSUMS:
   FontIcon: 24a07541244227b865e689217efd7d049ba7cc43
   GCDObjC: adcd9941029e3628de539347d3a6777470a65998
   GCPlaceholderTextView: dec36f63092602c6b5df76e2ce43fa22671b9d12
+  HTHorizontalSelectionList: 104417001c87753cc9560ab9674c7974db079a32
   IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJExtension: 5ea3e326162ccc07c60afe8cc36c936bba20d0d5

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC46F4CB5526A2901A19EA3B"
+               BlueprintIdentifier = "85CC2BF6C068859AD85C6D30"
                BuildableName = "libMojoDatabase.a"
                BlueprintName = "MojoDatabase"
                ReferencedContainer = "container:Pods.xcodeproj">

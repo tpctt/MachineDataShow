@@ -512,7 +512,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GCSBCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="VOe-nE-fx6" customClass="GCSBCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GCSBCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GCSBCell" rowHeight="100" id="VOe-nE-fx6" customClass="GCSBCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOe-nE-fx6" id="SYo-vq-o0E">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -594,7 +594,7 @@
                                             <outlet property="stateBtn" destination="ece-VY-KB8" id="7BS-kn-sCz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="PeopleCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PeopleCell" rowHeight="39" id="vDg-Nn-ptR" customClass="PeopleCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PeopleCell" rowHeight="39" id="vDg-Nn-ptR" customClass="PeopleCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vDg-Nn-ptR" id="3ub-xN-DQs">
@@ -659,7 +659,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw7-mO-nI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="530" y="-1300"/>
+            <point key="canvasLocation" x="461" y="-1300"/>
         </scene>
         <!--体验-->
         <scene sceneID="kDo-KH-Qmr">
