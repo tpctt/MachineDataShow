@@ -24,6 +24,10 @@
 +(BOOL)hadLog;
 +(void)setDataFrom:(UserObject*)obj;
 
++(void)save;
++(BOOL)logWithCache;
++(void)clearCache;
+
 AS_SINGLETON(UserObject)
 
 @end

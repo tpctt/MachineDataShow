@@ -821,7 +821,10 @@
                 
                 [UserObject setDataFrom:OBJ];
                 [BaseObjectRequest sharedInstance].userid = OBJ.uid;
+             
                 
+                [UserObject save];
+
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:FLlogin object:nil];
                                  

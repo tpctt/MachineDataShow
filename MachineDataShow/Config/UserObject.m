@@ -8,6 +8,7 @@
 
 #import "UserObject.h"
 #import "LoginObject.h"
+#import <TMCache/TMCache.h>
 
 @implementation UserObject
 DEF_SINGLETON(UserObject)
@@ -41,5 +42,44 @@ DEF_SINGLETON(UserObject)
 //    @property (nonatomic, strong ) NSString *address;
 //    @property (nonatomic, strong ) NSString *head;
     
+}
++(void)save
+{
+    if ([UserObject hadLog]) {
+        NSDictionary *dict = [[UserObject sharedInstance] keyValues];
+        
+        [[TMCache sharedCache] setObject:dict forKey:NSStringFromClass([UserObject class])];
+        
+    }
+}
++(BOOL)logWithCache
+{
+    NSDictionary *dict =     [[TMCache sharedCache] objectForKey:NSStringFromClass ([UserObject class])];
+    UserObject *obj = [UserObject  objectWithKeyValues:dict];
+    if (obj.uid.length !=0) {
+
+        [UserObject setDataFrom:obj];
+        
+        return YES;
+        
+    }
+    
+    return NO;
+    
+    
+}
++(void)clearCache
+{
+    [[TMCache sharedCache] removeObjectForKey:NSStringFromClass ([LoginObject class])];
+    
+}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        
+      
+    }
+    return self;
 }
 @end

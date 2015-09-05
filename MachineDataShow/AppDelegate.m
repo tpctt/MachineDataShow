@@ -16,6 +16,8 @@
 //#import "TabbarViewController.h"
 #import <RDVTabBarController/RDVTabBarItem.h>
 #import <EasyIOS/Action.h>
+#import "UserObject.h"
+
 @interface AppDelegate ()
 
 @end
@@ -100,7 +102,7 @@ static AppDelegate* shareApp;
     }
     
     [Action actionConfigHost:[AppHostAddress stringByReplacingOccurrencesOfString:@"http://" withString:@""] client:@"APP" codeKey:@"result" rightCode:1 msgKey:@"response/errorText"];
-    
+    [UserObject logWithCache];
     
     return YES;
 }
