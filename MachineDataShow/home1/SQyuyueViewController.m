@@ -7,6 +7,8 @@
 //
 
 #import "SQyuyueViewController.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <EasyIOS/TimeTool.h>
 
 @interface SQyuyueViewController ()
 
@@ -26,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *commitBtn;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
+@property (strong, nonatomic)   UIDatePicker *datepicker;
 
 @end
 
@@ -45,6 +48,17 @@
     self.title = @"预约参观";
     
     self.otherinfo.placeholder = @"备注信息";
+    
+    [IQKeyboardManager sharedManager].toolbarManageBehaviour = IQAutoToolbarByPosition ;
+    
+    self.datepicker = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, 0, 240, 243)];
+    self.datepicker.datePickerMode = UIDatePickerModeDate;
+    self.datepicker.minimumDate = [NSDate date];
+    
+    self.time.inputView = self.datepicker;
+    [[self.datepicker rac_newDateChannelWithNilValue:[NSDate date]]subscribeNext:^(id x) {
+        self.time.text = [TimeTool formatDate:self.datepicker.date formatWith:@"yyyy-MM-dd"];
+    }];
     
     
 }

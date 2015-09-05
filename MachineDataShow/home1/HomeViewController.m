@@ -31,7 +31,25 @@
 @end
 
 @implementation HomeViewController
+- (IBAction)login:(id)sender {
+    LoginViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+    
+    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    
+}
 - (IBAction)btnAct:(id)sender {
+    if ((sender == _b2 || sender == _b4 ) && [UserObject hadLog]==NO) {
+        [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            if (buttonIndex==1) {
+                
+                //                    [self performSegueWithIdentifier:@"loginSeg" sender:nil];
+                [self login:nil];
+                
+            }
+        }];
+        return;
+    }
+    
     if (sender == _b2) {
 //        [[AppDelegate sharedInstance].homeVC.tabBar setSelectedItem:[[AppDelegate sharedInstance].homeVC.tabBar.items objectAtIndex:1]];
         
@@ -51,7 +69,7 @@
         
         
 //        [self performSegueWithIdentifier:@"SQKZ" sender:nil];
-
+        
     }else if (sender ==_b4){
         
         SQyuyueViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sqyuyue"];

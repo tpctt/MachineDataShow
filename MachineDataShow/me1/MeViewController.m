@@ -115,6 +115,8 @@ static MeViewController* shareApp;
     [UIAlertView showWithTitle:@"是否退出？" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"确认" ] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if (buttonIndex == 1 ) {
             [UserObject sharedInstance].uid = nil;
+            [UserObject clearCache];
+            
             [self dealView];
         }
     }];
