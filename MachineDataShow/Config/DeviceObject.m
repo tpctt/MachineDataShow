@@ -34,6 +34,11 @@
 
     }
     
+    if ([UserObject hadLog]) {
+        [dict setObject: [BaseObjectRequest sharedInstance].userid forKey:@"uid"];
+        
+    }
+
     return dict;
 }
 @end

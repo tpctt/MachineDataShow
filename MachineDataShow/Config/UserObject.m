@@ -59,6 +59,7 @@ DEF_SINGLETON(UserObject)
     if (obj.uid.length !=0) {
 
         [UserObject setDataFrom:obj];
+        [BaseObjectRequest sharedInstance].userid = obj.uid;
         
         return YES;
         

@@ -139,6 +139,13 @@
     self.vm = [DeviceObjectSceneModel SceneModel];
     self.vm.action.aDelegaete = self;
 
+    if(self.keyword.length){
+        self.title = @"设备搜索结果";
+        
+    }else{
+        [self.vm .action useCache];
+
+    }
     
     ///不是search的列表
     if (self.keyword.length == 0  ) {
@@ -148,7 +155,6 @@
         self.searchBar.placeholder = @"输入搜索关键字";
         self.searchBar.delegate = self;
         
-        self.title = @"设备搜索结果";
 
 //        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
 //            
