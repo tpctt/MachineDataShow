@@ -7,97 +7,113 @@
 //
 
 #import "YuyueTableViewController.h"
+#import "YuyueObject.h"
+#import "YuyueDetailViewController.h"
 
-@interface YuyueTableViewController ()
+@interface YuyueTableViewController ()<UITableViewDataSource,UITableViewDelegate,ActionDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *mytable;
+@property (strong, nonatomic)   YuyueObjectSceneModel *vm;
 
 @end
 
 @implementation YuyueTableViewController
 
+-(void)handleActionMsg:(Request *)msg
+{
+    [super handleActionMsg:msg];
+    if (msg.state ==    SuccessState   ||
+        msg.state ==   FailState   ) {
+        
+        [self.mytable.footer endRefreshing];
+        [self.mytable.header endRefreshing];
+        
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+    // Do any additional setup after loading the view.
     self.title = @"我的预约";
+    self.view.backgroundColor = RGB(236, 236, 236);
+    self.mytable.backgroundColor = [UIColor clearColor];
+    self.mytable.tableFooterView = [[UIView alloc]init];
+    
+    
+    
+    self.vm = [YuyueObjectSceneModel SceneModel];
+    
+    self.vm.action.aDelegaete = self;
+    self.vm.request.requestNeedActive = YES;
+    
+    
+    self.mytable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self.vm loadFirstPage ];
+    }];
+    self.mytable.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self.vm loadNextPage];
+    }];
+    
+    @weakify(self);
+    [[RACObserve(self.vm, currestList)
+      filter:^BOOL(NSArray *value) {
+          return value!=nil;
+      }]
+     subscribeNext:^(NSArray *value) {
+         @strongify(self);
+         
+         [self.mytable reloadData];
+         [self.mytable.header endRefreshing ];
+         [self.mytable.footer endRefreshing ];
+         
+         if (self.vm.hadNextPage == NO) {
+             [self.mytable.footer noticeNoMoreData];
+         }else{
+             [self.mytable.footer resetNoMoreData];
+             
+         }
+         
+     } ];
+    
+    
+    
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.vm.allDataArray.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    static NSString*S =@"#$%^&DFV";
+    UITableViewCell *CELL = [tableView dequeueReusableCellWithIdentifier:S];
+    if (!CELL){
+        CELL=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:S];
+        CELL.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+    }
+    YuyueObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    
+//    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.id,o.serial];
+    //    [o.name stringByAppendingString:o.serial];
+    return CELL;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    YuyueObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    YuyueDetailViewController *detailvc = [self.storyboard instantiateViewControllerWithIdentifier:@"yuyuedetail"];
+    detailvc.OBJ= o  ;
+    
+    [self.navigationController pushViewController:detailvc animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:1];
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

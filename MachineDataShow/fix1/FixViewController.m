@@ -152,7 +152,7 @@
         self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
         self.mytable.tableHeaderView = self.searchBar;
         
-        self.searchBar.placeholder = @"输入搜索关键字";
+        self.searchBar.placeholder = @"设备型号/名称";
         self.searchBar.delegate = self;
         
 

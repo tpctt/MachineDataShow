@@ -14,6 +14,8 @@
 
 #import "DemoViewController.h"
 #import "SuggestViewController.h"
+#import "HelpViewController.h"
+#import "SQyuyueViewController.h"
 
 @interface HomeViewController ()
 
@@ -30,7 +32,7 @@
 
 @implementation HomeViewController
 - (IBAction)btnAct:(id)sender {
-    if (sender == _b1) {
+    if (sender == _b2) {
 //        [[AppDelegate sharedInstance].homeVC.tabBar setSelectedItem:[[AppDelegate sharedInstance].homeVC.tabBar.items objectAtIndex:1]];
         
 //        [[AppDelegate sharedInstance].homeVC
@@ -43,7 +45,7 @@
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
         
-    }else if (sender ==_b2){
+    }else if (sender ==_b1){
         DemoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sqkzvc"];
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
@@ -51,20 +53,18 @@
 //        [self performSegueWithIdentifier:@"SQKZ" sender:nil];
 
     }else if (sender ==_b4){
-        SuggestViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"yjfkvc"];
+        
+        SQyuyueViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"sqyuyue"];
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
 //        [self performSegueWithIdentifier:@"Suggest" sender:nil];
         
     }
     else{
-        TOWebViewController *WEB = [[TOWebViewController  alloc]initWithURLString:@"HTTP://www.baidu.com"];
-        [self.tabBarController.navigationController pushViewController:WEB animated:1];
-        return;
-        [UIAlertView showWithTitle:@"" message:@"模块正在开发,敬请期待!" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-
-           
-        }];
+        
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/new.html"]];
+        
+        [self.tabBarController.navigationController pushViewController:web animated:1];
         
     }
 }

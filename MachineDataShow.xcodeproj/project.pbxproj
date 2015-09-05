@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		220B5A2E1B9B044A001FF2D6 /* SQyuyueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */; };
+		220B5A311B9B094E001FF2D6 /* YuyueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A301B9B094E001FF2D6 /* YuyueDetailViewController.m */; };
+		220B5A341B9B0B14001FF2D6 /* YuyueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A331B9B0B14001FF2D6 /* YuyueObject.m */; };
 		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
 		22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */; };
@@ -143,6 +146,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		220B5A2C1B9B044A001FF2D6 /* SQyuyueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQyuyueViewController.h; sourceTree = "<group>"; };
+		220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQyuyueViewController.m; sourceTree = "<group>"; };
+		220B5A2F1B9B094E001FF2D6 /* YuyueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueDetailViewController.h; sourceTree = "<group>"; };
+		220B5A301B9B094E001FF2D6 /* YuyueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueDetailViewController.m; sourceTree = "<group>"; };
+		220B5A321B9B0B14001FF2D6 /* YuyueObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueObject.h; sourceTree = "<group>"; };
+		220B5A331B9B0B14001FF2D6 /* YuyueObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueObject.m; sourceTree = "<group>"; };
 		22200DD81B7D4A9500CCB120 /* ApplyFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFixViewController.h; sourceTree = "<group>"; };
 		22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFixViewController.m; sourceTree = "<group>"; };
 		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
@@ -480,6 +489,8 @@
 				22EF7FD61B7F86F9000F02DA /* DeviceObject.m */,
 				7AB25B081B872F130073D440 /* MyFixingObject.h */,
 				7AB25B091B872F130073D440 /* MyFixingObject.m */,
+				220B5A321B9B0B14001FF2D6 /* YuyueObject.h */,
+				220B5A331B9B0B14001FF2D6 /* YuyueObject.m */,
 				7A75616D1B7C4A5400BA2B69 /* Config.h */,
 				7A75616E1B7C4A5400BA2B69 /* Config.m */,
 				7A75616F1B7C4A5400BA2B69 /* LoginObject.h */,
@@ -586,6 +597,8 @@
 				7A7562051B7C6B8000BA2B69 /* MeViewController.m */,
 				22A116571B9A596A003C4104 /* YuyueTableViewController.h */,
 				22A116581B9A596A003C4104 /* YuyueTableViewController.m */,
+				220B5A2F1B9B094E001FF2D6 /* YuyueDetailViewController.h */,
+				220B5A301B9B094E001FF2D6 /* YuyueDetailViewController.m */,
 				7A75622D1B7C90B000BA2B69 /* InfoViewController.h */,
 				7A75622E1B7C90B000BA2B69 /* InfoViewController.m */,
 				7A7562301B7C90BE00BA2B69 /* PViewController.h */,
@@ -624,6 +637,8 @@
 				7A75620D1B7C6E0C00BA2B69 /* HomeViewController.xib */,
 				229020111B87C6DB009A6782 /* SuggestViewController.h */,
 				229020121B87C6DB009A6782 /* SuggestViewController.m */,
+				220B5A2C1B9B044A001FF2D6 /* SQyuyueViewController.h */,
+				220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -866,6 +881,7 @@
 				7A7561821B7C4A5400BA2B69 /* ThirdObject.m in Sources */,
 				7A7561901B7C570F00BA2B69 /* ScrollADView.m in Sources */,
 				7A7561811B7C4A5400BA2B69 /* SmallObject.m in Sources */,
+				220B5A341B9B0B14001FF2D6 /* YuyueObject.m in Sources */,
 				7A7562321B7C90BE00BA2B69 /* PViewController.m in Sources */,
 				7A2464DC1B7C2A34007FD1D4 /* ViewController.m in Sources */,
 				7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */,
@@ -889,6 +905,7 @@
 				22EF7FD41B7F856F000F02DA /* FixedInfoViewController.m in Sources */,
 				7A75617B1B7C4A5400BA2B69 /* BandingObject.m in Sources */,
 				7A75617D1B7C4A5400BA2B69 /* Config.m in Sources */,
+				220B5A311B9B094E001FF2D6 /* YuyueDetailViewController.m in Sources */,
 				7A7562381B7C918900BA2B69 /* RegViewController.m in Sources */,
 				22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */,
 				7A75617E1B7C4A5400BA2B69 /* LoginObject.m in Sources */,
@@ -896,6 +913,7 @@
 				7A7561891B7C4BFB00BA2B69 /* ShowMeViewController.m in Sources */,
 				7A7562031B7C6B7700BA2B69 /* FixViewController.m in Sources */,
 				7A7561801B7C4A5400BA2B69 /* RequestConfig.m in Sources */,
+				220B5A2E1B9B044A001FF2D6 /* SQyuyueViewController.m in Sources */,
 				7A2464D61B7C2A34007FD1D4 /* main.m in Sources */,
 				22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */,
 				7A7561831B7C4A5400BA2B69 /* UserObject.m in Sources */,

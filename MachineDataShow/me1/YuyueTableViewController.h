@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface YuyueTableViewController : UITableViewController
+#import "BaseViewController.h"
+@interface YuyueTableViewController : BaseViewController
 
 @end
