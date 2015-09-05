@@ -1133,7 +1133,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ub8-uJ-tyh" firstAttribute="top" secondItem="cQW-wt-rsP" secondAttribute="bottom" constant="15" id="3qp-Qd-h7Q"/>
                             <constraint firstItem="cQW-wt-rsP" firstAttribute="leading" secondItem="IaC-jl-hWP" secondAttribute="leading" id="DKF-8f-Yb3"/>

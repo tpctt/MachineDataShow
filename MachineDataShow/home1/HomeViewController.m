@@ -111,7 +111,8 @@
     
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+    self.view.backgroundColor = RGB(236, 236, 236);
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {

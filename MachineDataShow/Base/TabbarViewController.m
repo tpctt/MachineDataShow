@@ -81,6 +81,10 @@
     self.delegate = self;
 //    self.tabBar.delegate = self;
 
+    
+    self.tabBar.backgroundColor = [UIColor whiteColor];
+    
+    
 }
 //-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 //{
