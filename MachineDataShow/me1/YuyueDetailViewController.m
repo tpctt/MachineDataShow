@@ -7,7 +7,7 @@
 //
 
 #import "YuyueDetailViewController.h"
-
+#import "NetManager.h"
 @interface YuyueDetailViewController ()
 
 @end
@@ -17,6 +17,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    ///getAppointmentInfo.php
+    
+    self.title = @"预约详情";
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [NetManager yuyueDetail:self.OBJ.id block:^(NSArray *array, NSError *error, NSString *msg) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (array) {
+            
+            [[GCDQueue mainQueue] queueBlock:^{
+                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:msg];
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                
+            }];
+            
+        }
+        else
+        {
+            if(msg.length){
+                [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                
+            }else{
+                
+                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                
+            }
+        }
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

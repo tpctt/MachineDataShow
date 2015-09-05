@@ -9,7 +9,7 @@
 #import "YuyueTableViewController.h"
 #import "YuyueObject.h"
 #import "YuyueDetailViewController.h"
-
+#import <EasyIOS/TimeTool.h>
 @interface YuyueTableViewController ()<UITableViewDataSource,UITableViewDelegate,ActionDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
@@ -38,6 +38,8 @@
     self.mytable.backgroundColor = [UIColor clearColor];
     self.mytable.tableFooterView = [[UIView alloc]init];
     
+    self.mytable.delegate = self;
+    self.mytable.dataSource = self;
     
     
     self.vm = [YuyueObjectSceneModel SceneModel];
@@ -92,11 +94,15 @@
     static NSString*S =@"#$%^&DFV";
     UITableViewCell *CELL = [tableView dequeueReusableCellWithIdentifier:S];
     if (!CELL){
-        CELL=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:S];
+        CELL=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:S];
         CELL.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     }
     YuyueObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    CELL.textLabel.text = [NSString stringWithFormat:@"预约号:%@ 预约内容:%@",o.id ,o .desccription ];
+    
+    NSString *time = [TimeTool formatTime:[o.visittime doubleValue] formatWith:@"yyyy-MM-dd"];
+    CELL.detailTextLabel.text = [NSString stringWithFormat:@"预约时间:%@",time ];
     
 //    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.id,o.serial];
     //    [o.name stringByAppendingString:o.serial];

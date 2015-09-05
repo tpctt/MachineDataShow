@@ -86,7 +86,8 @@
         if (array) {
             
             [[GCDQueue mainQueue] queueBlock:^{
-                
+                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:msg];
+
                 [self.navigationController popToRootViewControllerAnimated:YES];
                 
             }];

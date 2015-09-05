@@ -17,7 +17,7 @@
     [super loadRequest];
     self.page = 1;
     //    self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"/getUserRepairList.php";
+    self.PATH = @"/getAppointmentList.php";
     //    self.HOST = AppHostAddress;
     
 }

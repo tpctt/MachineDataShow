@@ -79,7 +79,8 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                            desc:(NSString*)desc
 
                              block:(HotKeyBlock)block;
-
++(AFHTTPRequestOperation*)yuyueDetail:(NSString*)id
+                          block:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block;
 +(AFHTTPRequestOperation*)daka:(DataDataBlock)block;

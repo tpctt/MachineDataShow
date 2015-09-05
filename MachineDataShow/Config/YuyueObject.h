@@ -10,6 +10,13 @@
 
 @interface YuyueObject : BaseObject
 
+@property (strong,nonatomic) NSString *companyname;
+@property (strong,nonatomic) NSString *desccription;
+@property (strong,nonatomic) NSString *id;
+@property (strong,nonatomic) NSString *peopernum;
+@property (strong,nonatomic) NSString *tele;
+@property (strong,nonatomic) NSString *visittime;
+
 @end
 @interface YuyueObjectRequest : BaseListObjectRequest
 
