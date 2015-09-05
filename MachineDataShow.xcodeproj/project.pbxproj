@@ -19,6 +19,8 @@
 		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
 		2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */; };
 		2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9011B9B30A10017DF8F /* GCDetailViewController.m */; };
+		2284E9061B9B4A140017DF8F /* Statuecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9041B9B4A140017DF8F /* Statuecell.m */; };
+		2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2284E9051B9B4A140017DF8F /* Statuecell.xib */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
@@ -170,6 +172,9 @@
 		2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZGCObject.m; sourceTree = "<group>"; };
 		2284E9001B9B30A10017DF8F /* GCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDetailViewController.h; sourceTree = "<group>"; };
 		2284E9011B9B30A10017DF8F /* GCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDetailViewController.m; sourceTree = "<group>"; };
+		2284E9031B9B4A140017DF8F /* Statuecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statuecell.h; sourceTree = "<group>"; };
+		2284E9041B9B4A140017DF8F /* Statuecell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Statuecell.m; sourceTree = "<group>"; };
+		2284E9051B9B4A140017DF8F /* Statuecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Statuecell.xib; sourceTree = "<group>"; };
 		229020111B87C6DB009A6782 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
@@ -654,6 +659,9 @@
 				2284E8FB1B9B19430017DF8F /* GCSBViewController.m */,
 				2284E9001B9B30A10017DF8F /* GCDetailViewController.h */,
 				2284E9011B9B30A10017DF8F /* GCDetailViewController.m */,
+				2284E9031B9B4A140017DF8F /* Statuecell.h */,
+				2284E9041B9B4A140017DF8F /* Statuecell.m */,
+				2284E9051B9B4A140017DF8F /* Statuecell.xib */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -828,6 +836,7 @@
 				7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */,
 				7A7561EA1B7C5F9900BA2B69 /* icon_user_name@2x.png in Resources */,
 				7A7561DD1B7C5F9900BA2B69 /* fix_gray@2x.png in Resources */,
+				2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */,
 				7A7561A01B7C573F00BA2B69 /* Default-568h@2x.png in Resources */,
 				7A7561D71B7C5F9900BA2B69 /* button_return@2x.png in Resources */,
 				7A7562231B7C773400BA2B69 /* Banner_2.jpg in Resources */,
@@ -903,6 +912,7 @@
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
 				7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */,
 				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
+				2284E9061B9B4A140017DF8F /* Statuecell.m in Sources */,
 				22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */,
 				7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */,
 				22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */,

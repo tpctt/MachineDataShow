@@ -10,13 +10,38 @@
 #import <HTHorizontalSelectionList/HTHorizontalSelectionList.h>
 #import "SZGCObject.h"
 #import <PNChart/PNChart.h>
+#import "Statuecell.h"
+@interface StatueObject:NSObject
+@property (strong,nonatomic) NSString *id;
+@property (strong,nonatomic) NSString *name1;
+@property (strong,nonatomic) NSString *name2;
+@property (strong,nonatomic) NSString *errorfrom;
+@property (strong,nonatomic) NSString *deal;
+@property (assign,nonatomic) int state;
 
-@interface GCDetailViewController ()<HTHorizontalSelectionListDelegate,HTHorizontalSelectionListDataSource >
+
+@end
+@implementation StatueObject
+
+
+
+@end
+
+
+
+@interface GCDetailViewController ()<HTHorizontalSelectionListDelegate,HTHorizontalSelectionListDataSource , UITableViewDataSource,UITableViewDelegate >
 
 @property (nonatomic, strong) HTHorizontalSelectionList *selectionList;
 @property (nonatomic, strong) PNBarChart * barChart;
 @property (nonatomic, strong) PNPieChart * pieChart;
 @property (nonatomic, strong) UIScrollView * scrollview;
+
+@property (nonatomic, strong) UILabel * label1;
+@property (nonatomic, strong) UILabel * label2;
+@property (nonatomic, strong) UILabel * label3;
+
+
+@property (nonatomic, strong) NSArray * statusArray;
 
 @end
 
@@ -37,8 +62,24 @@
     [self.selectionList constrainHeight:@"30"];
     
     
+    self.mtable = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    self.mtable.delegate = self;
+    self.mtable.dataSource = self;
+    [self.view addSubview:self.mtable];
+    
+    
+    [self.mtable registerNib:[UINib nibWithNibName:@"Statuecell" bundle:nil] forCellReuseIdentifier:@"Statuecell"];
+    
+    
+    [self.mtable alignLeading:@"0" trailing:@"0" toView:self.view];
+    [self.mtable alignBottomEdgeWithView:self.view predicate:@"0"];
+    [self.mtable alignTopEdgeWithView:self.view predicate:@"30"];
+    
+    
+    ///
+    
     ///柱形
-    PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.selectionList.frame)+5, SCREEN_WIDTH, 200.0)];
+    PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 5, SCREEN_WIDTH, 200.0)];
     [barChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5"]];
     [barChart setYValues:@[@1,  @10, @2, @6, @3]];
     [barChart strokeChart];
@@ -50,34 +91,91 @@
                        [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
                        [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@"GOOL I/O"],
                        ];
-    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, CGRectGetMaxY(barChart.frame), 240.0, 240.0) items:items];
+    PNPieChart *pieChart = [[PNPieChart alloc] initWithFrame:CGRectMake(40.0, 10, 240.0, 240.0) items:items];
     pieChart.descriptionTextColor = [UIColor whiteColor];
     pieChart.descriptionTextFont  = [UIFont fontWithName:@"Avenir-Medium" size:14.0];
     [pieChart strokeChart];
+    
     
     
     self.barChart = barChart;
     self.pieChart = pieChart;
     
     
-    _scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.selectionList.frame)+5, SCREEN_WIDTH, 200.0)];
-    [self.view addSubview:_scrollview];
- 
     
-    [self.scrollview addSubview:self.barChart];
-    [self.scrollview addSubview:self.pieChart];
-    
-    self.scrollview.contentSize = CGSizeMake(self.view.frame.size.width, CGRectGetMaxY(self.pieChart.frame));
-
-    [self.scrollview alignLeading:@"0" trailing:@"0" toView:self.view];
-    [self.scrollview alignBottomEdgeWithView:self.view predicate:@"0"];
-    [self.scrollview alignTopEdgeWithView:self.selectionList predicate:@"0"];
     
     [self.view bringSubviewToFront:self.selectionList];
     
 }
+#pragma mark tableview delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (section == 0) {
+        return 1;
+    }else if (section==1){
+        return 1;
+    }else
+        return self.statusArray.count+3;
+    
+}
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 3;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger section= indexPath.section;
+    if (section == 0) {
+        return CGRectGetMaxY(self.barChart.frame);
+    }else if (section==1){
+        return CGRectGetMaxY(self.pieChart.frame)+16;
+    }else
+        return 44;
+}
+-(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    
+    static NSArray *titles ;
+    if (titles==nil) {
+        titles = @[@"产量",@"质量",@"状态"];
+        
+    }
+    
+    return [titles safeObjectAtIndex:section];
+    
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section<2) {
+        NSString *res = [NSString stringWithFormat:@"%d",indexPath.section ];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:res];
+        if(cell == nil){
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:res];
+            
+            
+        }
+        
+        NSInteger section= indexPath.section;
+        if (section == 0) {
+            [cell addSubview:self.barChart];
+            
+        }else if (section==1){
+            [cell addSubview:self.pieChart];
+        }
+        
+        
+        return cell;
+    }
+    
+    NSString *res = @"Statuecell";
+    Statuecell *cell = [tableView dequeueReusableCellWithIdentifier:res forIndexPath:indexPath];
+    
+    
+    return cell;
+    
+}
 
-
+#pragma mark 更新数据
 -(void)showDataFor:(int)index
 {
     [self updatevules];
@@ -87,13 +185,17 @@
 {
     [self.barChart setXLabels:@[@"Jan 1",@"Jan 2",@"Jan 3",@"Jan 4",@"Jan 5",@"Jan 6",@"Jan 7"]];
     [self.barChart updateChartData:@[@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30)]];
+    [self.barChart strokeChart];
 
     
     NSArray *items = @[[PNPieChartDataItem dataItemWithValue:40 color:PNRed],
                        [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
                        [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@"GOOL I/O"],
+                       [PNPieChartDataItem dataItemWithValue:40 color:PNMauve description:@"ABC"],
                        ];
     [self.pieChart updateChartData:items];
+    [self.pieChart strokeChart];
+    
 }
 #pragma mark - HTHorizontalSelectionListDataSource Protocol Methods
 
