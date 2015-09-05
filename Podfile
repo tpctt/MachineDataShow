@@ -22,6 +22,7 @@ pod 'UIActionSheet+Blocks', '~> 0.8.1'
 pod 'UIAlertView+Blocks', '~> 0.8.1'
 
 pod 'GCPlaceholderTextView'
+pod 'PNChart', '~> 0.8.7'
 
 #pod 'UMengFeedback', '~> 2.1'
 #pod 'UMengAnalytics-NO-IDFA'#无IDFA版SDK（请根据需要选择）

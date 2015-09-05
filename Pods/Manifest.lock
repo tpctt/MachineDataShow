@@ -51,6 +51,8 @@ PODS:
   - MJExtension (2.5.6)
   - MJRefresh (2.4.4)
   - MojoDatabase (1.4)
+  - PNChart (0.8.7):
+    - UICountingLabel (~> 1.2.0)
   - RDVTabBarController (1.1.9)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
@@ -78,6 +80,7 @@ PODS:
   - UIAlertController+Blocks (0.9)
   - UIAlertView+Blocks (0.8.1)
   - UICKeyChainStore (2.0.6)
+  - UICountingLabel (1.2.0)
   - XAspect (1.0.4):
     - XAspect/Core (= 1.0.4)
     - XAspect/Macros (= 1.0.4)
@@ -93,6 +96,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - MJExtension
   - MJRefresh
+  - PNChart (~> 0.8.7)
   - RDVTabBarController (~> 1.1.9)
   - TOWebViewController
   - UIActionSheet+Blocks (~> 0.8.1)
@@ -113,6 +117,7 @@ SPEC CHECKSUMS:
   MJExtension: 5ea3e326162ccc07c60afe8cc36c936bba20d0d5
   MJRefresh: cacdfe7844f1368c2e7f168e1cd345efd279fc24
   MojoDatabase: 02e3eb98510b69033ab537156969d1f76b4f369e
+  PNChart: c1755716bbd45386d2035b2bf2ce73e6d3f8cb22
   RDVTabBarController: 67794f7a7a37f8e32f046f85ac67d06ab92d624a
   ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
   RegExCategories: e68befacacd5bda853c88f70ec745cb2d0cfb89c
@@ -126,6 +131,7 @@ SPEC CHECKSUMS:
   UIAlertController+Blocks: b48c673ff60726da468b32ab21bbc7683512d45b
   UIAlertView+Blocks: 45c3d3b7194906702d3e9a14c7ece5581505646d
   UICKeyChainStore: c5719c814e8bd69e74e4a0fc09daf8f4d6257a59
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
   XAspect: abacabc6d828c2933812a966adca9b131504cfac
 
 COCOAPODS: 0.38.2
