@@ -313,6 +313,136 @@
     
     return op;
 }
++(AFHTTPRequestOperation*)faceback:(NSString*)content
+                              tele:(NSString*)tele
+
+                             block:(HotKeyBlock)block
+{
+    NSString *PATH = @"faceback.php";
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+//    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    //    [requestParams setValue:equipmentId forKey:@"equipmentId"];
+    [requestParams setValue:content forKey:@"content"];
+    [requestParams setValue:tele forKey:@"tele"];
+    
+    
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
+        if (state == 1  ) {
+            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
+            NSString *string = [jsonObject stringAtPath:@"response/text"];
+            if (!string) {
+                string=@"";
+            }
+            
+            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
+            
+            
+        }else{
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
+
++(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
+                      peoplesum:(NSString*)peoplesum
+                           duty:(NSString*)duty
+                           tele:(NSString*)tele
+                           time:(NSString*)time
+                           desc:(NSString*)desc
+
+                          block:(HotKeyBlock)block
+{
+    NSString *PATH = @"appointment.php";
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    //    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    //    [requestParams setValue:equipmentId forKey:@"equipmentId"];
+    [requestParams setValue:compangyName forKey:@"compangyName"];
+    [requestParams setValue:peoplesum forKey:@"peoplesum"];
+    [requestParams setValue:duty forKey:@"duty"];
+    [requestParams setValue:tele forKey:@"tele"];
+    [requestParams setValue:time forKey:@"time"];
+    [requestParams setValue:desc forKey:@"desc"];
+    
+    
+    
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
+        if (state == 1  ) {
+            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
+            NSString *string = [jsonObject stringAtPath:@"response/text"];
+            if (!string) {
+                string=@"";
+            }
+            
+            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
+            
+            
+        }else{
+            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
+
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
     NSString *PATH = @"getFlash.php";
     

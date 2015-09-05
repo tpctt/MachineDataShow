@@ -9,6 +9,7 @@
 #import "SQyuyueViewController.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <EasyIOS/TimeTool.h>
+#import "NetManager.h"
 
 @interface SQyuyueViewController ()
 
@@ -40,6 +41,71 @@
     
 }
 - (IBAction)commitBtnAct:(id)sender {
+    if (self.name.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入公司名称"];
+        [self.name becomeFirstResponder];
+        return;
+        
+    }
+    
+    if (self.num.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约人数"];
+        [self.num becomeFirstResponder];
+        return;
+        
+    }
+    
+    if (self.job.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约人职务"];
+        [self.job becomeFirstResponder];
+        return;
+        
+    }
+    if (self.phone.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入联系方式"];
+        [self.phone becomeFirstResponder];
+        return;
+        
+    }
+    if (self.time.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约时间"];
+        [self.time becomeFirstResponder];
+        return;
+        
+    }
+    if (self.otherinfo.text.length == 0 ) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约描述"];
+        [self.otherinfo becomeFirstResponder];
+        return;
+        
+    }
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [NetManager yuyue:self.name.text peoplesum:self.num.text duty:self.job.text tele:self.phone.text time:self.time.text desc:self.otherinfo.text block:^(NSArray *array, NSError *error, NSString *msg) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        if (array) {
+            
+            [[GCDQueue mainQueue] queueBlock:^{
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+                
+            }];
+            
+        }
+        else
+        {
+            if(msg.length){
+                [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                
+            }else{
+                
+                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                
+            }
+        }
+        
+        
+    }];
 }
 
 - (void)viewDidLoad {

@@ -17,6 +17,8 @@
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
 		227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */; };
 		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
+		2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */; };
+		2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9011B9B30A10017DF8F /* GCDetailViewController.m */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
@@ -164,6 +166,10 @@
 		227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品需求文档.ppt"; sourceTree = "<group>"; };
 		2284E8FA1B9B19430017DF8F /* GCSBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBViewController.h; sourceTree = "<group>"; };
 		2284E8FB1B9B19430017DF8F /* GCSBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBViewController.m; sourceTree = "<group>"; };
+		2284E8FD1B9B2DF50017DF8F /* SZGCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGCObject.h; sourceTree = "<group>"; };
+		2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZGCObject.m; sourceTree = "<group>"; };
+		2284E9001B9B30A10017DF8F /* GCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDetailViewController.h; sourceTree = "<group>"; };
+		2284E9011B9B30A10017DF8F /* GCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDetailViewController.m; sourceTree = "<group>"; };
 		229020111B87C6DB009A6782 /* SuggestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestViewController.h; sourceTree = "<group>"; };
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
@@ -494,6 +500,8 @@
 				7AB25B091B872F130073D440 /* MyFixingObject.m */,
 				220B5A321B9B0B14001FF2D6 /* YuyueObject.h */,
 				220B5A331B9B0B14001FF2D6 /* YuyueObject.m */,
+				2284E8FD1B9B2DF50017DF8F /* SZGCObject.h */,
+				2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */,
 				7A75616D1B7C4A5400BA2B69 /* Config.h */,
 				7A75616E1B7C4A5400BA2B69 /* Config.m */,
 				7A75616F1B7C4A5400BA2B69 /* LoginObject.h */,
@@ -644,6 +652,8 @@
 				220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */,
 				2284E8FA1B9B19430017DF8F /* GCSBViewController.h */,
 				2284E8FB1B9B19430017DF8F /* GCSBViewController.m */,
+				2284E9001B9B30A10017DF8F /* GCDetailViewController.h */,
+				2284E9011B9B30A10017DF8F /* GCDetailViewController.m */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -903,6 +913,7 @@
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
 				7AC6930A1B9042450039C88B /* SDBrowserImageView.m in Sources */,
 				7AC6930C1B9042450039C88B /* SDWaitingView.m in Sources */,
+				2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
 				22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */,
 				7AC6930B1B9042450039C88B /* SDPhotoBrowser.m in Sources */,
@@ -924,6 +935,7 @@
 				22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */,
 				7A7561831B7C4A5400BA2B69 /* UserObject.m in Sources */,
 				7A75617C1B7C4A5400BA2B69 /* BaseObject.m in Sources */,
+				2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */,
 				7A75621D1B7C706400BA2B69 /* HomeCell.m in Sources */,
 				7A7562061B7C6B8000BA2B69 /* MeViewController.m in Sources */,
 				22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */,

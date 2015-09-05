@@ -41,7 +41,8 @@
     
     
     self.vm = [YuyueObjectSceneModel SceneModel];
-    
+    [self.vm .action useCache];
+
     self.vm.action.aDelegaete = self;
     self.vm.request.requestNeedActive = YES;
     

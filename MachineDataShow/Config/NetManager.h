@@ -66,6 +66,19 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
                                         block:(HotKeyBlock)block;
 
++(AFHTTPRequestOperation*)faceback:(NSString*)content
+                             tele:(NSString*)tele
+
+                                block:(HotKeyBlock)block;
+
++(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
+                      peoplesum:(NSString*)peoplesum
+                           duty:(NSString*)duty
+                           tele:(NSString*)tele
+                           time:(NSString*)time
+                           desc:(NSString*)desc
+
+                             block:(HotKeyBlock)block;
 
 
 +(AFHTTPRequestOperation*)getDakaData:(DataDataBlock)block;

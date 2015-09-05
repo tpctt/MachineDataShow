@@ -512,7 +512,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="VOe-nE-fx6" customClass="GCSBCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GCSBCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="VOe-nE-fx6" customClass="GCSBCell">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VOe-nE-fx6" id="SYo-vq-o0E">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -594,7 +594,7 @@
                                             <outlet property="stateBtn" destination="ece-VY-KB8" id="7BS-kn-sCz"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="39" id="vDg-Nn-ptR" customClass="PeopleCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="PeopleCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PeopleCell" rowHeight="39" id="vDg-Nn-ptR" customClass="PeopleCell">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vDg-Nn-ptR" id="3ub-xN-DQs">
@@ -654,6 +654,7 @@
                     <navigationItem key="navigationItem" id="dPX-TM-Rkn"/>
                     <connections>
                         <outlet property="mytable" destination="vng-oz-Fo5" id="SQA-qn-SjZ"/>
+                        <segue destination="qlA-To-um0" kind="push" id="sLP-w0-AYW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw7-mO-nI6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -740,6 +741,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Geg-RP-ZgH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1033" y="-1835"/>
+        </scene>
+        <!--设备详情-->
+        <scene sceneID="MXy-Jo-ziT">
+            <objects>
+                <viewController storyboardIdentifier="gcdetail" title="设备详情" id="qlA-To-um0" customClass="GCDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GhD-so-hud"/>
+                        <viewControllerLayoutGuide type="bottom" id="KOv-P0-hw3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a7L-Mc-jDN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Ac-ew-Jna"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPw-pX-Gjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966" y="-1300"/>
         </scene>
         <!--体验表格数据-->
         <scene sceneID="QhU-xM-oQ9">

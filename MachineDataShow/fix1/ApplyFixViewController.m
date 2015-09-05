@@ -39,7 +39,8 @@
     
     
     self.vm = [MyFixingObjectSceneModel SceneModel];
-    
+    [self.vm .action useCache];
+
     self.vm.action.aDelegaete = self;
     self.vm.request.requestNeedActive = YES;
     
