@@ -13,7 +13,7 @@
 #import "BaseObject.h"
 
 #import "FixProgressViewController.h"
-
+#import <TMCache/TMCache.h>
 
 @implementation NetManager
 +(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
@@ -339,8 +339,10 @@
         
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-
-            NSArray *array = [HomeAD objectArrayWithKeyValuesArray:[jsonObject objectAtPath:@"response/dataList"] error:nil];
+            NSArray *KEYVAULES =[jsonObject objectAtPath:@"response/dataList"];
+            [[TMCache sharedCache]setObject:KEYVAULES forKey:@"adArrayKeyvaules"];
+            
+            NSArray *array = [HomeAD objectArrayWithKeyValuesArray:KEYVAULES error:nil];
             
             block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
             

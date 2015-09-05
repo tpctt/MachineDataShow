@@ -16,6 +16,7 @@
 #import "SuggestViewController.h"
 #import "HelpViewController.h"
 #import "SQyuyueViewController.h"
+#import <TMCache/TMCache.h>
 
 @interface HomeViewController ()
 
@@ -113,6 +114,29 @@
 {
     [super viewWillAppear:animated];
     if (nil == _adArray) {
+       
+#pragma mark ad-cache
+
+        NSArray*ARRAY1 = [[TMCache sharedCache]objectForKey:@"adArrayKeyvaules"];
+        NSArray *array22 = [HomeAD objectArrayWithKeyValuesArray:ARRAY1 error:nil];
+        if (array22) {
+            _adArray = array22;
+            
+            NSArray *array2 = [array22 valueForKey:@"image"];
+            [self.scrollAdView setImages:array2 withTitles:nil];
+            self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
+                HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];
+                TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
+                [self.tabBarController.navigationController pushViewController:web animated:1];
+                
+            }  ;
+        }else{
+            //                [self showMsg:msg error:error];
+            
+        }
+        
+        
+#pragma mark ad-network
         [NetManager getHomeAdsblock:^(NSArray *array, NSError *error, NSString *msg) {
             if (array) {
                 _adArray = array;
