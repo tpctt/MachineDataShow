@@ -29,6 +29,11 @@
 //    [dict setObject: self.big_category forKey:@"big_category"];
 //    [dict setObject: self.biz_type forKey:@"biz_type"];
     
+    if (self.keyword) {
+        [dict setObject: self.keyword forKey:@"keyword"];
+
+    }
+    
     return dict;
 }
 @end

@@ -31,11 +31,13 @@
 
 @end
 
-@interface FixViewController ()<ActionDelegate>
+@interface FixViewController ()<ActionDelegate, UISearchBarDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
 @property (strong, nonatomic)   DeviceObjectSceneModel *vm;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableTopConstaint;
+
+@property (strong, nonatomic)  UISearchBar  *searchBar;
 
 @end
 @implementation DeviceCell
@@ -114,9 +116,47 @@
     self.mytable.backgroundColor = [UIColor clearColor];
     
     
-    self.vm = [DeviceObjectSceneModel SceneModel];
     
+    
+    
+    
+    self.vm = [DeviceObjectSceneModel SceneModel];
     self.vm.action.aDelegaete = self;
+
+    
+    ///不是search的列表
+    if (self.keyword.length == 0  ) {
+        self.searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+        self.mytable.tableHeaderView = self.searchBar;
+        
+        self.searchBar.placeholder = @"输入搜索关键字";
+        self.searchBar.delegate = self;
+        
+        [[self.searchBar rac_signalForSelector:@selector(searchBar:textDidChange:)]
+         subscribeNext:^(id x) {
+            NSLog(@"%@",x);
+        }];
+        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
+            
+            if (self.searchBar.text.length ) {
+                
+                FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+                
+                [self.navigationController pushViewController:vc animated:1];
+             
+            }
+            
+        }];
+        
+        
+    }else{
+        DeviceObjectRequest*REQ =  (DeviceObjectRequest*)self.vm.request;
+        [REQ setKeyword:self.keyword];
+        
+    }
+    
+    
+    
     self.vm.request.requestNeedActive = YES;
    
 //    [self setbackLabelString1:@"暂无设备" to:self.mtable];

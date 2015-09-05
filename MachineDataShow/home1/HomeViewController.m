@@ -32,9 +32,15 @@
 - (IBAction)btnAct:(id)sender {
     if (sender == _b1) {
 //        [[AppDelegate sharedInstance].homeVC.tabBar setSelectedItem:[[AppDelegate sharedInstance].homeVC.tabBar.items objectAtIndex:1]];
-        [[AppDelegate sharedInstance].homeVC
-                     tabBarController:[AppDelegate sharedInstance].homeVC
-                     didSelectViewController:[[AppDelegate sharedInstance].homeVC.viewControllers objectAtIndex:1] ];
+        
+//        [[AppDelegate sharedInstance].homeVC
+//                     tabBarController:[AppDelegate sharedInstance].homeVC
+//                     didSelectViewController:[[AppDelegate sharedInstance].homeVC.viewControllers objectAtIndex:1] ];
+        
+        
+        FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
         
         
     }else if (sender ==_b2){

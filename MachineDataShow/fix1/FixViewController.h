@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface FixViewController : BaseViewController
+@property(strong,nonatomic) NSString* keyword;
 
 @end

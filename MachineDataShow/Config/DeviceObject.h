@@ -22,6 +22,8 @@
 
 @end
 @interface DeviceObjectRequest : BaseListObjectRequest
+@property(strong,nonatomic) NSString *keyword;
+
 @end
 
 
