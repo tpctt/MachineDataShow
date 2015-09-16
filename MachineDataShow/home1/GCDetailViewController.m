@@ -42,6 +42,7 @@
 
 
 @property (nonatomic, strong) NSArray * statusArray;
+@property (strong,nonatomic) RACDisposable *disposable;
 
 @end
 
@@ -105,6 +106,16 @@
     
     
     [self.view bringSubviewToFront:self.selectionList];
+    
+    self.disposable = [[RACQueueScheduler scheduler]after:[NSDate date] repeatingEvery:2 withLeeway:1 schedule:^{
+        [[GCDQueue mainQueue]queueBlock:^{
+            
+            [self showDataFor:0];
+            
+        }];
+        
+    }];
+    
     
 }
 #pragma mark tableview delegate
@@ -205,6 +216,7 @@
 
 - (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList titleForItemWithIndex:(NSInteger)index {
     SZGCObject *OBJ = [self.deviceArray safeObjectAtIndex:index];
+    return [NSString stringWithFormat:@"设备%d ",index ];
     
     return OBJ.NAME;
     

@@ -1086,7 +1086,7 @@
                                     <constraint firstAttribute="width" constant="99" id="pR8-oA-EVH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="智慧盈通-socket">
+                                <state key="normal" backgroundImage="home1.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1099,7 +1099,7 @@
                                     <constraint firstAttribute="height" constant="100" id="hAI-88-EaJ"/>
                                     <constraint firstAttribute="width" constant="99" id="qLq-CI-N6m"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="link_1.png">
+                                <state key="normal" backgroundImage="home2.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1112,7 +1112,7 @@
                                     <constraint firstAttribute="height" constant="100" id="6pG-qo-qkB"/>
                                     <constraint firstAttribute="width" constant="99" id="9bW-nR-wCo"/>
                                 </constraints>
-                                <state key="normal" title="产品展厅-url">
+                                <state key="normal" backgroundImage="home3.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1125,7 +1125,7 @@
                                     <constraint firstAttribute="width" constant="99" id="AmF-ur-v0J"/>
                                     <constraint firstAttribute="height" constant="100" id="iyy-ad-Lh4"/>
                                 </constraints>
-                                <state key="normal" title="我的预约">
+                                <state key="normal" backgroundImage="home4.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1133,7 +1133,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.92549019610000005" green="0.92549019610000005" blue="0.92549019610000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ub8-uJ-tyh" firstAttribute="top" secondItem="cQW-wt-rsP" secondAttribute="bottom" constant="15" id="3qp-Qd-h7Q"/>
                             <constraint firstItem="cQW-wt-rsP" firstAttribute="leading" secondItem="IaC-jl-hWP" secondAttribute="leading" id="DKF-8f-Yb3"/>
@@ -2245,12 +2245,15 @@
         <image name="button_immediately.png" width="44" height="44"/>
         <image name="contact_gray.png" width="32" height="32"/>
         <image name="fix_gray.png" width="32" height="32"/>
+        <image name="home1.png" width="512" height="512"/>
+        <image name="home2.png" width="512" height="512"/>
+        <image name="home3.png" width="512" height="512"/>
+        <image name="home4.png" width="512" height="512"/>
         <image name="home_gray.png" width="32" height="32"/>
         <image name="icon_about.png" width="40" height="40"/>
         <image name="icon_help.png" width="40" height="40"/>
         <image name="icon_info.png" width="40" height="40"/>
         <image name="icon_update.png" width="40" height="40"/>
-        <image name="link_1.png" width="99" height="100"/>
         <image name="progress_1.png" width="298" height="340"/>
         <image name="vip_gray.png" width="32" height="32"/>
     </resources>

@@ -321,10 +321,12 @@ static NSArray *audio = nil;
     
     self.addBtn = [self addBtnAt:0  ];
     [self.addBtn addTarget:self action:self.addSelecter forControlEvents:UIControlEventTouchUpInside];
-    [self.addBtn setTitle:@"+" forState:0];
+//    [self.addBtn setTitle:@"+" forState:0];
     [self.addBtn setTitleColor:[UIColor blackColor] forState:0];
-    self.addBtn.layer.borderColor = [[UIColor grayColor]CGColor];
-    self.addBtn.layer.borderWidth = 0.5;
+//    self.addBtn.layer.borderColor = [[UIColor grayColor]CGColor];
+//    self.addBtn.layer.borderWidth = 0.5;
+  
+    [self.addBtn setBackgroundImage:[UIImage imageNamed:@"icon_button_eidt_default"] forState:0];
     
     [self.scrollView addSubview:self.addBtn];
     

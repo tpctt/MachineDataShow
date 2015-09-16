@@ -76,7 +76,7 @@
 @implementation FixViewController
 - (IBAction)gotoBaoxiu:(id)sender {
     FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WDBXJL"];
-    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    [self.navigationController pushViewController:vc animated:1];
     
 }
 
@@ -229,19 +229,30 @@
     [cell config:o];
     
     
-    [[cell.b rac_signalForControlEvents:UIControlEventTouchUpInside]
-      
-     subscribeNext:^(id x) {
-         cell.b.enabled=0;
-         FixedInfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"XBBXVC"];
-         vc.o = o;
-         
-         [self.tabBarController.navigationController pushViewController:vc animated:1];
-         cell.b.enabled=1;
-         
+    
+    
+    [[[cell.b
+       rac_signalForControlEvents:UIControlEventTouchUpInside]
+      takeUntil:cell.rac_prepareForReuseSignal]
+     subscribeNext:^(UIButton *x) {
+         // do other things
+         [self  gotoFixInfo:o];
+
      }];
     
+ 
+    
     return cell;
+}
+-(void)gotoFixInfo:(DeviceObject*)o
+{
+    
+    FixedInfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"XBBXVC"];
+    vc.o = o;
+    
+    [self.navigationController pushViewController:vc animated:1];
+    
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -250,7 +261,7 @@
 
     FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"weixiujinduvc"];
     vc.o = o;
-    [self.tabBarController.navigationController pushViewController:vc animated:1];
+    [self.navigationController pushViewController:vc animated:1];
     
     
 }

@@ -185,7 +185,9 @@
     if (indexPath.section == 0) {
         GCSBCell *CELL = [tableView dequeueReusableCellWithIdentifier:@"GCSBCell" ];
         SZGCObject *OBJ = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
-        
+        if (OBJ==nil) {
+            OBJ=[SZGCObject random];
+        }
         [CELL setName:OBJ.NAME state:OBJ.state all:OBJ.all check:OBJ.check good:OBJ.good checkrate:OBJ.checkrate goodrate:OBJ.goodrate];
         
         

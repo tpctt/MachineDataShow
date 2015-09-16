@@ -16,6 +16,7 @@
 @property (strong,nonatomic) NSString *checkrate;
 @property (strong,nonatomic) NSString *goodrate;
 @property (assign,nonatomic) int state;
++(SZGCObject*)random;
 
 @end
 @interface SZGCObjectRequest : BaseListObjectRequest

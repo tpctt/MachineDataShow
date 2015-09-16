@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -17,27 +17,18 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIF-jj-Gte">
                         <rect key="frame" x="3" y="0.0" width="313" height="42"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7X-Y1-ADH">
-                                <rect key="frame" x="185" y="8" width="120" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7X-Y1-ADH">
+                                <rect key="frame" x="185" y="-8" width="120" height="58"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="FPY-2h-zm8"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xx公司" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u18-Ec-Bhb">
-                                <rect key="frame" x="0.0" y="0.0" width="52" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="u18-Ec-Bhb" firstAttribute="top" secondItem="SIF-jj-Gte" secondAttribute="top" id="6kl-85-phW"/>
                             <constraint firstAttribute="trailing" secondItem="U7X-Y1-ADH" secondAttribute="trailing" constant="8" id="7WE-kI-oaF"/>
-                            <constraint firstAttribute="bottom" secondItem="U7X-Y1-ADH" secondAttribute="bottom" constant="8" id="GkG-xy-ewq"/>
-                            <constraint firstItem="u18-Ec-Bhb" firstAttribute="leading" secondItem="SIF-jj-Gte" secondAttribute="leading" id="VkL-2b-iQc"/>
-                            <constraint firstItem="U7X-Y1-ADH" firstAttribute="top" secondItem="SIF-jj-Gte" secondAttribute="top" constant="8" id="fcI-1k-w28"/>
-                            <constraint firstAttribute="bottom" secondItem="u18-Ec-Bhb" secondAttribute="bottom" id="uGF-oR-OEO"/>
+                            <constraint firstAttribute="bottom" secondItem="U7X-Y1-ADH" secondAttribute="bottom" constant="-8" id="GkG-xy-ewq"/>
+                            <constraint firstItem="U7X-Y1-ADH" firstAttribute="top" secondItem="SIF-jj-Gte" secondAttribute="top" constant="-8" id="fcI-1k-w28"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -50,12 +41,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-            <connections>
-                <outlet property="name" destination="u18-Ec-Bhb" id="wNO-lH-s5T"/>
-            </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="logo.png" width="3928" height="840"/>
+        <image name="homeIcon.png" width="241" height="115"/>
     </resources>
 </document>

@@ -15,6 +15,12 @@
 		22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
+		22774F831BAA157C0093FEA2 /* homeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F821BAA157C0093FEA2 /* homeIcon@2x.png */; };
+		22774F851BAA164B0093FEA2 /* icon_button_eidt_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F841BAA164B0093FEA2 /* icon_button_eidt_default@2x.png */; };
+		22774F8A1BAA18620093FEA2 /* home1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F861BAA18620093FEA2 /* home1@2x.png */; };
+		22774F8B1BAA18620093FEA2 /* home2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F871BAA18620093FEA2 /* home2@2x.png */; };
+		22774F8C1BAA18620093FEA2 /* home3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F881BAA18620093FEA2 /* home3@2x.png */; };
+		22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F891BAA18620093FEA2 /* home4@2x.png */; };
 		227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */; };
 		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
 		2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */; };
@@ -165,6 +171,12 @@
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
+		22774F821BAA157C0093FEA2 /* homeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homeIcon@2x.png"; sourceTree = "<group>"; };
+		22774F841BAA164B0093FEA2 /* icon_button_eidt_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_eidt_default@2x.png"; sourceTree = "<group>"; };
+		22774F861BAA18620093FEA2 /* home1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home1@2x.png"; sourceTree = "<group>"; };
+		22774F871BAA18620093FEA2 /* home2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home2@2x.png"; sourceTree = "<group>"; };
+		22774F881BAA18620093FEA2 /* home3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home3@2x.png"; sourceTree = "<group>"; };
+		22774F891BAA18620093FEA2 /* home4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home4@2x.png"; sourceTree = "<group>"; };
 		227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品需求文档.ppt"; sourceTree = "<group>"; };
 		2284E8FA1B9B19430017DF8F /* GCSBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBViewController.h; sourceTree = "<group>"; };
 		2284E8FB1B9B19430017DF8F /* GCSBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBViewController.m; sourceTree = "<group>"; };
@@ -421,6 +433,10 @@
 				7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */,
 				7A2464DA1B7C2A34007FD1D4 /* ViewController.h */,
 				7A2464DB1B7C2A34007FD1D4 /* ViewController.m */,
+				22774F861BAA18620093FEA2 /* home1@2x.png */,
+				22774F871BAA18620093FEA2 /* home2@2x.png */,
+				22774F881BAA18620093FEA2 /* home3@2x.png */,
+				22774F891BAA18620093FEA2 /* home4@2x.png */,
 				7A2464DD1B7C2A34007FD1D4 /* Main.storyboard */,
 				7A7562141B7C701900BA2B69 /* view */,
 				7A75620A1B7C6E0200BA2B69 /* home1 */,
@@ -672,6 +688,8 @@
 				7A75621A1B7C706400BA2B69 /* HomeCell.h */,
 				7A75621B1B7C706400BA2B69 /* HomeCell.m */,
 				7A75621C1B7C706400BA2B69 /* HomeCell.xib */,
+				22774F821BAA157C0093FEA2 /* homeIcon@2x.png */,
+				22774F841BAA164B0093FEA2 /* icon_button_eidt_default@2x.png */,
 				7AA3F6B81B8C562900996667 /* AddMediaBaseView.h */,
 				7AA3F6B91B8C562900996667 /* AddMediaBaseView.m */,
 			);
@@ -752,6 +770,7 @@
 				TargetAttributes = {
 					7A2464CF1B7C2A34007FD1D4 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 2V6PYRMPZ7;
 					};
 					7A2464E81B7C2A34007FD1D4 = {
 						CreatedOnToolsVersion = 6.4;
@@ -785,8 +804,10 @@
 			files = (
 				7A7561F91B7C5F9900BA2B69 /* vip_green@2x.png in Resources */,
 				7A7561961B7C572A00BA2B69 /* logo_80.png in Resources */,
+				22774F851BAA164B0093FEA2 /* icon_button_eidt_default@2x.png in Resources */,
 				7A7561EF1B7C5F9900BA2B69 /* link_4@2x.png in Resources */,
 				7A7561E01B7C5F9900BA2B69 /* home_blue@2x.png in Resources */,
+				22774F831BAA157C0093FEA2 /* homeIcon@2x.png in Resources */,
 				7A7561D31B7C5F9900BA2B69 /* button.png in Resources */,
 				7A7561DF1B7C5F9900BA2B69 /* home.png in Resources */,
 				7A7561E91B7C5F9900BA2B69 /* icon_update@2x.png in Resources */,
@@ -796,6 +817,7 @@
 				7A7562281B7C7DBE00BA2B69 /* Me_bg.jpg in Resources */,
 				7A7561E61B7C5F9900BA2B69 /* icon_read@2x.png in Resources */,
 				7A7561E21B7C5F9900BA2B69 /* icon_about@2x.png in Resources */,
+				22774F8A1BAA18620093FEA2 /* home1@2x.png in Resources */,
 				7A7561971B7C572A00BA2B69 /* logo_120.png in Resources */,
 				7A2464DF1B7C2A34007FD1D4 /* Main.storyboard in Resources */,
 				7A75621E1B7C706400BA2B69 /* HomeCell.xib in Resources */,
@@ -822,8 +844,10 @@
 				7A7561E11B7C5F9900BA2B69 /* home_gray@2x.png in Resources */,
 				7A7561E41B7C5F9900BA2B69 /* icon_help@2x.png in Resources */,
 				7A7561F01B7C5F9900BA2B69 /* logo.png in Resources */,
+				22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */,
 				7A7561D41B7C5F9900BA2B69 /* button_bg_long@2x.png in Resources */,
 				7A7561951B7C572A00BA2B69 /* logo_58.png in Resources */,
+				22774F8B1BAA18620093FEA2 /* home2@2x.png in Resources */,
 				7A7561E51B7C5F9900BA2B69 /* icon_info@2x.png in Resources */,
 				7A7561F21B7C5F9900BA2B69 /* notice.png in Resources */,
 				7A75619D1B7C573F00BA2B69 /* showme1@2x.png in Resources */,
@@ -835,6 +859,7 @@
 				7A7562221B7C773400BA2B69 /* Banner_1.jpg in Resources */,
 				7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */,
 				7A7561EA1B7C5F9900BA2B69 /* icon_user_name@2x.png in Resources */,
+				22774F8C1BAA18620093FEA2 /* home3@2x.png in Resources */,
 				7A7561DD1B7C5F9900BA2B69 /* fix_gray@2x.png in Resources */,
 				2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */,
 				7A7561A01B7C573F00BA2B69 /* Default-568h@2x.png in Resources */,
@@ -1077,13 +1102,14 @@
 			baseConfigurationReference = 8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MachineDataShow/PrefixHeader.pch;
 				INFOPLIST_FILE = MachineDataShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "46a3f277-a297-4a4e-b2cf-b97d74a7eaf1";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1092,13 +1118,14 @@
 			baseConfigurationReference = 916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MachineDataShow/PrefixHeader.pch;
 				INFOPLIST_FILE = MachineDataShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b48752d6-6f17-4e2c-86bd-ff1228cef9d6";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -9,9 +9,24 @@
 #import "SZGCObject.h"
 
 @implementation SZGCObject
-
++(SZGCObject*)random
+{
+    SZGCObject*O = [[SZGCObject alloc]init];
+    O.NAME = [NSString stringWithFormat:@"设备名字:%d",  arc4random()];
+    O.all = [NSString stringWithFormat:@"%d",  arc4random()%1000];
+    O.check = [NSString stringWithFormat:@"%d",  arc4random()%1000];
+    O.good = [NSString stringWithFormat:@"%d",  arc4random()%1000];
+    O.checkrate =  [NSString stringWithFormat:@"%f",  [O.check integerValue]/(CGFloat)[O.all integerValue]];
+    O.goodrate =  [NSString stringWithFormat:@"%f",  [O.good integerValue]/(CGFloat)[O.all integerValue]];
+    
+    O.state =  arc4random()%10;
+    
+    
+    return O;
+}
 @end
 @implementation SZGCObjectRequest
+
 -(void)loadRequest
 {
     [super loadRequest];
