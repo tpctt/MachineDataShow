@@ -13,6 +13,8 @@
 		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
 		22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */; };
+		223C22CA1BADCA1D00319A0B /* test.php in Resources */ = {isa = PBXBuildFile; fileRef = 223C22C91BADCA1D00319A0B /* test.php */; };
+		223C22CD1BADD2C500319A0B /* Reg2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223C22CC1BADD2C500319A0B /* Reg2ViewController.m */; };
 		22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22435B5B1B7F422700A3C9BA /* HelpViewController.m */; };
 		2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */; };
 		22774F831BAA157C0093FEA2 /* homeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F821BAA157C0093FEA2 /* homeIcon@2x.png */; };
@@ -168,6 +170,9 @@
 		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
 		22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixProgressViewController.m; sourceTree = "<group>"; };
 		22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V2.0.pdf"; sourceTree = "<group>"; };
+		223C22C91BADCA1D00319A0B /* test.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = test.php; sourceTree = "<group>"; };
+		223C22CB1BADD2C500319A0B /* Reg2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reg2ViewController.h; sourceTree = "<group>"; };
+		223C22CC1BADD2C500319A0B /* Reg2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reg2ViewController.m; sourceTree = "<group>"; };
 		22435B5A1B7F422700A3C9BA /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		22435B5B1B7F422700A3C9BA /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V1.0.pdf"; sourceTree = "<group>"; };
@@ -435,6 +440,7 @@
 				7A2464DB1B7C2A34007FD1D4 /* ViewController.m */,
 				22774F861BAA18620093FEA2 /* home1@2x.png */,
 				22774F871BAA18620093FEA2 /* home2@2x.png */,
+				223C22C91BADCA1D00319A0B /* test.php */,
 				22774F881BAA18620093FEA2 /* home3@2x.png */,
 				22774F891BAA18620093FEA2 /* home4@2x.png */,
 				7A2464DD1B7C2A34007FD1D4 /* Main.storyboard */,
@@ -639,6 +645,8 @@
 				7A7562341B7C917F00BA2B69 /* LoginViewController.m */,
 				7A7562361B7C918900BA2B69 /* RegViewController.h */,
 				7A7562371B7C918900BA2B69 /* RegViewController.m */,
+				223C22CB1BADD2C500319A0B /* Reg2ViewController.h */,
+				223C22CC1BADD2C500319A0B /* Reg2ViewController.m */,
 				22435B5A1B7F422700A3C9BA /* HelpViewController.h */,
 				22435B5B1B7F422700A3C9BA /* HelpViewController.m */,
 			);
@@ -867,6 +875,7 @@
 				7A7562231B7C773400BA2B69 /* Banner_2.jpg in Resources */,
 				7A7561E31B7C5F9900BA2B69 /* icon_close@2x.png in Resources */,
 				7A7561D91B7C5F9900BA2B69 /* contact_blue@2x.png in Resources */,
+				223C22CA1BADCA1D00319A0B /* test.php in Resources */,
 				7A7561E81B7C5F9900BA2B69 /* icon_software_update@2x.png in Resources */,
 				7A7561EC1B7C5F9900BA2B69 /* link_1@2x.png in Resources */,
 				7A7561EB1B7C5F9900BA2B69 /* irregular_border_left.png in Resources */,
@@ -930,6 +939,7 @@
 				7A7561821B7C4A5400BA2B69 /* ThirdObject.m in Sources */,
 				7A7561901B7C570F00BA2B69 /* ScrollADView.m in Sources */,
 				7A7561811B7C4A5400BA2B69 /* SmallObject.m in Sources */,
+				223C22CD1BADD2C500319A0B /* Reg2ViewController.m in Sources */,
 				220B5A341B9B0B14001FF2D6 /* YuyueObject.m in Sources */,
 				7A7562321B7C90BE00BA2B69 /* PViewController.m in Sources */,
 				7A2464DC1B7C2A34007FD1D4 /* ViewController.m in Sources */,

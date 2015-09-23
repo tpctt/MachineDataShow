@@ -12,17 +12,17 @@
 #import "BaseObject.h"
 
 @interface RegViewController ()
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
 
 @end
 
 @implementation RegViewController
--(void)updateViewConstraints
-{
-    [super updateViewConstraints];
-    self.w1.constant = self.view.width;
-    
-}
+//-(void)updateViewConstraints
+//{
+//    [super updateViewConstraints];
+//    self.w1.constant = self.view.width;
+//    
+//}
 - (IBAction)regAct:(id)sender {
     if ([self checkPwd]==NO) {
         [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
@@ -75,16 +75,16 @@
     
     
 }
-- (IBAction)checkBtnAct2:(id)sender forEvent:(UIEvent *)event {
-    UITouch *touches = [event.allTouches anyObject];
-    CGPoint loc = [touches locationInView:self.checkBtn];
-    if(loc.x < 60 ){
-        self.checkBtn.selected = !self.checkBtn.selected;
-        
-    }else {
-        [self checkBtnAct:nil];
-    }
-}
+//- (IBAction)checkBtnAct2:(id)sender forEvent:(UIEvent *)event {
+//    UITouch *touches = [event.allTouches anyObject];
+//    CGPoint loc = [touches locationInView:self.checkBtn];
+//    if(loc.x < 60 ){
+//        self.checkBtn.selected = !self.checkBtn.selected;
+//        
+//    }else {
+//        [self checkBtnAct:nil];
+//    }
+//}
 -(BOOL)checkData
 {
     BOOL phoneV = self.phone.text.length == 11;
@@ -102,39 +102,40 @@
         return NO;
     }
     
-    if (self.company.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入公司名称"];
-        return NO;
-    }
-    
-    if (self.username.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入姓名"];
-        return NO;
-    }
-    if (self.job.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入职务"];
-        return NO;
-    }
-    
-    BOOL emailValie = [self isValidateEmail:self.email.text ];
-    if (emailValie==NO) {
-        [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
-        return NO;
-    }
+//    if (self.company.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入公司名称"];
+//        return NO;
+//    }
+//    
+//    if (self.username.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入姓名"];
+//        return NO;
+//    }
+//    if (self.job.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入职务"];
+//        return NO;
+//    }
+//    
+//    BOOL emailValie = [self isValidateEmail:self.email.text ];
+//    if (emailValie==NO) {
+//        [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
+//        return NO;
+//    }
 
 //    if (self.email.text.length == 0) {
 //        [DialogUtil showDlgAlert:@"请输入邮箱"];
 //        return NO;
 //    }
-    if (self.fax.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入传真"];
-        return NO;
-    }
-    
-    if (self.addresss.text.length == 0) {
-        [DialogUtil showDlgAlert:@"请输入地址"];
-        return NO;
-    }
+
+//    if (self.fax.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入传真"];
+//        return NO;
+//    }
+//    
+//    if (self.addresss.text.length == 0) {
+//        [DialogUtil showDlgAlert:@"请输入地址"];
+//        return NO;
+//    }
     
     
     return 1;
@@ -148,12 +149,12 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [NetManager RegMobile:self.phone.text
                  password:self.pwd1.text
-                 trueName:self.username.text
-              companyName:self.company.text
-                     duty:self.job.text
-                    email:self.email.text
-                      fax:self.fax.text
-                  address:self.addresss.text
+                 trueName:nil
+              companyName:nil
+                     duty:nil
+                    email:nil
+                      fax:nil
+                  address:nil
                     block:^(UserObject *object, NSError *error, NSString *msg) {
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
@@ -255,13 +256,13 @@
     [self.regBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
     
-    NSMutableAttributedString *str = [self.checkBtn.titleLabel.attributedText mutableCopy];
-    NSRange strRange = [self.checkBtn.titleLabel.text rangeOfString:@"注册协议"];
+//    NSMutableAttributedString *str = [self.checkBtn.titleLabel.attributedText mutableCopy];
+//    NSRange strRange = [self.checkBtn.titleLabel.text rangeOfString:@"注册协议"];
     
-    [str addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:strRange];
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:strRange];
+//    [str addAttribute:NSUnderlineStyleAttributeName value:[NSNumber numberWithInteger:NSUnderlineStyleSingle] range:strRange];
+//    [str addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:strRange];
     
-    [self.checkBtn setAttributedTitle:str forState:UIControlStateNormal];
+//    [self.checkBtn setAttributedTitle:str forState:UIControlStateNormal];
     
     self.title = @"注册";
 
