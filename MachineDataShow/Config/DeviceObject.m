@@ -19,32 +19,46 @@
     [super loadRequest];
     self.page = 1;
 //    self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"/getUserEquipmentList.php";
+    self.PATH = @"getUserEquipmentListJson";
 //    self.HOST = AppHostAddress;
+    
     
 }
 -(NSMutableDictionary *)requestParams{
-    NSMutableDictionary *dict = [[super requestParams] mutableCopy];
-//    [dict setObject: self.category forKey:@"category"];
-//    [dict setObject: self.big_category forKey:@"big_category"];
-//    [dict setObject: self.biz_type forKey:@"biz_type"];
+    return nil;
     
-    if (self.keyword) {
-        [dict setObject: self.keyword forKey:@"keyword"];
-
-    }
-    
-    if ([UserObject hadLog]) {
-        [dict setObject: [BaseObjectRequest sharedInstance].userid forKey:@"uid"];
-        
-    }
-
-    return dict;
+//    NSMutableDictionary *dict = [[super requestParams] mutableCopy];
+//  
+//    if (self.keyword) {
+//        [dict setObject: self.keyword forKey:@"keyword"];
+//
+//    }
+//    
+//    if ([UserObject hadLog]) {
+//        [dict setObject: [BaseObjectRequest sharedInstance].userid forKey:@"uid"];
+//        
+//    }
+//
+//    return dict;
 }
 @end
 
 
 @implementation DeviceObjectSceneModel
+@synthesize request=_request;
+
+-(NSString*)getPath
+{
+    return [NSString stringWithFormat:@"%@/%@/%ld/%@/%@",self.request.PATH,[UserObject sharedInstance].uid,self.request.page,@"10",self.request.keyword];
+    
+}
+-(void)SEND_IQ_ACTION:(Request *)req
+{
+    self.request.PATH = [self getPath];
+    [super SEND_IQ_ACTION:req];
+    
+}
+
 -(void)loadSceneModel
 
 {

@@ -67,23 +67,36 @@ static MeViewController* shareApp;
 -(void)dealView
 {
     if ([UserObject hadLog]     ) {
-        self.loginView.hidden = 0;
-        self.notLoginView.hidden = 1;
-        self.logoutBase.hidden = 0;
-        
-        self.myInfoCell.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
-        
-        if(_image   ){
-            [self.icon setImage:_image forState:0];
-        }else
-            [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].head ]
-                    forState:0
-                    placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                            }];
-        
-        self.phone.text = [UserObject sharedInstance].mobile ;
-        
+        if ([UserObject sharedInstance].mobile==nil) {
+            [MBProgressHUD showHUDAddedTo:self.bgView animated:YES];
+            
+            [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
+                [MBProgressHUD hideHUDForView:self.bgView animated:YES];
+                
+                [self dealView];
+                
+            }];
+            
+        }else{
+            self.loginView.hidden = 0;
+            self.notLoginView.hidden = 1;
+            self.logoutBase.hidden = 0;
+            
+            self.myInfoCell.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+            
+            if(_image   ){
+                [self.icon setImage:_image forState:0];
+            }else
+                [self.icon sd_setImageWithURL:[NSURL URLWithString:[UserObject sharedInstance].head ]
+                                     forState:0
+                             placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]
+                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                                    }];
+            
+            self.phone.text = [UserObject sharedInstance].mobile ;
+            
+
+        }
         
         
         

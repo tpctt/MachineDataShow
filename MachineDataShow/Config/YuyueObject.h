@@ -7,15 +7,24 @@
 //
 
 #import "BaseObject.h"
-
+/*
+ 
+ */
 @interface YuyueObject : BaseObject
 
+@property (strong,nonatomic) NSString *uid;
 @property (strong,nonatomic) NSString *companyname;
-@property (strong,nonatomic) NSString *desccription;
-@property (strong,nonatomic) NSString *id;
-@property (strong,nonatomic) NSString *peopernum;
-@property (strong,nonatomic) NSString *tele;
+//参观人数
+@property (strong,nonatomic) NSString *mount;
+@property (strong,nonatomic) NSString *duty;
+@property (strong,nonatomic) NSString *telephone;
 @property (strong,nonatomic) NSString *visittime;
+//留言
+@property (strong,nonatomic) NSString *remakrs;
+@property (strong,nonatomic) NSString *id;
+@property (strong,nonatomic) NSString *visitno;
+@property (strong,nonatomic) NSString *time;
+@property (assign,nonatomic) int status ;
 
 @end
 @interface YuyueObjectRequest : BaseListObjectRequest
@@ -24,4 +33,5 @@
 
 
 @interface YuyueObjectSceneModel : BaseSceneModel
+
 @end

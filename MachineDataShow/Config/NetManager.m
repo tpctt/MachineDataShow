@@ -16,6 +16,232 @@
 #import <TMCache/TMCache.h>
 
 @implementation NetManager
++(NSString*)removiewHuhao:(NSString*)string
+{
+    if ([string hasPrefix:@"\""]) {
+        string = [string substringFromIndex:1];
+    }
+    if ([string hasSuffix:@"\""]) {
+        string = [string substringToIndex:string.length-1];
+
+    }
+    return string;
+}
++(NSString *)getErrorMsg:(NSString*)code
+{
+    NSDictionary *INFO = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ErrorCode" ofType:@"plist"]];
+    return [INFO objectAtPath:code];
+    
+    return nil;
+}
++(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
+                           password:(NSString *)password
+                               code:(NSString *)code
+                              block:(HotKeyBlock)block
+{
+
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@",@"userRegisterJson",mobile,password, code];
+  
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+            [UserObject sharedInstance].uid = stateString;
+          
+            block(@[@(state)],nil,nil);
+ 
+        }else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+
+}
+
++(AFHTTPRequestOperation*)wanshanziliao: (NSString*)trueName
+                            companyName:(NSString*)companyName
+                                   duty:(NSString*)duty
+                                  email:(NSString*)email
+                                    fax:(NSString*)fax
+                                address:(NSString*)address
+                               isModify:(BOOL)isModify
+
+                                  block:(HotKeyBlock)block
+{
+    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@/%@/%@",isModify?@"setUserInfoJson":@"userRegisterCompleteJson",[UserObject sharedInstance].uid,companyName, @"SHENGFEN",@"CHENGSHI",@"HANGYE",@"BUMEN",duty,email,address,@"0"];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
+        if ([obj.uid integerValue]>0) {
+            [UserObject setDataFrom:obj];
+            
+            block(@[obj],nil,nil);
+
+        }
+        else{
+            block(nil,nil,[self getErrorMsg:[self removiewHuhao:operation.responseString]]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+    
+}
+
++(AFHTTPRequestOperation*)LogMobile:(NSString*)mobile
+                           password:(NSString *)password
+                              block:(HotKeyBlock)block
+{
+    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@",@"userLoginJson",mobile,password];
+    
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+            [UserObject sharedInstance].uid = stateString;
+            
+            block(@[@(state)],nil,nil);
+            
+        }else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+    
+}
+
++(AFHTTPRequestOperation*)getUserInfo :(HotKeyBlock)block
+{
+    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@",@"getUserInfoJson",[UserObject sharedInstance].uid];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
+        if ([obj.uid integerValue]>0) {
+            [UserObject setDataFrom:obj];
+            
+            block(@[obj],nil,nil);
+            
+        }
+        else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+    
+}
 +(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
                                block:(HotKeyBlock)block
 {
@@ -70,8 +296,172 @@
     
     return op;
 }
-+(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block{
-    NSString *PATH = @"getUserInfo.php";
+
+ 
++(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
+                             password:(NSString*)password
+
+                                block:(HotKeyBlock)block
+{
+    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@",@"setUserPasswordJson",oldpwd,password];
+    
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+//            [UserObject sharedInstance].uid = stateString;
+            
+            block(@[@(state)],nil,nil);
+            
+        }else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+    
+}
+
++(AFHTTPRequestOperation*)setEquipmentRepairID:(NSString*)equipmentId
+                                       contact:(NSString*)contact
+                                          tele:(NSString*)tele
+                                        detail:(NSString*)detail
+
+                                        images:(NSArray*)images
+                                        videos:(NSArray*)videos
+
+                                         block:(HotKeyBlock)block
+{
+    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%.f",@"setEquipmentRepairJson",[UserObject sharedInstance].uid,equipmentId,contact,tele,detail,[[NSDate date ] timeIntervalSince1970]];
+    
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+            //            [UserObject sharedInstance].uid = stateString;
+            
+            block(@[@(state)],nil,nil);
+            
+        }else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+    
+}
+
++(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block
+{
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@",@"getUserRepairInfoJson",[UserObject sharedInstance].uid,objid  ];
+    
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+         if ([jsonObject isKindOfClass:[NSDictionary class] ] ) {
+        
+            
+            FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:jsonObject  ];
+           
+            
+            block(@[OBJ],nil,nil);
+            
+            
+        }else{
+            block(nil,nil,[self getErrorMsg:[self removiewHuhao:operation.responseString]]);
+            
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
++(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
+    NSString *PATH = @"getFlash.php";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -82,8 +472,6 @@
     }
     
     NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-    
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -92,18 +480,18 @@
     
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
     
-    
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
+            NSArray *KEYVAULES =[jsonObject objectAtPath:@"response/dataList"];
+            [[TMCache sharedCache]setObject:KEYVAULES forKey:@"adArrayKeyvaules"];
             
+            NSArray *array = [HomeAD objectArrayWithKeyValuesArray:KEYVAULES error:nil];
             
-            
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/text"]);
+            block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
             
             
         }else{
@@ -117,8 +505,71 @@
         
     }];
     
+    
+    
+    return op;
+    
+}
++(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
+                      peoplesum:(NSString*)peoplesum
+                           duty:(NSString*)duty
+                           tele:(NSString*)tele
+                           time:(NSString*)time
+                           desc:(NSString*)desc
+
+                          block:(HotKeyBlock)block
+{
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@",@"setVisitJson",[UserObject sharedInstance].uid,compangyName,peoplesum ,duty,tele ,time,desc,[NSDate date]];
+    
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+            //            [UserObject sharedInstance].uid = stateString;
+            
+            block(@[@(state)],nil,nil);
+            
+        }else{
+            block(nil,nil,[self getErrorMsg:stateString]);
+        }
+        
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
     return op;
 }
+
+
+
 +(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
                                   companyName:(NSString*)companyName
                                          duty:(NSString*)duty
@@ -186,133 +637,8 @@
     
     return op;
 }
-+(AFHTTPRequestOperation*)setEquipmentRepairID:(NSString*)equipmentId
-                                       contact:(NSString*)contact
-                                          tele:(NSString*)tele
-                                        detail:(NSString*)detail
 
-                                        images:(NSArray*)images
-                                        videos:(NSArray*)videos
 
-                                         block:(HotKeyBlock)block
-{
-    NSString *PATH = @"setEquipmentRepair.php";
-    
-    NSString *url = nil;
-    NSRange rang = [AppHostAddress rangeOfString:@"://"];
-    if (rang.length) {
-        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
-    }else{
-        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
-    }
-    
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-    [requestParams setValue:equipmentId forKey:@"equipmentId"];
-    [requestParams setValue:contact forKey:@"contact"];
-    [requestParams setValue:tele forKey:@"tele"];
-    [requestParams setValue:detail forKey:@"detail"];
-    
-//    [requestParams setValue:voiceId forKey:@"voiceId"];
-//    [requestParams setValue:imageId forKey:@"imageId"];
-//    [requestParams setValue:videoId forKey:@"videoId"];
-
-    [requestParams setValue:@"12345678901" forKey:@"time"];
-    
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-    
-    
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-        
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
-            
-            
-            
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-            
-        }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        block(nil, error,nil);
-        
-    }];
-    
-    return op;
-}
-+(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
-                                     password:(NSString*)password
-
-                                        block:(HotKeyBlock)block{
-    NSString *PATH = @"setUserPassword.php";
-    
-    NSString *url = nil;
-    NSRange rang = [AppHostAddress rangeOfString:@"://"];
-    if (rang.length) {
-        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
-    }else{
-        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
-    }
-    
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-//    [requestParams setValue:equipmentId forKey:@"equipmentId"];
-    [requestParams setValue:password forKey:@"password"];
- 
-    
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-    
-    
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-        
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
-            NSString *string = [jsonObject stringAtPath:@"response/text"];
-            if (!string) {
-                string=@"";
-            }
-            
-            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
-            
-            
-        }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        block(nil, error,nil);
-        
-    }];
-    
-    return op;
-}
 +(AFHTTPRequestOperation*)faceback:(NSString*)content
                               tele:(NSString*)tele
 
@@ -427,187 +753,6 @@
         
     }];
     
-    return op;
-}
-+(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
-                      peoplesum:(NSString*)peoplesum
-                           duty:(NSString*)duty
-                           tele:(NSString*)tele
-                           time:(NSString*)time
-                           desc:(NSString*)desc
-
-                          block:(HotKeyBlock)block
-{
-    NSString *PATH = @"setAppointment.php";
-    
-    NSString *url = nil;
-    NSRange rang = [AppHostAddress rangeOfString:@"://"];
-    if (rang.length) {
-        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
-    }else{
-        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
-    }
-    
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    //    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-    //    [requestParams setValue:equipmentId forKey:@"equipmentId"];
-    [requestParams setValue:compangyName forKey:@"compangyName"];
-    [requestParams setValue:peoplesum forKey:@"visitnum"];
-    [requestParams setValue:duty forKey:@"duty"];
-    [requestParams setValue:tele forKey:@"tele"];
-    [requestParams setValue:time forKey:@"visittime"];
-    [requestParams setValue:desc forKey:@"description"];
-    
-    
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-    
-    
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-        
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
-            NSString *string = [jsonObject stringAtPath:@"response/text"];
-            if (!string) {
-                string=@"";
-            }
-            
-            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
-            
-            
-        }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        block(nil, error,nil);
-        
-    }];
-    
-    return op;
-}
-
-+(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
-    NSString *PATH = @"getFlash.php";
-    
-    NSString *url = nil;
-    NSRange rang = [AppHostAddress rangeOfString:@"://"];
-    if (rang.length) {
-        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
-    }else{
-        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
-    }
-    
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-    
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-        
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            NSArray *KEYVAULES =[jsonObject objectAtPath:@"response/dataList"];
-            [[TMCache sharedCache]setObject:KEYVAULES forKey:@"adArrayKeyvaules"];
-            
-            NSArray *array = [HomeAD objectArrayWithKeyValuesArray:KEYVAULES error:nil];
-            
-            block(array,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-            
-        }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        block(nil, error,nil);
-        
-    }];
-    
-    
-     
-    return op;
-    
-}
-+(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block
-{
-    NSString *PATH = @"/getUserRepairInfo.php";
-
-    NSString *url = nil;
-    NSRange rang = [AppHostAddress rangeOfString:@"://"];
-    if (rang.length) {
-        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
-    }else{
-        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
-    }
-
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-    //    [requestParams setValue:equipmentId forKey:@"equipmentId"];
-    [requestParams setValue:objid forKey:@"repairId"];
-    
-    
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            
-//            [FixedProgressInfo setupObjectClassInArray:^NSDictionary *{
-//                return @{
-//                         @"dataLists" : @"GCSInfo",
-//                         // @"statuses" : [Status class],
-//                         @"ads" : @"Ad"
-//                         // @"ads" : [Ad class]
-//                         };
-//            }];
-            
-            FixedProgressInfo *OBJ = [FixedProgressInfo objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
-            NSArray *array = [GCSInfo objectArrayWithKeyValuesArray:[jsonObject arrayAtPath:@"response/dataList"]];
-            OBJ.dataList = array;
-            
-            block(@[OBJ],nil,[jsonObject objectAtPath:@"response/text"]);
-
-
-        }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-
-        }
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-
-        block(nil, error,nil);
-
-    }];
-
     return op;
 }
 
@@ -894,6 +1039,7 @@
 //+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block
 +(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
                            password:(NSString *)password
+                               code:(NSString*)code
                            trueName:(NSString*)trueName
                         companyName:(NSString*)companyName
                                duty:(NSString*)duty
@@ -901,9 +1047,17 @@
                                 fax:(NSString*)fax
                             address:(NSString*)address
 
-                             block:(LoinBlock)block
+                             block:(HotKeyBlock)block
 {
-    NSString *PATH = @"userRegister.php";
+    
+    NSString *PATH = nil;
+    if (password) {
+        PATH = [NSString stringWithFormat:@"/%@/%@/%@/%@",@"userRegisterJson",mobile,password, code];
+    }else{
+        PATH = [NSString stringWithFormat:@"/%@/%@/%@/%@",@"userRegisterJson",mobile,password, code];
+
+    }
+    
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -914,17 +1068,17 @@
     }
     
     NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-//    [requestParams setObject:userName atPath:@"userName"];
-    [requestParams setObject:password atPath:@"password"];
-    [requestParams setObject:trueName atPath:@"trueName"];
-    [requestParams setObject:companyName atPath:@"companyName"];
-    [requestParams setObject:duty atPath:@"duty"];
-    [requestParams setObject:mobile atPath:@"mobile"];
-    [requestParams setObject:email atPath:@"email"];
-    [requestParams setObject:fax atPath:@"fax"];
-    [requestParams setObject:address atPath:@"address"];
-    ///性别(0-保密、1-男、2-女)
-    [requestParams setObject:@"0" atPath:@"sex"];
+////    [requestParams setObject:userName atPath:@"userName"];
+//    [requestParams setObject:password atPath:@"password"];
+//    [requestParams setObject:trueName atPath:@"trueName"];
+//    [requestParams setObject:companyName atPath:@"companyName"];
+//    [requestParams setObject:duty atPath:@"duty"];
+//    [requestParams setObject:mobile atPath:@"mobile"];
+//    [requestParams setObject:email atPath:@"email"];
+//    [requestParams setObject:fax atPath:@"fax"];
+//    [requestParams setObject:address atPath:@"address"];
+//    ///性别(0-保密、1-男、2-女)
+//    [requestParams setObject:@"0" atPath:@"sex"];
 
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

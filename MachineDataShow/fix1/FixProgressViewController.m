@@ -15,10 +15,7 @@
 
 @end
 
-@implementation GCSInfo
-
-
-@end
+ 
 
 
 @interface FixProgressViewController ()
@@ -82,12 +79,11 @@
 }
 -(void)config2
 {
-    NSInteger flag = [self.fixedProgressInfo.flag integerValue];
-    GCSInfo *obj = [self.fixedProgressInfo.dataList safeObjectAtIndex:flag];
+    NSInteger flag =  _fixedProgressInfo.status  ;
     
-    [self.icon sd_setImageWithURL:[NSURL URLWithString:obj.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
-    self.manName.text = [NSString stringWithFormat:@"联系人:%@",obj.name];
-    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",obj.tele];
+    [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
+    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name];
+    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele];
     
     
     NSArray*ARRAY=  @[[UIImage imageNamed:@"progress_1"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];

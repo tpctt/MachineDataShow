@@ -28,6 +28,8 @@ typedef void(^TBurlWithKey)(NSString *search_url , NSString *type, NSError *erro
 
 typedef void(^GetUserDataBlock)(UserObject *object,NSError *error,NSString *msg);
 typedef void(^LoinBlock)(UserObject *object,NSError *error,NSString *msg);
+ 
+
 typedef void(^checkSessionExpiredBlock)(BOOL update_session,LoginObject *object,NSError *error,NSString *msg);
 
 typedef void(^SendMailBlock)(NSString *email_goto_url,NSError *error,NSString *msg);
@@ -36,21 +38,36 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 
 @interface NetManager:NSObject
-+(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block;
-+(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
-+(AFHTTPRequestOperation*)getUserInfoblock:(HotKeyBlock)block;
-///￼性别(0-保密、1-男、2-女)
-+(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
-                                  companyName:(NSString*)companyName
-                                         duty:(NSString*)duty
-                                        email:(NSString*)email
-                                          fax:(NSString*)fax
-                                      address:(NSString*)address
-                                          sex:(int)sex
 
-                                        block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
+                           password:(NSString *)password
+                               code:(NSString *)code
+                              block:(HotKeyBlock)block;
+
++(AFHTTPRequestOperation*)wanshanziliao: (NSString*)trueName
+                        companyName:(NSString*)companyName
+                               duty:(NSString*)duty
+                              email:(NSString*)email
+                                fax:(NSString*)fax
+                            address:(NSString*)address
+                               isModify:(BOOL)isModify
+                              block:(HotKeyBlock)block;
+
++(AFHTTPRequestOperation*)LogMobile:(NSString*)mobile
+                           password:(NSString *)password
+                              block:(HotKeyBlock)block;
+
++(AFHTTPRequestOperation*)getUserInfo :(HotKeyBlock)block;
+
 +(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
+                               block:(HotKeyBlock)block;
+
++(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
+                             password:(NSString*)password
+
                                 block:(HotKeyBlock)block;
+
+
 
 +(AFHTTPRequestOperation*)setEquipmentRepairID:(NSString*)equipmentId
                                        contact:(NSString*)contact
@@ -61,15 +78,11 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                         videos:(NSArray*)videos
 
                                          block:(HotKeyBlock)block;
-+(AFHTTPRequestOperation*)setpassword:(NSString*)oldpwd
-                                  password:(NSString*)password
 
-                                        block:(HotKeyBlock)block;
 
-+(AFHTTPRequestOperation*)faceback:(NSString*)content
-                             tele:(NSString*)tele
++(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block;
++(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
 
-                                block:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
                       peoplesum:(NSString*)peoplesum
@@ -78,7 +91,27 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                            time:(NSString*)time
                            desc:(NSString*)desc
 
-                             block:(HotKeyBlock)block;
+                          block:(HotKeyBlock)block;
+
+ ///￼性别(0-保密、1-男、2-女)
++(AFHTTPRequestOperation*)setUserInfotrueName:(NSString*)trueName
+                                  companyName:(NSString*)companyName
+                                         duty:(NSString*)duty
+                                        email:(NSString*)email
+                                          fax:(NSString*)fax
+                                      address:(NSString*)address
+                                          sex:(int)sex
+
+                                        block:(HotKeyBlock)block;
+
+
+
+
++(AFHTTPRequestOperation*)faceback:(NSString*)content
+                             tele:(NSString*)tele
+
+                                block:(HotKeyBlock)block;
+
 +(AFHTTPRequestOperation*)yuyueDetail:(NSString*)id
                           block:(HotKeyBlock)block;
 
@@ -93,7 +126,9 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 ///性别(0-保密、1-男、2-女)
 //+(AFHTTPRequestOperation*)emailReg:(NSString*)email  name:(NSString *)name pwd:(NSString*)pwd block:(LoinBlock)block;
 +(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
-                          password:(NSString *)password
+                           password:(NSString *)password
+                           code:(NSString *)code
+
                           trueName:(NSString*)trueName
                        companyName:(NSString*)companyName
                               duty:(NSString*)duty
@@ -101,7 +136,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                fax:(NSString*)fax
                            address:(NSString*)address
  
-                             block:(LoinBlock)block;
+                             block:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)login:(NSString*)name pwd:(NSString*)pwd aps:(NSString *)aps block:(LoinBlock)block;
 +(AFHTTPRequestOperation*)thirdLogin:(NSString*)client_id type:(NSString*)type code:(NSString*)code aps:(NSString *)aps block:(LoinBlock)block;

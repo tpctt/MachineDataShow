@@ -33,6 +33,17 @@
 
 
 @implementation YuyueObjectSceneModel
+-(NSString*)getPath
+{
+    return [NSString stringWithFormat:@"%@/%@/%ld/%@",self.request.PATH,[UserObject sharedInstance].uid,self.request.page,@"10" ];
+    
+}
+-(void)SEND_IQ_ACTION:(Request *)req
+{
+    self.request.PATH = [self getPath];
+    [super SEND_IQ_ACTION:req];
+    
+}
 -(void)loadSceneModel
 
 {

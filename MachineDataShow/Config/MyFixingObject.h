@@ -24,4 +24,6 @@
 
 
 @interface MyFixingObjectSceneModel : BaseSceneModel
+@property(strong,nonatomic) MyFixingObjectRequest *request;
+
 @end

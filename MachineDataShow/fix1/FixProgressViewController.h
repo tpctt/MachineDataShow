@@ -14,23 +14,17 @@
 
 @end
 @interface FixedProgressInfo :BaseObject 
-//@property (strong, nonatomic)   NSString *icon;
-//@property (strong, nonatomic)   NSString *name;
-//@property (strong, nonatomic)   NSString *phone;
-//@property (strong, nonatomic)   NSString *process;
 
-@property (strong, nonatomic)   NSString *flag;
-@property (strong, nonatomic)   NSString *lastUpdateTime;
-@property (strong, nonatomic)   NSArray  *dataList;
-
-@end
-
-/// 工程师的信息
-@interface GCSInfo :BaseObject
-@property (strong, nonatomic)   NSString *completetime;
-@property (strong, nonatomic)   NSString *head;
+@property (strong, nonatomic)   NSString *repairId;
+@property (strong, nonatomic)   NSString *equipmentId;
+@property (strong, nonatomic)   NSString *contact;
 @property (strong, nonatomic)   NSString *name;
-@property (strong, nonatomic)   NSString *no;
+
+@property (strong, nonatomic)   NSString *head;
 @property (strong, nonatomic)   NSString *tele;
+@property (strong, nonatomic)   NSString  *completetime;
+///0-客户报修、1-处理中、2- 已处理、3-已报价、4-已付 款、5、已派人、6-已结束
+@property (assign, nonatomic)  int status;
 
 @end
+

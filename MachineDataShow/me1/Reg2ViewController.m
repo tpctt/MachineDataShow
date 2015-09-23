@@ -80,47 +80,41 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager RegMobile:nil
-                 password:nil
-                 trueName:self.username.text
-              companyName:self.company.text
-                     duty:self.job.text
-                    email:self.email.text
-                      fax:self.fax.text
-                  address:self.addresss.text
-                    block:^(UserObject *object, NSError *error, NSString *msg) {
-                        
-                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                        
-                        if (object) {
+    [NetManager wanshanziliao:self.username.text
+                  companyName:self.company.text
+                         duty:self.job.text
+                        email:self.email.text
+                          fax:self.fax.text
+                      address:self.addresss.text
+                     isModify:NO
+                        block:^(NSArray *array, NSError *error, NSString *msg) {
+                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                             
-                            [[GCDQueue mainQueue] queueBlock:^{
-                                //                [LoginObject sharedInstance].userid = object.userid;
-                                //                [LoginObject sharedInstance].session_token = object.session_token;
-                                //                [LoginObject sharedInstance].username = object.username;
-                                //                [LoginObject sharedInstance].avatar = object.avatar;
-                                //
-                                //                [BaseObjectRequest sharedInstance].userid = object.userid;
-                                //                [BaseObjectRequest sharedInstance].session_token = object.session_token;
-                                
-                                [self.navigationController popToRootViewControllerAnimated:YES];
-                                
-                            }];
+                            UserObject *OBJ = [array firstObject];
                             
-                        }
-                        else
-                        {
-                            if(msg.length){
-                                [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
-                                
-                            }else{
-                                
-                                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
-                                
+                            if (OBJ) {
+                                [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
+
+                                [[GCDQueue mainQueue] queueBlock:^{
+                                    
+                                     [self.navigationController popToRootViewControllerAnimated:YES];
+                                    
+                                }];
                             }
-                        }
-                        
-                    }];
+                            else
+                            {
+                                if(msg.length){
+                                    [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                    
+                                }else{
+                                    
+                                    [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                    
+                                }
+                            }
+                            
+                        }];
+ 
     
 }
 //利用正则表达式验证

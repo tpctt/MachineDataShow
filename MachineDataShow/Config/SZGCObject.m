@@ -32,11 +32,12 @@
     [super loadRequest];
     self.page = 1;
     //    self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"/getUserRepairList.php";
+    self.PATH = @"getMachineStatusListJson";
     //    self.HOST = AppHostAddress;
     
 }
 -(NSMutableDictionary *)requestParams{
+    return nil;
     NSMutableDictionary *dict = [[super requestParams] mutableCopy];
     //    [dict setObject: self.category forKey:@"category"];
     //    [dict setObject: self.big_category forKey:@"big_category"];
@@ -48,6 +49,17 @@
 
 
 @implementation SZGCObjectSceneModel
+-(NSString*)getPath
+{
+    return [NSString stringWithFormat:@"%@/%@/%ld/%@",self.request.PATH,[UserObject sharedInstance].uid,self.request.page,@"10" ];
+    
+}
+-(void)SEND_IQ_ACTION:(Request *)req
+{
+    self.request.PATH = [self getPath];
+    [super SEND_IQ_ACTION:req];
+    
+}
 -(void)loadSceneModel
 
 {

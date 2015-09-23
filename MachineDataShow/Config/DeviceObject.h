@@ -28,4 +28,6 @@
 
 
 @interface DeviceObjectSceneModel : BaseSceneModel
+@property(strong,nonatomic) DeviceObjectRequest *request;
+
 @end

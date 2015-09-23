@@ -10,6 +10,7 @@
 #import <EasyIOS/DialogUtil.h>
 #import "NetManager.h"
 #import "BaseObject.h"
+#import "Reg2ViewController.h"
 
 @interface RegViewController ()
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *w1;
@@ -17,12 +18,7 @@
 @end
 
 @implementation RegViewController
-//-(void)updateViewConstraints
-//{
-//    [super updateViewConstraints];
-//    self.w1.constant = self.view.width;
-//    
-//}
+
 - (IBAction)regAct:(id)sender {
     if ([self checkPwd]==NO) {
         [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
@@ -67,24 +63,7 @@
     
 }
 
-- (IBAction)checkBtnAct:(id)sender {
-    
-//    XieyiViewController *vc = [[XieyiViewController alloc]init];
-//    
-//    [self.navigationController pushViewController:vc animated:1];
-    
-    
-}
-//- (IBAction)checkBtnAct2:(id)sender forEvent:(UIEvent *)event {
-//    UITouch *touches = [event.allTouches anyObject];
-//    CGPoint loc = [touches locationInView:self.checkBtn];
-//    if(loc.x < 60 ){
-//        self.checkBtn.selected = !self.checkBtn.selected;
-//        
-//    }else {
-//        [self checkBtnAct:nil];
-//    }
-//}
+
 -(BOOL)checkData
 {
     BOOL phoneV = self.phone.text.length == 11;
@@ -147,47 +126,38 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager RegMobile:self.phone.text
-                 password:self.pwd1.text
-                 trueName:nil
-              companyName:nil
-                     duty:nil
-                    email:nil
-                      fax:nil
-                  address:nil
-                    block:^(UserObject *object, NSError *error, NSString *msg) {
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
-        if (object) {
-            
-            [[GCDQueue mainQueue] queueBlock:^{
-//                [LoginObject sharedInstance].userid = object.userid;
-//                [LoginObject sharedInstance].session_token = object.session_token;
-//                [LoginObject sharedInstance].username = object.username;
-//                [LoginObject sharedInstance].avatar = object.avatar;
-//                
-//                [BaseObjectRequest sharedInstance].userid = object.userid;
-//                [BaseObjectRequest sharedInstance].session_token = object.session_token;
-                
-                [self.navigationController popToRootViewControllerAnimated:YES];
-                
-            }];
-            
-        }
-        else
-        {
-            if(msg.length){
-                [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
-                
-            }else{
-                
-                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
-                
-            }
-        }
-        
-    }];
+    [NetManager  RegMobile:self.phone.text
+                  password:self.pwd1.text
+                      code:self.verifyText.text
+                    block:^(NSArray *array, NSError *error, NSString *msg) {
+                        [MBProgressHUD hideHUDForView:self.view animated:YES];
+                        
+                        NSString *string = [array firstObject];
+                        if (string) {
+                            [UserObject sharedInstance].uid = string;
+                            [[GCDQueue mainQueue] queueBlock:^{
+                                
+                                [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
+                                
+                                 Reg2ViewController *reg2 = [self.storyboard instantiateViewControllerWithIdentifier:@"Reg2ViewController"];
+                                [self.navigationController pushViewController:reg2 animated:YES];
+                                
+                                
+                            }];
+                        }
+                        else
+                        {
+                            if(msg.length){
+                                [UIAlertView showWithTitle:@"提示" message:msg cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                
+                            }else{
+                                
+                                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                
+                            }
+                        }
+                    }];
+   
     
 }
 //利用正则表达式验证

@@ -2174,7 +2174,7 @@
         <!--注册-->
         <scene sceneID="h9u-T5-DhD">
             <objects>
-                <viewController title="完善资料" id="cMF-Xc-VI8" userLabel="注册" customClass="Reg2ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Reg2ViewController" title="完善资料" id="cMF-Xc-VI8" userLabel="注册" customClass="Reg2ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dw9-iC-LKK"/>
                         <viewControllerLayoutGuide type="bottom" id="3JB-6Z-d6Y"/>
@@ -2216,7 +2216,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="         " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgY-pz-uTZ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LgY-pz-uTZ">
                                         <rect key="frame" x="0.0" y="-64" width="320" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -2255,6 +2255,7 @@
                                     <constraint firstItem="Ucj-9I-ZZV" firstAttribute="leading" secondItem="m9p-TD-4pT" secondAttribute="leading" constant="16" id="mnB-pD-IPl"/>
                                     <constraint firstItem="ADq-RG-Wbx" firstAttribute="top" secondItem="5TJ-9O-r1X" secondAttribute="bottom" constant="8" id="mod-g2-ogw"/>
                                     <constraint firstAttribute="trailing" secondItem="dUT-NN-Nf3" secondAttribute="trailing" constant="16" id="qNV-c4-EY9"/>
+                                    <constraint firstItem="Ucj-9I-ZZV" firstAttribute="top" secondItem="LgY-pz-uTZ" secondAttribute="bottom" constant="51" id="taz-UN-S9U"/>
                                     <constraint firstItem="dUT-NN-Nf3" firstAttribute="leading" secondItem="m9p-TD-4pT" secondAttribute="leading" constant="16" id="waC-Uv-Txl"/>
                                     <constraint firstItem="Ucj-9I-ZZV" firstAttribute="top" secondItem="m9p-TD-4pT" secondAttribute="top" constant="8" id="xNp-um-cZD"/>
                                     <constraint firstItem="qs6-PT-GJK" firstAttribute="leading" secondItem="m9p-TD-4pT" secondAttribute="leading" constant="16" id="xms-Ec-Ui3"/>

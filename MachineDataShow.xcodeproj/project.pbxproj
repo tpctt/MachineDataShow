@@ -24,6 +24,9 @@
 		22774F8C1BAA18620093FEA2 /* home3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F881BAA18620093FEA2 /* home3@2x.png */; };
 		22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22774F891BAA18620093FEA2 /* home4@2x.png */; };
 		227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */; };
+		2283B4241BB349B1005F8085 /* APP开发规范文档_V4.0.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2283B4231BB349B1005F8085 /* APP开发规范文档_V4.0.pdf */; };
+		2283B4261BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2283B4251BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf */; };
+		2283B4281BB36461005F8085 /* ErrorCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2283B4271BB36461005F8085 /* ErrorCode.plist */; };
 		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
 		2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */; };
 		2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9011B9B30A10017DF8F /* GCDetailViewController.m */; };
@@ -183,6 +186,9 @@
 		22774F881BAA18620093FEA2 /* home3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home3@2x.png"; sourceTree = "<group>"; };
 		22774F891BAA18620093FEA2 /* home4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home4@2x.png"; sourceTree = "<group>"; };
 		227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "产品需求文档.ppt"; sourceTree = "<group>"; };
+		2283B4231BB349B1005F8085 /* APP开发规范文档_V4.0.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V4.0.pdf"; sourceTree = "<group>"; };
+		2283B4251BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "APP开发规范文档_V4.0_2.pdf"; sourceTree = "<group>"; };
+		2283B4271BB36461005F8085 /* ErrorCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorCode.plist; sourceTree = "<group>"; };
 		2284E8FA1B9B19430017DF8F /* GCSBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBViewController.h; sourceTree = "<group>"; };
 		2284E8FB1B9B19430017DF8F /* GCSBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBViewController.m; sourceTree = "<group>"; };
 		2284E8FD1B9B2DF50017DF8F /* SZGCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGCObject.h; sourceTree = "<group>"; };
@@ -434,6 +440,8 @@
 				227A2E2B1B97A32300A2AD5E /* 产品需求文档.ppt */,
 				2273A5651B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf */,
 				22388F311B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf */,
+				2283B4231BB349B1005F8085 /* APP开发规范文档_V4.0.pdf */,
+				2283B4251BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf */,
 				7A2464D71B7C2A34007FD1D4 /* AppDelegate.h */,
 				7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */,
 				7A2464DA1B7C2A34007FD1D4 /* ViewController.h */,
@@ -535,6 +543,7 @@
 				7A7561701B7C4A5400BA2B69 /* LoginObject.m */,
 				7A7561711B7C4A5400BA2B69 /* NetManager.h */,
 				7A7561721B7C4A5400BA2B69 /* NetManager.m */,
+				2283B4271BB36461005F8085 /* ErrorCode.plist */,
 				7A7561731B7C4A5400BA2B69 /* RequestConfig.h */,
 				7A7561741B7C4A5400BA2B69 /* RequestConfig.m */,
 				7A7561751B7C4A5400BA2B69 /* SmallObject.h */,
@@ -854,6 +863,7 @@
 				7A7561F01B7C5F9900BA2B69 /* logo.png in Resources */,
 				22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */,
 				7A7561D41B7C5F9900BA2B69 /* button_bg_long@2x.png in Resources */,
+				2283B4281BB36461005F8085 /* ErrorCode.plist in Resources */,
 				7A7561951B7C572A00BA2B69 /* logo_58.png in Resources */,
 				22774F8B1BAA18620093FEA2 /* home2@2x.png in Resources */,
 				7A7561E51B7C5F9900BA2B69 /* icon_info@2x.png in Resources */,
@@ -863,6 +873,7 @@
 				7A7562271B7C7DBE00BA2B69 /* Avatar.jpg in Resources */,
 				7A75619F1B7C573F00BA2B69 /* showme3@2x.png in Resources */,
 				7A7561F31B7C5F9900BA2B69 /* refresh_arrow_down.png in Resources */,
+				2283B4241BB349B1005F8085 /* APP开发规范文档_V4.0.pdf in Resources */,
 				7A75622A1B7C841C00BA2B69 /* cell_go@2x.png in Resources */,
 				7A7562221B7C773400BA2B69 /* Banner_1.jpg in Resources */,
 				7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */,
@@ -882,6 +893,7 @@
 				7A75619E1B7C573F00BA2B69 /* showme2@2x.png in Resources */,
 				7A7561DE1B7C5F9900BA2B69 /* fix_green@2x.png in Resources */,
 				7A7562241B7C773400BA2B69 /* Banner_3.jpg in Resources */,
+				2283B4261BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,
 				22388F321B89D7DE006EFBA0 /* APP开发规范文档_V2.0.pdf in Resources */,
 				7A7561861B7C4BB500BA2B69 /* 64@2x.png in Resources */,
