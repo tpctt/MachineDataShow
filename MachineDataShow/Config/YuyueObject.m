@@ -9,7 +9,10 @@
 #import "YuyueObject.h"
 
 @implementation YuyueObject
-
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@%@", self.time,self.companyname];
+}
 @end
 @implementation YuyueObjectRequest
 -(void)loadRequest
@@ -17,11 +20,12 @@
     [super loadRequest];
     self.page = 1;
     //    self.PATH = [[RequestConfig sharedInstance] home];
-    self.PATH = @"/getAppointmentList.php";
-    //    self.HOST = AppHostAddress;
+    self.PATH = @"getVisitListJson";
+//    self.HOST = AppHostAddress;
     
 }
 -(NSMutableDictionary *)requestParams{
+    return nil;
     NSMutableDictionary *dict = [[super requestParams] mutableCopy];
     //    [dict setObject: self.category forKey:@"category"];
     //    [dict setObject: self.big_category forKey:@"big_category"];
@@ -65,13 +69,18 @@
          @strongify(self);
          NSError *error = self.request.error;
          
-         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
-         //         NSDictionary *dict =  self.request.output  ;
+//         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
+                  NSDictionary *dict =  self.request.output  ;
          
-         NSArray* list  =  [[YuyueObject objectArrayWithKeyValuesArray:dict[@"dataList"] error:&error]mutableCopy ] ;
-         NSInteger totalPage = [dict[@"totalPage"] integerValue];
+         NSArray* list  =  [[YuyueObject objectArrayWithKeyValuesArray:dict  error:&error]mutableCopy ] ;
+//         NSInteger totalPage = [dict[@"totalPage"] integerValue];
          
-         
+         NSInteger totalPage = 0;
+         if(list.count <10)
+             totalPage = self.request.page;
+         else
+             totalPage = self.request.page+1;
+
          [self getArray:list totalPage:totalPage];
          
      }];

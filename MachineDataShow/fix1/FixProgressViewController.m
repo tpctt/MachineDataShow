@@ -73,21 +73,22 @@
 -(void)config1
 {
     
-//    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.mo];
+    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.equipmentName];
     self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
 }
 -(void)config2
 {
-    NSInteger flag =  _fixedProgressInfo.status  ;
+    NSInteger flag =  _fixedProgressInfo.progress   ;
     
     [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
-    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name];
-    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele];
+    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name?_fixedProgressInfo.name:@"无数据"];
+    self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele?_fixedProgressInfo.tele:@"无数据"];
     
     
     NSArray*ARRAY=  @[[UIImage imageNamed:@"progress_1"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
-    self.image.image = [ARRAY safeObjectAtIndex:flag];
+    self.image.image =[UIImage imageNamed:@"progress_1"];
+//    [ARRAY safeObjectAtIndex:flag];
     
     
     

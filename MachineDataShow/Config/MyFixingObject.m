@@ -67,13 +67,16 @@
          @strongify(self);
          NSError *error = self.request.error;
          
-         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
-         //         NSDictionary *dict =  self.request.output  ;
+//         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
+                  NSDictionary *dict =  self.request.output  ;
          
-         NSArray* list  =  [[MyFixingObject objectArrayWithKeyValuesArray:dict[@"dataList"] error:&error]mutableCopy ] ;
-         NSInteger totalPage = [dict[@"totalPage"] integerValue];
-        
-         
+         NSArray* list  =  [[MyFixingObject objectArrayWithKeyValuesArray:dict  error:&error]mutableCopy ] ;
+         NSInteger totalPage = 0;
+         if(list.count <10)
+             totalPage = self.request.page;
+         else
+             totalPage = self.request.page+1;
+
          [self getArray:list totalPage:totalPage];
          
      }];

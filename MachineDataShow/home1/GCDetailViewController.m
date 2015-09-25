@@ -216,9 +216,9 @@
 
 - (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList titleForItemWithIndex:(NSInteger)index {
     SZGCObject *OBJ = [self.deviceArray safeObjectAtIndex:index];
-    return [NSString stringWithFormat:@"设备%d ",index ];
+//    return [NSString stringWithFormat:@"设备%d ",index ];
     
-    return OBJ.NAME;
+    return OBJ.name?OBJ.name:[NSString stringWithFormat:@"设备%d ",index ];
     
 }
 

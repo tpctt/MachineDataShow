@@ -99,7 +99,7 @@
         
     }
     YuyueObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
-    CELL.textLabel.text = [NSString stringWithFormat:@"预约号:%@ 预约内容:%@",o.id ,o .desccription ];
+    CELL.textLabel.text = [NSString stringWithFormat:@"预约号:%@ 预约内容:%@ %@",o.id ,o.companyname,o.remakrs ];
     
     NSString *time = [TimeTool formatTime:[o.visittime doubleValue] formatWith:@"yyyy-MM-dd"];
     CELL.detailTextLabel.text = [NSString stringWithFormat:@"预约时间:%@",time ];

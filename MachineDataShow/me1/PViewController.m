@@ -17,14 +17,22 @@
 
 @implementation PViewController
 - (IBAction)btnAct:(id)sender {
-    if ([self checkPwd]==NO) {
-        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
+//    if ([self checkPwd]==NO) {
+//        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"2次输入的密码不匹配"];;
+//        return;
+//    }
+
+    if (self.p1.text.length == 0) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入输入旧密码"];;
         return;
     }
-    
+    if (self.p2.text.length == 0) {
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入输入新密码"];;
+        return;
+    }
     [MBProgressHUD showHUDAddedTo:self.view animated:1];
     
-    [NetManager setpassword:nil password:self.p1.text block:^(NSArray *array, NSError *error, NSString *msg) {
+    [NetManager setpassword:self.p1.text  password:self.p2.text block:^(NSArray *array, NSError *error, NSString *msg) {
 
         [MBProgressHUD hideAllHUDsForView:self.view animated:1];
         

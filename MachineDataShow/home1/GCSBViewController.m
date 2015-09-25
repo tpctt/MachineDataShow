@@ -38,19 +38,26 @@
 {
     if (state) {
         self.stateBtn.backgroundColor = [UIColor blueColor];
+        [self.stateBtn setTitle:@"ok" forState:0];
+        
 
     }else{
         self.stateBtn.backgroundColor = [UIColor redColor];
+        [self.stateBtn setTitle:@"warn" forState:0];
+
     }
     
-    self.deviceName.text = name?name:@"设备名称不详";
-    self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all];
+    [self.stateBtn setTitleColor:[UIColor whiteColor] forState:0];
     
-    self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check];
-    self.hg_num.text  = [NSString stringWithFormat:@"合格数:%@",good];
+    
+    self.deviceName.text = name?name:@"设备名称不详";
+    self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all?all:@"不详"];
+    
+    self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check?check:@"不详"];
+    self.hg_num.text  = [NSString stringWithFormat:@"合格数:%@",good?good:@"不详"];
 
-    self.check_rate.text  = [NSString stringWithFormat:@"抽检率:%@",checkrate];
-    self.hg_rate.text  = [NSString stringWithFormat:@"合格率:%@",goodrate];
+    self.check_rate.text  = [NSString stringWithFormat:@"抽检率:%@",checkrate?checkrate:@"不详"];
+    self.hg_rate.text  = [NSString stringWithFormat:@"合格率:%@",goodrate?goodrate:@"不详"];
 
     
 }
@@ -186,9 +193,10 @@
         GCSBCell *CELL = [tableView dequeueReusableCellWithIdentifier:@"GCSBCell" ];
         SZGCObject *OBJ = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
         if (OBJ==nil) {
-            OBJ=[SZGCObject random];
+//            OBJ=[SZGCObject random];
         }
-        [CELL setName:OBJ.NAME state:OBJ.state all:OBJ.all check:OBJ.check good:OBJ.good checkrate:OBJ.checkrate goodrate:OBJ.goodrate];
+//        [CELL setName:OBJ.name state:OBJ.status all:OBJ.all check:OBJ.check good:OBJ.good checkrate:OBJ.checkrate goodrate:OBJ.goodrate];
+        [CELL setName:OBJ.name state:[OBJ.status intValue] all:nil check:nil good:nil checkrate:nil goodrate:nil];
         
         
         return CELL;

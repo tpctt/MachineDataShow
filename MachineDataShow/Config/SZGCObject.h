@@ -24,7 +24,6 @@
 @property (strong,nonatomic) NSString *status;
 
 
-+(SZGCObject*)random;
 
 @end
 @interface SZGCObjectRequest : BaseListObjectRequest

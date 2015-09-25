@@ -21,10 +21,11 @@
 @property (strong, nonatomic)   NSString *name;
 
 @property (strong, nonatomic)   NSString *head;
+@property (strong, nonatomic)   NSString *time;
 @property (strong, nonatomic)   NSString *tele;
 @property (strong, nonatomic)   NSString  *completetime;
 ///0-客户报修、1-处理中、2- 已处理、3-已报价、4-已付 款、5、已派人、6-已结束
-@property (assign, nonatomic)  int status;
+@property (assign, nonatomic)  int progress;
 
 @end
 

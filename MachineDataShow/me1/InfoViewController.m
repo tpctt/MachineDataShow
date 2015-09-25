@@ -222,7 +222,39 @@
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         NSArray *titles = @[@"公司名称",@"姓名",@"职务",@"邮件",@"传真",@"地址"];
+        
+        [NetManager wanshanziliao:INFOS[1] companyName:INFOS[0] duty:INFOS[2] email:INFOS[3] fax:INFOS[4] address:INFOS[5] isModify:YES block:^(NSArray *array, NSError *error, NSString *msg) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:1];
+            
+            if (array != nil) {
+                
+                [[GCDQueue mainQueue]queueBlock:^{
+                    
+                    NSString *STRING = [array firstObject];
+                    if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                    }
+                    UserObject *INFO = [[UserObject alloc] init];
+                    INFO.trueName = INFOS[1] ;
+                    INFO.companyName = INFOS[0] ;
+                    INFO.duty = INFOS[2] ;
+                    INFO.email = INFOS[3] ;
+                    INFO.fax = INFOS[4] ;
+                    INFO.address = INFOS[5] ;
+                    
+                    [[NSNotificationCenter defaultCenter]postNotificationName:UseriNFOChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:INFO,@"info", nil]];
+                    
+                    [self.navigationController popViewControllerAnimated:1];
+                    
+                }];
+                
+            }else{
+                [self showMsg:msg error:error];
+            }
 
+        }];
+        return;
+        
         [NetManager setUserInfotrueName:INFOS[1] companyName:INFOS[0] duty:INFOS[2] email:INFOS[3] fax:INFOS[4] address:INFOS[5] sex:0 block:^(NSArray *array, NSError *error, NSString *msg) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:1];
             

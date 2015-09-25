@@ -9,6 +9,7 @@
 #import "YuyueDetailViewController.h"
 #import "NetManager.h"
 @interface YuyueDetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -20,7 +21,11 @@
     ///getAppointmentInfo.php
     
     self.title = @"预约详情";
+    self. label.text = [NSString stringWithFormat:@"%@%@%@%@",self.OBJ.time,self.OBJ.companyname,self.OBJ.remakrs,self.OBJ.duty];
+    
+    return;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [NetManager yuyueDetail:self.OBJ.id block:^(NSArray *array, NSError *error, NSString *msg) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if (array) {

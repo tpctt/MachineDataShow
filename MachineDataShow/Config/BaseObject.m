@@ -50,7 +50,9 @@ DEF_SINGLETON(BaseObjectRequest)
 -(void)loadRequest
 {
     [super loadRequest];
+    self.needCheckCode = NO;
     self.METHOD = @"POST";
+    
 }
 
 -(instancetype)init

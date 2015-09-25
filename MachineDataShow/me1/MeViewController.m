@@ -365,7 +365,7 @@ static MeViewController* shareApp;
         UserObject *OBJ = info[@"info"];
         
         [MBProgressHUD showHUDAddedTo:self.view animated:1];
-        [NetManager getUserInfoblock:^(NSArray *array, NSError *error, NSString *msg) {
+        [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:1];
             
             if (array != nil) {
@@ -389,8 +389,8 @@ static MeViewController* shareApp;
                 
                 
             }
-
         }];
+        
         
     }];
 }

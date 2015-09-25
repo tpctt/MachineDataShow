@@ -99,7 +99,8 @@
                                   block:(HotKeyBlock)block
 {
     
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@/%@/%@",isModify?@"setUserInfoJson":@"userRegisterCompleteJson",[UserObject sharedInstance].uid,companyName, @"SHENGFEN",@"CHENGSHI",@"HANGYE",@"BUMEN",duty,email,address,@"0"];
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@/%@%@",isModify?@"setUserInfoJson":@"userRegisterCompleteJson",[UserObject sharedInstance].uid,companyName, @"SHENGFEN",@"CHENGSHI",@"HANGYE",@"BUMEN",duty,email,address,isModify?@"":@"/0"];
+    
     PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
@@ -231,7 +232,7 @@
             
         }
         else{
-            block(nil,nil,[self getErrorMsg:stateString]);
+            block(nil,nil,[self getErrorMsg:(NSString*)jsonObject]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -304,7 +305,7 @@
                                 block:(HotKeyBlock)block
 {
     
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@",@"setUserPasswordJson",oldpwd,password];
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@",@"setUserPasswordJson",[UserObject sharedInstance].uid,oldpwd,password];
     
     
     
@@ -363,8 +364,8 @@
                                          block:(HotKeyBlock)block
 {
     
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%.f",@"setEquipmentRepairJson",[UserObject sharedInstance].uid,equipmentId,contact,tele,detail,[[NSDate date ] timeIntervalSince1970]];
-    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@",@"setEquipmentRepairJson",[UserObject sharedInstance].uid,equipmentId,contact,tele,detail,[TimeTool formatDateSinceNow:0 formatWith:@"YYYY-MM-dd"]];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *url = nil;
@@ -375,7 +376,8 @@
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
     
-    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+//    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    NSMutableDictionary *requestParams = nil;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -385,7 +387,9 @@
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
     
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        
+        if(images.count){
+            [formData appendPartWithFormData:UIImageJPEGRepresentation(images[0], 1) name:@"attachment"];
+        }
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
         NSString* stateString =  operation.responseString  ;
@@ -519,8 +523,8 @@
 
                           block:(HotKeyBlock)block
 {
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@",@"setVisitJson",[UserObject sharedInstance].uid,compangyName,peoplesum ,duty,tele ,time,desc,[NSDate date]];
-    
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@",@"setVisitJson",[UserObject sharedInstance].uid,compangyName,peoplesum ,duty,tele ,time,desc,[TimeTool formatDateSinceNow:0 formatWith:@"YYYY-MM-DD"]];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
     NSString *url = nil;
@@ -531,7 +535,8 @@
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
     
-    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+//    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    manager.requestSerializer = [AFJSONRequestSerializer serializer];

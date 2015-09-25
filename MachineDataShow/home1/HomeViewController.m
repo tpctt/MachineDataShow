@@ -41,7 +41,7 @@
     
 }
 - (IBAction)btnAct:(id)sender {
-    if ((sender == _b2 || sender == _b4 ) && [UserObject hadLog]==NO) {
+    if (  [UserObject hadLog]==NO) {
         [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex==1) {
                 

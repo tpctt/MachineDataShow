@@ -355,6 +355,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E1W-qR-sWa"/>
+                    <connections>
+                        <outlet property="label" destination="tb1-ne-ouS" id="K3U-67-Ifa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dty-PB-8rp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1929,17 +1932,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rak-Ei-DCd">
-                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <rect key="frame" x="16" y="96" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WDa-hR-Mac">
-                                <rect key="frame" x="16" y="110" width="288" height="30"/>
+                                <rect key="frame" x="16" y="158" width="288" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJk-Rd-yux">
-                                <rect key="frame" x="16" y="164" width="288" height="34"/>
+                                <rect key="frame" x="16" y="212" width="288" height="34"/>
                                 <state key="normal" title="修改密码" backgroundImage="button_bg_long.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -1948,18 +1951,34 @@
                                     <action selector="btnAct:" destination="ceg-bS-QLi" eventType="touchUpInside" id="9MB-kb-aGW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="旧密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-IW-DH5">
+                                <rect key="frame" x="16" y="72" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kic-Sc-ull">
+                                <rect key="frame" x="16" y="134" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="WDa-hR-Mac" firstAttribute="top" secondItem="Rak-Ei-DCd" secondAttribute="bottom" constant="8" id="69c-UN-CCg"/>
+                            <constraint firstItem="WDa-hR-Mac" firstAttribute="top" secondItem="Rak-Ei-DCd" secondAttribute="bottom" constant="32" id="69c-UN-CCg"/>
                             <constraint firstItem="MJk-Rd-yux" firstAttribute="top" secondItem="WDa-hR-Mac" secondAttribute="bottom" constant="24" id="8Md-2Y-sNC"/>
+                            <constraint firstItem="2MM-IW-DH5" firstAttribute="leading" secondItem="dGn-w2-PDx" secondAttribute="leadingMargin" id="Kh8-Wu-0dn"/>
                             <constraint firstAttribute="trailing" secondItem="WDa-hR-Mac" secondAttribute="trailing" constant="16" id="Pjs-AV-lvz"/>
-                            <constraint firstItem="Rak-Ei-DCd" firstAttribute="top" secondItem="iQ7-qU-eM9" secondAttribute="bottom" constant="8" id="Uw2-eT-NXg"/>
+                            <constraint firstItem="Rak-Ei-DCd" firstAttribute="top" secondItem="iQ7-qU-eM9" secondAttribute="bottom" constant="32" id="Uw2-eT-NXg"/>
                             <constraint firstItem="WDa-hR-Mac" firstAttribute="leading" secondItem="dGn-w2-PDx" secondAttribute="leading" constant="16" id="aRo-cG-ml7"/>
                             <constraint firstAttribute="trailing" secondItem="Rak-Ei-DCd" secondAttribute="trailing" constant="16" id="b23-SU-JTZ"/>
                             <constraint firstItem="Rak-Ei-DCd" firstAttribute="leading" secondItem="dGn-w2-PDx" secondAttribute="leading" constant="16" id="bRd-IC-zc4"/>
+                            <constraint firstItem="Rak-Ei-DCd" firstAttribute="top" secondItem="2MM-IW-DH5" secondAttribute="bottom" constant="3" id="gH3-1L-ccY"/>
+                            <constraint firstItem="kic-Sc-ull" firstAttribute="leading" secondItem="dGn-w2-PDx" secondAttribute="leadingMargin" id="hda-ku-Tyg"/>
                             <constraint firstItem="MJk-Rd-yux" firstAttribute="leading" secondItem="dGn-w2-PDx" secondAttribute="leading" constant="16" id="juE-Bj-xGE"/>
                             <constraint firstAttribute="trailing" secondItem="MJk-Rd-yux" secondAttribute="trailing" constant="16" id="y4m-56-PkB"/>
+                            <constraint firstItem="WDa-hR-Mac" firstAttribute="top" secondItem="kic-Sc-ull" secondAttribute="bottom" constant="3" id="yT7-Vh-Wwk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Jcb-ve-3gG"/>
