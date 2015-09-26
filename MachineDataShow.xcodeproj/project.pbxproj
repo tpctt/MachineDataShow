@@ -34,6 +34,7 @@
 		2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2284E9051B9B4A140017DF8F /* Statuecell.xib */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
+		22EE34A11BB70D27003553FA /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EE34A01BB70D27003553FA /* JSBadgeView.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
 		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
 		22EF7FCB1B7F5A40000F02DA /* libc++abi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */; };
@@ -202,6 +203,8 @@
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
 		22A116581B9A596A003C4104 /* YuyueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueTableViewController.m; sourceTree = "<group>"; };
+		22EE349F1BB70D27003553FA /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
+		22EE34A01BB70D27003553FA /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
 		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		22EF7FC81B7F5A39000F02DA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		22EF7FCA1B7F5A40000F02DA /* libc++abi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++abi.dylib"; path = "usr/lib/libc++abi.dylib"; sourceTree = SDKROOT; };
@@ -554,6 +557,8 @@
 				7A75617A1B7C4A5400BA2B69 /* UserObject.m */,
 				7A743BE71B86F359002095F4 /* HomeAD.h */,
 				7A743BE81B86F359002095F4 /* HomeAD.m */,
+				22EE349F1BB70D27003553FA /* JSBadgeView.h */,
+				22EE34A01BB70D27003553FA /* JSBadgeView.m */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 				7A7562351B7C917F00BA2B69 /* LoginViewController.m in Sources */,
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
 				7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */,
+				22EE34A11BB70D27003553FA /* JSBadgeView.m in Sources */,
 				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
 				2284E9061B9B4A140017DF8F /* Statuecell.m in Sources */,
 				22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */,

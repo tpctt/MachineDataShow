@@ -67,6 +67,7 @@
     
     self.baseView.layer.borderColor = [[UIColor grayColor]CGColor];
     self.baseView.layer.borderWidth =0.5;
+    self.baseView.layer.cornerRadius = 5;
     
     
 }

@@ -297,22 +297,35 @@ static MeViewController* shareApp;
     }
     
     if (row == 0 ) {
+        InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"xgzl"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }
+    else if (row == 1){
+        InfoViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"xgmm"];
+        
+        [self.tabBarController.navigationController pushViewController:vc animated:1];
+        
+    }else
+    
+    if (row == 2 ) {
         ApplyFixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"WDBXJL"];
         
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
-    }else if (row == 1){
+    }else if (row == 3){
         YuyueTableViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"yuyueSB"];
         
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
-    }else if (row==2){
+    }else if (row==4){
         ///关于我们
         HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/about.html"]];
         
         [self.tabBarController.navigationController pushViewController:web animated:1];
 
-    }else if (row==3){
+    }else if (row==5){
         ///帮助中心
         HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/help.html"]];
         
@@ -332,6 +345,14 @@ static MeViewController* shareApp;
 #if USENormalPush
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
+    
+    self.loginBtn.layer.borderWidth = 1;
+    self.loginBtn.layer.borderColor = [[UIColor orangeColor]CGColor];
+    self.loginBtn.layer.cornerRadius = 5;
+    
+    self.loginBtn.backgroundColor = [UIColor whiteColor];
+    
+    
     
     _icon.layer.cornerRadius = _icon.width/2;
     _icon.clipsToBounds= 1;

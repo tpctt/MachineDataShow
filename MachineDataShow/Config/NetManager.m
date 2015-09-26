@@ -227,7 +227,8 @@
         UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
         if ([obj.uid integerValue]>0) {
             [UserObject setDataFrom:obj];
-            
+            [UserObject save];
+
             block(@[obj],nil,nil);
             
         }

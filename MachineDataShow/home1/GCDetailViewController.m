@@ -13,6 +13,7 @@
 #import "Statuecell.h"
 
 #import "CocoaAsyncSocket.h" // When not using frameworks, targeting iOS 7 or below
+#import "GCYSSB_Object.h"
 
 @interface StatueObject:NSObject
 @property (strong,nonatomic) NSString *id;
@@ -117,7 +118,7 @@
     
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
         
-        for(GCYSSB_Object *obj in self.vm.allDataArray){
+        for(GCYSSB_Object *obj in self.dataArray){
             
             NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
             for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
@@ -133,7 +134,20 @@
                     
                 }
             }
-            
+            for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
+                if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    if (obj.deveice_state_ARRAY==nil) {
+                        obj.deveice_state_ARRAY =  [NSMutableArray array ];
+                    }
+                    
+                    if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
+                        
+                    }else
+                        [obj.deveice_state_ARRAY  addObject:device_state_obj] ;
+                    
+                    
+                }
+            }
             
         }
         
@@ -141,9 +155,13 @@
         
         
         [[GCDQueue mainQueue]queueBlock:^{
-            
+            GCYSSB_Object *OBJ = [self.deviceArray safeObjectAtIndex:self.index];
+            NSArray *ARRAY = OBJ.deveice_state_ARRAY;
+            self.statusArray = ARRAY;
+//            self.statusArray = SE
+            [self.mtable reloadData];
             [self updatevules  ];
-            
+
         }];
         
         
@@ -161,7 +179,7 @@
     }else if (section==1){
         return 1;
     }else
-        return self.statusArray.count+3;
+        return self.statusArray.count ;
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -190,6 +208,36 @@
     return [titles safeObjectAtIndex:section];
     
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (section == 0 || section == 1) {
+        UILabel*label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
+        NSArray*        titles = @[@"产量",@"质量",@"状态"];
+
+        label.text = titles[section];
+        label.backgroundColor = RGB(235, 235, 235);
+        
+        return label;
+    }else{
+        Statuecell*CELL = nil;
+        NSArray *nib = [[NSBundle mainBundle]loadNibNamed:@"Statuecell" owner:Nil options:Nil];
+        for (id oneObject in nib) {
+            if ([oneObject isKindOfClass:[Statuecell class]]) {
+                CELL = oneObject;
+                break;
+            }
+        }
+        
+        CELL.mj_h = 40;
+        
+        return CELL;
+     }
+    
+}
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section<2) {
@@ -215,7 +263,8 @@
     
     NSString *res = @"Statuecell";
     Statuecell *cell = [tableView dequeueReusableCellWithIdentifier:res forIndexPath:indexPath];
-    
+    CLJ_deveice_state_Obj *OBJ = [self.statusArray safeObjectAtIndex:indexPath.row];
+    [cell setOBJ:OBJ];
     
     return cell;
     

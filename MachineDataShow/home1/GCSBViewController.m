@@ -58,14 +58,14 @@
     }else
         [self.stateBtn setTitle:state forState:0];
 
-    self.deviceName.text = name?name:@"设备名称不详";
+    self.deviceName.text = name?name:@"设备名称--";
     self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all?all:@"正在获取"];
     
-    self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check?check:@"不详"];
-    self.hg_num.text  = [NSString stringWithFormat:@"合格数:%@",good?good:@"不详"];
+    self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check?check:@"--"];
+    self.hg_num.text  = [NSString stringWithFormat:@"合格数:%@",good?good:@"--"];
 
-    self.check_rate.text  = [NSString stringWithFormat:@"抽检率:%@",checkrate?checkrate:@"不详"];
-    self.hg_rate.text  = [NSString stringWithFormat:@"合格率:%@",goodrate?goodrate:@"不详"];
+    self.check_rate.text  = [NSString stringWithFormat:@"抽检率:%@",checkrate?checkrate:@"--"];
+    self.hg_rate.text  = [NSString stringWithFormat:@"合格率:%@",goodrate?goodrate:@"--"];
 
     
 }
@@ -88,8 +88,9 @@
 -(void)setName:(NSString*)name all:(NSString*)all online:(NSString*)online
 {
     self.name.text = name?name:@"正在获取";
-    self.all.text = [NSString stringWithFormat:@"在编:%@",all];
-    self.oneline.text = [NSString stringWithFormat:@"在线:%@",online];
+    
+    self.all.text = [NSString stringWithFormat:@"在编:%@",all?all:@"--"];
+    self.oneline.text = [NSString stringWithFormat:@"在线:%@",online?online:@"--"];
     
 }
 @end
@@ -149,7 +150,20 @@
                     
                 }
             }
-            
+            for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
+                if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    if (obj.deveice_state_ARRAY==nil) {
+                        obj.deveice_state_ARRAY =  [NSMutableArray array ];
+                    }
+                    
+                    if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
+                        
+                    }else
+                        [obj.deveice_state_ARRAY  addObject:device_state_obj] ;
+                    
+                    
+                }
+            }
             
         }
         

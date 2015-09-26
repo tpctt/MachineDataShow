@@ -162,7 +162,7 @@
                 self.isNoData = YES;
             }
             
-            [[DialogUtil sharedInstance]showDlg:self.view textOnly:msg.message];
+//            [[DialogUtil sharedInstance]showDlg:self.view textOnly:msg.message];
             [self.gridView.header endRefreshing];
             [self.gridView.footer endRefreshing];
         }

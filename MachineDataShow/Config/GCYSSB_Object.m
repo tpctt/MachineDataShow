@@ -28,6 +28,8 @@ DEF_SINGLETON(CLJ_object)
         self.responseData = [NSMutableData data];
         self.stateArray = [NSMutableArray array];
         self.productArray = [NSMutableArray array];
+        self.DEVICE_STATE_Array = [NSMutableArray array];
+        
         self.isEnd = YES;
         
     }
@@ -90,7 +92,11 @@ DEF_SINGLETON(CLJ_object)
    //拼接数据
      [self.responseData appendData:data];
      
-     NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+     NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF32StringEncoding];
+     if(string.length==0){
+         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+         string = [[NSString alloc] initWithData:data encoding:encode];
+     }
      if ([string hasPrefix:@"MachineStatus"]) {
 //         MachineState|801112|Connected
 //         State :Connected/Ready/Busy/Error
@@ -163,6 +169,11 @@ DEF_SINGLETON(CLJ_object)
          obj.QP = QP;
          obj.QPQTY = QPQTY;
          obj.QPQTYOnline = QPQTYOnline;
+         
+         obj.GM = @"管理人员";
+          obj.QC = @"质检人员";
+          obj.QP = @"操作人员";
+         
          
          self.presonObj = obj;
          
@@ -252,7 +263,53 @@ DEF_SINGLETON(CLJ_object)
          self.receviceIndex = @(![self.receviceIndex boolValue]);
 
          
+     }else if ([string hasPrefix:@"PartState"]) {
+         //         MachineState|801112|Connected
+         //         State :Connected/Ready/Busy/Error
+         //     Connected:绿色  .
+         //         默认红色,其他三态保留
+         
+         NSArray *ARRAY = [string componentsSeparatedByString:@"|"];
+         NSString *MachineID = [ARRAY safeObjectAtIndex:1];
+         NSString *PartName = [ARRAY safeObjectAtIndex:2];
+         NSString *StateClass = [ARRAY safeObjectAtIndex:3];
+         NSString *State = [ARRAY safeObjectAtIndex:4];
+         NSString *Note = [ARRAY safeObjectAtIndex:5];
+         
+         
+         CLJ_deveice_state_Obj *obj = nil;
+         for (CLJ_deveice_state_Obj *dev_Obj in self.DEVICE_STATE_Array) {
+             if ([[dev_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                 obj = dev_Obj;
+                 
+             }
+         }
+         
+         //         CLJ_deviceObj *obj = [[self.stateArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@",MachineID]]] firstObject];
+         if(obj==nil){
+             obj = [[CLJ_deveice_state_Obj alloc] init];
+             obj.MachineID = MachineID;
+             obj.PartName = PartName;
+             obj.StateClass = StateClass;
+             obj.State = State;
+             obj.Note = Note;
+ 
+             
+             
+             [self.DEVICE_STATE_Array addObject:obj];
+             
+         }else{
+             obj.MachineID = MachineID;
+             obj.PartName = PartName;
+             obj.StateClass = StateClass;
+             obj.State = State;
+             obj.Note = Note;
+             
+         }
+         self.receviceIndex = @(![self.receviceIndex boolValue]);
+         
      }
+
      
      
      NSLog(@"%d---%@--%@",self.responseData.length,[NSThread currentThread],string);
@@ -419,6 +476,9 @@ DEF_SINGLETON(CLJ_object)
 
 @end
 @implementation CLJ_person_productObj
+
+@end
+@implementation CLJ_deveice_state_Obj
 
 @end
 

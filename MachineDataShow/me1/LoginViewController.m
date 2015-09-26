@@ -76,11 +76,13 @@
 }
 -(BOOL)check
 {
-    if (self.name.text.length == 0  ) {
+    if (self.name.text.length != 11  ) {
         [self.name becomeFirstResponder];
-        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入用户名"];
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入11位手机号"];
         return NO;
-    }else if (self.pwd.text.length == 0)
+    }
+    
+    else if (self.pwd.text.length == 0)
     {
         [self.pwd becomeFirstResponder];
         [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入密码"];
@@ -95,7 +97,7 @@
     self.title = @"登陆";
     [self.loginBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
- 
+    
     self.name.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
     self.pwd.text =  [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
     

@@ -14,6 +14,7 @@
 @property (strong,nonatomic) NSString *url;
 @property (strong,nonatomic) NSMutableArray *stateArray;
 @property (strong,nonatomic) NSMutableArray *productArray;
+@property (strong,nonatomic) NSMutableArray *DEVICE_STATE_Array;
 
 @property (strong,nonatomic) NSNumber *receviceIndex;
 @property(nonatomic,strong)NSMutableData *responseData;
@@ -59,6 +60,7 @@ AS_SINGLETON(CLJ_object)
 
 
 
+
 @interface CLJ_presonObj : BaseObject
 
 @property (strong,nonatomic) NSString *GM;
@@ -78,7 +80,18 @@ AS_SINGLETON(CLJ_object)
 
 @end
 
+@interface CLJ_deveice_state_Obj : BaseObject
 
+@property (strong,nonatomic) NSString *MachineID;
+@property (strong,nonatomic) NSString *PartName;
+@property (strong,nonatomic) NSString *StateClass;
+@property (strong,nonatomic) NSString *State;
+@property (strong,nonatomic) NSString *Note;
+
+
+
+
+@end
 
 
 
@@ -99,6 +112,7 @@ AS_SINGLETON(CLJ_object)
 
 @property (strong,nonatomic) CLJ_deviceObj *status_obj;
 @property (strong,nonatomic) CLJ_productObj *PRODUCT_obj;
+@property (strong,nonatomic) NSMutableArray *deveice_state_ARRAY;
 
 
 

@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,32 +16,63 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="序号" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1u-jW-ZVY">
-                        <rect key="frame" x="8" y="11" width="34" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-AM-T4W">
-                        <rect key="frame" x="45" y="7" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-AM-T4W">
+                        <rect key="frame" x="10" y="6" width="31" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="HCf-AM-T4W" secondAttribute="height" multiplier="1:1" id="qNX-hM-HeR"/>
+                        </constraints>
                         <state key="normal" title="状态">
+                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-G4-DVe">
-                        <rect key="frame" x="83" y="11" width="53" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-G4-DVe">
+                        <rect key="frame" x="49" y="11" width="60" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Gi2-iv-zuZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-EO-XD5">
-                        <rect key="frame" x="144" y="11" width="53" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="错误源" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-EO-XD5">
+                        <rect key="frame" x="117" y="12" width="100" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="stn-oA-9tc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="处理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcN-sW-a0m">
+                        <rect key="frame" x="227" y="12" width="77" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="YcN-sW-a0m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="10W-eT-x6P"/>
+                    <constraint firstItem="YcN-sW-a0m" firstAttribute="leading" secondItem="pAk-EO-XD5" secondAttribute="trailing" constant="10" id="3Ep-Js-3ge"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GRS-G4-DVe" secondAttribute="bottom" constant="3" id="CmO-DW-XbV"/>
+                    <constraint firstItem="pAk-EO-XD5" firstAttribute="leading" secondItem="GRS-G4-DVe" secondAttribute="trailing" constant="8" id="NnO-uB-hPu"/>
+                    <constraint firstItem="HCf-AM-T4W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="ZdP-FI-Inw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="HCf-AM-T4W" secondAttribute="bottom" constant="-2" id="byt-72-VrE"/>
+                    <constraint firstItem="pAk-EO-XD5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="e7Y-bD-fp6"/>
+                    <constraint firstItem="GRS-G4-DVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="j45-Ij-Y6a"/>
+                    <constraint firstItem="HCf-AM-T4W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="mhf-8O-jtu"/>
+                    <constraint firstItem="GRS-G4-DVe" firstAttribute="leading" secondItem="HCf-AM-T4W" secondAttribute="trailing" constant="8" id="vq3-le-8Tv"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pAk-EO-XD5" secondAttribute="bottom" constant="3" id="w1v-BX-q1Z"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="YcN-sW-a0m" secondAttribute="bottom" constant="3" id="xIn-q5-DUw"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="YcN-sW-a0m" secondAttribute="trailing" constant="8" id="zLk-v4-5br"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="deal" destination="YcN-sW-a0m" id="KBn-Ob-2cI"/>
+                <outlet property="name" destination="GRS-G4-DVe" id="BRN-Uw-4RF"/>
+                <outlet property="sourece" destination="pAk-EO-XD5" id="Ykk-NL-FvH"/>
+                <outlet property="state" destination="HCf-AM-T4W" id="SHa-Co-chr"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>

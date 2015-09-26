@@ -19,9 +19,12 @@
 #import <TMCache/TMCache.h>
 
 #import "GCSBViewController.h"
+#import "JSBadgeView.h"
 
 @interface HomeViewController ()
-
+{
+    JSBadgeView *jSBadgeView ;
+}
 @property (weak, nonatomic) IBOutlet ScrollADView *scrollAdView;
 @property (strong, nonatomic) HomeCell *v1;
 
@@ -52,6 +55,7 @@
         }];
         return;
     }
+
     
     if (sender == _b2) {
 //        [[AppDelegate sharedInstance].homeVC.tabBar setSelectedItem:[[AppDelegate sharedInstance].homeVC.tabBar.items objectAtIndex:1]];
@@ -67,6 +71,9 @@
         
         
     }else if (sender ==_b1){
+        [jSBadgeView removeFromSuperview];
+        jSBadgeView = nil;
+        
         GCSBViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"GCSBvc"];
         [self.tabBarController.navigationController pushViewController:vc animated:1];
         
@@ -116,7 +123,15 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = RGB(236, 236, 236);
-
+    
+    [UserObject logWithCache];
+    
+    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
+        jSBadgeView = [[JSBadgeView alloc]initWithParentView:self.b3 alignment:JSBadgeViewAlignmentTopRight];
+        ;
+        
+    }];
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -163,7 +178,8 @@
             }
         }];
     }
- 
+    
+
 
 }
 - (void)didReceiveMemoryWarning {

@@ -21,7 +21,8 @@
     ///getAppointmentInfo.php
     
     self.title = @"预约详情";
-    self. label.text = [NSString stringWithFormat:@"%@%@%@%@",self.OBJ.time,self.OBJ.companyname,self.OBJ.remakrs,self.OBJ.duty];
+    self. label.text = [NSString stringWithFormat:@"预约号：%@",self.OBJ.id ];
+    
     
     return;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
