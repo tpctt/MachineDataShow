@@ -85,8 +85,8 @@
     
     ///柱形
     PNBarChart * barChart = [[PNBarChart alloc] initWithFrame:CGRectMake(0, 5, SCREEN_WIDTH, 200.0)];
-    [barChart setXLabels:@[@"SEP 1",@"SEP 2",@"SEP 3",@"SEP 4",@"SEP 5"]];
-    [barChart setYValues:@[@1,  @10, @2, @6, @3]];
+    [barChart setXLabels:@[@"SEP 1"]];
+    [barChart setYValues:@[@0]];
     [barChart strokeChart];
     
     
@@ -290,11 +290,11 @@
         [values addObject:@([P.Pro integerValue])];
         
     }
-    
-    [self.barChart setXLabels:titles ];
-    [self.barChart updateChartData:values];
-    [self.barChart strokeChart];
-
+    if(titles.count){
+        [self.barChart setXLabels:titles ];
+        [self.barChart updateChartData:values];
+        [self.barChart strokeChart];
+    }
     
     NSArray *items = @[
                        [PNPieChartDataItem dataItemWithValue:[productObj.Checked integerValue]

@@ -74,9 +74,9 @@
         
     }
     if (self.otherinfo.text.length == 0 ) {
-        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约描述"];
-        [self.otherinfo becomeFirstResponder];
-        return;
+        [[DialogUtil sharedInstance]showDlg:self.view textOnly:@"请输入预约留言"];
+//        [self.otherinfo becomeFirstResponder];
+//        return;
         
     }
     
@@ -86,9 +86,13 @@
         if (array) {
             
             [[GCDQueue mainQueue] queueBlock:^{
-                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:msg];
+//                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:msg];
+                [UIAlertView showWithTitle:@"提示" message:@"提交预约成功" cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex){
+                    
+                    [self.navigationController popToRootViewControllerAnimated:YES];
 
-                [self.navigationController popToRootViewControllerAnimated:YES];
+                }];
+
                 
             }];
           
@@ -114,7 +118,7 @@
     // Do any additional setup after loading the view.
     self.title = @"预约参观";
     
-    self.otherinfo.placeholder = @"备注信息";
+    self.otherinfo.placeholder = @"留言";
     
     [IQKeyboardManager sharedManager].toolbarManageBehaviour = IQAutoToolbarByPosition ;
     

@@ -143,7 +143,7 @@
     
     
     self.title = @"完善资料";
-    [self showBarButton:NAV_RIGHT title:@"跳过" fontColor:nil];
+    [self showBarButton:NAV_RIGHT title:@"跳过" fontColor:[UIColor blackColor]];
 }
 -(void)rightButtonTouch
 {

@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self showBarButton:NAV_RIGHT title:@"提交" fontColor:[UIColor whiteColor]];
+    [self showBarButton:NAV_RIGHT title:@"提交" fontColor:[UIColor blackColor]];
     self.title = @"意见反馈";
     self.suggestText.placeholder = @"请输入意见建议";
     self.suggestText.placeholderColor =[UIColor grayColor];

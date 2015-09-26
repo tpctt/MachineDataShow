@@ -26,14 +26,15 @@
         self.sourece .text = OBJ1.PartName;
         self.deal .text = OBJ1.Note;
         
+        self.state.layer.cornerRadius = self.state.frame.size.height/2;
+        self.state.layer.borderWidth = 1;
+        [self.state setTitle:@"" forState:0];
         
     }
 }
 - (void)awakeFromNib {
     // Initialization code
-    self.state.layer.cornerRadius = self.state.frame.size.height/2;
-    self.state.layer.borderWidth = 1;
-    
+   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

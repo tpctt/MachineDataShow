@@ -198,7 +198,7 @@
     self.isEditing = !self.isEditing;
     
     if (self.isEditing ) {
-        [self showBarButton:NAV_RIGHT title:@"完成" fontColor:[UIColor whiteColor]];
+        [self showBarButton:NAV_RIGHT title:@"完成" fontColor:[UIColor blackColor]];
 
         for (int I =0 ; I<self.cellArray.count; I++) {
             InfoCell *CELL = self.cellArray[I];
@@ -210,7 +210,7 @@
         
         
     }else{
-        [self showBarButton:NAV_RIGHT title:@"编辑" fontColor:[UIColor whiteColor]];
+        [self showBarButton:NAV_RIGHT title:@"编辑" fontColor:[UIColor blackColor]];
         
         NSMutableArray *INFOS = [NSMutableArray array];
         for (int I =0 ; I<self.cellArray.count; I++) {
@@ -309,7 +309,7 @@
     //    self.mytableview.dataSource = self;
     //
     self.view.backgroundColor = RGB(236, 236, 236);
-    [self showBarButton:NAV_RIGHT title:@"编辑" fontColor:[UIColor whiteColor]];
+    [self showBarButton:NAV_RIGHT title:@"编辑" fontColor:[UIColor blackColor]];
     
     [self dealHeadView];
     [self AddInfoView];

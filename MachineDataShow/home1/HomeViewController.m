@@ -127,9 +127,25 @@
     [UserObject logWithCache];
     
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
-        jSBadgeView = [[JSBadgeView alloc]initWithParentView:self.b3 alignment:JSBadgeViewAlignmentTopRight];
-        ;
+        [[GCDQueue mainQueue]queueBlock:^{
+            jSBadgeView = [[JSBadgeView alloc]initWithParentView:self.b1 alignment:JSBadgeViewAlignmentTopRight];
+            jSBadgeView.badgeText = @".";
+            
+        }];
         
+        
+    }];
+    if ([UserObject hadLog]) {
+        [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
+    }
+
+    [RACObserve([UserObject sharedInstance], uid)subscribeNext:^(id x) {
+        if ([UserObject hadLog]) {
+            [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
+        }else{
+            [self showBarButton:NAV_LEFT title:@"" fontColor:[UIColor blackColor]];
+
+        }
     }];
     
 }

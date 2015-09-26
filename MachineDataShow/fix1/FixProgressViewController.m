@@ -20,6 +20,8 @@
 
 @interface FixProgressViewController ()
 @property (weak, nonatomic) IBOutlet UIView *topView;
+
+@property (weak, nonatomic) IBOutlet UILabel *devname;
 @property (weak, nonatomic) IBOutlet UILabel *mode;
 @property (weak, nonatomic) IBOutlet UILabel *sn;
 
@@ -73,16 +75,17 @@
 -(void)config1
 {
     
-    self.mode.text = [NSString stringWithFormat:@"设备型号:%@",self.o.equipmentName];
-    self.sn.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
-    
+    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.o.equipmentName];
+    self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
+    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.o.equipmentName];
+
 }
 -(void)config2
 {
     NSInteger flag =  _fixedProgressInfo.progress   ;
     
     [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
-    self.manName.text = [NSString stringWithFormat:@"联系人:%@",_fixedProgressInfo.name?_fixedProgressInfo.name:@"无数据"];
+    self.manName.text = [NSString stringWithFormat:@"工程师:%@",_fixedProgressInfo.name?_fixedProgressInfo.name:@"无数据"];
     self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele?_fixedProgressInfo.tele:@"无数据"];
     
     

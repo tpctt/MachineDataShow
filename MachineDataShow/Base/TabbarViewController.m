@@ -66,7 +66,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSArray *array = @[@"home_blue",@"contact_blue",@"vip_blue"];
+    NSArray *array = @[@"home_green",@"contact_green",@"vip_green"];
     for (int i = 0 ; i<3; i++) {
         UITabBarItem *ti1 = [self.tabBar.items objectAtIndex:i];
 //        ti1.title = @"梦见";

@@ -32,19 +32,30 @@ static AppDelegate* shareApp;
 -(void)initAppView
 {
     
-    //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"top_banner"] forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"64"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:
+     [self imageFromColor:[UIColor whiteColor]]
+                                       forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil]];
-    
-    [UIApplication sharedApplication].statusBarStyle =  UIStatusBarStyleLightContent;
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName , [UIFont systemFontOfSize:22],NSFontAttributeName, nil]];
     
     
-//    NSURLCache *URLCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
-//    [NSURLCache setSharedURLCache:URLCache];
     
     
 }
+- (UIImage *)imageFromColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0, 0, 1, 1);
+    
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return img;
+}
+
 - (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
     //    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
     //    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];

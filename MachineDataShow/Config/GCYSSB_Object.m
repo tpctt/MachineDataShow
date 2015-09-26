@@ -106,6 +106,10 @@ DEF_SINGLETON(CLJ_object)
          NSArray *ARRAY = [string componentsSeparatedByString:@"|"];
          NSString *MachineID = [ARRAY safeObjectAtIndex:1];
          NSString *State = [ARRAY safeObjectAtIndex:2];
+         if([State hasSuffix:@"\r\n"])
+         {
+             State  = [State substringToIndex:State.length - 2];
+         }
          
          
          CLJ_deviceObj *obj = nil;
@@ -157,6 +161,12 @@ DEF_SINGLETON(CLJ_object)
          NSString *QPQTY = [ARRAY safeObjectAtIndex:8];
          NSString *QPQTYOnline = [ARRAY safeObjectAtIndex:9];
 
+         
+         if([QPQTYOnline hasSuffix:@"\r\n"])
+         {
+             QPQTYOnline  = [QPQTYOnline substringToIndex:QPQTYOnline.length - 2];
+         }
+         
          CLJ_presonObj* obj = [[CLJ_presonObj alloc] init];
          obj.GM = GM;
          obj.GMQTY = GMQTY;
@@ -193,6 +203,13 @@ DEF_SINGLETON(CLJ_object)
          NSString *Checked = [ARRAY safeObjectAtIndex:4];
          NSString *OK = [ARRAY safeObjectAtIndex:5];
 
+         
+         
+         if([OK hasSuffix:@"\r\n"])
+         {
+             OK  = [OK substringToIndex:OK.length - 2];
+         }
+         
          CLJ_productObj *obj = nil;
          for (CLJ_productObj *PRO_Obj in self.productArray) {
              if ([[PRO_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
@@ -226,6 +243,12 @@ DEF_SINGLETON(CLJ_object)
              NSString *Person = [ARRAY safeObjectAtIndex:i ];
              NSString *Pro = [ARRAY safeObjectAtIndex:i+1 ];
              NSString *Output = [ARRAY safeObjectAtIndex:i+2 ];
+             
+             
+             if([Output hasSuffix:@"\r\n"])
+             {
+                 Output  = [Output substringToIndex:Output.length - 2];
+             }
              
              i+=3;
              CLJ_person_productObj *obj22 = nil;
@@ -276,6 +299,10 @@ DEF_SINGLETON(CLJ_object)
          NSString *State = [ARRAY safeObjectAtIndex:4];
          NSString *Note = [ARRAY safeObjectAtIndex:5];
          
+         if([Note hasSuffix:@"\r\n"])
+         {
+             Note  = [Note substringToIndex:Note.length - 2];
+         }
          
          CLJ_deveice_state_Obj *obj = nil;
          for (CLJ_deveice_state_Obj *dev_Obj in self.DEVICE_STATE_Array) {

@@ -15,6 +15,7 @@
 
 @interface FixedInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
+@property (weak, nonatomic) IBOutlet UILabel *devname;
 @property (weak, nonatomic) IBOutlet UILabel *MODEL;
 @property (weak, nonatomic) IBOutlet UILabel *SN;
 
@@ -99,7 +100,8 @@
 }
 -(void)config1
 {
-    
+    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.o.name];
+
     self.MODEL.text = [NSString stringWithFormat:@"设备型号:%@",self.o.model];
     self.SN.text = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
     
