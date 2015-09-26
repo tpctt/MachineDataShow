@@ -28,28 +28,26 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *hg_rate;
 
--(void)setName:(NSString*)name state:(int)state all:(NSString*)all check:(NSString*)check good:(NSString*)good checkrate:(NSString*)checkrate goodrate:(NSString*)goodrate;
+-(void)setName:(NSString*)name state:(NSString*)state all:(NSString*)all check:(NSString*)check good:(NSString*)good checkrate:(NSString*)checkrate goodrate:(NSString*)goodrate;
 
 @end
 
 @implementation GCSBCell
 
--(void)setName:(NSString*)name state:(int)state all:(NSString*)all check:(NSString*)check good:(NSString*)good checkrate:(NSString*)checkrate goodrate:(NSString*)goodrate
+-(void)setName:(NSString*)name state:(NSString*)state all:(NSString*)all check:(NSString*)check good:(NSString*)good checkrate:(NSString*)checkrate goodrate:(NSString*)goodrate
 {
-    if (state) {
-        self.stateBtn.backgroundColor = [UIColor blueColor];
-        [self.stateBtn setTitle:@"ok" forState:0];
-        
+    if ([state isEqualToString:@"Connected"]) {
+        self.stateBtn.backgroundColor = [UIColor greenColor];
 
     }else{
         self.stateBtn.backgroundColor = [UIColor redColor];
-        [self.stateBtn setTitle:@"warn" forState:0];
 
     }
     
     [self.stateBtn setTitleColor:[UIColor whiteColor] forState:0];
     
-    
+    [self.stateBtn setTitle:state forState:0];
+
     self.deviceName.text = name?name:@"设备名称不详";
     self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all?all:@"不详"];
     
@@ -112,6 +110,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"工厂设备";
+    
     self.view.backgroundColor = RGB(236, 236, 236);
     self.mytable.backgroundColor = [UIColor clearColor];
     self.mytable.tableFooterView = [[UIView alloc]init];
@@ -119,6 +118,42 @@
     self.mytable.delegate = self;
     self.mytable.dataSource = self;
     
+    
+    [[CLJ_object sharedInstance]start];
+
+    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
+        
+        for(SZGCObject *obj in self.vm.allDataArray){
+            CLJ_deviceObj *stateObj = [[[[CLJ_object sharedInstance]stateArray] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@%@",obj.model,obj.serial]]] firstObject];
+            obj.status_obj = stateObj;
+            
+            
+            
+            NSArray *array = [[[CLJ_object sharedInstance]productArray] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@%@",obj.model,obj.serial]]];
+            if (array.count) {
+                CLJ_productObj *productObj = [array firstObject];
+                obj.PRODUCT_obj = productObj;
+                
+            }
+           
+            
+        }
+        
+       
+        
+        
+        
+        
+        
+        
+        [[GCDQueue mainQueue]queueBlock:^{
+            
+            [self.mtable reloadData];
+            
+        }];
+        
+        
+    }];
     
     self.vm = [SZGCObjectSceneModel SceneModel];
     [self.vm .action useCache];
@@ -184,8 +219,10 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 0)
+        return self.vm.allDataArray.count;
+    return 3;
     
-    return self.vm.allDataArray.count+1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -195,14 +232,20 @@
         if (OBJ==nil) {
 //            OBJ=[SZGCObject random];
         }
-//        [CELL setName:OBJ.name state:OBJ.status all:OBJ.all check:OBJ.check good:OBJ.good checkrate:OBJ.checkrate goodrate:OBJ.goodrate];
-        [CELL setName:OBJ.name state:[OBJ.status intValue] all:nil check:nil good:nil checkrate:nil goodrate:nil];
+        [CELL setName:OBJ.name state:OBJ.status_obj.State?OBJ.status_obj.State:OBJ.status all:OBJ.PRODUCT_obj.Output check:OBJ.PRODUCT_obj.Checked good:OBJ.PRODUCT_obj.OK checkrate:OBJ.PRODUCT_obj.checkrate goodrate:OBJ.PRODUCT_obj.goodrate];
         
         
         return CELL;
     }else{
         PeopleCell *cell  = [tableView dequeueReusableCellWithIdentifier:@"PeopleCell" ];
-        
+        CLJ_presonObj *obj = [CLJ_object sharedInstance].presonObj;
+        if(indexPath.row == 0){
+            [cell setName:obj.GM all:obj.GMQTY online:obj.GMQTYOnline];
+        }else if(indexPath.row == 1){
+            [cell setName:obj.QC all:obj.QCQTY online:obj.QCQTYOnline];
+        }else if(indexPath.row == 2){
+            [cell setName:obj.QP all:obj.QPQTY online:obj.QPQTYOnline];
+        }
         
         return cell;
     }
@@ -212,12 +255,14 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    GCDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gcdetail"];
-    vc.index = indexPath.row;
-    vc.deviceArray = self.vm.allDataArray;
-    
-    [self.navigationController pushViewController:vc animated:1];
+    if (indexPath.section == 0) {
+        GCDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"gcdetail"];
+        vc.index = indexPath.row;
+        vc.deviceArray = self.vm.allDataArray;
+        
+        [self.navigationController pushViewController:vc animated:1];
+        
+    }
     
     
     [tableView deselectRowAtIndexPath:indexPath animated:1];

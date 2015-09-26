@@ -11,6 +11,9 @@
 #import "SZGCObject.h"
 #import <PNChart/PNChart.h>
 #import "Statuecell.h"
+
+#import "CocoaAsyncSocket.h" // When not using frameworks, targeting iOS 7 or below
+
 @interface StatueObject:NSObject
 @property (strong,nonatomic) NSString *id;
 @property (strong,nonatomic) NSString *name1;
@@ -107,14 +110,12 @@
     
     [self.view bringSubviewToFront:self.selectionList];
     
-    self.disposable = [[RACQueueScheduler scheduler]after:[NSDate date] repeatingEvery:2 withLeeway:1 schedule:^{
-        [[GCDQueue mainQueue]queueBlock:^{
-            
-            [self showDataFor:0];
-            
-        }];
-        
+    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
+        [self showDataFor:self.index];
+
     }];
+    
+    
     
     
 }
@@ -194,15 +195,27 @@
 ///
 -(void)updatevules
 {
-    [self.barChart setXLabels:@[@"Jan 1",@"Jan 2",@"Jan 3",@"Jan 4",@"Jan 5",@"Jan 6",@"Jan 7"]];
-    [self.barChart updateChartData:@[@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30),@(arc4random() % 30)]];
+    SZGCObject *OBJ = [self.dataArray safeObjectAtIndex:self.index];
+    CLJ_productObj *productObj = OBJ.PRODUCT_obj;
+    NSArray *array = [productObj preson_productArray];
+    NSMutableArray *titles = [NSMutableArray array];
+    NSMutableArray *values = [NSMutableArray array];
+
+    for (CLJ_person_productObj *P in array) {
+        [titles addObject:P.Person];
+        [values addObject:[NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]]];
+    }
+    
+    [self.barChart setXLabels:titles ];
+    [self.barChart updateChartData:values];
     [self.barChart strokeChart];
 
     
-    NSArray *items = @[[PNPieChartDataItem dataItemWithValue:40 color:PNRed],
-                       [PNPieChartDataItem dataItemWithValue:20 color:PNBlue description:@"WWDC"],
-                       [PNPieChartDataItem dataItemWithValue:40 color:PNGreen description:@"GOOL I/O"],
-                       [PNPieChartDataItem dataItemWithValue:40 color:PNMauve description:@"ABC"],
+    NSArray *items = @[
+                       [PNPieChartDataItem dataItemWithValue:[productObj.Checked integerValue]
+                       color:PNBlue description:@"检查率"],
+                       [PNPieChartDataItem dataItemWithValue:[productObj.OK integerValue] color:PNGreen description:@"合格率"],
+                       [PNPieChartDataItem dataItemWithValue:[productObj.Output integerValue]-[productObj.Checked integerValue]  color:PNMauve description:@"其他"],
                        ];
     [self.pieChart updateChartData:items];
     [self.pieChart strokeChart];
@@ -211,7 +224,7 @@
 #pragma mark - HTHorizontalSelectionListDataSource Protocol Methods
 
 - (NSInteger)numberOfItemsInSelectionList:(HTHorizontalSelectionList *)selectionList {
-    return self.deviceArray.count + 3;
+    return self.deviceArray.count  ;
 }
 
 - (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList titleForItemWithIndex:(NSInteger)index {
@@ -226,7 +239,10 @@
 
 - (void)selectionList:(HTHorizontalSelectionList *)selectionList didSelectButtonWithIndex:(NSInteger)index {
     // update the view for the corresponding index
+    
+    self.index = index;
     [self showDataFor:index];
+    
     
 }
 - (void)didReceiveMemoryWarning {
