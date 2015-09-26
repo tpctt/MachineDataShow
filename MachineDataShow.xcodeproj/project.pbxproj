@@ -28,7 +28,7 @@
 		2283B4261BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2283B4251BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf */; };
 		2283B4281BB36461005F8085 /* ErrorCode.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2283B4271BB36461005F8085 /* ErrorCode.plist */; };
 		2284E8FC1B9B19430017DF8F /* GCSBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FB1B9B19430017DF8F /* GCSBViewController.m */; };
-		2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */; };
+		2284E8FF1B9B2DF50017DF8F /* GCYSSB_Object.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E8FE1B9B2DF50017DF8F /* GCYSSB_Object.m */; };
 		2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9011B9B30A10017DF8F /* GCDetailViewController.m */; };
 		2284E9061B9B4A140017DF8F /* Statuecell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2284E9041B9B4A140017DF8F /* Statuecell.m */; };
 		2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2284E9051B9B4A140017DF8F /* Statuecell.xib */; };
@@ -191,8 +191,8 @@
 		2283B4271BB36461005F8085 /* ErrorCode.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorCode.plist; sourceTree = "<group>"; };
 		2284E8FA1B9B19430017DF8F /* GCSBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSBViewController.h; sourceTree = "<group>"; };
 		2284E8FB1B9B19430017DF8F /* GCSBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSBViewController.m; sourceTree = "<group>"; };
-		2284E8FD1B9B2DF50017DF8F /* SZGCObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SZGCObject.h; sourceTree = "<group>"; };
-		2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SZGCObject.m; sourceTree = "<group>"; };
+		2284E8FD1B9B2DF50017DF8F /* GCYSSB_Object.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCYSSB_Object.h; sourceTree = "<group>"; };
+		2284E8FE1B9B2DF50017DF8F /* GCYSSB_Object.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCYSSB_Object.m; sourceTree = "<group>"; };
 		2284E9001B9B30A10017DF8F /* GCDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDetailViewController.h; sourceTree = "<group>"; };
 		2284E9011B9B30A10017DF8F /* GCDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDetailViewController.m; sourceTree = "<group>"; };
 		2284E9031B9B4A140017DF8F /* Statuecell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Statuecell.h; sourceTree = "<group>"; };
@@ -535,8 +535,8 @@
 				7AB25B091B872F130073D440 /* MyFixingObject.m */,
 				220B5A321B9B0B14001FF2D6 /* YuyueObject.h */,
 				220B5A331B9B0B14001FF2D6 /* YuyueObject.m */,
-				2284E8FD1B9B2DF50017DF8F /* SZGCObject.h */,
-				2284E8FE1B9B2DF50017DF8F /* SZGCObject.m */,
+				2284E8FD1B9B2DF50017DF8F /* GCYSSB_Object.h */,
+				2284E8FE1B9B2DF50017DF8F /* GCYSSB_Object.m */,
 				7A75616D1B7C4A5400BA2B69 /* Config.h */,
 				7A75616E1B7C4A5400BA2B69 /* Config.m */,
 				7A75616F1B7C4A5400BA2B69 /* LoginObject.h */,
@@ -970,7 +970,7 @@
 				7A75620E1B7C6E0C00BA2B69 /* HomeViewController.m in Sources */,
 				7AC6930A1B9042450039C88B /* SDBrowserImageView.m in Sources */,
 				7AC6930C1B9042450039C88B /* SDWaitingView.m in Sources */,
-				2284E8FF1B9B2DF50017DF8F /* SZGCObject.m in Sources */,
+				2284E8FF1B9B2DF50017DF8F /* GCYSSB_Object.m in Sources */,
 				7A75618F1B7C570F00BA2B69 /* ImageWall.m in Sources */,
 				22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */,
 				7AC6930B1B9042450039C88B /* SDPhotoBrowser.m in Sources */,

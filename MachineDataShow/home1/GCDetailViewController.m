@@ -8,7 +8,7 @@
 
 #import "GCDetailViewController.h"
 #import <HTHorizontalSelectionList/HTHorizontalSelectionList.h>
-#import "SZGCObject.h"
+#import "GCYSSB_Object.h"
 #import <PNChart/PNChart.h>
 #import "Statuecell.h"
 
@@ -115,6 +115,40 @@
 
     }];
     
+    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
+        
+        for(GCYSSB_Object *obj in self.vm.allDataArray){
+            
+            NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
+            for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
+                if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    obj.status_obj = stateObj;
+                    
+                }
+            }
+            
+            for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
+                if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    obj.PRODUCT_obj = productObj;
+                    
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        
+        [[GCDQueue mainQueue]queueBlock:^{
+            
+            [self updatevules  ];
+            
+        }];
+        
+        
+    }];
+    
     
     
     
@@ -195,7 +229,7 @@
 ///
 -(void)updatevules
 {
-    SZGCObject *OBJ = [self.dataArray safeObjectAtIndex:self.index];
+    GCYSSB_Object *OBJ = [self.deviceArray safeObjectAtIndex:self.index];
     CLJ_productObj *productObj = OBJ.PRODUCT_obj;
     NSArray *array = [productObj preson_productArray];
     NSMutableArray *titles = [NSMutableArray array];
@@ -203,7 +237,9 @@
 
     for (CLJ_person_productObj *P in array) {
         [titles addObject:P.Person];
-        [values addObject:[NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]]];
+//        NSNumber *NUM = [NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]];
+        [values addObject:@([P.Pro integerValue])];
+        
     }
     
     [self.barChart setXLabels:titles ];
@@ -228,7 +264,7 @@
 }
 
 - (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList titleForItemWithIndex:(NSInteger)index {
-    SZGCObject *OBJ = [self.deviceArray safeObjectAtIndex:index];
+    GCYSSB_Object *OBJ = [self.deviceArray safeObjectAtIndex:index];
 //    return [NSString stringWithFormat:@"设备%d ",index ];
     
     return OBJ.name?OBJ.name:[NSString stringWithFormat:@"设备%d ",index ];

@@ -5,7 +5,7 @@
 //  Created by 中联信 on 15/8/13.
 //  Copyright (c) 2015年 Tim.rabbit. All rights reserved.
 //
-
+#import "GCYSSB_Object.h"
 #import "HomeViewController.h"
 #import "ScrollADView.h"
 #import "AppDelegate.h"
@@ -103,6 +103,10 @@
     // Do any additional setup after loading the view from its nib.
 //    _v1 = [[HomeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"HomeCell"];
     _v1 = [self getCellWithClass:[HomeCell class]];
+    
+    
+    [[CLJ_object sharedInstance]start];
+    
     UIButton *bnt = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     bnt.backgroundColor = [UIColor redColor];
     [self.navigationItem setTitleView:_v1];

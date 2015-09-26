@@ -521,7 +521,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设备名称-很长。。。。" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g86-WM-85v">
-                                                    <rect key="frame" x="8" y="8" width="244" height="20"/>
+                                                    <rect key="frame" x="8" y="8" width="184" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -557,7 +557,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ece-VY-KB8">
-                                                    <rect key="frame" x="260" y="3" width="44" height="30"/>
+                                                    <rect key="frame" x="200" y="3" width="104" height="30"/>
                                                     <state key="normal" title="状态">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -583,7 +583,7 @@
                                                 <constraint firstItem="bzv-Iu-y08" firstAttribute="leading" secondItem="SYo-vq-o0E" secondAttribute="leadingMargin" id="kJT-FU-H3f"/>
                                                 <constraint firstItem="Lq8-Mm-ZRM" firstAttribute="top" secondItem="g86-WM-85v" secondAttribute="bottom" id="okA-6X-dfl"/>
                                                 <constraint firstItem="bzv-Iu-y08" firstAttribute="width" secondItem="6Gj-9r-zk9" secondAttribute="width" id="sBy-ks-5sl"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="g86-WM-85v" secondAttribute="trailing" constant="60" id="yDD-zX-Lpt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g86-WM-85v" secondAttribute="trailing" constant="120" id="yDD-zX-Lpt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NPa-XG-oyb" secondAttribute="trailing" constant="8" id="yuB-8O-ZIz"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1954,13 +1954,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="旧密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MM-IW-DH5">
                                 <rect key="frame" x="16" y="72" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="新密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kic-Sc-ull">
                                 <rect key="frame" x="16" y="134" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

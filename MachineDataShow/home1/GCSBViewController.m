@@ -7,7 +7,7 @@
 //
 
 #import "GCSBViewController.h"
-#import "SZGCObject.h"
+#import "GCYSSB_Object.h"
 #import "GCDetailViewController.h"
 
 ///工厂设备cell
@@ -36,20 +36,30 @@
 
 -(void)setName:(NSString*)name state:(NSString*)state all:(NSString*)all check:(NSString*)check good:(NSString*)good checkrate:(NSString*)checkrate goodrate:(NSString*)goodrate
 {
-    if ([state isEqualToString:@"Connected"]) {
+    if([state hasSuffix:@"\r\n"])
+    {
+        state  = [state substringToIndex:state.length - 2];
+    }
+    
+    if ([[state lowercaseString] isEqualToString:@"connected"]) {
         self.stateBtn.backgroundColor = [UIColor greenColor];
 
     }else{
         self.stateBtn.backgroundColor = [UIColor redColor];
-
+        
     }
     
-    [self.stateBtn setTitleColor:[UIColor whiteColor] forState:0];
     
-    [self.stateBtn setTitle:state forState:0];
+    [self.stateBtn setTitleColor:[UIColor whiteColor] forState:0];
+    if(state.length <2){
+        [self.stateBtn setTitle:@"正在获取" forState:0];
+        self.stateBtn.backgroundColor = [UIColor grayColor];
+
+    }else
+        [self.stateBtn setTitle:state forState:0];
 
     self.deviceName.text = name?name:@"设备名称不详";
-    self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all?all:@"不详"];
+    self.product_num.text  = [NSString stringWithFormat:@"产量:%@",all?all:@"正在获取"];
     
     self.check_num.text  = [NSString stringWithFormat:@"已检验:%@",check?check:@"不详"];
     self.hg_num.text  = [NSString stringWithFormat:@"合格数:%@",good?good:@"不详"];
@@ -77,7 +87,7 @@
 
 -(void)setName:(NSString*)name all:(NSString*)all online:(NSString*)online
 {
-    self.name.text = name;
+    self.name.text = name?name:@"正在获取";
     self.all.text = [NSString stringWithFormat:@"在编:%@",all];
     self.oneline.text = [NSString stringWithFormat:@"在线:%@",online];
     
@@ -123,32 +133,32 @@
 
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
         
-        for(SZGCObject *obj in self.vm.allDataArray){
-            CLJ_deviceObj *stateObj = [[[[CLJ_object sharedInstance]stateArray] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@%@",obj.model,obj.serial]]] firstObject];
-            obj.status_obj = stateObj;
+        for(GCYSSB_Object *obj in self.vm.allDataArray){
             
-            
-            
-            NSArray *array = [[[CLJ_object sharedInstance]productArray] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@%@",obj.model,obj.serial]]];
-            if (array.count) {
-                CLJ_productObj *productObj = [array firstObject];
-                obj.PRODUCT_obj = productObj;
-                
+            NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
+             for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
+                if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    obj.status_obj = stateObj;
+                    
+                }
             }
-           
+  
+             for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
+                if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    obj.PRODUCT_obj = productObj;
+                    
+                }
+            }
+            
             
         }
-        
-       
-        
-        
         
         
         
         
         [[GCDQueue mainQueue]queueBlock:^{
             
-            [self.mtable reloadData];
+            [self.mytable reloadData];
             
         }];
         
@@ -228,11 +238,11 @@
 {
     if (indexPath.section == 0) {
         GCSBCell *CELL = [tableView dequeueReusableCellWithIdentifier:@"GCSBCell" ];
-        SZGCObject *OBJ = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+        GCYSSB_Object *OBJ = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
         if (OBJ==nil) {
 //            OBJ=[SZGCObject random];
-        }
-        [CELL setName:OBJ.name state:OBJ.status_obj.State?OBJ.status_obj.State:OBJ.status all:OBJ.PRODUCT_obj.Output check:OBJ.PRODUCT_obj.Checked good:OBJ.PRODUCT_obj.OK checkrate:OBJ.PRODUCT_obj.checkrate goodrate:OBJ.PRODUCT_obj.goodrate];
+        }else
+            [CELL setName:OBJ.name state:OBJ.status_obj.State?OBJ.status_obj.State:OBJ.status all:OBJ.PRODUCT_obj.Output check:OBJ.PRODUCT_obj.Checked good:OBJ.PRODUCT_obj.OK checkrate:OBJ.PRODUCT_obj.checkrate goodrate:OBJ.PRODUCT_obj.goodrate];
         
         
         return CELL;

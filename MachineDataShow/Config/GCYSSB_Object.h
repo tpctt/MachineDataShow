@@ -7,6 +7,8 @@
 //
 
 #import "BaseObject.h"
+#import <GCDAsyncSocket.h>
+
 @class CLJ_presonObj;
 @interface CLJ_object : NSObject<NSURLConnectionDataDelegate>
 @property (strong,nonatomic) NSString *url;
@@ -80,7 +82,7 @@ AS_SINGLETON(CLJ_object)
 
 
 
-@interface SZGCObject : BaseObject
+@interface GCYSSB_Object : NSObject
 //@property (strong,nonatomic) NSString *NAME;
 //@property (strong,nonatomic) NSString *all;
 //@property (strong,nonatomic) NSString *check;
