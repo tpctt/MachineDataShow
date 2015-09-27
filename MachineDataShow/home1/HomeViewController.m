@@ -180,7 +180,7 @@
             if (array) {
                 _adArray = array;
                 
-                NSArray *array2 = [array valueForKey:@"image"];
+                NSArray *array2 = [array valueForKey:@"REALimage"];
                 [self.scrollAdView setImages:array2 withTitles:nil];
                 self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
                     HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];

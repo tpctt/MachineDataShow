@@ -115,6 +115,16 @@ static AppDelegate* shareApp;
     [Action actionConfigHost:[AppHostAddress stringByReplacingOccurrencesOfString:@"http://" withString:@""] client:@"APP" codeKey:@"result" rightCode:1 msgKey:@"response/errorText"];
     [UserObject logWithCache];
     
+//    NSInteger length1 = strtol(@"37".UTF8String, nil, 10);
+//
+//    NSNumber*  size = @(37);
+//    
+//    NSString *sizeString = [NSString stringWithFormat:@"%0x",size];
+//    NSData *sizeData = [sizeString dataUsingEncoding:NSASCIIStringEncoding];
+//    NSMutableData *data = [NSMutableData data];
+//    [data getBytes:&size length:4];
+    
+    
     return YES;
 }
 

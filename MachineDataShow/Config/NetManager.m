@@ -30,6 +30,7 @@
 +(NSString *)getErrorMsg:(NSString*)code
 {
     NSDictionary *INFO = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ErrorCode" ofType:@"plist"]];
+    
     return [INFO objectAtPath:code];
     
     return nil;
@@ -247,7 +248,9 @@
 +(AFHTTPRequestOperation*)uploadHead:(UIImage *)image
                                block:(HotKeyBlock)block
 {
-    NSString *PATH = @"uploadHead.php";
+     NSString *PATH = [NSString stringWithFormat:@"%@",@"uploadHeadJson"];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -257,38 +260,59 @@
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
     
-    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    NSDictionary *requestParams = [NSMutableDictionary dictionary ];
     [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    [requestParams setValue:@"JPG" forKey:@"FileType"];
+    
+    
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    if(imageData==nil){
+        imageData = UIImageJPEGRepresentation(image, 1);
+    }
+    NSString *REQU = [NSString stringWithFormat:@"%@",requestParams];
+    NSData *requData = [REQU dataUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSNumber*  size = @(requData.length);
+    NSString *sizeString = [NSString stringWithFormat:@"%d",size];
+    NSData *sizeData = [sizeString dataUsingEncoding:NSASCIIStringEncoding];
+    NSMutableData *data = [NSMutableData data];
+    
+    [data getBytes:&size length:4];
+ //    [data appendData:sizeData];
+    [data appendData:requData];
+    [data appendData:imageData];
+    
+    
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
     
     
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        NSData *data = UIImageJPEGRepresentation(image, 0.5);
-        [formData appendPartWithFileData:data name:@"head" fileName:[@"head" stringByAppendingString:@".jpg"] mimeType:@"image/jpg"];
+    AFHTTPRequestOperation *op = [manager POST:url parameters:[NSDictionary dictionary] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFormData:data name:@"head"];
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            NSString *string = [jsonObject stringAtPath:@"response/text"];
-            if (!string) {
-                string=@"";
-            }
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
             
-            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
-            
+            block(@[@(state)],nil,nil);
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
+            block(nil,nil,[self getErrorMsg:stateString]);
         }
+        
+       
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
@@ -466,7 +490,7 @@
     return op;
 }
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
-    NSString *PATH = @"getFlash.php";
+    NSString *PATH = @"getFlashJson";
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -483,12 +507,49 @@
     
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json",@"application/octet-stream"]];
     
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+//        NSString *jsonstring=[[NSString alloc] initWithData:[operation.responseData subdataWithRange:NSMakeRange(8, operation.responseData.length - 8)]encoding:NSUTF8StringEncoding];
+//        if(jsonstring.length==0){
+//            unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+//            jsonstring = [[NSString alloc] initWithData:operation.responseData encoding:encode];
+//        }
+//
+        NSData *lengthData = [operation.responseData subdataWithRange:NSMakeRange(0, 4)];
+        NSString *string = [NSString stringWithFormat:@"%@",lengthData];
+        string = [string substringWithRange:NSMakeRange(1, string.length-2   )];
+        NSInteger length1 = strtol(string.UTF8String, nil, 16);
         
+        NSData *data =  [operation.responseData subdataWithRange:NSMakeRange(4, length1)];
+        NSDictionary *info = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
+        
+        NSInteger  filesNum = [[info objectAtPath:@"filesNum"] integerValue];
+        NSMutableArray *ARRAY = [NSMutableArray array ];
+        
+        int preSize = 4+length1;
+        
+        for (int i = 0; i< filesNum; i++) {
+            NSString *PROPERTY = [info objectAtPath:[NSString stringWithFormat:@"file%dProperty",i + 1]];
+            NSString *SIZE = [info objectAtPath:[NSString stringWithFormat:@"file%dSize",i + 1]];
+            NSString *TYPE = [info objectAtPath:[NSString stringWithFormat:@"file%dType",i + 1]];
+
+            NSData *imageData = [operation.responseData subdataWithRange:NSMakeRange(preSize, [SIZE integerValue])];
+            HomeAD *AD = [[HomeAD alloc]init];
+            AD.REALimage = [UIImage imageWithData:imageData];
+            
+            [ARRAY addObject:AD];
+            
+            preSize+= [SIZE integerValue];
+            
+        }
+        block(ARRAY,nil,nil);
+
+        
+        
+        return ;
         NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
         if (state == 1  ) {
             NSArray *KEYVAULES =[jsonObject objectAtPath:@"response/dataList"];
@@ -513,6 +574,22 @@
     
     
     return op;
+    
+}
+ + (NSString *)stringFromHexString:(NSString *)hexString { //
+    
+    char *myBuffer = (char *)malloc((int)[hexString length] / 2 + 1);
+    bzero(myBuffer, [hexString length] / 2 + 1);
+    for (int i = 0; i < [hexString length] - 1; i += 2) {
+        unsigned int anInt;
+        NSString * hexCharStr = [hexString substringWithRange:NSMakeRange(i, 2)];
+        NSScanner * scanner = [[NSScanner alloc] initWithString:hexCharStr];
+        [scanner scanHexInt:&anInt];
+        myBuffer[i / 2] = (char)anInt;
+    }
+    NSString *unicodeString = [NSString stringWithCString:myBuffer encoding:4];
+     return unicodeString;
+    
     
 }
 +(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
@@ -650,7 +727,8 @@
 
                              block:(HotKeyBlock)block
 {
-    NSString *PATH = @"setFeedback.php";
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@",@"setFeedbackJson",[UserObject sharedInstance].uid,content,tele ,[TimeTool formatDateSinceNow:0 formatWith:@"YYYY-MM-DD"]];
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSString *url = nil;
     NSRange rang = [AppHostAddress rangeOfString:@"://"];
@@ -670,32 +748,30 @@
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+//    manager.requestSerializer = [AFJSONRequestSerializer serializer];
     
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
     
     
-    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    AFHTTPRequestOperation *op = [manager POST:url parameters:[NSDictionary dictionary ] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
-        NSInteger state = [[jsonObject stringAtPath:@"result"] isEqualToString:requestOK];
-        if (state == 1  ) {
-            UserObject *OBJ = [UserObject objectWithKeyValues:[jsonObject objectAtPath:@"response"]];
-            NSString *string = [jsonObject stringAtPath:@"response/text"];
-            if (!string) {
-                string=@"";
-            }
+        NSString* stateString =  operation.responseString  ;
+        stateString = [self removiewHuhao:stateString];
+        int state = [stateString intValue];
+        
+        if (state >0  ) {
+            //            [UserObject sharedInstance].uid = stateString;
             
-            block(@[string],nil,[jsonObject objectAtPath:@"response/text"]);
-            
+            block(@[@(state)],nil,nil);
             
         }else{
-            block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
-            
+            block(nil,nil,[self getErrorMsg:stateString]);
         }
+        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         

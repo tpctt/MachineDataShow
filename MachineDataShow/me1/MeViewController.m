@@ -253,7 +253,7 @@ static MeViewController* shareApp;
                     
                     NSString *STRING = [array firstObject];
                     if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
-                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:@"修改成功"];
                     }
                     
                     
