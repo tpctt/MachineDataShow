@@ -640,4 +640,27 @@ DEF_SINGLETON(CLJ_object)
      }];
     
 }
+/*
+ {
+ id = 123;
+ model = "SUPERCUT2000+";
+ name = "\U8d85\U7ea7\U5207\U5272";
+ serial = 801011;
+ status = 1;
+ },
+ {
+ id = 235;
+ model = ROBOTD306SD;
+ name = "\U52a0\U5de5\U4e2d\U5fc3";
+ serial = 801012;
+ status = 1;
+ },
+ {
+ id = 346;
+ model = HERMES;
+ name = "\U7ec4\U88c5\U6d41\U6c34\U7ebf";
+ serial = 801013;
+ status = 1;
+ }HERMES801110
+ */
 @end

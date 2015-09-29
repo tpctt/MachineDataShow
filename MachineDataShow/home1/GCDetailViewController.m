@@ -14,6 +14,7 @@
 
 #import "CocoaAsyncSocket.h" // When not using frameworks, targeting iOS 7 or below
 #import "GCYSSB_Object.h"
+#import <GCDQueue.h>
 
 @interface StatueObject:NSObject
 @property (strong,nonatomic) NSString *id;
@@ -112,7 +113,10 @@
     [self.view bringSubviewToFront:self.selectionList];
     
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
-        [self showDataFor:self.index];
+        [[GCDQueue mainQueue ]queueBlock:^{
+            [self showDataFor:self.index];
+            
+        }];
 
     }];
     
@@ -294,6 +298,11 @@
         [self.barChart setXLabels:titles ];
         [self.barChart updateChartData:values];
         [self.barChart strokeChart];
+    }else{
+        [self.barChart setXLabels:@[@"SEP 1"]];
+        [self.barChart setYValues:@[@0]];
+        [self.barChart strokeChart];
+        
     }
     
     NSArray *items = @[
