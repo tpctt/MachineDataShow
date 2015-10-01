@@ -50,7 +50,7 @@ AS_SINGLETON(CLJ_object)
 @interface CLJ_person_productObj : BaseObject
 
 @property (strong,nonatomic) NSString *Person;
-@property (strong,nonatomic) NSString *Pro;
+//@property (strong,nonatomic) NSString *Pro;
 @property (strong,nonatomic) NSString *Output;
 
 

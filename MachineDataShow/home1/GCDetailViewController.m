@@ -291,7 +291,7 @@
     for (CLJ_person_productObj *P in array) {
         [titles addObject:P.Person];
 //        NSNumber *NUM = [NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]];
-        [values addObject:@([P.Pro integerValue])];
+        [values addObject:@([P.Output integerValue])];
         
     }
     if(titles.count){

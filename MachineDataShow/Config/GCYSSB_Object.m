@@ -241,8 +241,7 @@ DEF_SINGLETON(CLJ_object)
          
          for (int i = 6; i<ARRAY.count ; ) {
              NSString *Person = [ARRAY safeObjectAtIndex:i ];
-             NSString *Pro = [ARRAY safeObjectAtIndex:i+1 ];
-             NSString *Output = [ARRAY safeObjectAtIndex:i+2 ];
+             NSString *Output = [ARRAY safeObjectAtIndex:i+1 ];
              
              
              if([Output hasSuffix:@"\r\n"])
@@ -250,7 +249,7 @@ DEF_SINGLETON(CLJ_object)
                  Output  = [Output substringToIndex:Output.length - 2];
              }
              
-             i+=3;
+             i+=2;
              CLJ_person_productObj *obj22 = nil;
              for (CLJ_person_productObj *Person_Obj in obj.preson_productArray) {
                  if ([[Person_Obj.Person lowercaseString]isEqualToString:[Person lowercaseString]]) {
@@ -263,7 +262,7 @@ DEF_SINGLETON(CLJ_object)
                  obj22 = [[CLJ_person_productObj alloc] init];
                  
                  obj22.Person = Person;
-                 obj22.Pro = Pro;
+//                 obj22.Pro = Pro;
                  obj22.Output = Output;
                 
                  
@@ -273,7 +272,7 @@ DEF_SINGLETON(CLJ_object)
              }else{
                  
                  obj22.Person = Person;
-                 obj22.Pro = Pro;
+//                 obj22.Pro = Pro;
                  obj22.Output = Output;
                  
                  
@@ -285,8 +284,7 @@ DEF_SINGLETON(CLJ_object)
          }
          self.receviceIndex = @(![self.receviceIndex boolValue]);
 
-         
-     }else if ([string hasPrefix:@"PartState"]) {
+      }else if ([string hasPrefix:@"PartState"]) {
          //         MachineState|801112|Connected
          //         State :Connected/Ready/Busy/Error
          //     Connected:绿色  .
