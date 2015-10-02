@@ -48,6 +48,29 @@
 }
 -(void)showActsheet
 {
+    UIViewController *withvc = self;
+
+    [UIActionSheet showInView:self.view withTitle:@"选择图片来源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"相机",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
+        
+        if(buttonIndex == 0 ){
+            [self takePhotoFromAlbum:NO isPhoto:YES withBlock:^(NSDictionary *info, UIImage *image) {
+                
+                [self.addimageBaseView addNewResoure:image];
+                
+            } withVC:withvc];
+            
+        }else if(buttonIndex == 1 ){
+            [self takePhotoFromAlbum:YES isPhoto:YES withBlock:^(NSDictionary *info, UIImage *image) {
+                
+                [self.addimageBaseView addNewResoure:image];
+                
+            } withVC:withvc];
+            
+        }
+        
+    }];
+    
+    return;
     [UIActionSheet showInView:self.view withTitle:@"选择上传的资源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"图片",@"录像"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
        
 //        NSLog(@"%d-%@",buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
@@ -130,23 +153,29 @@
         }
     }
     
-    
-    [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos  block:^(NSArray *array, NSError *error, NSString *msg) {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:1];
-        
-        if (array != nil) {
-            
+    [[GCDQueue globalQueue]queueBlock:^{
+        [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos  block:^(NSArray *array, NSError *error, NSString *msg) {
             
             [[GCDQueue mainQueue]queueBlock:^{
-                [self.navigationController popViewControllerAnimated:1];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:1];
                 
+                if (array != nil) {
+                    
+                    
+                    [[GCDQueue mainQueue]queueBlock:^{
+                        [self.navigationController popViewControllerAnimated:1];
+                        
+                    }];
+                    
+                    
+                }else{
+                    [self showMsg:msg error:error];
+                }
             }];
             
+            
+        }];
 
-        }else{
-            [self showMsg:msg error:error];
-        }
-        
     }];
     
     

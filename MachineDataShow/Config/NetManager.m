@@ -14,6 +14,8 @@
 
 #import "FixProgressViewController.h"
 #import <TMCache/TMCache.h>
+#import <EasyIOS/NSObject+EasyJSON.h>
+
 
 @implementation NetManager
 +(NSString*)removiewHuhao:(NSString*)string
@@ -260,31 +262,77 @@
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
     
-    NSDictionary *requestParams = [NSMutableDictionary dictionary ];
-    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
-    [requestParams setValue:@"JPG" forKey:@"FileType"];
-    
-    
-    
+    BOOL isJpg = YES;
     NSData *imageData = UIImagePNGRepresentation(image);
     if(imageData==nil){
         imageData = UIImageJPEGRepresentation(image, 1);
+        isJpg = NO;
     }
-    NSString *REQU = [NSString stringWithFormat:@"%@",requestParams];
+    
+    NSDictionary *requestParams = [NSMutableDictionary dictionary ];
+    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    [requestParams setValue:isJpg? @"JPG":@"PNG" forKey:@"File1Type"];
+    [requestParams setValue:@(imageData.length) forKey:@"File1Size"];
+    
+    
+    
+   
+    NSString *REQU = [NSString stringWithFormat:@"%@",[requestParams objectToString ]];
     NSData *requData = [REQU dataUsingEncoding:NSUTF8StringEncoding];
+    requData = [requestParams objectToData];
     
     
-    NSNumber*  size = @(requData.length);
-    NSString *sizeString = [NSString stringWithFormat:@"%d",size];
-    NSData *sizeData = [sizeString dataUsingEncoding:NSASCIIStringEncoding];
+    CGFloat size =  requData.length;
+    int i = size;
+    NSData *sizeData = [NSData dataWithBytes: &i length: 4];
+    NSMutableData *data0 = [NSMutableData data];
+    for (int i = sizeData.length-1; i>=0; i--) {
+        [data0 appendData:[sizeData subdataWithRange:NSMakeRange(i, 1)]];
+    }
+
     NSMutableData *data = [NSMutableData data];
     
-    [data getBytes:&size length:4];
- //    [data appendData:sizeData];
+//    [data getBytes:&size length:4];
+    [data appendData:data0];
     [data appendData:requData];
     [data appendData:imageData];
     
     
+    
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url] ];
+    [urlRequest setHTTPBody:data];
+    
+    
+    NSString *contentType = [NSString stringWithFormat:@"text/plain"];
+    [urlRequest setValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    NSString *accept = [NSString stringWithFormat:@"application/json"];
+    [urlRequest setValue:accept forHTTPHeaderField: @"Accept"];
+    [urlRequest setHTTPMethod:@"POST"];
+
+    
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data22 = [NSURLConnection sendSynchronousRequest:urlRequest
+                                          returningResponse:&response
+                                                      error:&error];
+    NSString *responseString = [[NSString alloc] initWithData:data22 encoding:NSUTF8StringEncoding];
+    responseString = [self removiewHuhao:responseString];
+    NSLog(@"respone = %@",responseString);
+    
+    if([responseString isEqualToString:@"1"]){
+        block(@[responseString],nil,nil);
+        return nil;
+    }
+    block(nil,error,nil);
+    return nil;
+    
+    if (error == nil)
+    {
+        // 处理数据
+    }
+    return nil;
     
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -298,8 +346,11 @@
     AFHTTPRequestOperation *op = [manager POST:url parameters:[NSDictionary dictionary] constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFormData:data name:@"head"];
         
-    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         
+        
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        NSLog (@"UPLOAD---%@",operation.responseString);
         NSString* stateString =  operation.responseString  ;
         stateString = [self removiewHuhao:stateString];
         int state = [stateString intValue];
@@ -315,7 +366,8 @@
        
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        NSLog(@"UPLOAD---%@",operation.responseString);
+
         block(nil, error,nil);
         
     }];
@@ -389,7 +441,9 @@
                                          block:(HotKeyBlock)block
 {
     
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@",@"setEquipmentRepairJson",[UserObject sharedInstance].uid,equipmentId,contact,tele,detail,[TimeTool formatDateSinceNow:0 formatWith:@"YYYY-MM-dd"]];
+//    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@",@"setEquipmentRepairJson",[UserObject sharedInstance].uid,equipmentId,contact,tele,detail,[TimeTool formatDateSinceNow:0 formatWith:@"YYYY-MM-dd"]];
+    NSString *PATH = [NSString stringWithFormat:@"%@",@"setEquipmentRepairJson" ];
+
     PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
@@ -401,8 +455,104 @@
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
     
+    NSMutableData *imageDatass = [NSMutableData data];
+
+    
+    NSDictionary *requestParams = [NSMutableDictionary dictionary ];
+    [requestParams setValue:[[UserObject sharedInstance] uid] forKey:@"uid"];
+    [requestParams setValue:equipmentId forKey:@"equipmentId"];
+    [requestParams setValue:contact forKey:@"contact"];
+    [requestParams setValue:tele forKey:@"tele"];
+    [requestParams setValue:detail forKey:@"detail"];
+    [requestParams setValue:[TimeTool formatDateSinceNow:0 formatWith:@"YYYYMMdd"]forKey:@"time"];
+    [requestParams setValue:@(images.count) forKey:@"filesNum"];
+    
+    for(int i = 0;i < 5 ;i ++){
+        if ( i >= images.count) {
+            [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
+            [requestParams setValue:@(0) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
+            
+        }else{
+            UIImage *image = images[i];
+            
+            
+            BOOL isJpg = YES;
+            NSData *imageData = UIImagePNGRepresentation(image);
+            if(imageData==nil){
+                imageData = UIImageJPEGRepresentation(image, 1);
+                isJpg = NO;
+            }
+            
+            [requestParams setValue:isJpg? @"JPG":@"PNG" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
+            [requestParams setValue:@(imageData.length) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
+            
+            [imageDatass appendData:imageData];
+            
+        }
+       
+        
+    }
+    
+    
+    
+    
+    
+    NSString *REQU = [NSString stringWithFormat:@"%@",[requestParams objectToString ]];
+    NSData *requData = [REQU dataUsingEncoding:NSUTF8StringEncoding];
+    requData = [requestParams objectToData];
+    
+    
+    CGFloat size =  requData.length;
+    int i = size;
+    NSData *sizeData = [NSData dataWithBytes: &i length: 4];
+    NSMutableData *data0 = [NSMutableData data];
+    for (int i = sizeData.length-1; i>=0; i--) {
+        [data0 appendData:[sizeData subdataWithRange:NSMakeRange(i, 1)]];
+    }
+    
+    NSMutableData *data = [NSMutableData data];
+    
+    //    [data getBytes:&size length:4];
+    [data appendData:data0];
+    [data appendData:requData];
+    [data appendData:imageDatass];
+    
+    
+    
+    
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL: [NSURL URLWithString:url] ];
+    [urlRequest setHTTPBody:data];
+    
+    
+    NSString *contentType = [NSString stringWithFormat:@"text/plain"];
+    [urlRequest setValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
+    NSString *accept = [NSString stringWithFormat:@"application/json"];
+    [urlRequest setValue:accept forHTTPHeaderField: @"Accept"];
+    [urlRequest setHTTPMethod:@"POST"];
+    
+    
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data22 = [NSURLConnection sendSynchronousRequest:urlRequest
+                                            returningResponse:&response
+                                                        error:&error];
+    NSString *responseString = [[NSString alloc] initWithData:data22 encoding:NSUTF8StringEncoding];
+    responseString = [self removiewHuhao:responseString];
+    NSLog(@"respone = %@",responseString);
+    
+    if([responseString isEqualToString:@"1"]){
+        block(@[responseString],nil,nil);
+        return nil;
+    }
+    block(nil,error,nil);
+    return nil;
+    
+
+    return nil;
+    
 //    NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
-    NSMutableDictionary *requestParams = nil;
+    NSMutableDictionary *requestParams1 = nil;
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     //    manager.requestSerializer = [AFJSONRequestSerializer serializer];

@@ -424,31 +424,37 @@
     [self.navigationController dismissViewControllerAnimated:YES completion:^{
 
         [MBProgressHUD showHUDAddedTo:self.view animated:1];
-
-        [NetManager uploadHead:image block:^(NSArray *array, NSError *error, NSString *msg) {
-            [MBProgressHUD hideAllHUDsForView:self.view animated:1];
-            
-            if (array != nil) {
-                
+        
+        [[GCDQueue globalQueue]queueBlock:^{
+            [NetManager uploadHead:image block:^(NSArray *array, NSError *error, NSString *msg) {
                 [[GCDQueue mainQueue]queueBlock:^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:1];
                     
-                    NSString *STRING = [array firstObject];
-                    if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
-                        [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:@"修改成功"];
+                    if (array != nil) {
+                        
+                        [[GCDQueue mainQueue]queueBlock:^{
+                            
+                            NSString *STRING = [array firstObject];
+                            if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
+                                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:@"修改成功"];
+                            }
+                            [UserObject sharedInstance].head = STRING;
+                            
+                            [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
+                            
+                            
+                            
+                        }];
+                        
+                    }else{
+                        [self showMsg:msg error:error];
                     }
-                    [UserObject sharedInstance].head = STRING;
-
-                    [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
-                    
-                     
-                    
                 }];
+               
                 
-            }else{
-                [self showMsg:msg error:error];
-            }
-
+            }];
         }];
+      
         
         
     }];

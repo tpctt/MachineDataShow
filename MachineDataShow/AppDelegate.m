@@ -17,6 +17,8 @@
 #import <RDVTabBarController/RDVTabBarItem.h>
 #import <EasyIOS/Action.h>
 #import "UserObject.h"
+#import "ShowMeViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -56,43 +58,6 @@ static AppDelegate* shareApp;
     return img;
 }
 
-- (void)customizeTabBarForController:(RDVTabBarController *)tabBarController {
-    //    UIImage *finishedImage = [UIImage imageNamed:@"tabbar_selected_background"];
-    //    UIImage *unfinishedImage = [UIImage imageNamed:@"tabbar_normal_background"];
-    //    NSArray *tabBarItemImages = @[@"first", @"second", @"third",@"four"];
-    //
-    
-    NSArray *imageArray = @[@"tab1",@"tab2",@"tab3"];
-    //    NSArray *titleArray = @[@"首页",@"彩妆产品",@"我"];
-    
-    NSInteger index = 0;
-    for (RDVTabBarItem *item in [[tabBarController tabBar] items]) {
-        UIImage *selectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@_click", imageArray[index]]];
-        UIImage *unselectedimage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArray[index]]];
-        
-        [item setFinishedSelectedImage:selectedimage withFinishedUnselectedImage:unselectedimage];
-        //        [item setTitle:titleArray[index]];
-        
-        NSDictionary *textAttributes  = @{
-                                          NSFontAttributeName: [UIFont boldSystemFontOfSize:13],
-                                          NSForegroundColorAttributeName: RGB(252, 68, 151   )
-                                          
-                                          };
-        NSDictionary *textAttributes2  = @{
-                                           NSFontAttributeName: [UIFont boldSystemFontOfSize:13],
-                                           NSForegroundColorAttributeName: [UIColor grayColor]
-                                           
-                                           };
-        
-        [item setSelectedTitleAttributes:textAttributes];
-        [item setUnselectedTitleAttributes:textAttributes2];
-        
-        //        [item setBackgroundColor:[UIColor clearColor]];
-        
-        
-        index++;
-    }
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -108,21 +73,14 @@ static AppDelegate* shareApp;
     [[IQKeyboardManager sharedManager] setShouldResignOnTouchOutside:YES];
  
     if ([Config isFirstTimeLauchThisVersion]) {
-        [self.homeVC.navigationController pushViewController:[[ShowMeViewController alloc] init]  animated:NO];
+        ShowMeViewController *VC = [[ShowMeViewController alloc] init ];
+        [self.homeVC.navigationController pushViewController:VC animated:NO];
         
     }
     
     [Action actionConfigHost:[AppHostAddress stringByReplacingOccurrencesOfString:@"http://" withString:@""] client:@"APP" codeKey:@"result" rightCode:1 msgKey:@"response/errorText"];
     [UserObject logWithCache];
     
-//    NSInteger length1 = strtol(@"37".UTF8String, nil, 10);
-//
-//    NSNumber*  size = @(37);
-//    
-//    NSString *sizeString = [NSString stringWithFormat:@"%0x",size];
-//    NSData *sizeData = [sizeString dataUsingEncoding:NSASCIIStringEncoding];
-//    NSMutableData *data = [NSMutableData data];
-//    [data getBytes:&size length:4];
     
     
     return YES;

@@ -44,6 +44,7 @@
 		22EF7FD71B7F86F9000F02DA /* DeviceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FD61B7F86F9000F02DA /* DeviceObject.m */; };
 		22EF7FDF1B7FB35F000F02DA /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FDE1B7FB35F000F02DA /* DemoViewController.m */; };
 		22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EF7FE11B7FB36D000F02DA /* DataShowViewController.m */; };
+		22F891201BBEF78F00ACD4BB /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561721B7C4A5400BA2B69 /* NetManager.m */; };
 		2461FAB37C197E6AB8147749 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BD0EE6780CBF2E6F6A3B99A /* libPods.a */; };
 		7A2464D61B7C2A34007FD1D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D51B7C2A34007FD1D4 /* main.m */; };
 		7A2464D91B7C2A34007FD1D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */; };
@@ -61,7 +62,6 @@
 		7A75617C1B7C4A5400BA2B69 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75616C1B7C4A5400BA2B69 /* BaseObject.m */; };
 		7A75617D1B7C4A5400BA2B69 /* Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75616E1B7C4A5400BA2B69 /* Config.m */; };
 		7A75617E1B7C4A5400BA2B69 /* LoginObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561701B7C4A5400BA2B69 /* LoginObject.m */; };
-		7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561721B7C4A5400BA2B69 /* NetManager.m */; };
 		7A7561801B7C4A5400BA2B69 /* RequestConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561741B7C4A5400BA2B69 /* RequestConfig.m */; };
 		7A7561811B7C4A5400BA2B69 /* SmallObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561761B7C4A5400BA2B69 /* SmallObject.m */; };
 		7A7561821B7C4A5400BA2B69 /* ThirdObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A7561781B7C4A5400BA2B69 /* ThirdObject.m */; };
@@ -964,7 +964,6 @@
 				7A7562091B7C6B8E00BA2B69 /* ServerViewController.m in Sources */,
 				7AB25B0A1B872F130073D440 /* MyFixingObject.m in Sources */,
 				22EE34A11BB70D27003553FA /* JSBadgeView.m in Sources */,
-				7A75617F1B7C4A5400BA2B69 /* NetManager.m in Sources */,
 				2284E9061B9B4A140017DF8F /* Statuecell.m in Sources */,
 				22EF7FE21B7FB36D000F02DA /* DataShowViewController.m in Sources */,
 				7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */,
@@ -998,6 +997,7 @@
 				22435B5C1B7F422700A3C9BA /* HelpViewController.m in Sources */,
 				7A7561831B7C4A5400BA2B69 /* UserObject.m in Sources */,
 				7A75617C1B7C4A5400BA2B69 /* BaseObject.m in Sources */,
+				22F891201BBEF78F00ACD4BB /* NetManager.m in Sources */,
 				2284E9021B9B30A10017DF8F /* GCDetailViewController.m in Sources */,
 				7A75621D1B7C706400BA2B69 /* HomeCell.m in Sources */,
 				7A7562061B7C6B8000BA2B69 /* MeViewController.m in Sources */,

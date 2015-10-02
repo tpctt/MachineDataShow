@@ -16,6 +16,7 @@
 #import <IQKeyboardManager/IQKeyboardReturnKeyHandler.h>
 
 #import <UIKit/UIKit.h>
+#import "NetManager.h"
 
 @interface BaseViewController : Scene<UITableViewDataSource,UITableViewDelegate, UICollectionViewDelegate,UICollectionViewDataSource, UITextFieldDelegate,UITextViewDelegate >
 @property (strong,nonatomic) UITableView *mtable ;
