@@ -14,6 +14,7 @@
 @property (assign,nonatomic) SEL addSelecter;
 @property (strong,nonatomic) id tagert;
 @property (assign,nonatomic) BOOL isShow;
+@property (assign,nonatomic) int maxNumber;
 @property (strong,nonatomic) NSMutableArray *resoureArray;
 
 -(void)addNewResoure:(id)resoure;

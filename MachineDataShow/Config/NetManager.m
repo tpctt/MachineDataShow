@@ -456,6 +456,7 @@
     }
     
     NSMutableData *imageDatass = [NSMutableData data];
+    NSMutableData *videoDatass = [NSMutableData data];
 
     
     NSDictionary *requestParams = [NSMutableDictionary dictionary ];
@@ -468,11 +469,7 @@
     [requestParams setValue:@(images.count) forKey:@"filesNum"];
     
     for(int i = 0;i < 5 ;i ++){
-        if ( i >= images.count) {
-            [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
-            [requestParams setValue:@(0) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
-            
-        }else{
+        if (i < images.count) {
             UIImage *image = images[i];
             
             
@@ -488,7 +485,32 @@
             
             [imageDatass appendData:imageData];
             
+        }else if (i<images.count+videos.count){
+            
+            /*
+             UIImagePickerControllerMediaType = "public.movie";
+             UIImagePickerControllerMediaURL = "file:///private/var/mobile/Containers/Data/Application/F913DACD-2D53-434B-97F0-052ED1120D8B/tmp/trim.43A4567B-8AF8-4D9C-9C9F-70F88F57D28C.MOV";
+             UIImagePickerControllerReferenceURL = "assets-library://asset/asset.MOV?id=28ABDACE-FEFD-4AE4-9535-A9E1DF94CACC&ext=MOV";
+             
+             */
+            NSDictionary *INFO = videos[i - images.count ];
+            
+            NSURL *UIImagePickerControllerMediaURL = INFO[@"UIImagePickerControllerMediaURL"];
+            
+            
+            NSData *vide = [NSData dataWithContentsOfURL:UIImagePickerControllerMediaURL];
+            
+            [requestParams setValue:@"MP4" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
+            [requestParams setValue:@(vide.length) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
+
+            [videoDatass appendData:vide];
+
+            
+        }else{
+            [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
+            [requestParams setValue:@(0) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
         }
+        
        
         
     }
@@ -516,6 +538,7 @@
     [data appendData:data0];
     [data appendData:requData];
     [data appendData:imageDatass];
+    [data appendData:videoDatass];
     
     
     

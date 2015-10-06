@@ -86,7 +86,7 @@
     NSInteger flag =  _fixedProgressInfo.progress   ;
     
     [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];
-    self.manName.text = [NSString stringWithFormat:@"工程师:%@",_fixedProgressInfo.name?_fixedProgressInfo.name:@"无数据"];
+    self.manName.text = [NSString stringWithFormat:@"工程师:%@",_fixedProgressInfo.contact?_fixedProgressInfo.contact:@"无数据"];
     self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele?_fixedProgressInfo.tele:@"无数据"];
     
     

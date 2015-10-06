@@ -93,9 +93,14 @@ static NSArray *audio = nil;
         }else if ([resoure isKindOfClass:[NSDictionary class]]){
             ///UIImagePickerControllerReferenceURL
             ///UIImagePickerControllerMediaURL
-            UIImage *image = [[self class] getImage:[(NSDictionary*)resoure objectForKey:@"UIImagePickerControllerReferenceURL"]];
+            UIImage *image = [[self class] getImage:[(NSDictionary*)resoure objectForKey:@"UIImagePickerControllerMediaURL"]];
             [btn setImage:image forState:0];
-
+/*
+ UIImagePickerControllerMediaType = "public.movie";
+ UIImagePickerControllerMediaURL = "file:///private/var/mobile/Containers/Data/Application/F913DACD-2D53-434B-97F0-052ED1120D8B/tmp/trim.43A4567B-8AF8-4D9C-9C9F-70F88F57D28C.MOV";
+ UIImagePickerControllerReferenceURL = "assets-library://asset/asset.MOV?id=28ABDACE-FEFD-4AE4-9535-A9E1DF94CACC&ext=MOV";
+ 
+ */
         }
         
     }
@@ -258,9 +263,23 @@ static NSArray *audio = nil;
     [self.subBtnArray addObject:view];
     [self.resoureArray addObject:resoure];
     
-    self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
-    self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+    if (self.maxNumber > self.subBtnArray.count) {
+        
+        self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+        
+        self.addBtn.hidden = NO;
+
+    }else{
+        self.addBtn.frame = [self getBtnRectAt:self.maxNumber];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+        
+        self.addBtn.hidden = YES;
+
+    }
+    [self.scrollView scrollRectToVisible:self.addBtn.frame animated:YES];
     
+   
     
 }
 ///删除一个i
@@ -279,9 +298,24 @@ static NSArray *audio = nil;
         view.frame = [self getBtnRectForButtonWithDelAt:i];
         
     }
-    ///重新布局
-    self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
-    self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+    if (self.maxNumber > self.subBtnArray.count) {
+        ///重新布局
+        self.addBtn.frame = [self getBtnRectAt:self.subBtnArray.count];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+        
+        self.addBtn.hidden = NO;
+
+    }else{
+        ///重新布局
+        self.addBtn.frame = [self getBtnRectAt:self.maxNumber];
+        self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
+        
+        self.addBtn.hidden = YES;
+        
+        
+    }
+
+    
 
 }
 -(void)setIsShow:(BOOL)isShow
@@ -299,6 +333,7 @@ static NSArray *audio = nil;
 
     }
     
+    
     for(NSInteger i = 0; i<self.subBtnArray.count; i++)
     {
         ///重新布局
@@ -313,6 +348,9 @@ static NSArray *audio = nil;
 -(void)commonInit
 {
     if (self.scrollView)return;
+    
+    self.maxNumber = 5;
+    
     self.scrollView = [[UIScrollView alloc]initWithFrame:self.bounds];
     [self addSubview:self.scrollView];
     
