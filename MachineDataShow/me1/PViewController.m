@@ -41,12 +41,18 @@
             [[GCDQueue mainQueue]queueBlock:^{
                 NSString *STRING = [array firstObject];
                 if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
-                    [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
+                    
+                    [[NSUserDefaults standardUserDefaults]setObject:self.p1.text forKey:@"pwd"];
+                    [[NSUserDefaults standardUserDefaults]synchronize];
+                    
+                    [UIAlertView showWithTitle:@"" message:@"修改密码成功" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                       
+                        [self.navigationController popViewControllerAnimated:1];
+                        
+                    }];
+                    
+//                    [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:STRING];
                 }
-                [[NSUserDefaults standardUserDefaults]setObject:self.p1.text forKey:@"pwd"];
-                [[NSUserDefaults standardUserDefaults]synchronize];
-                
-                [self.navigationController popViewControllerAnimated:1];
                 
             }];
             

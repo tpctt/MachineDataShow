@@ -144,6 +144,11 @@
     
     self.title = @"完善资料";
     [self showBarButton:NAV_RIGHT title:@"跳过" fontColor:[UIColor blackColor]];
+    
+    [UIAlertView showWithTitle:@"" message:@"注册成功，请完善资料" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        
+    }];
+    
 }
 -(void)rightButtonTouch
 {

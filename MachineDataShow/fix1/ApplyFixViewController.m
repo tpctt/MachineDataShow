@@ -117,7 +117,7 @@
 //    }else
         if ([segue.identifier isEqualToString:@"Weixiujintu"]) {
             FixProgressViewController *VC = segue.destinationViewController;
-            VC.o = sender;
+            VC.deviceObject = sender;
         
         }
 }

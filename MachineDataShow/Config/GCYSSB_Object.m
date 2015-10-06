@@ -92,7 +92,7 @@ DEF_SINGLETON(CLJ_object)
    //拼接数据
      [self.responseData appendData:data];
      
-     NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF32StringEncoding];
+     NSString *string = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
      if(string.length==0){
          unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
          string = [[NSString alloc] initWithData:data encoding:encode];
@@ -343,8 +343,9 @@ DEF_SINGLETON(CLJ_object)
 
 
  /*
-    77  *当服务器的数据加载完毕时就会调用
-    78  */
+        *当服务器的数据加载完毕时就会调用
+*/
+
  -(void)connectionDidFinishLoading:(NSURLConnection *)connection
  {
     NSLog(@"服务器的数据加载完毕");

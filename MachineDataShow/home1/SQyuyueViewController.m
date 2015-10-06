@@ -130,7 +130,8 @@
     [[self.datepicker rac_newDateChannelWithNilValue:[NSDate date]]subscribeNext:^(id x) {
         self.time.text = [TimeTool formatDate:self.datepicker.date formatWith:@"yyyy-MM-dd"];
     }];
-    
+    self.time.text = [TimeTool formatDate:[NSDate date] formatWith:@"yyyy-MM-dd"];
+
     
 }
 

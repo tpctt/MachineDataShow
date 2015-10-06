@@ -139,7 +139,7 @@
                                 
                                 [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
                                 
-                                 Reg2ViewController *reg2 = [self.storyboard instantiateViewControllerWithIdentifier:@"Reg2ViewController"];
+                                Reg2ViewController *reg2 = [self.storyboard instantiateViewControllerWithIdentifier:@"Reg2ViewController"];
                                 [self.navigationController pushViewController:reg2 animated:YES];
                                 
                                 

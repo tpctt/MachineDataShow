@@ -60,14 +60,15 @@
 
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager getFixedProgressInfo:_o.id block:^(NSArray *array, NSError *error, NSString *msg) {
-        _fixedProgressInfo = [array safeObjectAtIndex:0];
-        
-        [self config2];
-        
-//        sleep(2);
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:1 ];
+    [NetManager getFixedProgressInfo:_deviceObject.id block:^(NSArray *array, NSError *error, NSString *msg) {
+        [[GCDQueue mainQueue]queueBlock:^{
+            
+            _fixedProgressInfo = [array safeObjectAtIndex:0];
+            [self config2];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:1 ];
+            
+            
+        }];
         
     }];
     
@@ -75,9 +76,9 @@
 -(void)config1
 {
     
-    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.o.equipmentName];
-    self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.o.serial];
-    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.o.equipmentName];
+    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.deviceObject.model];
+    self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.deviceObject.serial];
+    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.deviceObject.name];
 
 }
 -(void)config2

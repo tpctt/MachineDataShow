@@ -143,11 +143,16 @@ static MeViewController* shareApp;
 }
 - (IBAction)headIconBtnAct:(id)sender {
     [UIActionSheet showInView:self.view withTitle:@"设置头像" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
-        if (buttonIndex ==  0) {
-            [self takePhotoFromAlbum:0 isPhoto:1];
-        }else if (buttonIndex ==  1){
-            [self takePhotoFromAlbum:1 isPhoto:1];
-        }
+        
+        [[GCDQueue mainQueue]queueBlock:^{
+            if (buttonIndex ==  0) {
+                [self takePhotoFromAlbum:0 isPhoto:1];
+            }else if (buttonIndex ==  1){
+                [self takePhotoFromAlbum:1 isPhoto:1];
+            }
+            
+        }];
+       
     }];
    
 }
@@ -205,19 +210,25 @@ static MeViewController* shareApp;
     
     
     if (FromAlbum) {
+        
         if ( [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
             picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-            
+            return;
         }else if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeSavedPhotosAlbum ]){
+            
             picker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-        }else{
+            return;
+        }else
+        {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"软件没有使用相册的权限,请在设置->隐私->相册中开启权限" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil ];
             [alert show];
             return;
         }
     }else{
+        
         if ([UIImagePickerController isSourceTypeAvailable: UIImagePickerControllerSourceTypeCamera ]){
             picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+            
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"软件没有使用相机的权限,请在设置->隐私->相机中开启权限" delegate:self cancelButtonTitle:@"确认" otherButtonTitles:nil, nil ];
             [alert show];
@@ -225,7 +236,7 @@ static MeViewController* shareApp;
         }
     }
     
-    [self.navigationController.tabBarController presentViewController:picker animated:YES completion:^{
+    [[[AppDelegate sharedInstance]homeVC] presentViewController:picker animated:NO completion:^{
         //   NSLog(@" 显示 picker  的view");
         
         

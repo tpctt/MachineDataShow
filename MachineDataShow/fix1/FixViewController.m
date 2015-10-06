@@ -261,7 +261,7 @@
 //    [self performSegueWithIdentifier:@"weixiujindu" sender:o];
 
     FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"weixiujinduvc"];
-    vc.o = o;
+    vc.deviceObject = o;
     [self.navigationController pushViewController:vc animated:1];
     
     
@@ -274,7 +274,7 @@
         
     }else if ([segue.identifier isEqualToString:@"weixiujindu"]) {
         FixProgressViewController *VC = segue.destinationViewController;
-        VC.o = sender;
+        VC.deviceObject = sender;
         
     }
 }

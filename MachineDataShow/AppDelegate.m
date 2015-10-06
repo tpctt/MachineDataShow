@@ -37,7 +37,7 @@ static AppDelegate* shareApp;
     [[UINavigationBar appearance] setBackgroundImage:
      [self imageFromColor:[UIColor whiteColor]]
                                        forBarMetrics:UIBarMetricsDefault];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName , [UIFont systemFontOfSize:22],NSFontAttributeName, nil]];
     
     
