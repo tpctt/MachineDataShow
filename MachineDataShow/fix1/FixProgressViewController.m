@@ -76,13 +76,19 @@
 -(void)config1
 {
     
-    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.deviceObject.model];
+    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.deviceObject.equipmentName];
     self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.deviceObject.serial];
-    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.deviceObject.name];
+    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.deviceObject.equipmentName];
 
 }
 -(void)config2
 {
+    
+//    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.fixedProgressInfo.equipmentName];
+//    self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.fixedProgressInfo.serial];
+//    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.fixedProgressInfo.equipmentName];
+
+    
     NSInteger flag =  _fixedProgressInfo.progress   ;
     
     [self.icon sd_setImageWithURL:[NSURL URLWithString:_fixedProgressInfo.head] placeholderImage:[UIImage imageNamed:@"Avatar.jpg"]];

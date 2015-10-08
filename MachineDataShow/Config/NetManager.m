@@ -437,7 +437,7 @@
 
                                         images:(NSArray*)images
                                         videos:(NSArray*)videos
-
+                                      delegate:(id<NSURLConnectionDataDelegate>)delegate
                                          block:(HotKeyBlock)block
 {
     
@@ -476,7 +476,7 @@
             BOOL isJpg = YES;
             NSData *imageData = UIImagePNGRepresentation(image);
             if(imageData==nil){
-                imageData = UIImageJPEGRepresentation(image, 1);
+                imageData = UIImageJPEGRepresentation(image, 0.6);
                 isJpg = NO;
             }
             
@@ -547,7 +547,6 @@
     [urlRequest setHTTPBody:data];
     
     
-    NSString *contentType = [NSString stringWithFormat:@"text/plain"];
     [urlRequest setValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
     NSString *accept = [NSString stringWithFormat:@"application/json"];
     [urlRequest setValue:accept forHTTPHeaderField: @"Accept"];
@@ -557,6 +556,12 @@
     
     NSURLResponse * response = nil;
     NSError * error = nil;
+    [urlRequest setTimeoutInterval:0];
+    
+    
+    return urlRequest;
+    
+    
     NSData * data22 = [NSURLConnection sendSynchronousRequest:urlRequest
                                             returningResponse:&response
                                                         error:&error];

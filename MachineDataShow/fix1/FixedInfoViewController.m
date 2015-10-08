@@ -13,7 +13,9 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 
 
-@interface FixedInfoViewController ()
+@interface FixedInfoViewController ()<NSURLConnectionDataDelegate,NSURLConnectionDelegate>
+
+
 @property (weak, nonatomic) IBOutlet UIView *TOPvIEW;
 @property (weak, nonatomic) IBOutlet UILabel *devname;
 @property (weak, nonatomic) IBOutlet UILabel *MODEL;
@@ -27,6 +29,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *commit;
 
+@property (strong, nonatomic)  MBProgressHUD *hud;
+@property (strong, nonatomic)  NSMutableURLRequest *req;
+@property (strong, nonatomic)  NSURLConnection *connec;
 
 @property (weak, nonatomic) IBOutlet AddMediaBaseView *addimageBaseView;
 
@@ -139,11 +144,70 @@
 }
 - (IBAction)video:(id)sender {
 }
+- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
+ totalBytesWritten:(NSInteger)totalBytesWritten
+totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
+{
+    self.hud.progress = bytesWritten/(CGFloat)totalBytesWritten;
+    
+}
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    [self showMsg:nil error:error];
+
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+
+}
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSData * data22 = data;
+    NSString *responseString = [[NSString alloc] initWithData:data22 encoding:NSUTF8StringEncoding];
+    responseString = [NetManager removiewHuhao:responseString];
+    NSLog(@"respone = %@",responseString);
+    
+    
+    [[GCDQueue mainQueue]queueBlock:^{
+        [MBProgressHUD hideAllHUDsForView:self.view.window animated:1];
+        
+        if([responseString isEqualToString:@"1"]){
+            
+            
+            [[GCDQueue mainQueue]queueBlock:^{
+                [UIAlertView showWithTitle:@"" message:@"报修成功" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    
+                    [self.navigationController popViewControllerAnimated:1];
+                    
+                }];
+                
+            }];
+            
+            
+        }else{
+            [self showMsg:responseString error:nil];
+        }
+    }];
+
+}
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+    
+}
+
+
+
 - (IBAction)commitAct:(id)sender {
     if (NO == [self checkData]) {
         return;
     }
-    [MBProgressHUD showHUDAddedTo:self.view.window animated:1];
+//    [MBProgressHUD showHUDAddedTo:self.view.window animated:1];
+    
+    self.hud = [[MBProgressHUD alloc]initWithFrame:self.view.window.frame];
+    [self.view.window addSubview:self.hud];
+    self.hud.mode = MBProgressHUDModeDeterminate;
+    [self.hud show:YES];
+    
     NSMutableArray *images = [NSMutableArray array];
     NSMutableArray *videos = [NSMutableArray array];
     for (id resoure in self.addimageBaseView.resoureArray ) {
@@ -154,17 +218,31 @@
         }
     }
     
+    _req =  [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos delegate:self block:^(NSArray *array, NSError *error, NSString *msg) {
+    }];
+    
+    NSOperationQueue *queue =  [NSOperationQueue mainQueue];
+    _connec = [[NSURLConnection alloc] initWithRequest:_req delegate:self startImmediately:NO];
+    [_connec setDelegateQueue:queue];
+    [_connec start];
+    
+    return;
+    
+    
     [[GCDQueue globalQueue]queueBlock:^{
-        [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos  block:^(NSArray *array, NSError *error, NSString *msg) {
+        [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos delegate:self block:^(NSArray *array, NSError *error, NSString *msg) {
             
             [[GCDQueue mainQueue]queueBlock:^{
                 [MBProgressHUD hideAllHUDsForView:self.view.window animated:1];
                 
                 if (array != nil) {
                     
-                    
                     [[GCDQueue mainQueue]queueBlock:^{
-                        [self.navigationController popViewControllerAnimated:1];
+                        [UIAlertView showWithTitle:@"" message:@"报修成功" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+
+                            [self.navigationController popViewControllerAnimated:1];
+                            
+                        }];
                         
                     }];
                     

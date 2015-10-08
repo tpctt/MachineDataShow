@@ -38,6 +38,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
 
 @interface NetManager:NSObject
++(NSString*)removiewHuhao:(NSString*)string;
 
 +(AFHTTPRequestOperation*)RegMobile:(NSString*)mobile
                            password:(NSString *)password
@@ -76,7 +77,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 
                                         images:(NSArray*)images
                                         videos:(NSArray*)videos
-
+                                      delegate:(id<NSURLConnectionDataDelegate>)delegate
                                          block:(HotKeyBlock)block;
 
 

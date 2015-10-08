@@ -13,7 +13,7 @@
 @class FixedProgressInfo;
 ///我的设备维修进度,77乖乖的界面
 @interface FixProgressViewController : BaseViewController
-@property(strong,nonatomic)DeviceObject *deviceObject;
+@property(strong,nonatomic)MyFixingObject *deviceObject;
 //@property(strong,nonatomic)FixedProgressInfo *fixedProgressInfo;
 
 @end
