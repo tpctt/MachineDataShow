@@ -357,7 +357,7 @@
         
         if (state >0  ) {
             
-            block(@[@(state)],nil,nil);
+            block(@[stateString],nil,nil);
             
         }else{
             block(nil,nil,[self getErrorMsg:stateString]);
@@ -414,7 +414,7 @@
         if (state >0  ) {
 //            [UserObject sharedInstance].uid = stateString;
             
-            block(@[@(state)],nil,nil);
+            block(@[stateString],nil,nil);
             
         }else{
             block(nil,nil,[self getErrorMsg:stateString]);

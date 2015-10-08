@@ -23,6 +23,13 @@
         
         
         self.name .text = OBJ1.StateClass;
+        if ([OBJ1.StateClass isEqualToString:@"0"]) {
+            self.name .text = @"安全";
+        }else  if ([OBJ1.StateClass isEqualToString:@"1"]) {
+            self.name .text = @"报警";
+        }else  if ([OBJ1.StateClass isEqualToString:@"2"]) {
+            self.name .text = @"配件";
+        }
         self.sourece .text = OBJ1.PartName;
         self.deal .text = OBJ1.Note;
         

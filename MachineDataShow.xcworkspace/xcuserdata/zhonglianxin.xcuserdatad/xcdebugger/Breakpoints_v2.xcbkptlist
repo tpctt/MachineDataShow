@@ -100,7 +100,7 @@
                   moduleName = "MachineDataShow"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
-                  timestampString = "465980675.012627"
+                  timestampString = "465981238.313138"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "171"
@@ -115,7 +115,7 @@
                   moduleName = "MachineDataShow"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zhonglianxin/Desktop/MachineDataShow/MachineDataShow/fix1/FixedInfoViewController.m"
-                  timestampString = "465980675.013584"
+                  timestampString = "465981238.313779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "171"
@@ -123,6 +123,38 @@
                   offsetFromSymbolStart = "15">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/Config/NetManager.m"
+            timestampString = "465981293.993526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "+wanshanziliao:companyName:duty:email:fax:address:isModify:block:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/Config/NetManager.m"
+            timestampString = "465981297.448186"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "+wanshanziliao:companyName:duty:email:fax:address:isModify:block:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

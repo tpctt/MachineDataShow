@@ -134,7 +134,7 @@
                         
                         NSString *string = [array firstObject];
                         if (string) {
-                            [UserObject sharedInstance].uid = string;
+                            [UserObject sharedInstance].uid = [NSString stringWithFormat:@"%@",string];
                             [[GCDQueue mainQueue] queueBlock:^{
                                 
                                 [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
