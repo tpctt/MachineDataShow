@@ -75,10 +75,23 @@
 }
 -(void)config1
 {
+    if ([self.deviceObject isKindOfClass:[MyFixingObject class]]) {
+        self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.deviceObject.equipmentName];
+        self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.deviceObject.serial];
+        self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.deviceObject.equipmentName];
+    }else{
     
-    self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",self.deviceObject.equipmentName];
-    self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",self.deviceObject.serial];
-    self.devname.text = [NSString stringWithFormat:@"设备名称:%@",self.deviceObject.equipmentName];
+        DeviceObject *obj = self.deviceObject;
+        
+        
+        
+        self.mode.text  = [NSString stringWithFormat:@"设备型号:%@",obj.model];
+        self.sn.text    = [NSString stringWithFormat:@"设备序号:%@",obj.serial];
+        self.devname.text = [NSString stringWithFormat:@"设备名称:%@",obj.name];
+        
+        
+    }
+   
 
 }
 -(void)config2

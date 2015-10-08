@@ -99,12 +99,12 @@
                   symbolName = "-[MeViewController takePhotoFromAlbum:isPhoto:]"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "465828886.110512"
+                  timestampString = "466030983.039191"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "196"
                   endingLineNumber = "196"
-                  offsetFromSymbolStart = "874">
+                  offsetFromSymbolStart = "265">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -113,30 +113,14 @@
                   symbolName = "__47-[MeViewController takePhotoFromAlbum:isPhoto:]_block_invoke_2"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "465828886.110728"
+                  timestampString = "466030983.039737"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
                   endingLineNumber = "198"
-                  offsetFromSymbolStart = "6">
+                  offsetFromSymbolStart = "4">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "465828821.033281"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
-            landmarkName = "+getFixedProgressInfo:block:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -161,13 +145,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "465829019.114539"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "466030264.594026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
-            landmarkName = "+setEquipmentRepairID:contact:tele:detail:images:videos:block:"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
+            landmarkName = "-connection:didReceiveResponse:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
+            timestampString = "466030268.920352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "-connectionDidFinishLoading:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -178,12 +178,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "465829106.81007"
+            timestampString = "466030908.466652"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "567"
-            endingLineNumber = "567"
-            landmarkName = "+setEquipmentRepairID:contact:tele:detail:images:videos:block:"
+            startingLineNumber = "571"
+            endingLineNumber = "571"
+            landmarkName = "+setEquipmentRepairID:contact:tele:detail:images:videos:delegate:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

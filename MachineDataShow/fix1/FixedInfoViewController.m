@@ -144,11 +144,14 @@
 }
 - (IBAction)video:(id)sender {
 }
-- (void)connection:(NSURLConnection *)connection   didSendBodyData:(NSInteger)bytesWritten
+- (void)connection:(NSURLConnection *)connection
+   didSendBodyData:(NSInteger)bytesWritten
  totalBytesWritten:(NSInteger)totalBytesWritten
 totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
-    self.hud.progress = bytesWritten/(CGFloat)totalBytesWritten;
+    self.hud.progress = totalBytesWritten/(CGFloat)totalBytesExpectedToWrite;
+    NSLog(@"%9d = %9d = %9d " ,totalBytesExpectedToWrite,totalBytesWritten , bytesWritten );
+
     
 }
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
@@ -205,7 +208,6 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
     
     self.hud = [[MBProgressHUD alloc]initWithFrame:self.view.window.frame];
     [self.view.window addSubview:self.hud];
-    self.hud.mode = MBProgressHUDModeDeterminate;
     [self.hud show:YES];
     
     NSMutableArray *images = [NSMutableArray array];
@@ -218,15 +220,27 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
         }
     }
     
-    _req =  [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos delegate:self block:^(NSArray *array, NSError *error, NSString *msg) {
-    }];
+    if (  1   ) {
+        
+        self.hud.mode = MBProgressHUDModeDeterminate;
+
+        
+        _req =  [NetManager setEquipmentRepairID:self.o.id contact:self.name.text tele:self.phone.text detail:self.remark.text images:images videos:videos delegate:self block:^(NSArray *array, NSError *error, NSString *msg) {
+        }];
+        [_req setTimeoutInterval:300];
+        
+        [[GCDQueue globalQueue]queueBlock:^{
+            
+        }];
+        NSOperationQueue *queue =  [ NSOperationQueue currentQueue];
+        _connec = [[NSURLConnection alloc] initWithRequest:_req delegate:self startImmediately:NO];
+        //    [_connec setDelegateQueue:queue];
+        [_connec start];
+        
+        return;
+        
+    }
     
-    NSOperationQueue *queue =  [NSOperationQueue mainQueue];
-    _connec = [[NSURLConnection alloc] initWithRequest:_req delegate:self startImmediately:NO];
-    [_connec setDelegateQueue:queue];
-    [_connec start];
-    
-    return;
     
     
     [[GCDQueue globalQueue]queueBlock:^{

@@ -246,7 +246,12 @@ static NSArray *audio = nil;
     return btn;
 }
 
-
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    self.scrollView.frame = self.bounds;
+    
+}
 ///添加一个资源在后面
 -(void)addNewResoure:(id)resoure
 {
@@ -275,7 +280,7 @@ static NSArray *audio = nil;
         self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX(self.addBtn.frame), self.scrollView.frame.size.height);
         
         self.addBtn.hidden = YES;
-
+        
     }
     [self.scrollView scrollRectToVisible:self.addBtn.frame animated:YES];
     
