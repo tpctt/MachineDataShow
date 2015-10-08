@@ -436,11 +436,16 @@
                             
                             NSString *STRING = [array firstObject];
                             if ([STRING isKindOfClass:[NSString class]] && STRING.length != 0   ) {
-                                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:@"修改成功"];
+                                [UIAlertView showWithTitle:@"" message:@"修改成功" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+
+                                    [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
+
+                                }];
+//                                [[DialogUtil sharedInstance]showDlg:self.view.window textOnly:@"修改成功"];
                             }
                             [UserObject sharedInstance].head = STRING;
                             
-                            [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
+//                            [[NSNotificationCenter defaultCenter]postNotificationName:HeadImageChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:image,@"image", nil]];
                             
                             
                             
