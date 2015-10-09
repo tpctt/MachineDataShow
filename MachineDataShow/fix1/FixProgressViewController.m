@@ -109,8 +109,11 @@
     self.manPhone.text = [NSString stringWithFormat:@"联系电话:%@",_fixedProgressInfo.tele?_fixedProgressInfo.tele:@"无数据"];
     
     
-    NSArray*ARRAY=  @[[UIImage imageNamed:@"progress_1"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]];
-    self.image.image =[UIImage imageNamed:@"progress_1"];
+    NSArray*ARRAY=  @[[UIImage imageNamed:@"WEIXIU_P1"],[UIImage imageNamed:@"WEIXIU_P2"],[UIImage imageNamed:@"WEIXIU_P3"]];
+    self.image.image =[UIImage imageNamed:[ARRAY safeObjectAtIndex:flag]];
+    
+    
+    
 //    [ARRAY safeObjectAtIndex:flag];
     
     

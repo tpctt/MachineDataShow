@@ -147,6 +147,7 @@
 
         }
     }];
+    self.title = @"主页";
     
 }
 -(void)viewWillAppear:(BOOL)animated

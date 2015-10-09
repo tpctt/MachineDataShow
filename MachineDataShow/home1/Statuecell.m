@@ -14,11 +14,16 @@
     if (OBJ1) {
         NSString *State = [OBJ1.State lowercaseString];
         if([State isEqualToString:@"ok"]){
-            [self.state setBackgroundColor:[UIColor greenColor]];
+//            [self.state setBackgroundColor:[UIColor greenColor]];
+            [self.state setImage:[UIImage imageNamed:@"image_button_default"] forState:0];
         }else  if([State isEqualToString:@"alarm"]){
-            [self.state setBackgroundColor:[UIColor yellowColor]];
+//            [self.state setBackgroundColor:[UIColor yellowColor]];
+            [self.state setImage:[UIImage imageNamed:@"image_button_disabled"] forState:0];
+
         }else  if([State isEqualToString:@"stop"]){
-            [self.state setBackgroundColor:[UIColor redColor]];
+//            [self.state setBackgroundColor:[UIColor redColor]];
+            [self.state setImage:[UIImage imageNamed:@"image_button_pressed"] forState:0];
+
         }
         
         
@@ -33,8 +38,8 @@
         self.sourece .text = OBJ1.PartName;
         self.deal .text = OBJ1.Note;
         
-        self.state.layer.cornerRadius = self.state.frame.size.height/2;
-        self.state.layer.borderWidth = 1;
+//        self.state.layer.cornerRadius = self.state.frame.size.height/2;
+//        self.state.layer.borderWidth = 1;
         [self.state setTitle:@"" forState:0];
         
     }

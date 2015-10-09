@@ -1010,11 +1010,11 @@
             </objects>
             <point key="canvasLocation" x="-876" y="170"/>
         </scene>
-        <!--工厂-->
+        <!--首页-->
         <scene sceneID="kDh-dN-Tgp">
             <objects>
                 <navigationController id="ZfP-gv-Tuf" customClass="NavViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="工厂" image="home_gray.png" id="kbY-VY-yoe"/>
+                    <tabBarItem key="tabBarItem" title="首页" image="home_gray.png" id="kbY-VY-yoe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Zc-33-MRP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1109,7 +1109,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPM-RF-YrS">
                                 <rect key="frame" x="40" y="199" width="99" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" backgroundImage="home1.png">
+                                <state key="normal" backgroundImage="tab_button_link_default_wegoma cloud.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1118,7 +1118,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-uJ-tyh">
                                 <rect key="frame" x="181" y="199" width="99" height="100"/>
-                                <state key="normal" backgroundImage="home2.png">
+                                <state key="normal" backgroundImage="tab_button_link_default_service.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1127,7 +1127,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTq-D0-mIq">
                                 <rect key="frame" x="40" y="315" width="99" height="100"/>
-                                <state key="normal" backgroundImage="home3.png">
+                                <state key="normal" backgroundImage="tab_button_link_default_NEW.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1136,7 +1136,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEW-yH-xUS">
                                 <rect key="frame" x="181" y="315" width="99" height="100"/>
-                                <state key="normal" backgroundImage="home4.png">
+                                <state key="normal" backgroundImage="tab_button_link_default_visit.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1188,11 +1188,13 @@
             </objects>
             <point key="canvasLocation" x="-44" y="-941"/>
         </scene>
-        <!--服务-->
+        <!--客服-->
         <scene sceneID="n3g-8C-mg6">
             <objects>
                 <navigationController id="Hwo-q0-mEL" customClass="NavViewController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="服务" image="contact_gray.png" id="N1a-pc-Aih"/>
+                    <tabBarItem key="tabBarItem" title="客服" image="contact_gray.png" id="N1a-pc-Aih">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="FXb-PS-tKM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1345,7 +1347,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rol-zR-O5L" id="jBc-He-W0z">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="x2s-6e-89t">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_contact us副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="x2s-6e-89t">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="PCb-kd-3Nl"/>
@@ -1378,7 +1380,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbZ-PN-VDM" id="Z38-4d-T24">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-s7-KXO">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_my code副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="bKa-s7-KXO">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="8QK-WN-FRw"/>
@@ -1411,7 +1413,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xem-3y-qtF" id="uoO-5j-q1f">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_info.png" translatesAutoresizingMaskIntoConstraints="NO" id="eAp-sm-4T7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_my order副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="eAp-sm-4T7">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="YvH-Pv-bCz"/>
@@ -1444,7 +1446,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sAd-HY-bEB" id="UpT-aM-Y9h">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_update.png" translatesAutoresizingMaskIntoConstraints="NO" id="ykA-Uk-8ty">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_my service副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="ykA-Uk-8ty">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="XHI-5l-mYU"/>
@@ -1477,7 +1479,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z70-LV-HhO" id="eJH-0n-xsu">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_about.png" translatesAutoresizingMaskIntoConstraints="NO" id="DGg-n6-xq7">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_sales副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="DGg-n6-xq7">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="CKq-oX-fUw"/>
@@ -1510,7 +1512,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GFc-7y-uqP" id="BEV-rd-l76">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-se-8s4">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_service副本.png" translatesAutoresizingMaskIntoConstraints="NO" id="wAa-se-8s4">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="O78-2w-ZPa"/>
@@ -2039,7 +2041,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0UQ-yI-AAn" id="igI-pM-Utv">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_info.png" translatesAutoresizingMaskIntoConstraints="NO" id="dub-s6-fzY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_icon_aboutus.png" translatesAutoresizingMaskIntoConstraints="NO" id="dub-s6-fzY">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="NEL-s6-DDq"/>
@@ -2073,7 +2075,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xFh-lQ-UuR" id="mbC-Kr-xN2">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_about.png" translatesAutoresizingMaskIntoConstraints="NO" id="INv-T8-uQy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="INv-T8-uQy">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="mo0-HX-n7z"/>
@@ -2107,7 +2109,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jeW-CW-asj" id="GwL-wF-vyg">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJI-Ls-xZG">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_icon_my.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJI-Ls-xZG">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="35Q-R9-Q5L"/>
@@ -2141,7 +2143,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f9S-EK-kes" id="4jc-zd-MuH">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCx-uA-9H2">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_icon_NEW.png" translatesAutoresizingMaskIntoConstraints="NO" id="tCx-uA-9H2">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="32" id="5xb-ma-tAf"/>
@@ -2175,7 +2177,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Oo-fX-2D6" id="YXo-AM-DWZ">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help.png" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-9Z-EU8">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tab_icon_suggest.png" translatesAutoresizingMaskIntoConstraints="NO" id="EoN-9Z-EU8">
                                                     <rect key="frame" x="8" y="6" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="6sG-Dg-kIR"/>
@@ -2341,18 +2343,25 @@
         <image name="Avatar.jpg" width="130" height="130"/>
         <image name="Me_bg.jpg" width="640" height="260"/>
         <image name="button_bg_long.png" width="278" height="34"/>
-        <image name="contact_gray.png" width="32" height="32"/>
+        <image name="contact_gray.png" width="32" height="31"/>
         <image name="fix_gray.png" width="32" height="32"/>
-        <image name="home1.png" width="512" height="512"/>
-        <image name="home2.png" width="512" height="512"/>
-        <image name="home3.png" width="512" height="512"/>
-        <image name="home4.png" width="512" height="512"/>
-        <image name="home_gray.png" width="32" height="32"/>
-        <image name="icon_about.png" width="40" height="40"/>
-        <image name="icon_help.png" width="40" height="40"/>
-        <image name="icon_info.png" width="40" height="40"/>
-        <image name="icon_update.png" width="40" height="40"/>
+        <image name="home_gray.png" width="32" height="35"/>
+        <image name="image_contact us副本.png" width="80" height="80"/>
+        <image name="image_my code副本.png" width="80" height="80"/>
+        <image name="image_my order副本.png" width="80" height="80"/>
+        <image name="image_my service副本.png" width="80" height="80"/>
+        <image name="image_sales副本.png" width="80" height="80"/>
+        <image name="image_service副本.png" width="80" height="80"/>
         <image name="progress_1.png" width="298" height="340"/>
-        <image name="vip_gray.png" width="32" height="32"/>
+        <image name="tab_button_link_default_NEW.png" width="1024" height="1024"/>
+        <image name="tab_button_link_default_service.png" width="1024" height="1024"/>
+        <image name="tab_button_link_default_visit.png" width="1024" height="1024"/>
+        <image name="tab_button_link_default_wegoma cloud.png" width="1024" height="1024"/>
+        <image name="tab_icon_NEW.png" width="80" height="80"/>
+        <image name="tab_icon_aboutus.png" width="80" height="80"/>
+        <image name="tab_icon_help.png" width="80" height="80"/>
+        <image name="tab_icon_my.png" width="80" height="80"/>
+        <image name="tab_icon_suggest.png" width="80" height="80"/>
+        <image name="vip_gray.png" width="27" height="38"/>
     </resources>
 </document>

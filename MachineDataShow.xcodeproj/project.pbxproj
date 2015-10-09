@@ -34,6 +34,31 @@
 		2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2284E9051B9B4A140017DF8F /* Statuecell.xib */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
+		22E897B81BC87BE200B1C6DF /* WEIXIU_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B51BC87BE200B1C6DF /* WEIXIU_P1.png */; };
+		22E897B91BC87BE200B1C6DF /* WEIXIU_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B61BC87BE200B1C6DF /* WEIXIU_P2.png */; };
+		22E897BA1BC87BE200B1C6DF /* WEIXIU_P3.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B71BC87BE200B1C6DF /* WEIXIU_P3.png */; };
+		22E897BE1BC87C4F00B1C6DF /* image_button_default.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897BB1BC87C4F00B1C6DF /* image_button_default.png */; };
+		22E897BF1BC87C4F00B1C6DF /* image_button_disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897BC1BC87C4F00B1C6DF /* image_button_disabled.png */; };
+		22E897C01BC87C4F00B1C6DF /* image_button_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897BD1BC87C4F00B1C6DF /* image_button_pressed.png */; };
+		22E897C81BC87CDA00B1C6DF /* nav_button_home_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897C21BC87CD900B1C6DF /* nav_button_home_pressed.png */; };
+		22E897CA1BC87CDA00B1C6DF /* nav_button_kf_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897C41BC87CDA00B1C6DF /* nav_button_kf_pressed.png */; };
+		22E897CC1BC87CDA00B1C6DF /* nav_button_mine_pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897C61BC87CDA00B1C6DF /* nav_button_mine_pressed.png */; };
+		22E897D11BC87D7600B1C6DF /* tab_button_link_default_NEW.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897CD1BC87D7600B1C6DF /* tab_button_link_default_NEW.png */; };
+		22E897D21BC87D7600B1C6DF /* tab_button_link_default_service.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897CE1BC87D7600B1C6DF /* tab_button_link_default_service.png */; };
+		22E897D31BC87D7600B1C6DF /* tab_button_link_default_visit.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897CF1BC87D7600B1C6DF /* tab_button_link_default_visit.png */; };
+		22E897D41BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D01BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png */; };
+		22E897DB1BC87E4C00B1C6DF /* image_contact us副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D51BC87E4C00B1C6DF /* image_contact us副本.png */; };
+		22E897DC1BC87E4C00B1C6DF /* image_my code副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D61BC87E4C00B1C6DF /* image_my code副本.png */; };
+		22E897DD1BC87E4C00B1C6DF /* image_my order副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D71BC87E4C00B1C6DF /* image_my order副本.png */; };
+		22E897DE1BC87E4C00B1C6DF /* image_my service副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D81BC87E4C00B1C6DF /* image_my service副本.png */; };
+		22E897DF1BC87E4C00B1C6DF /* image_sales副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897D91BC87E4C00B1C6DF /* image_sales副本.png */; };
+		22E897E01BC87E4C00B1C6DF /* image_service副本.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897DA1BC87E4C00B1C6DF /* image_service副本.png */; };
+		22E897E61BC87ED700B1C6DF /* tab_icon_aboutus.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897E11BC87ED700B1C6DF /* tab_icon_aboutus.png */; };
+		22E897E71BC87ED700B1C6DF /* tab_icon_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897E21BC87ED700B1C6DF /* tab_icon_help.png */; };
+		22E897E81BC87ED700B1C6DF /* tab_icon_my.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897E31BC87ED700B1C6DF /* tab_icon_my.png */; };
+		22E897E91BC87ED700B1C6DF /* tab_icon_NEW.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897E41BC87ED700B1C6DF /* tab_icon_NEW.png */; };
+		22E897EA1BC87ED700B1C6DF /* tab_icon_suggest.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897E51BC87ED700B1C6DF /* tab_icon_suggest.png */; };
+		22E897EC1BC87FDB00B1C6DF /* nav_button_icon_defaulted.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897EB1BC87FDB00B1C6DF /* nav_button_icon_defaulted.png */; };
 		22EE34A11BB70D27003553FA /* JSBadgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 22EE34A01BB70D27003553FA /* JSBadgeView.m */; };
 		22EF7FC71B7F56CD000F02DA /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */; };
 		22EF7FC91B7F5A39000F02DA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EF7FC81B7F5A39000F02DA /* UIKit.framework */; };
@@ -203,6 +228,31 @@
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
 		22A116581B9A596A003C4104 /* YuyueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueTableViewController.m; sourceTree = "<group>"; };
+		22E897B51BC87BE200B1C6DF /* WEIXIU_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P1.png; sourceTree = "<group>"; };
+		22E897B61BC87BE200B1C6DF /* WEIXIU_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P2.png; sourceTree = "<group>"; };
+		22E897B71BC87BE200B1C6DF /* WEIXIU_P3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P3.png; sourceTree = "<group>"; };
+		22E897BB1BC87C4F00B1C6DF /* image_button_default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_button_default.png; sourceTree = "<group>"; };
+		22E897BC1BC87C4F00B1C6DF /* image_button_disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_button_disabled.png; sourceTree = "<group>"; };
+		22E897BD1BC87C4F00B1C6DF /* image_button_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_button_pressed.png; sourceTree = "<group>"; };
+		22E897C21BC87CD900B1C6DF /* nav_button_home_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_button_home_pressed.png; sourceTree = "<group>"; };
+		22E897C41BC87CDA00B1C6DF /* nav_button_kf_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_button_kf_pressed.png; sourceTree = "<group>"; };
+		22E897C61BC87CDA00B1C6DF /* nav_button_mine_pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_button_mine_pressed.png; sourceTree = "<group>"; };
+		22E897CD1BC87D7600B1C6DF /* tab_button_link_default_NEW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_button_link_default_NEW.png; sourceTree = "<group>"; };
+		22E897CE1BC87D7600B1C6DF /* tab_button_link_default_service.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_button_link_default_service.png; sourceTree = "<group>"; };
+		22E897CF1BC87D7600B1C6DF /* tab_button_link_default_visit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_button_link_default_visit.png; sourceTree = "<group>"; };
+		22E897D01BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_button_link_default_wegoma cloud.png"; sourceTree = "<group>"; };
+		22E897D51BC87E4C00B1C6DF /* image_contact us副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_contact us副本.png"; sourceTree = "<group>"; };
+		22E897D61BC87E4C00B1C6DF /* image_my code副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_my code副本.png"; sourceTree = "<group>"; };
+		22E897D71BC87E4C00B1C6DF /* image_my order副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_my order副本.png"; sourceTree = "<group>"; };
+		22E897D81BC87E4C00B1C6DF /* image_my service副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_my service副本.png"; sourceTree = "<group>"; };
+		22E897D91BC87E4C00B1C6DF /* image_sales副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_sales副本.png"; sourceTree = "<group>"; };
+		22E897DA1BC87E4C00B1C6DF /* image_service副本.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image_service副本.png"; sourceTree = "<group>"; };
+		22E897E11BC87ED700B1C6DF /* tab_icon_aboutus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_aboutus.png; sourceTree = "<group>"; };
+		22E897E21BC87ED700B1C6DF /* tab_icon_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_help.png; sourceTree = "<group>"; };
+		22E897E31BC87ED700B1C6DF /* tab_icon_my.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_my.png; sourceTree = "<group>"; };
+		22E897E41BC87ED700B1C6DF /* tab_icon_NEW.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_NEW.png; sourceTree = "<group>"; };
+		22E897E51BC87ED700B1C6DF /* tab_icon_suggest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_icon_suggest.png; sourceTree = "<group>"; };
+		22E897EB1BC87FDB00B1C6DF /* nav_button_icon_defaulted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_button_icon_defaulted.png; sourceTree = "<group>"; };
 		22EE349F1BB70D27003553FA /* JSBadgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSBadgeView.h; sourceTree = "<group>"; };
 		22EE34A01BB70D27003553FA /* JSBadgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSBadgeView.m; sourceTree = "<group>"; };
 		22EF7FC61B7F56CD000F02DA /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -449,11 +499,19 @@
 				7A2464D81B7C2A34007FD1D4 /* AppDelegate.m */,
 				7A2464DA1B7C2A34007FD1D4 /* ViewController.h */,
 				7A2464DB1B7C2A34007FD1D4 /* ViewController.m */,
+				22E897EB1BC87FDB00B1C6DF /* nav_button_icon_defaulted.png */,
 				22774F861BAA18620093FEA2 /* home1@2x.png */,
 				22774F871BAA18620093FEA2 /* home2@2x.png */,
 				223C22C91BADCA1D00319A0B /* test.php */,
 				22774F881BAA18620093FEA2 /* home3@2x.png */,
 				22774F891BAA18620093FEA2 /* home4@2x.png */,
+				22E897BB1BC87C4F00B1C6DF /* image_button_default.png */,
+				22E897BC1BC87C4F00B1C6DF /* image_button_disabled.png */,
+				22E897BD1BC87C4F00B1C6DF /* image_button_pressed.png */,
+				22E897CD1BC87D7600B1C6DF /* tab_button_link_default_NEW.png */,
+				22E897CE1BC87D7600B1C6DF /* tab_button_link_default_service.png */,
+				22E897CF1BC87D7600B1C6DF /* tab_button_link_default_visit.png */,
+				22E897D01BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png */,
 				7A2464DD1B7C2A34007FD1D4 /* Main.storyboard */,
 				7A7562141B7C701900BA2B69 /* view */,
 				7A75620A1B7C6E0200BA2B69 /* home1 */,
@@ -520,6 +578,9 @@
 				7A7561611B7C4A3A00BA2B69 /* ProductDetailViewController.m */,
 				7A7561621B7C4A3A00BA2B69 /* TabbarViewController.h */,
 				7A7561631B7C4A3A00BA2B69 /* TabbarViewController.m */,
+				22E897C21BC87CD900B1C6DF /* nav_button_home_pressed.png */,
+				22E897C41BC87CDA00B1C6DF /* nav_button_kf_pressed.png */,
+				22E897C61BC87CDA00B1C6DF /* nav_button_mine_pressed.png */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -577,6 +638,9 @@
 		7A7561A71B7C5F9900BA2B69 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				22E897B51BC87BE200B1C6DF /* WEIXIU_P1.png */,
+				22E897B61BC87BE200B1C6DF /* WEIXIU_P2.png */,
+				22E897B71BC87BE200B1C6DF /* WEIXIU_P3.png */,
 				7A756AEE1B85DDBC004BB943 /* button_bg_long_gray@2x.png */,
 				7A7561A81B7C5F9900BA2B69 /* aboutus_first_detail.png */,
 				7A7561A91B7C5F9900BA2B69 /* back@2x.png */,
@@ -645,6 +709,12 @@
 				7A7562291B7C841C00BA2B69 /* cell_go@2x.png */,
 				7A7562251B7C7DBE00BA2B69 /* Avatar.jpg */,
 				7A7562261B7C7DBE00BA2B69 /* Me_bg.jpg */,
+				22E897D51BC87E4C00B1C6DF /* image_contact us副本.png */,
+				22E897D61BC87E4C00B1C6DF /* image_my code副本.png */,
+				22E897D71BC87E4C00B1C6DF /* image_my order副本.png */,
+				22E897D81BC87E4C00B1C6DF /* image_my service副本.png */,
+				22E897D91BC87E4C00B1C6DF /* image_sales副本.png */,
+				22E897DA1BC87E4C00B1C6DF /* image_service副本.png */,
 				7A7562041B7C6B8000BA2B69 /* MeViewController.h */,
 				7A7562051B7C6B8000BA2B69 /* MeViewController.m */,
 				22A116571B9A596A003C4104 /* YuyueTableViewController.h */,
@@ -672,6 +742,11 @@
 			children = (
 				7A7562071B7C6B8E00BA2B69 /* ServerViewController.h */,
 				7A7562081B7C6B8E00BA2B69 /* ServerViewController.m */,
+				22E897E11BC87ED700B1C6DF /* tab_icon_aboutus.png */,
+				22E897E21BC87ED700B1C6DF /* tab_icon_help.png */,
+				22E897E31BC87ED700B1C6DF /* tab_icon_my.png */,
+				22E897E41BC87ED700B1C6DF /* tab_icon_NEW.png */,
+				22E897E51BC87ED700B1C6DF /* tab_icon_suggest.png */,
 			);
 			path = server1;
 			sourceTree = "<group>";
@@ -831,10 +906,12 @@
 				22774F831BAA157C0093FEA2 /* homeIcon@2x.png in Resources */,
 				7A7561D31B7C5F9900BA2B69 /* button.png in Resources */,
 				7A7561DF1B7C5F9900BA2B69 /* home.png in Resources */,
+				22E897DB1BC87E4C00B1C6DF /* image_contact us副本.png in Resources */,
 				7A7561E91B7C5F9900BA2B69 /* icon_update@2x.png in Resources */,
 				7A7561DA1B7C5F9900BA2B69 /* contact_gray@2x.png in Resources */,
 				7A7561D11B7C5F9900BA2B69 /* aboutus_first_detail.png in Resources */,
 				7A7561F81B7C5F9900BA2B69 /* vip_gray@2x.png in Resources */,
+				22E897D21BC87D7600B1C6DF /* tab_button_link_default_service.png in Resources */,
 				7A7562281B7C7DBE00BA2B69 /* Me_bg.jpg in Resources */,
 				7A7561E61B7C5F9900BA2B69 /* icon_read@2x.png in Resources */,
 				7A7561E21B7C5F9900BA2B69 /* icon_about@2x.png in Resources */,
@@ -845,24 +922,33 @@
 				227A2E2C1B97A32300A2AD5E /* 产品需求文档.ppt in Resources */,
 				7A75622C1B7C8E3F00BA2B69 /* 需求.doc in Resources */,
 				7A7561EE1B7C5F9900BA2B69 /* link_3@2x.png in Resources */,
+				22E897EC1BC87FDB00B1C6DF /* nav_button_icon_defaulted.png in Resources */,
+				22E897D41BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png in Resources */,
 				7A7561ED1B7C5F9900BA2B69 /* link_2@2x.png in Resources */,
 				7A7561D51B7C5F9900BA2B69 /* button_checkin@2x.png in Resources */,
 				7A75620F1B7C6E0C00BA2B69 /* HomeViewController.xib in Resources */,
 				7A7561D61B7C5F9900BA2B69 /* button_immediately@2x.png in Resources */,
+				22E897EA1BC87ED700B1C6DF /* tab_icon_suggest.png in Resources */,
 				7A7561F51B7C5F9900BA2B69 /* tel.png in Resources */,
 				7AC693161B905DAF0039C88B /* progress_1@2x.png in Resources */,
 				7A7561F61B7C5F9900BA2B69 /* vip.png in Resources */,
 				7A7561F41B7C5F9900BA2B69 /* repair.png in Resources */,
 				7A7561E71B7C5F9900BA2B69 /* icon_share@2x.png in Resources */,
 				7A756AEF1B85DDBC004BB943 /* button_bg_long_gray@2x.png in Resources */,
+				22E897DC1BC87E4C00B1C6DF /* image_my code副本.png in Resources */,
+				22E897D11BC87D7600B1C6DF /* tab_button_link_default_NEW.png in Resources */,
 				7A7561D21B7C5F9900BA2B69 /* back@2x.png in Resources */,
+				22E897E61BC87ED700B1C6DF /* tab_icon_aboutus.png in Resources */,
 				7A7561981B7C572A00BA2B69 /* logo_180.png in Resources */,
 				7A7561DC1B7C5F9900BA2B69 /* fix_blue@2x.png in Resources */,
 				7A7561F11B7C5F9900BA2B69 /* member_border_red.png in Resources */,
+				22E897E71BC87ED700B1C6DF /* tab_icon_help.png in Resources */,
 				7A7561D81B7C5F9900BA2B69 /* button_sign_out@2x.png in Resources */,
 				7A2464E41B7C2A34007FD1D4 /* LaunchScreen.xib in Resources */,
+				22E897BA1BC87BE200B1C6DF /* WEIXIU_P3.png in Resources */,
 				2273A5661B85341F002E5BF5 /* APP开发规范文档_V1.0.pdf in Resources */,
 				7A7561E11B7C5F9900BA2B69 /* home_gray@2x.png in Resources */,
+				22E897DE1BC87E4C00B1C6DF /* image_my service副本.png in Resources */,
 				7A7561E41B7C5F9900BA2B69 /* icon_help@2x.png in Resources */,
 				7A7561F01B7C5F9900BA2B69 /* logo.png in Resources */,
 				22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */,
@@ -870,8 +956,12 @@
 				2283B4281BB36461005F8085 /* ErrorCode.plist in Resources */,
 				7A7561951B7C572A00BA2B69 /* logo_58.png in Resources */,
 				22774F8B1BAA18620093FEA2 /* home2@2x.png in Resources */,
+				22E897CA1BC87CDA00B1C6DF /* nav_button_kf_pressed.png in Resources */,
+				22E897B91BC87BE200B1C6DF /* WEIXIU_P2.png in Resources */,
 				7A7561E51B7C5F9900BA2B69 /* icon_info@2x.png in Resources */,
 				7A7561F21B7C5F9900BA2B69 /* notice.png in Resources */,
+				22E897E81BC87ED700B1C6DF /* tab_icon_my.png in Resources */,
+				22E897BF1BC87C4F00B1C6DF /* image_button_disabled.png in Resources */,
 				7A75619D1B7C573F00BA2B69 /* showme1@2x.png in Resources */,
 				7A7561DB1B7C5F9900BA2B69 /* contact_green@2x.png in Resources */,
 				7A7562271B7C7DBE00BA2B69 /* Avatar.jpg in Resources */,
@@ -879,23 +969,33 @@
 				7A7561F31B7C5F9900BA2B69 /* refresh_arrow_down.png in Resources */,
 				2283B4241BB349B1005F8085 /* APP开发规范文档_V4.0.pdf in Resources */,
 				7A75622A1B7C841C00BA2B69 /* cell_go@2x.png in Resources */,
+				22E897D31BC87D7600B1C6DF /* tab_button_link_default_visit.png in Resources */,
 				7A7562221B7C773400BA2B69 /* Banner_1.jpg in Resources */,
 				7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */,
+				22E897DD1BC87E4C00B1C6DF /* image_my order副本.png in Resources */,
 				7A7561EA1B7C5F9900BA2B69 /* icon_user_name@2x.png in Resources */,
+				22E897C01BC87C4F00B1C6DF /* image_button_pressed.png in Resources */,
+				22E897B81BC87BE200B1C6DF /* WEIXIU_P1.png in Resources */,
 				22774F8C1BAA18620093FEA2 /* home3@2x.png in Resources */,
+				22E897C81BC87CDA00B1C6DF /* nav_button_home_pressed.png in Resources */,
 				7A7561DD1B7C5F9900BA2B69 /* fix_gray@2x.png in Resources */,
 				2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */,
 				7A7561A01B7C573F00BA2B69 /* Default-568h@2x.png in Resources */,
 				7A7561D71B7C5F9900BA2B69 /* button_return@2x.png in Resources */,
+				22E897BE1BC87C4F00B1C6DF /* image_button_default.png in Resources */,
 				7A7562231B7C773400BA2B69 /* Banner_2.jpg in Resources */,
 				7A7561E31B7C5F9900BA2B69 /* icon_close@2x.png in Resources */,
 				7A7561D91B7C5F9900BA2B69 /* contact_blue@2x.png in Resources */,
+				22E897CC1BC87CDA00B1C6DF /* nav_button_mine_pressed.png in Resources */,
 				223C22CA1BADCA1D00319A0B /* test.php in Resources */,
+				22E897E91BC87ED700B1C6DF /* tab_icon_NEW.png in Resources */,
+				22E897E01BC87E4C00B1C6DF /* image_service副本.png in Resources */,
 				7A7561E81B7C5F9900BA2B69 /* icon_software_update@2x.png in Resources */,
 				7A7561EC1B7C5F9900BA2B69 /* link_1@2x.png in Resources */,
 				7A7561EB1B7C5F9900BA2B69 /* irregular_border_left.png in Resources */,
 				7A75619E1B7C573F00BA2B69 /* showme2@2x.png in Resources */,
 				7A7561DE1B7C5F9900BA2B69 /* fix_green@2x.png in Resources */,
+				22E897DF1BC87E4C00B1C6DF /* image_sales副本.png in Resources */,
 				7A7562241B7C773400BA2B69 /* Banner_3.jpg in Resources */,
 				2283B4261BB349D8005F8085 /* APP开发规范文档_V4.0_2.pdf in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,

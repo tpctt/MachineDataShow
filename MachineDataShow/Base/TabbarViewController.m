@@ -66,12 +66,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSArray *array = @[@"home_green",@"contact_green",@"vip_green"];
+    NSArray *array = @[@"nav_button_home",@"nav_button_kf",@"nav_button_mine"];
     for (int i = 0 ; i<3; i++) {
         UITabBarItem *ti1 = [self.tabBar.items objectAtIndex:i];
 //        ti1.title = @"梦见";
 //        ti1.image = [[UIImage imageNamed:@"qr_tabbar_mine"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-        ti1.selectedImage = [[UIImage imageNamed:array[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        ti1.selectedImage = [[UIImage imageNamed:[array[i] stringByAppendingString:@"nav_button_mine_pressed"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        ti1.image = [[UIImage imageNamed:[array[i] stringByAppendingString:@"nav_button_mine_default"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+  
+        
         [ti1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGB(32, 165, 236),NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil] forState:UIControlStateSelected];
         
 //        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil]];
