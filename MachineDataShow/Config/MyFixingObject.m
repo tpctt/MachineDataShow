@@ -68,7 +68,8 @@
          NSError *error = self.request.error;
          
 //         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
-                  NSDictionary *dict =  self.request.output  ;
+        NSDictionary *dict =  self.request.output  ;
+         
          
          NSArray* list  =  [[MyFixingObject objectArrayWithKeyValuesArray:dict  error:&error]mutableCopy ] ;
          NSInteger totalPage = 0;

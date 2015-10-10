@@ -110,7 +110,8 @@
     
     
     NSArray*ARRAY=  @[[UIImage imageNamed:@"WEIXIU_P1"],[UIImage imageNamed:@"WEIXIU_P2"],[UIImage imageNamed:@"WEIXIU_P3"]];
-    self.image.image =[UIImage imageNamed:[ARRAY safeObjectAtIndex:flag]];
+    
+    self.image.image = [ARRAY safeObjectAtIndex:flag];
     
     
     
