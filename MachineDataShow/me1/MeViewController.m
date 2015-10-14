@@ -398,7 +398,7 @@ static MeViewController* shareApp;
         
     }];
     
-    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:@"LOGINnOTIFI" object:nil] subscribeNext:^(id x) {
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin  object:nil] subscribeNext:^(id x) {
         [[GCDQueue mainQueue]queueBlock:^{
             [self dealView];
   

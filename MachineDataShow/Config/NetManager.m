@@ -239,7 +239,7 @@
             
             block(@[obj],nil,nil);
             
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"LOGINnOTIFI" object:nil];
+            [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
         }
         else{
             block(nil,nil,[self getErrorMsg:(NSString*)jsonObject]);

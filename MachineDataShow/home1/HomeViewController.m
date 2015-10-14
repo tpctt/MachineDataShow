@@ -138,7 +138,7 @@
     if ([UserObject hadLog]) {
         [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
     }
-    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:@"LOGINnOTIFI" object:nil] subscribeNext:^(id x) {
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin object:nil] subscribeNext:^(id x) {
         [[GCDQueue mainQueue]queueBlock:^{
             if ([UserObject hadLog]) {
                 [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
