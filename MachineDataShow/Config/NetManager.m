@@ -184,6 +184,10 @@
         if (state >0  ) {
             [UserObject sharedInstance].uid = stateString;
             
+            [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
+                
+            }];
+            
             block(@[@(state)],nil,nil);
             
         }else{
@@ -231,9 +235,11 @@
         if ([obj.uid integerValue]>0) {
             [UserObject setDataFrom:obj];
             [UserObject save];
-
+            
+            
             block(@[obj],nil,nil);
             
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"LOGINnOTIFI" object:nil];
         }
         else{
             block(nil,nil,[self getErrorMsg:(NSString*)jsonObject]);

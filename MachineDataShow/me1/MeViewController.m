@@ -398,6 +398,14 @@ static MeViewController* shareApp;
         
     }];
     
+    [[[NSNotificationCenter defaultCenter]rac_addObserverForName:@"LOGINnOTIFI" object:nil] subscribeNext:^(id x) {
+        [[GCDQueue mainQueue]queueBlock:^{
+            [self dealView];
+  
+        }];
+    }];
+    
+ 
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:UseriNFOChandedNoti object:nil] subscribeNext:^(id x) {
         NSNotification *noti = x;
         NSDictionary *info = noti.userInfo;
