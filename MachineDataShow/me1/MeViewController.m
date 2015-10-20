@@ -142,6 +142,7 @@ static MeViewController* shareApp;
     
 }
 - (IBAction)headIconBtnAct:(id)sender {
+    return;
     [UIActionSheet showInView:self.view withTitle:@"设置头像" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"拍照",@"相册"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
         
         [[GCDQueue mainQueue]queueBlock:^{
