@@ -25,6 +25,7 @@
 @property (strong,nonatomic) NSString *visitno;
 @property (strong,nonatomic) NSString *time;
 @property (assign,nonatomic) int status ;
++(instancetype)obj:(NSString*)v1 v2:(NSString*)v2;
 
 @end
 @interface YuyueObjectRequest : BaseListObjectRequest

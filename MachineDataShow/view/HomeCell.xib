@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A238x" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -14,21 +14,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIF-jj-Gte">
-                        <rect key="frame" x="3" y="0.0" width="313" height="42"/>
+                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SIF-jj-Gte">
+                        <rect key="frame" x="3" y="1" width="313" height="42"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7X-Y1-ADH">
-                                <rect key="frame" x="185" y="-8" width="120" height="58"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="homeIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="U7X-Y1-ADH">
+                                <rect key="frame" x="195" y="3" width="110" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="FPY-2h-zm8"/>
+                                    <constraint firstAttribute="height" constant="30" id="9GP-Sf-lQt"/>
+                                    <constraint firstAttribute="width" constant="110" id="FPY-2h-zm8"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="U7X-Y1-ADH" secondAttribute="trailing" constant="8" id="7WE-kI-oaF"/>
-                            <constraint firstAttribute="bottom" secondItem="U7X-Y1-ADH" secondAttribute="bottom" constant="-8" id="GkG-xy-ewq"/>
-                            <constraint firstItem="U7X-Y1-ADH" firstAttribute="top" secondItem="SIF-jj-Gte" secondAttribute="top" constant="-8" id="fcI-1k-w28"/>
+                            <constraint firstAttribute="trailing" secondItem="U7X-Y1-ADH" secondAttribute="trailing" constant="2" id="JK9-We-gTI"/>
+                            <constraint firstItem="U7X-Y1-ADH" firstAttribute="top" secondItem="SIF-jj-Gte" secondAttribute="top" constant="8" id="xdA-R6-f3N"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -41,9 +41,10 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="325" y="297"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="homeIcon.png" width="241" height="115"/>
+        <image name="homeIcon.png" width="1957" height="416"/>
     </resources>
 </document>

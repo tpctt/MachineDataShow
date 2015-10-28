@@ -60,13 +60,13 @@
     
     [[RACObserve(self.request, state)
       filter:^BOOL(NSNumber *state) { //过滤请求状态
+          NSLog(@"获取用户报修列表：%@",self.request.PATH);
           @strongify(self);
           return  self.request.succeed;
       }]
      subscribeNext:^(NSNumber *state) {
          @strongify(self);
          NSError *error = self.request.error;
-         
 //         NSDictionary *dict = [self.request.output objectAtPath:@"response"];
         NSDictionary *dict =  self.request.output  ;
          

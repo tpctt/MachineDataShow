@@ -91,7 +91,7 @@
     }
     else{
         
-        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/new.html"]];
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",TempAppHostAddress,@"page/pro.html"]];
         
         [self.tabBarController.navigationController pushViewController:web animated:1];
         
@@ -118,8 +118,9 @@
     bnt.backgroundColor = [UIColor redColor];
     [self.navigationItem setTitleView:_v1];
     
-    [self.scrollAdView setImages:@[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]]  withTitles:nil];
-    
+    //[self.scrollAdView setImages:@[[UIImage imageNamed:@"Banner_1.jpg"],[UIImage imageNamed:@"Banner_2.jpg"],[UIImage imageNamed:@"Banner_3.jpg"]]  withTitles:nil];
+    [self.scrollAdView setNoADImage:[UIImage imageNamed:@"banner_1.png"]];
+
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = RGB(236, 236, 236);
@@ -138,6 +139,7 @@
     if ([UserObject hadLog]) {
         [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
     }
+    //[[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin object:nil] subscribeNext:^(id x) {
         [[GCDQueue mainQueue]queueBlock:^{
             if ([UserObject hadLog]) {
@@ -145,7 +147,6 @@
             }
         }];
     }];
-    
     [RACObserve([UserObject sharedInstance], uid)subscribeNext:^(id x) {
         if ([UserObject hadLog]) {
             [self showBarButton:NAV_LEFT title:[[UserObject sharedInstance]  trueName] fontColor:[UIColor blackColor]];
@@ -154,6 +155,10 @@
 
         }
     }];
+    
+    //设置tabBar图标及颜色
+    self.tabBarController.tabBar.selectedItem.selectedImage = [UIImage imageNamed:@"nav_button_home_pressed@2x.png"];
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
     self.title = @"主页";
     
 }
@@ -173,8 +178,11 @@
             [self.scrollAdView setImages:array2 withTitles:nil];
             self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
                 HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];
+                if (ad.url!=nil)
+                {
                 TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
                 [self.tabBarController.navigationController pushViewController:web animated:1];
+                }
                 
             }  ;
         }else{
@@ -184,7 +192,7 @@
         
         
 #pragma mark ad-network
-        [NetManager getHomeAdsblock:^(NSArray *array, NSError *error, NSString *msg) {
+        [NetManager getHomeAdsblock1:^(NSArray *array, NSError *error, NSString *msg) {
             if (array) {
                 _adArray = array;
                 
@@ -192,9 +200,11 @@
                 [self.scrollAdView setImages:array2 withTitles:nil];
                 self.scrollAdView.adBlock = ^(ScrollADView *adView,NSUInteger adIndex ){
                     HomeAD *ad = [_adArray safeObjectAtIndex:adIndex];
-                    TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
-                    [self.tabBarController.navigationController pushViewController:web animated:1];
-                    
+                    if (ad.url!=nil)
+                    {
+                        TOWebViewController *web = [[TOWebViewController alloc]initWithURLString:ad.url];
+                        [self.tabBarController.navigationController pushViewController:web animated:1];
+                    }
                 }  ;
             }else{
 //                [self showMsg:msg error:error];

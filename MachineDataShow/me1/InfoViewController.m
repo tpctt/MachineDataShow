@@ -12,7 +12,7 @@
 #import "NetManager.h"
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
-
+#define allTrim( object ) [object stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet] ]
 @interface InfoCell:UIView
 
 @property (strong,nonatomic) UILabel *title;
@@ -80,7 +80,7 @@
     CELL.showDetail.text = detail;
     CELL.editDetail.text = detail;
     if (CELL.showDetail.text.length == 0) {
-        CELL.showDetail.text = @"完善资料";
+        CELL.showDetail.text = @"";
     }
     
     CELL.isEditing = NO;
@@ -168,14 +168,14 @@
 
 -(void)AddInfoView
 {
-    NSArray *titles = @[@"公司名称",@"姓名",@"职务",@"邮件",@"传真",@"地址"];
+    NSArray *titles = @[@"公司名称",@"姓名",@"职务",@"邮件",@"地址"];
     NSMutableArray *details = [NSMutableArray array ];
     [details addObject:[[UserObject sharedInstance] companyName]?[[UserObject sharedInstance] companyName]  :@""];
     [details addObject:[[UserObject sharedInstance] trueName]   ?[[UserObject sharedInstance] trueName]     :@""];
     [details addObject:[[UserObject sharedInstance] duty]       ?[[UserObject sharedInstance] duty]         :@""];
     
     [details addObject:[[UserObject sharedInstance] email]      ?[[UserObject sharedInstance] email]        :@""];
-    [details addObject:[[UserObject sharedInstance] fax]        ?[[UserObject sharedInstance] fax]          :@""];
+    //[details addObject:[[UserObject sharedInstance] fax]        ?[[UserObject sharedInstance] fax]          :@""];
     [details addObject:[[UserObject sharedInstance] address]    ?[[UserObject sharedInstance] address]      :@""];
     
     
@@ -203,7 +203,7 @@
         for (int I =0 ; I<self.cellArray.count; I++) {
             InfoCell *CELL = self.cellArray[I];
             CELL.isEditing = YES;
-            
+            CELL.backgroundColor=[UIColor whiteColor];
         }
         InfoCell *CELL = self.cellArray[0];
         [CELL.editDetail becomeFirstResponder];
@@ -219,11 +219,21 @@
             [INFOS addObject:CELL.editDetail.text.length?CELL.editDetail.text:@""];
             
         }
+        if ([INFOS[0] length]==0) {
+            [DialogUtil showDlgAlert:@"请输入公司名称"];
+            return;
+        }
+        
+        if ([INFOS[1] length]==0) {
+            [DialogUtil showDlgAlert:@"请输入姓名"];
+            return;
+        }
         
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        NSArray *titles = @[@"公司名称",@"姓名",@"职务",@"邮件",@"传真",@"地址"];
+        NSArray *titles = @[@"公司名称",@"姓名",@"职务",@"邮件",@"地址"];
         
-        [NetManager wanshanziliao:INFOS[1] companyName:INFOS[0] duty:INFOS[2] email:INFOS[3] fax:INFOS[4] address:INFOS[5] isModify:YES block:^(NSArray *array, NSError *error, NSString *msg) {
+       [NetManager setUserInfo:INFOS[1] companyName:INFOS[0] duty:INFOS[2] email:INFOS[3]
+                          address:INFOS[4] block:^(NSArray *array, NSError *error, NSString *msg) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:1];
             
             if (array != nil) {
@@ -239,8 +249,8 @@
                     INFO.companyName = INFOS[0] ;
                     INFO.duty = INFOS[2] ;
                     INFO.email = INFOS[3] ;
-                    INFO.fax = INFOS[4] ;
-                    INFO.address = INFOS[5] ;
+                    //INFO.fax = INFOS[4] ;
+                    INFO.address = INFOS[4] ;
                     
                     [[NSNotificationCenter defaultCenter]postNotificationName:UseriNFOChandedNoti object:nil userInfo:[NSDictionary dictionaryWithObjectsAndKeys:INFO,@"info", nil]];
                     

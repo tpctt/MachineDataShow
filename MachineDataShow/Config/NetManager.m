@@ -71,10 +71,11 @@
         NSString* stateString =  operation.responseString  ;
         stateString = [self removiewHuhao:stateString];
         int state = [stateString intValue];
-        
+        NSLog(@"注册成功后获得uid==%d",state);
         if (state >0  ) {
             [UserObject sharedInstance].uid = stateString;
-          
+            [UserObject sharedInstance].mobile= mobile;
+            
             block(@[@(state)],nil,nil);
  
         }else{
@@ -91,18 +92,14 @@
 
 }
 
-+(AFHTTPRequestOperation*)wanshanziliao: (NSString*)trueName
++(AFHTTPRequestOperation*)wanshanziliao1: (NSString*)trueName
                             companyName:(NSString*)companyName
                                    duty:(NSString*)duty
                                   email:(NSString*)email
-                                    fax:(NSString*)fax
                                 address:(NSString*)address
-                               isModify:(BOOL)isModify
-
-                                  block:(HotKeyBlock)block
+                                   block:(HotKeyBlock)block
 {
-    
-    NSString *PATH = [NSString stringWithFormat:@"%@/%@/%@/%@/%@/%@/%@/%@/%@/%@%@",isModify?@"setUserInfoJson":@"userRegisterCompleteJson",[UserObject sharedInstance].uid,companyName, @"SHENGFEN",@"CHENGSHI",@"HANGYE",@"BUMEN",duty,email,address,isModify?@"":@"/0"];
+    NSString *PATH = [NSString stringWithFormat:@"%@?uid=%@&trueName=%@&companyName=%@&duty=%@&email=%@&address=%@",@"userRegisterCompleteJson",[UserObject sharedInstance].uid, trueName,companyName, duty,email,address];
     
     PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
@@ -114,7 +111,124 @@
     }else{
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
+    NSLog(@"注册第二步完成提交url：%@",url);
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    NSLog(@"修改用户信息提交：%@",url);
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        NSLog(@"完善用户资料返回信息为：%@",jsonObject);
+       
+        UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
+        if ([obj.uid integerValue]>0) {
+            [UserObject setDataFrom:obj];
+            
+            block(@[obj],nil,nil);
+            
+        }
+        else{
+            block(nil,nil,[self getErrorMsg:[self removiewHuhao:operation.responseString]]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
+
++(AFHTTPRequestOperation*)setUserInfo: (NSString*)trueName
+                             companyName:(NSString*)companyName
+                                    duty:(NSString*)duty
+                                   email:(NSString*)email
+                                 address:(NSString*)address
+                                   block:(HotKeyBlock)block
+{
+    NSString *PATH = [NSString stringWithFormat:@"%@?uid=%@&trueName=%@&companyName=%@&duty=%@&email=%@&address=%@",@"setUserInfoJson",[UserObject sharedInstance].uid, trueName,companyName, duty,email,address];
+    
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    NSLog(@"用户信息完成提交url：%@",url);
+    NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
+    NSLog(@"修改用户信息提交：%@",url);
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        NSLog(@"完善用户资料返回信息为：%@",jsonObject);
+        
+        UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
+        if ([obj.uid integerValue]>0) {
+            [UserObject setDataFrom:obj];
+            
+            block(@[obj],nil,nil);
+            
+        }
+        else{
+            block(nil,nil,[self getErrorMsg:[self removiewHuhao:operation.responseString]]);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        block(nil, error,nil);
+        
+    }];
+    
+    return op;
+}
+
+
++(AFHTTPRequestOperation*)wanshanziliao: (NSString*)trueName
+                            companyName:(NSString*)companyName
+                                   duty:(NSString*)duty
+                                  email:(NSString*)email
+                                    //fax:(NSString*)fax
+                                address:(NSString*)address
+                               isModify:(BOOL)isModify
+
+                                  block:(HotKeyBlock)block
+{
+    
+    if (duty.length==0)
+        duty=@" ";
+    if (email.length==0)
+        email=@" ";
+    if (address.length==0)
+        address=@" ";
+    NSString *PATH = [NSString stringWithFormat:@"%@/%@%@/%@/%@/%@/%@/%@/%@/%@/%@%@",isModify?@"setUserInfoJson":@"userRegisterCompleteJson",[UserObject sharedInstance].uid,isModify?@"":[NSString stringWithFormat:@"/%@", trueName],companyName, @" ",@" ",@" ",@" ",duty,email,address,isModify?@"":@"/0"];
+    
+    PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    NSLog(@"注册第二步完成提交url：%@",url);
     NSMutableDictionary *requestParams = [NSMutableDictionary dictionary ];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -123,11 +237,12 @@
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json"]];
-    
+    NSLog(@"修改用户信息提交：%@",url);
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
         UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
+        NSLog(@"用户uid为：%@",obj.uid);
         if ([obj.uid integerValue]>0) {
             [UserObject setDataFrom:obj];
             
@@ -183,7 +298,6 @@
         
         if (state >0  ) {
             [UserObject sharedInstance].uid = stateString;
-            
             [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
                 
             }];
@@ -191,6 +305,7 @@
             block(@[@(state)],nil,nil);
             
         }else{
+            stateString=@"-998";
             block(nil,nil,[self getErrorMsg:stateString]);
         }
         
@@ -206,8 +321,8 @@
 
 +(AFHTTPRequestOperation*)getUserInfo :(HotKeyBlock)block
 {
-    
     NSString *PATH = [NSString stringWithFormat:@"%@/%@",@"getUserInfoJson",[UserObject sharedInstance].uid];
+    NSLog(@"获得用户信息地址：%@",PATH);
     PATH = [PATH stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     
@@ -231,21 +346,21 @@
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        NSLog(@"会员信息为:%@",jsonObject);
         UserObject *obj = [UserObject objectWithKeyValues:jsonObject];
         if ([obj.uid integerValue]>0) {
             [UserObject setDataFrom:obj];
             [UserObject save];
-            
-            
+
             block(@[obj],nil,nil);
-            
             [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
+
         }
         else{
             block(nil,nil,[self getErrorMsg:(NSString*)jsonObject]);
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        NSLog(@"会员信息为:%@",error);
         block(nil, error,nil);
         
     }];
@@ -416,7 +531,7 @@
         NSString* stateString =  operation.responseString  ;
         stateString = [self removiewHuhao:stateString];
         int state = [stateString intValue];
-        
+        NSLog(@"密码修改返回：%@",stateString);
         if (state >0  ) {
 //            [UserObject sharedInstance].uid = stateString;
             
@@ -473,7 +588,7 @@
     [requestParams setValue:detail forKey:@"detail"];
     [requestParams setValue:[TimeTool formatDateSinceNow:0 formatWith:@"YYYYMMdd"]forKey:@"time"];
     [requestParams setValue:@(images.count) forKey:@"filesNum"];
-    
+    NSLog(@"设备保修uid：%@,设备id：%@",[[UserObject sharedInstance] uid],equipmentId);
     for(int i = 0;i < 5 ;i ++){
         if (i < images.count) {
             UIImage *image = images[i];
@@ -637,7 +752,7 @@
     }else{
         url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
     }
-    
+    NSLog(@"获取用户报修列表：%@",url);
     NSMutableDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -673,6 +788,54 @@
     
     return op;
 }
+
++(AFHTTPRequestOperation*)getHomeAdsblock1:(HotKeyBlock)block{
+    
+    NSString *PATH = @"getFlashJson";
+    
+    NSString *url = nil;
+    NSRange rang = [AppHostAddress rangeOfString:@"://"];
+    if (rang.length) {
+        url = [NSString stringWithFormat:@"%@%@",AppHostAddress,PATH ];
+    }else{
+        url = [NSString stringWithFormat:@"http://%@%@",AppHostAddress,PATH ];
+    }
+    
+    NSDictionary *requestParams = [BaseObjectRequest getBaseRequestInfos];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.responseSerializer.acceptableContentTypes =[NSSet setWithArray:@[@"text/html",@"application/json",@"application/octet-stream"]];
+    
+    AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
+        NSMutableArray *ARRAY = [NSMutableArray array ];
+        for (int i = 1; i<= 6; i++) {
+            NSString *imageurl=[NSString stringWithFormat:@"%@header/%d.png",TempAppHostAddress,i ];
+            imageurl = [imageurl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            //NSURL *url = [NSURL URLWithString:imageurl];
+            //NSData *imageData = [NSData dataWithContentsOfFile: url];
+            //NSLog(@"首页幻灯地址：%@",imageurl);
+            UIImage *myImage2 =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageurl]]];
+            HomeAD *AD = [[HomeAD alloc]init];
+            //AD.url=[NSString stringWithFormat:@"http://%@/page/flash/%d.html",AppHostAddress,i ];    //flash链接地址
+            AD.REALimage = myImage2;
+            [ARRAY addObject:AD];
+            
+        }
+        block(ARRAY,nil,nil);
+        return ;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        block(nil, error,nil);
+        
+    }];
+    return op;
+}
+
+
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block{
     NSString *PATH = @"getFlashJson";
     
@@ -696,12 +859,12 @@
     AFHTTPRequestOperation *op = [manager POST:url parameters:requestParams constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
     } success:^(AFHTTPRequestOperation *operation, NSDictionary* jsonObject) {
-//        NSString *jsonstring=[[NSString alloc] initWithData:[operation.responseData subdataWithRange:NSMakeRange(8, operation.responseData.length - 8)]encoding:NSUTF8StringEncoding];
-//        if(jsonstring.length==0){
-//            unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
-//            jsonstring = [[NSString alloc] initWithData:operation.responseData encoding:encode];
-//        }
-//
+        //        NSString *jsonstring=[[NSString alloc] initWithData:[operation.responseData subdataWithRange:NSMakeRange(8, operation.responseData.length - 8)]encoding:NSUTF8StringEncoding];
+        //        if(jsonstring.length==0){
+        //            unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+        //            jsonstring = [[NSString alloc] initWithData:operation.responseData encoding:encode];
+        //        }
+        //
         NSData *lengthData = [operation.responseData subdataWithRange:NSMakeRange(0, 4)];
         NSString *string = [NSString stringWithFormat:@"%@",lengthData];
         string = [string substringWithRange:NSMakeRange(1, string.length-2   )];
@@ -719,7 +882,7 @@
             NSString *PROPERTY = [info objectAtPath:[NSString stringWithFormat:@"file%dProperty",i + 1]];
             NSString *SIZE = [info objectAtPath:[NSString stringWithFormat:@"file%dSize",i + 1]];
             NSString *TYPE = [info objectAtPath:[NSString stringWithFormat:@"file%dType",i + 1]];
-
+            
             NSData *imageData = [operation.responseData subdataWithRange:NSMakeRange(preSize, [SIZE integerValue])];
             HomeAD *AD = [[HomeAD alloc]init];
             AD.REALimage = [UIImage imageWithData:imageData];
@@ -730,7 +893,7 @@
             
         }
         block(ARRAY,nil,nil);
-
+        
         
         
         return ;
@@ -1440,6 +1603,7 @@
             block(OBJ,nil,[jsonObject objectAtPath:@"response/text"]);
 
         }else{
+            //block(nil,nil,[self getErrorMsg:@"-998"]);
             block(nil,nil,[jsonObject objectAtPath:@"response/errorText"]);
         }
         

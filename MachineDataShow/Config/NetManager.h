@@ -45,11 +45,28 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
                                code:(NSString *)code
                               block:(HotKeyBlock)block;
 
+
+
++(AFHTTPRequestOperation*)wanshanziliao1: (NSString*)trueName
+                             companyName:(NSString*)companyName
+                                    duty:(NSString*)duty
+                                   email:(NSString*)email
+                                 address:(NSString*)address
+                                   block:(HotKeyBlock)block;
+
+
++(AFHTTPRequestOperation*)setUserInfo: (NSString*)trueName
+                             companyName:(NSString*)companyName
+                                    duty:(NSString*)duty
+                                   email:(NSString*)email
+                                 address:(NSString*)address
+                                   block:(HotKeyBlock)block;
+
 +(AFHTTPRequestOperation*)wanshanziliao: (NSString*)trueName
                         companyName:(NSString*)companyName
                                duty:(NSString*)duty
                               email:(NSString*)email
-                                fax:(NSString*)fax
+                                //fax:(NSString*)fax
                             address:(NSString*)address
                                isModify:(BOOL)isModify
                               block:(HotKeyBlock)block;
@@ -84,6 +101,7 @@ typedef void(^GetSecurityInfoBlock)(BandingObject*object,  NSError *error,NSStri
 +(AFHTTPRequestOperation*)getFixedProgressInfo:(NSString*)objid block:(HotKeyBlock)block;
 +(AFHTTPRequestOperation*)getHomeAdsblock:(HotKeyBlock)block;
 
++(AFHTTPRequestOperation*)getHomeAdsblock1:(HotKeyBlock)block;
 
 +(AFHTTPRequestOperation*)yuyue:(NSString*)compangyName
                       peoplesum:(NSString*)peoplesum

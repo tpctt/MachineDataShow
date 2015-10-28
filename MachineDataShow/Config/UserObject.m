@@ -62,7 +62,6 @@ DEF_SINGLETON(UserObject)
         [BaseObjectRequest sharedInstance].userid = obj.uid;
         
         [[NSNotificationCenter defaultCenter]postNotificationName:FLlogin object:nil];
-
         return YES;
         
     }

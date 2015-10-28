@@ -10,5 +10,8 @@
 
 @interface FixViewController : BaseViewController
 @property(strong,nonatomic) NSString* keyword;
+@property (strong, nonatomic)   DeviceObjectSceneModel *vm;
+@property (strong, nonatomic)   NSArray *dataArray;
+
 
 @end

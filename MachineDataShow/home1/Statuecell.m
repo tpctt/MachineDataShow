@@ -15,14 +15,14 @@
         NSString *State = [OBJ1.State lowercaseString];
         if([State isEqualToString:@"ok"]){
 //            [self.state setBackgroundColor:[UIColor greenColor]];
-            [self.state setImage:[UIImage imageNamed:@"image_button_default"] forState:0];
+            [self.state setImage:[UIImage imageNamed:@"icon_button_state-1"] forState:0];
         }else  if([State isEqualToString:@"alarm"]){
 //            [self.state setBackgroundColor:[UIColor yellowColor]];
-            [self.state setImage:[UIImage imageNamed:@"image_button_disabled"] forState:0];
+            [self.state setImage:[UIImage imageNamed:@"icon_button_state-2"] forState:0];
 
         }else  if([State isEqualToString:@"stop"]){
 //            [self.state setBackgroundColor:[UIColor redColor]];
-            [self.state setImage:[UIImage imageNamed:@"image_button_pressed"] forState:0];
+            [self.state setImage:[UIImage imageNamed:@"icon_button_state-3"] forState:0];
 
         }
         

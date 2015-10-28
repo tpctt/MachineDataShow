@@ -21,10 +21,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self showBarButton:NAV_RIGHT title:@"提交" fontColor:[UIColor blackColor]];
-    self.title = @"意见反馈";
+    self.title = @"投诉建议";
     self.suggestText.placeholder = @"请输入意见建议";
     self.suggestText.placeholderColor =[UIColor grayColor];
     self.suggestText.text = @"";
+    
     
     
 }
@@ -68,7 +69,7 @@
             }
         }
         
-    
+    [self showAlert:@"感谢您的建议"];
 
     }];
 }
@@ -77,6 +78,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)timerFireMethod:(NSTimer*)theTimer//弹出框
+{
+    UIAlertView *promptAlert = (UIAlertView*)[theTimer userInfo];
+    [promptAlert dismissWithClickedButtonIndex:0 animated:NO];
+    promptAlert =NULL;
+}
+- (void)showAlert:(NSString *) _message{//时间
+    UIAlertView *promptAlert = [[UIAlertView alloc] initWithTitle:nil message:_message delegate:nil cancelButtonTitle:nil otherButtonTitles:nil];
+    [NSTimer scheduledTimerWithTimeInterval:1.5f target:self selector:@selector(timerFireMethod:)
+                                   userInfo:promptAlert
+                                    repeats:YES];
+    [promptAlert show];
+}
+
 
 /*
 #pragma mark - Navigation

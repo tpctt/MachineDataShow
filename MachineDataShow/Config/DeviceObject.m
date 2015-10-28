@@ -74,6 +74,7 @@
     [[RACObserve(self.request, state)
       filter:^BOOL(NSNumber *state) { //过滤请求状态
           @strongify(self);
+          NSLog(@"得到用户设备列表：%@",self.request.PATH);
           return  self.request.succeed;
       }]
      subscribeNext:^(NSNumber *state) {

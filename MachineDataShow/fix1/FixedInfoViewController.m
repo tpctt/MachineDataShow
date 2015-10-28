@@ -358,8 +358,11 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 //        picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
     }else{
         picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, (NSString *)kUTTypeVideo ,nil];
-        picker.videoQuality = UIImagePickerControllerQualityTypeLow;
-
+        picker.videoQuality = UIImagePickerControllerQualityType640x480;
+//todo  baochun,yashuo
+        picker.videoMaximumDuration = 20;
+        
+        
     }
 
     
@@ -405,7 +408,13 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
         
     }];
     
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }
     
+
     [self imagePickerControllerDidCancel:picker];
     
 }
@@ -416,6 +425,31 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
     }];
     
 }
+
+
+- (void)image:(UIImage*)image didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo
+{
+    UIAlertView *alert;
+    
+    if (error)
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"错误"
+                                           message:@"保存失败"
+                                          delegate:self cancelButtonTitle:@"确定"
+                                 otherButtonTitles:nil];
+    }
+    else
+    {
+        alert = [[UIAlertView alloc] initWithTitle:@"成功"
+                                           message:@"保存成功"
+                                          delegate:self cancelButtonTitle:@"确定"
+                                 otherButtonTitles:nil];
+    }
+    [alert show];
+}
+
+
+
 /*
 #pragma mark - Navigation
 

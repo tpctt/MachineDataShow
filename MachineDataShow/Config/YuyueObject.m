@@ -9,6 +9,18 @@
 #import "YuyueObject.h"
 
 @implementation YuyueObject
++(instancetype)obj:(NSString*)v1 v2:(NSString*)v2
+{
+
+    YuyueObject*o = [[YuyueObject alloc] init];
+    o.id
+    = v1;
+    
+    o.time = v2;
+    
+    return o ;
+    
+}
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"%@%@", self.time,self.companyname];

@@ -75,7 +75,7 @@
 //        ti1.image = [[UIImage imageNamed:[array[i] stringByAppendingString:@"nav_button_mine_default"]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
   
         
-        [ti1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGB(32, 165, 236),NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil] forState:UIControlStateSelected];
+        [ti1 setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGB(0, 255, 0),NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil] forState:UIControlStateSelected];
         
 //        [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName , [UIFont systemFontOfSize:18],NSFontAttributeName, nil]];
 

@@ -77,7 +77,17 @@
          
      } ];
     
+    if ([self.mytable respondsToSelector:@selector(setSeparatorInset:)]) {
+        
+        [self.mytable setSeparatorInset:UIEdgeInsetsZero];
+        
+    }
     
+    if ([self.mytable respondsToSelector:@selector(setLayoutMargins:)]) {
+        
+        [self.mytable setLayoutMargins:UIEdgeInsetsZero];
+        
+    }
     
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -99,10 +109,31 @@
         
     }
     YuyueObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
-    CELL.textLabel.text = [NSString stringWithFormat:@"预约号:%@  ",o.id   ];
-    
-    NSString *time = [TimeTool formatTime:[o.visittime doubleValue] formatWith:@"yyyy-MM-dd"];
+   CELL.textLabel.text = [NSString stringWithFormat:@"预约号:%@  ",o.id   ];
+     //NSString *time = [TimeTool formatTime:[o.visittime doubleValue] formatWith:@"yyyy-MM-dd"];
+    //NSLog(@"预约时间是：%@",o.visittime);
+    NSString *time = o.visittime ;
     CELL.detailTextLabel.text = [NSString stringWithFormat:@"预约时间:%@",time ];
+
+    /*UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, 100, 30)];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [label setText:[NSString stringWithFormat:@"预约号:%@",o.id   ]];
+    label.font = [UIFont systemFontOfSize:15];
+    label.textColor = [UIColor blackColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    [CELL.contentView addSubview:label];
+    
+    UILabel *label1 = [[UILabel alloc]initWithFrame:CGRectMake(10, 5, 160, 100)];
+    label1.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    [label1 setText:[NSString stringWithFormat:@"预约时间:%@",time ]];
+    label1.font = [UIFont systemFontOfSize:13];
+    label1.textColor = [UIColor blackColor];
+    label1.textAlignment = NSTextAlignmentCenter;
+    label1.backgroundColor = [UIColor clearColor];
+    [CELL.contentView addSubview:label1];*/
+   
+    
     
 //    CELL.textLabel.text = [NSString stringWithFormat:@"%@ %@",o.id,o.serial];
     //    [o.name stringByAppendingString:o.serial];
@@ -121,6 +152,22 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 
+{
+    
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+        
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+        
+    }
+    
+}
 
 @end

@@ -60,7 +60,7 @@
     
     
     NSString *imageBase = @"showme";
-    NSInteger count = 3;
+    NSInteger count = 1;
 //    if ( [[UIScreen mainScreen] bounds].size.height == 480 ) {
 //        imageBase = @"guide_";
 //        count = 4;
@@ -70,6 +70,7 @@
     NSMutableArray *imagesArray = [NSMutableArray array ];
     for (int i = 1; i<= count; i++ ) {
         NSString *string = [NSString stringWithFormat:@"%@%d",imageBase, i ];
+        NSLog(@"开机图像:%@",string);
         UIImage *image = [UIImage imageNamed:string];
         if (image) {
             [imagesArray addObject:image];

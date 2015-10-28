@@ -16,6 +16,7 @@
 #import "GCYSSB_Object.h"
 #import <GCDQueue.h>
 
+
 @interface StatueObject:NSObject
 @property (strong,nonatomic) NSString *id;
 @property (strong,nonatomic) NSString *name1;
@@ -61,6 +62,9 @@
     self.selectionList = [[HTHorizontalSelectionList alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
     _selectionList.delegate = self;
     _selectionList.dataSource = self;
+    
+    _selectionList.selectedButtonIndex =_index;
+    
     
     [self.view addSubview:self.selectionList];
     [self.selectionList alignLeading:@"0" trailing:@"0" toView:self.view];
@@ -117,7 +121,7 @@
             [self showDataFor:self.index];
             
         }];
-
+        
     }];
     
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
@@ -138,17 +142,21 @@
                     
                 }
             }
+            
             for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
+                
                 if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                    
                     if (obj.deveice_state_ARRAY==nil) {
                         obj.deveice_state_ARRAY =  [NSMutableArray array ];
                     }
                     
                     if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
-                        
-                    }else
-                        [obj.deveice_state_ARRAY  addObject:device_state_obj] ;
-                    
+                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+
+                    }else{
+                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+                    }
                     
                 }
             }
@@ -162,10 +170,10 @@
             GCYSSB_Object *OBJ = [self.deviceArray safeObjectAtIndex:self.index];
             NSArray *ARRAY = OBJ.deveice_state_ARRAY;
             self.statusArray = ARRAY;
-//            self.statusArray = SE
+            //            self.statusArray = SE
             [self.mtable reloadData];
             [self updatevules  ];
-
+            
         }];
         
         
@@ -221,7 +229,7 @@
     if (section == 0 || section == 1) {
         UILabel*label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, 40)];
         NSArray*        titles = @[@"产量",@"质量",@"状态"];
-
+        
         label.text = titles[section];
         label.backgroundColor = RGB(235, 235, 235);
         
@@ -239,7 +247,7 @@
         CELL.mj_h = 40;
         
         return CELL;
-     }
+    }
     
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -287,10 +295,10 @@
     NSArray *array = [productObj preson_productArray];
     NSMutableArray *titles = [NSMutableArray array];
     NSMutableArray *values = [NSMutableArray array];
-
+    
     for (CLJ_person_productObj *P in array) {
         [titles addObject:P.Person];
-//        NSNumber *NUM = [NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]];
+        //        NSNumber *NUM = [NSNumber numberWithFloat:[P.Pro integerValue]/[P.Output integerValue]];
         [values addObject:@([P.Output integerValue])];
         
     }
@@ -307,7 +315,7 @@
     
     NSArray *items = @[
                        [PNPieChartDataItem dataItemWithValue:[productObj.Checked integerValue]
-                       color:PNBlue description:@"检查率"],
+                                                       color:PNBlue description:@"检查率"],
                        [PNPieChartDataItem dataItemWithValue:[productObj.OK integerValue] color:PNGreen description:@"合格率"],
                        [PNPieChartDataItem dataItemWithValue:[productObj.Output integerValue]-[productObj.Checked integerValue]  color:PNMauve description:@"其他"],
                        ];
@@ -323,7 +331,7 @@
 
 - (NSString *)selectionList:(HTHorizontalSelectionList *)selectionList titleForItemWithIndex:(NSInteger)index {
     GCYSSB_Object *OBJ = [self.deviceArray safeObjectAtIndex:index];
-//    return [NSString stringWithFormat:@"设备%d ",index ];
+    //    return [NSString stringWithFormat:@"设备%d ",index ];
     
     return OBJ.name?OBJ.name:[NSString stringWithFormat:@"设备%d ",index ];
     
@@ -345,13 +353,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

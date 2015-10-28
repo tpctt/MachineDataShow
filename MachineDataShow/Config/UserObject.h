@@ -20,6 +20,11 @@
 @property (nonatomic, strong ) NSString *fax;
 @property (nonatomic, strong ) NSString *address;
 @property (nonatomic, strong ) NSString *head;
+@property (nonatomic, strong ) NSString *province;
+@property (nonatomic, strong ) NSString *city;
+@property (nonatomic, strong ) NSString *industry;
+@property (nonatomic, strong ) NSString *department;
+@property (nonatomic, strong ) NSString *sex;
 
 +(BOOL)hadLog;
 +(void)setDataFrom:(UserObject*)obj;

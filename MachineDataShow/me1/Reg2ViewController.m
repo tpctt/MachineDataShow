@@ -45,7 +45,7 @@
         [DialogUtil showDlgAlert:@"请输入姓名"];
         return NO;
     }
-    if (self.job.text.length == 0) {
+    /*if (self.job.text.length == 0) {
         [DialogUtil showDlgAlert:@"请输入职务"];
         return NO;
     }
@@ -54,13 +54,13 @@
     if (emailValie==NO) {
         [DialogUtil showDlgAlert:@"请输入正确的邮箱地址!"];
         return NO;
-    }
+    }*/
     
     //    if (self.email.text.length == 0) {
     //        [DialogUtil showDlgAlert:@"请输入邮箱"];
     //        return NO;
     //    }
-    if (self.fax.text.length == 0) {
+    /*if (self.fax.text.length == 0) {
         [DialogUtil showDlgAlert:@"请输入传真"];
         return NO;
     }
@@ -68,7 +68,7 @@
     if (self.addresss.text.length == 0) {
         [DialogUtil showDlgAlert:@"请输入地址"];
         return NO;
-    }
+    }*/
     
     
     return 1;
@@ -80,14 +80,12 @@
     
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [NetManager wanshanziliao:self.username.text
+    [NetManager wanshanziliao1:self.username.text
                   companyName:self.company.text
                          duty:self.job.text
                         email:self.email.text
-                          fax:self.fax.text
-                      address:self.addresss.text
-                     isModify:NO
-                        block:^(NSArray *array, NSError *error, NSString *msg) {
+                       address:self.addresss.text
+                         block:^(NSArray *array, NSError *error, NSString *msg) {
                             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                             
                             UserObject *OBJ = [array firstObject];
@@ -143,7 +141,7 @@
     
     
     self.title = @"完善资料";
-    [self showBarButton:NAV_RIGHT title:@"跳过" fontColor:[UIColor blackColor]];
+    //[self showBarButton:NAV_RIGHT title:@"跳过" fontColor:[UIColor blackColor]];
     
     [UIAlertView showWithTitle:@"" message:@"注册成功，请完善资料" cancelButtonTitle:@"确定" otherButtonTitles:nil tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
         

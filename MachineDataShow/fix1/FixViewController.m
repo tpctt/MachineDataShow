@@ -33,7 +33,6 @@
 
 @interface FixViewController ()<ActionDelegate, UISearchBarDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *mytable;
-@property (strong, nonatomic)   DeviceObjectSceneModel *vm;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableTopConstaint;
 
@@ -45,7 +44,7 @@
 {
     _oo = o;
     
-    self.name.text = @"设备名称:" ;
+    self.name.text = @"设备名称 Product:" ;
     self.name.text = [self.name.text stringByAppendingString:_oo.name];
     
     self.deviceMode.text = @"设备型号:" ;
@@ -61,13 +60,15 @@
 
 -(void)awakeFromNib
 {
-    self.backgroundColor = [UIColor clearColor];
+    //样式
+   /* self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.baseView.layer.borderColor = [[UIColor grayColor]CGColor];
     self.baseView.layer.borderWidth =0.5;
-    self.baseView.layer.cornerRadius = 5;
+    self.baseView.layer.cornerRadius = 0;
+    */
     
     
 }
@@ -106,10 +107,28 @@
         
     if (self.searchBar.text.length ) {
         
-        FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
-        vc.keyword = self.searchBar.text;
+//        FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+//        vc.keyword = self.searchBar.text;
         
-        [self.navigationController pushViewController:vc animated:1];
+        
+//        [self.navigationController pushViewController:vc animated:1];
+        
+        self.dataArray = [self.vm.allDataArray filter:^BOOL(id obj) {
+            
+            DeviceObject *OO = obj ;
+            if ([OO.name rangeOfString:searchBar.text].length !=0 ||
+                [OO.model rangeOfString:searchBar.text].length !=0 ||
+                [OO.serial rangeOfString:searchBar.text].length !=0
+                
+                ) {
+                return YES;
+            }
+            
+            
+            return NO;
+            
+        }];
+        
         
     }
         
@@ -118,34 +137,47 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    self.mtable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 320) style:UITableViewStylePlain];
-//    [self.view addSubview:self.mtable];
-//    [self.mtable alignToView:self.view];
-//    self.mtable.dataSource = self;
-//    self.mtable.delegate = self;
-
+    //    self.mtable = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 320, 320) style:UITableViewStylePlain];
+    //    [self.view addSubview:self.mtable];
+    //    [self.mtable alignToView:self.view];
+    //    self.mtable.dataSource = self;
+    //    self.mtable.delegate = self;
+    
 #if USENormalPush
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
     
-    self.title = @"我的设备";
+    //self.title = @"我的设备";
     self.view.backgroundColor = RGB(236, 236, 236);
     self.mytable.backgroundColor = [UIColor clearColor];
     
     
     
+    UILabel* leftLabel;
+    leftLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width-140.0f, 14.0f, 120.0f, 20.0f)];
+    leftLabel.font=[UIFont systemFontOfSize:12];
+    leftLabel.backgroundColor = [UIColor clearColor];
+    leftLabel.text=@"My Machine";
+    leftLabel.textAlignment = NSTextAlignmentCenter;
+    [self.navigationController.navigationBar addSubview: leftLabel];
     
-    
+    UILabel* rightLabel;
+    rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(40.0f, 7.0f, 120.0f, 30.0f)];
+    rightLabel.font=[UIFont systemFontOfSize:20];
+    rightLabel.backgroundColor = [UIColor clearColor];
+    rightLabel.text=@"我的设备";
+    rightLabel.textAlignment = NSTextAlignmentCenter;
+    [self.navigationController.navigationBar addSubview: rightLabel];
     
     self.vm = [DeviceObjectSceneModel SceneModel];
     self.vm.action.aDelegaete = self;
-
+    
     if(self.keyword.length){
         self.title = @"设备搜索结果";
         
     }else{
         [self.vm .action useCache];
-
+        
     }
     
     ///不是search的列表
@@ -156,18 +188,18 @@
         self.searchBar.placeholder = @"设备型号/名称";
         self.searchBar.delegate = self;
         
-
-//        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
-//            
-//            if (self.searchBar.text.length ) {
-//                
-//                FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
-//                
-//                [self.navigationController pushViewController:vc animated:1];
-//             
-//            }
-//            
-//        }];
+        
+        //        [[self.searchBar  rac_signalForSelector:@selector(searchBarSearchButtonClicked:) ]subscribeNext:^(id x) {
+        //
+        //            if (self.searchBar.text.length ) {
+        //
+        //                FixViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"wdsb"];
+        //
+        //                [self.navigationController pushViewController:vc animated:1];
+        //
+        //            }
+        //
+        //        }];
         
         
     }else{
@@ -179,9 +211,9 @@
     
     
     self.vm.request.requestNeedActive = YES;
-   
-//    [self setbackLabelString1:@"暂无设备" to:self.mtable];
-
+    
+    //    [self setbackLabelString1:@"暂无设备" to:self.mtable];
+    
     self.mytable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.vm loadFirstPage ];
     }];
@@ -211,7 +243,7 @@
          }];
          
          
-      } ];
+     } ];
     
 }
 
@@ -257,12 +289,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //点击打开维修进度
+    /*
     DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
 //    [self performSegueWithIdentifier:@"weixiujindu" sender:o];
 
     FixProgressViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"weixiujinduvc"];
     vc.deviceObject = o;
     [self.navigationController pushViewController:vc animated:1];
+     */
     
     
 }

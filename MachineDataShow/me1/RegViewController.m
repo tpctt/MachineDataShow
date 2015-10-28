@@ -128,7 +128,8 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [NetManager  RegMobile:self.phone.text
                   password:self.pwd1.text
-                      code:self.verifyText.text
+                      //code:self.verifyText.text
+                      code:@"1234"
                     block:^(NSArray *array, NSError *error, NSString *msg) {
                         [MBProgressHUD hideHUDForView:self.view animated:YES];
                         
@@ -152,7 +153,8 @@
                                 
                             }else{
                                 
-                                [UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                //[UIAlertView showWithTitle:@"提示" message:error.localizedDescription cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
+                                [UIAlertView showWithTitle:@"提示" message:@"手机号已注册" cancelButtonTitle:@"确认" otherButtonTitles:nil tapBlock:nil];
                                 
                             }
                         }
@@ -179,22 +181,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    RAC(self.verfiyBtn,enabled) = [RACSignal
+    /*RAC(self.verfiyBtn,enabled) = [RACSignal
                                   combineLatest:@[self.phone.rac_textSignal,
                                                   self.pwd1.rac_textSignal,self.pwd2.rac_textSignal
                                                   ]
                                   reduce:^(NSString *name, NSString *p1 , NSString *p2){
                                       return @(name.length > 0 && p1.length > 0  && p2.length> 0  );
-                                  }];
+                                  }];*/
     
     
-    RAC(self.regBtn,enabled) = [RACSignal
+   /* RAC(self.regBtn,enabled) = [RACSignal
                                    combineLatest:@[self.phone.rac_textSignal,
                                                    self.pwd1.rac_textSignal,self.pwd2.rac_textSignal,self.verifyText.rac_textSignal
                                                    ]
                                    reduce:^(NSString *name, NSString *p1 , NSString *p2,NSString *verifyText ){
                                        return @(name.length > 0 && p1.length > 0  && p2.length> 0&& verifyText.length> 0  );
-                                   }];
+                                   }];*/
+    RAC(self.regBtn,enabled) = [RACSignal
+                                combineLatest:@[self.phone.rac_textSignal,
+                                                self.pwd1.rac_textSignal,self.pwd2.rac_textSignal,self.verifyText.rac_textSignal
+                                                ]
+                                reduce:^(NSString *name, NSString *p1 , NSString *p2,NSString *verifyText ){
+                                    return @(name.length > 0 && p1.length > 0  && p2.length> 0);
+                                }];
     
     [[[self.phone.rac_textSignal
        map:^id(NSString*text){
@@ -219,10 +228,10 @@
         
      }];
     
-    [self.verfiyBtn setTitle:@"获取验证码" forState:0];
-    [self.verfiyBtn setTitle:@"获取验证码" forState:UIControlStateDisabled];
+    //[self.verfiyBtn setTitle:@"获取验证码" forState:0];
+    //[self.verfiyBtn setTitle:@"获取验证码" forState:UIControlStateDisabled];
     
-    [self.verfiyBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
+    //[self.verfiyBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     [self.regBtn setBackgroundImage:[UIImage imageNamed:@"button_bg_long_gray"] forState:UIControlStateDisabled];
     
     

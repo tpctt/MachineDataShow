@@ -67,8 +67,9 @@ static MeViewController* shareApp;
 -(void)dealView
 {
     if ([UserObject hadLog]     ) {
+        NSLog(@"=======用户手机号======%@",[UserObject sharedInstance].uid);
         if ([UserObject sharedInstance].mobile==nil) {
-            [MBProgressHUD showHUDAddedTo:self.bgView animated:YES];
+             [MBProgressHUD showHUDAddedTo:self.bgView animated:YES];
             
             [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
                 [MBProgressHUD hideHUDForView:self.bgView animated:YES];
@@ -302,7 +303,7 @@ static MeViewController* shareApp;
 {
     int row = indexPath.row;
     
-    if( (row == 0 || row == 1 ) && ![UserObject hadLog] ){
+    if( (row == 0 || row == 1 || row==2 || row==3) && ![UserObject hadLog] ){
         [UIAlertView showWithTitle:@"" message:@"还未登陆，是否前往登陆?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
             if (buttonIndex==1) {
                 
@@ -341,17 +342,19 @@ static MeViewController* shareApp;
         
     }else if (row==4){
         ///关于我们
-        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/about.html"]];
+        HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",TempAppHostAddress,@"page/about.html"]];
         
         [self.tabBarController.navigationController pushViewController:web animated:1];
 
-    }else if (row==5){
+    }
+    
+    /*else if (row==5){
         ///帮助中心
         HelpViewController *web = [[HelpViewController alloc]initWithURLString:[NSString stringWithFormat:@"%@%@",AppHostAddress,@"page/help.html"]];
         
         [self.tabBarController.navigationController pushViewController:web animated:1];
         
-    }
+    }*/
     
     
     
@@ -376,6 +379,9 @@ static MeViewController* shareApp;
     
     _icon.layer.cornerRadius = _icon.width/2;
     _icon.clipsToBounds= 1;
+    
+    self.tabBarController.tabBar.selectedItem.selectedImage = [UIImage imageNamed:@"nav_button_mine_pressed@2x.png"];
+    self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
     self.title = @"我的";
 
 //    self.tableView.delegate = self;
@@ -402,17 +408,15 @@ static MeViewController* shareApp;
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:FLlogin  object:nil] subscribeNext:^(id x) {
         [[GCDQueue mainQueue]queueBlock:^{
             [self dealView];
-  
+            
         }];
     }];
     
- 
     [[[NSNotificationCenter defaultCenter]rac_addObserverForName:UseriNFOChandedNoti object:nil] subscribeNext:^(id x) {
         NSNotification *noti = x;
         NSDictionary *info = noti.userInfo;
         
         UserObject *OBJ = info[@"info"];
-        
         [MBProgressHUD showHUDAddedTo:self.view animated:1];
         [NetManager getUserInfo:^(NSArray *array, NSError *error, NSString *msg) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:1];
