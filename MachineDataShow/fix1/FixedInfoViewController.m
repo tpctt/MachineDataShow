@@ -34,6 +34,8 @@
 @property (strong, nonatomic)  NSURLConnection *connec;
 
 @property (weak, nonatomic) IBOutlet AddMediaBaseView *addimageBaseView;
+@property (assign, nonatomic) BOOL isVideo;
+
 
 @end
 
@@ -79,6 +81,11 @@
     
     [UIActionSheet showInView:self.view withTitle:@"选择上传的资源" cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@[@"图片",@"录像"] tapBlock:^(UIActionSheet *actionSheet, NSInteger buttonIndex) {
        
+        if (buttonIndex==0) {
+            _isVideo = 0;
+        }else{
+            _isVideo = 1;
+        }
 //        NSLog(@"%d-%@",buttonIndex,[actionSheet buttonTitleAtIndex:buttonIndex]);
 
         UIViewController *withvc = self;
@@ -410,8 +417,22 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
     {
+        if (_isVideo) {
+            NSURL *url = info[UIImagePickerControllerMediaURL];
+//            UISaveVideoAtPathToSavedPhotosAlbum(url.absoluteString, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            BOOL compatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([url path]);
+            if (compatible)
+            {
+                UISaveVideoAtPathToSavedPhotosAlbum([url path], self, nil, NULL);
+                
+            }
+            
+        }else{
+            UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+
+        }
         
-        UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+        
     }
     
 

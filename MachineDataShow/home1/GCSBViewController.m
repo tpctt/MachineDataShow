@@ -130,7 +130,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //self.title = @"工厂设备";
+    self.title = @"工厂设备";
     self.view.backgroundColor = RGB(236, 236, 236);
     
     self.mytable.backgroundColor = [UIColor clearColor];
@@ -147,15 +147,17 @@
     leftLabel.backgroundColor = [UIColor clearColor];
     leftLabel.text=@"Machines in Factory";
     leftLabel.textAlignment = NSTextAlignmentCenter;
-    [self.navigationController.navigationBar addSubview: leftLabel];
-
+//    [self.navigationController.navigationBar addSubview: leftLabel];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftLabel];
+    
+    
     UILabel* rightLabel;
     rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(40.0f, 7.0f, 120.0f, 30.0f)];
     rightLabel.font=[UIFont systemFontOfSize:20];
     rightLabel.backgroundColor = [UIColor clearColor];
     rightLabel.text=@"工厂设备";
     rightLabel.textAlignment = NSTextAlignmentCenter;
-    [self.navigationController.navigationBar addSubview: rightLabel];
+//    [self.navigationController.navigationBar addSubview: rightLabel];
     
     [[CLJ_object sharedInstance]start];
     //NSLog(@"设备数:%d",[self.vm.allDataArray count]);
@@ -287,6 +289,8 @@
     }
     [customView addSubview:headerLabel];
     [customView addSubview:headerLeftLabel];
+    customView.backgroundColor = RGB(235,235,235);
+    
     return customView;
 }
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -309,7 +313,7 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==0) {
-        return 100;
+        return 130;
     }else
         return 44;
     

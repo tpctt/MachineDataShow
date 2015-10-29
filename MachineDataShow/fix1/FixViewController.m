@@ -100,7 +100,10 @@
     return self.tabBarController.navigationController;
 }
 #endif
-
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self searchBarSearchButtonClicked:nil];
+}
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
   
@@ -116,9 +119,9 @@
         self.dataArray = [self.vm.allDataArray filter:^BOOL(id obj) {
             
             DeviceObject *OO = obj ;
-            if ([OO.name rangeOfString:searchBar.text].length !=0 ||
-                [OO.model rangeOfString:searchBar.text].length !=0 ||
-                [OO.serial rangeOfString:searchBar.text].length !=0
+            if ([OO.name    rangeOfString:_searchBar.text].length !=0 ||
+                [OO.model   rangeOfString:_searchBar.text].length !=0 ||
+                [OO.serial  rangeOfString:_searchBar.text].length !=0
                 
                 ) {
                 return YES;
@@ -129,6 +132,10 @@
             
         }];
         
+        [self.mytable reloadData];
+        
+    }else{
+        [self.mytable reloadData];
         
     }
         
@@ -147,7 +154,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
 #endif
     
-    //self.title = @"我的设备";
+    self.title = @"我的设备";
     self.view.backgroundColor = RGB(236, 236, 236);
     self.mytable.backgroundColor = [UIColor clearColor];
     
@@ -159,15 +166,16 @@
     leftLabel.backgroundColor = [UIColor clearColor];
     leftLabel.text=@"My Machine";
     leftLabel.textAlignment = NSTextAlignmentCenter;
-    [self.navigationController.navigationBar addSubview: leftLabel];
-    
+//    [self.navigationController.navigationBar addSubview: leftLabel];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftLabel];
+
     UILabel* rightLabel;
     rightLabel=[[UILabel alloc] initWithFrame:CGRectMake(40.0f, 7.0f, 120.0f, 30.0f)];
     rightLabel.font=[UIFont systemFontOfSize:20];
     rightLabel.backgroundColor = [UIColor clearColor];
     rightLabel.text=@"我的设备";
     rightLabel.textAlignment = NSTextAlignmentCenter;
-    [self.navigationController.navigationBar addSubview: rightLabel];
+//    [self.navigationController.navigationBar addSubview: rightLabel];
     
     self.vm = [DeviceObjectSceneModel SceneModel];
     self.vm.action.aDelegaete = self;
@@ -253,12 +261,29 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    if (self.searchBar.text.length ) {
+        
+        return self.dataArray.count;
+        
+    }
+    
     return self.vm.allDataArray.count;
+    
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     DeviceCell *cell = (DeviceCell *)[tableView dequeueReusableCellWithIdentifier:@"DeviceCell"];
-    DeviceObject *o = [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+    DeviceObject *o ;
+    if (self.searchBar.text.length ) {
+
+        o= [self.dataArray safeObjectAtIndex:indexPath.row];
+    }else{
+        o= [self.vm.allDataArray safeObjectAtIndex:indexPath.row];
+
+    }
     [cell config:o];
     
     
