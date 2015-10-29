@@ -64,6 +64,7 @@
     _selectionList.dataSource = self;
     
     _selectionList.selectedButtonIndex =_index;
+    _selectionList.autoselectCentralItem = 1;
     
     
     [self.view addSubview:self.selectionList];
@@ -244,9 +245,19 @@
             }
         }
         
-        CELL.mj_h = 40;
+        
+        
+        [CELL.state setImage:nil forState:0];
+        [CELL.state setTitle:@"状态" forState:0];
+        
+            CELL.mj_h = 40;
+        
         
         return CELL;
+        
+        
+        
+        
     }
     
 }

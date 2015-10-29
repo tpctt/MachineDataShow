@@ -16,8 +16,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="项目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-G4-DVe">
-                        <rect key="frame" x="81" y="11" width="60" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-G4-DVe">
+                        <rect key="frame" x="51" y="11" width="60" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="Gi2-iv-zuZ"/>
                         </constraints>
@@ -25,8 +25,8 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="错误源" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-EO-XD5">
-                        <rect key="frame" x="155" y="12" width="100" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="错误源" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAk-EO-XD5">
+                        <rect key="frame" x="119" y="12" width="100" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="stn-oA-9tc"/>
                         </constraints>
@@ -35,17 +35,17 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="处理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YcN-sW-a0m">
-                        <rect key="frame" x="237" y="12" width="67" height="20"/>
+                        <rect key="frame" x="229" y="12" width="75" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-AM-T4W">
-                        <rect key="frame" x="17" y="7" width="41" height="31"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HCf-AM-T4W">
+                        <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="HCf-AM-T4W" secondAttribute="height" multiplier="4:3" id="qNX-hM-HeR"/>
+                            <constraint firstAttribute="width" secondItem="HCf-AM-T4W" secondAttribute="height" multiplier="1:1" id="qNX-hM-HeR"/>
                         </constraints>
-                        <state key="normal" title="状态">
+                        <state key="normal" image="cellicon1.png">
                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -56,11 +56,11 @@
                     <constraint firstItem="YcN-sW-a0m" firstAttribute="leading" secondItem="pAk-EO-XD5" secondAttribute="trailing" constant="10" id="3Ep-Js-3ge"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GRS-G4-DVe" secondAttribute="bottom" constant="3" id="CmO-DW-XbV"/>
                     <constraint firstItem="pAk-EO-XD5" firstAttribute="leading" secondItem="GRS-G4-DVe" secondAttribute="trailing" constant="8" id="NnO-uB-hPu"/>
-                    <constraint firstItem="HCf-AM-T4W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="2" id="ZdP-FI-Inw"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="HCf-AM-T4W" secondAttribute="bottom" constant="-2" id="byt-72-VrE"/>
+                    <constraint firstItem="HCf-AM-T4W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="ZdP-FI-Inw"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="HCf-AM-T4W" secondAttribute="bottom" constant="-8" id="byt-72-VrE"/>
                     <constraint firstItem="pAk-EO-XD5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="e7Y-bD-fp6"/>
                     <constraint firstItem="GRS-G4-DVe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="j45-Ij-Y6a"/>
-                    <constraint firstItem="HCf-AM-T4W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="mhf-8O-jtu"/>
+                    <constraint firstItem="HCf-AM-T4W" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="mhf-8O-jtu"/>
                     <constraint firstItem="GRS-G4-DVe" firstAttribute="leading" secondItem="HCf-AM-T4W" secondAttribute="trailing" constant="8" id="vq3-le-8Tv"/>
                     <constraint firstAttribute="bottomMargin" secondItem="pAk-EO-XD5" secondAttribute="bottom" constant="3" id="w1v-BX-q1Z"/>
                     <constraint firstAttribute="bottomMargin" secondItem="YcN-sW-a0m" secondAttribute="bottom" constant="3" id="xIn-q5-DUw"/>
@@ -75,4 +75,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cellicon1.png" width="512" height="512"/>
+    </resources>
 </document>

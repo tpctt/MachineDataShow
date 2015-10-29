@@ -10,11 +10,11 @@
 		220B5A2E1B9B044A001FF2D6 /* SQyuyueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */; };
 		220B5A311B9B094E001FF2D6 /* YuyueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A301B9B094E001FF2D6 /* YuyueDetailViewController.m */; };
 		220B5A341B9B0B14001FF2D6 /* YuyueObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 220B5A331B9B0B14001FF2D6 /* YuyueObject.m */; };
-		221A966D1BE176BD00F0E5CF /* icon_button_state-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A96681BE176BD00F0E5CF /* icon_button_state-1.png */; };
-		221A966E1BE176BD00F0E5CF /* icon_button_state-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A96691BE176BD00F0E5CF /* icon_button_state-2.png */; };
-		221A966F1BE176BD00F0E5CF /* icon_button_state-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966A1BE176BD00F0E5CF /* icon_button_state-3.png */; };
-		221A96701BE176BD00F0E5CF /* icon_button_state-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966B1BE176BD00F0E5CF /* icon_button_state-4.png */; };
-		221A96711BE176BD00F0E5CF /* icon_button_state-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966C1BE176BD00F0E5CF /* icon_button_state-5.png */; };
+		221A966D1BE176BD00F0E5CF /* cellicon1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A96681BE176BD00F0E5CF /* cellicon1@2x.png */; };
+		221A966E1BE176BD00F0E5CF /* cellicon2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A96691BE176BD00F0E5CF /* cellicon2@2x.png */; };
+		221A966F1BE176BD00F0E5CF /* cellicon3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966A1BE176BD00F0E5CF /* cellicon3@2x.png */; };
+		221A96701BE176BD00F0E5CF /* cellicon4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966B1BE176BD00F0E5CF /* cellicon4@2x.png */; };
+		221A96711BE176BD00F0E5CF /* cellicon5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 221A966C1BE176BD00F0E5CF /* cellicon5@2x.png */; };
 		22200DDA1B7D4A9500CCB120 /* ApplyFixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */; };
 		22200DDD1B7D4AA900CCB120 /* FixProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22200DDC1B7D4AA900CCB120 /* FixProgressViewController.m */; };
 		223C22CD1BADD2C500319A0B /* Reg2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223C22CC1BADD2C500319A0B /* Reg2ViewController.m */; };
@@ -185,11 +185,11 @@
 		220B5A301B9B094E001FF2D6 /* YuyueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueDetailViewController.m; sourceTree = "<group>"; };
 		220B5A321B9B0B14001FF2D6 /* YuyueObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueObject.h; sourceTree = "<group>"; };
 		220B5A331B9B0B14001FF2D6 /* YuyueObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueObject.m; sourceTree = "<group>"; };
-		221A96681BE176BD00F0E5CF /* icon_button_state-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_state-1.png"; sourceTree = "<group>"; };
-		221A96691BE176BD00F0E5CF /* icon_button_state-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_state-2.png"; sourceTree = "<group>"; };
-		221A966A1BE176BD00F0E5CF /* icon_button_state-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_state-3.png"; sourceTree = "<group>"; };
-		221A966B1BE176BD00F0E5CF /* icon_button_state-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_state-4.png"; sourceTree = "<group>"; };
-		221A966C1BE176BD00F0E5CF /* icon_button_state-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_button_state-5.png"; sourceTree = "<group>"; };
+		221A96681BE176BD00F0E5CF /* cellicon1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellicon1@2x.png"; sourceTree = "<group>"; };
+		221A96691BE176BD00F0E5CF /* cellicon2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellicon2@2x.png"; sourceTree = "<group>"; };
+		221A966A1BE176BD00F0E5CF /* cellicon3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellicon3@2x.png"; sourceTree = "<group>"; };
+		221A966B1BE176BD00F0E5CF /* cellicon4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellicon4@2x.png"; sourceTree = "<group>"; };
+		221A966C1BE176BD00F0E5CF /* cellicon5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cellicon5@2x.png"; sourceTree = "<group>"; };
 		22200DD81B7D4A9500CCB120 /* ApplyFixViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyFixViewController.h; sourceTree = "<group>"; };
 		22200DD91B7D4A9500CCB120 /* ApplyFixViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyFixViewController.m; sourceTree = "<group>"; };
 		22200DDB1B7D4AA900CCB120 /* FixProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixProgressViewController.h; sourceTree = "<group>"; };
@@ -742,11 +742,11 @@
 				2284E9031B9B4A140017DF8F /* Statuecell.h */,
 				2284E9041B9B4A140017DF8F /* Statuecell.m */,
 				2284E9051B9B4A140017DF8F /* Statuecell.xib */,
-				221A96681BE176BD00F0E5CF /* icon_button_state-1.png */,
-				221A96691BE176BD00F0E5CF /* icon_button_state-2.png */,
-				221A966A1BE176BD00F0E5CF /* icon_button_state-3.png */,
-				221A966B1BE176BD00F0E5CF /* icon_button_state-4.png */,
-				221A966C1BE176BD00F0E5CF /* icon_button_state-5.png */,
+				221A96681BE176BD00F0E5CF /* cellicon1@2x.png */,
+				221A96691BE176BD00F0E5CF /* cellicon2@2x.png */,
+				221A966A1BE176BD00F0E5CF /* cellicon3@2x.png */,
+				221A966B1BE176BD00F0E5CF /* cellicon4@2x.png */,
+				221A966C1BE176BD00F0E5CF /* cellicon5@2x.png */,
 			);
 			path = home1;
 			sourceTree = "<group>";
@@ -876,7 +876,7 @@
 				7A7561F91B7C5F9900BA2B69 /* vip_green@2x.png in Resources */,
 				22774F851BAA164B0093FEA2 /* icon_button_eidt_default@2x.png in Resources */,
 				7A7561EF1B7C5F9900BA2B69 /* link_4@2x.png in Resources */,
-				221A966E1BE176BD00F0E5CF /* icon_button_state-2.png in Resources */,
+				221A966E1BE176BD00F0E5CF /* cellicon2@2x.png in Resources */,
 				7A7561E01B7C5F9900BA2B69 /* home_blue@2x.png in Resources */,
 				7A7561D31B7C5F9900BA2B69 /* button.png in Resources */,
 				7A7561DF1B7C5F9900BA2B69 /* home.png in Resources */,
@@ -885,7 +885,7 @@
 				7A7561DA1B7C5F9900BA2B69 /* contact_gray@2x.png in Resources */,
 				9A2B06211BCD5E54003ACC4E /* progress_1@2x.png in Resources */,
 				7A7561D11B7C5F9900BA2B69 /* aboutus_first_detail.png in Resources */,
-				221A96701BE176BD00F0E5CF /* icon_button_state-4.png in Resources */,
+				221A96701BE176BD00F0E5CF /* cellicon4@2x.png in Resources */,
 				7A7561F81B7C5F9900BA2B69 /* vip_gray@2x.png in Resources */,
 				22E897D21BC87D7600B1C6DF /* tab_button_link_default_service.png in Resources */,
 				7A7562281B7C7DBE00BA2B69 /* Me_bg.jpg in Resources */,
@@ -924,13 +924,13 @@
 				22E897BA1BC87BE200B1C6DF /* WEIXIU_P3.png in Resources */,
 				9AA96ACC1BE0F9D100B18993 /* homeIcon@2x.png in Resources */,
 				9AFB03551BC8C22600611452 /* nav_button_kf_pressed@2x.png in Resources */,
-				221A966F1BE176BD00F0E5CF /* icon_button_state-3.png in Resources */,
+				221A966F1BE176BD00F0E5CF /* cellicon3@2x.png in Resources */,
 				7A7561E11B7C5F9900BA2B69 /* home_gray@2x.png in Resources */,
 				22E897DE1BC87E4C00B1C6DF /* image_my service副本.png in Resources */,
 				7A7561E41B7C5F9900BA2B69 /* icon_help@2x.png in Resources */,
 				7A7561F01B7C5F9900BA2B69 /* logo.png in Resources */,
 				22774F8D1BAA18620093FEA2 /* home4@2x.png in Resources */,
-				221A966D1BE176BD00F0E5CF /* icon_button_state-1.png in Resources */,
+				221A966D1BE176BD00F0E5CF /* cellicon1@2x.png in Resources */,
 				7A7561D41B7C5F9900BA2B69 /* button_bg_long@2x.png in Resources */,
 				2283B4281BB36461005F8085 /* ErrorCode.plist in Resources */,
 				22774F8B1BAA18620093FEA2 /* home2@2x.png in Resources */,
@@ -957,7 +957,7 @@
 				7A7561E31B7C5F9900BA2B69 /* icon_close@2x.png in Resources */,
 				7A7561D91B7C5F9900BA2B69 /* contact_blue@2x.png in Resources */,
 				22E897E91BC87ED700B1C6DF /* tab_icon_NEW.png in Resources */,
-				221A96711BE176BD00F0E5CF /* icon_button_state-5.png in Resources */,
+				221A96711BE176BD00F0E5CF /* cellicon5@2x.png in Resources */,
 				7A7561E81B7C5F9900BA2B69 /* icon_software_update@2x.png in Resources */,
 				7A7561EC1B7C5F9900BA2B69 /* link_1@2x.png in Resources */,
 				9A7D553C1BC95691007EA777 /* regsiter_default@2x.png in Resources */,

@@ -20,22 +20,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "465501406.543407"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
-            landmarkName = "+getUserInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/Config/NetManager.m"
             timestampString = "465828821.033281"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -67,11 +51,11 @@
                   symbolName = "-[MeViewController takePhotoFromAlbum:isPhoto:]"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "466128925.410456"
+                  timestampString = "467843572.865739"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "196"
-                  endingLineNumber = "196"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
                   offsetFromSymbolStart = "265">
                </Location>
                <Location
@@ -81,11 +65,11 @@
                   symbolName = "__47-[MeViewController takePhotoFromAlbum:isPhoto:]_block_invoke_2"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "466128925.410674"
+                  timestampString = "467843572.866779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "198"
-                  endingLineNumber = "198"
+                  startingLineNumber = "200"
+                  endingLineNumber = "200"
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
