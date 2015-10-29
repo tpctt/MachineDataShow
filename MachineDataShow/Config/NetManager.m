@@ -634,7 +634,7 @@
         }else{
             
             [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
-            [requestParams setValue:@(0) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
+            [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
         
         }
         
