@@ -418,15 +418,24 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
     
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
     {
-        if (_isVideo) {
+        if (_isVideo ) {
+
+            
             NSURL *url = info[UIImagePickerControllerMediaURL];
 //            UISaveVideoAtPathToSavedPhotosAlbum(url.absoluteString, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            
             ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
             NSURL *recordedVideoURL= [info objectForKey:UIImagePickerControllerMediaURL];
             if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:recordedVideoURL]) {
                 [library writeVideoAtPathToSavedPhotosAlbum:recordedVideoURL
-                                            completionBlock:^(NSURL *assetURL, NSError *error){}
-                 ];
+                 
+                                            completionBlock:^(NSURL *assetURL, NSError *error){
+                                            
+                                                
+                                                
+                                                
+                                            }];
+                
             }
             
         }else{

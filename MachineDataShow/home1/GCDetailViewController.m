@@ -65,6 +65,8 @@
     
     _selectionList.selectedButtonIndex =_index;
     _selectionList.autoselectCentralItem = 1;
+    _selectionList.snapToCenter=1;
+    _selectionList.centerAlignButtons=1;
     
     
     [self.view addSubview:self.selectionList];

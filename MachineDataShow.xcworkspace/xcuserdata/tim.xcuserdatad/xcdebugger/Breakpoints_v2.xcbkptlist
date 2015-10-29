@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "465828821.033281"
+            timestampString = "467845753.483871"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "950"
-            endingLineNumber = "950"
+            startingLineNumber = "952"
+            endingLineNumber = "952"
             landmarkName = "+yuyue:peoplesum:duty:tele:time:desc:block:"
             landmarkType = "5">
          </BreakpointContent>
@@ -51,7 +51,7 @@
                   symbolName = "-[MeViewController takePhotoFromAlbum:isPhoto:]"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "467843572.865739"
+                  timestampString = "467845754.344877"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -65,7 +65,7 @@
                   symbolName = "__47-[MeViewController takePhotoFromAlbum:isPhoto:]_block_invoke_2"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "467843572.866779"
+                  timestampString = "467845754.346175"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -88,54 +88,6 @@
             startingLineNumber = "424"
             endingLineNumber = "424"
             landmarkName = "+uploadHead:block:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
-            timestampString = "466030264.594026"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "198"
-            endingLineNumber = "198"
-            landmarkName = "-connection:didReceiveResponse:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/fix1/FixedInfoViewController.m"
-            timestampString = "466030268.920352"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-connectionDidFinishLoading:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/Config/NetManager.m"
-            timestampString = "466030908.466652"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
-            landmarkName = "+setEquipmentRepairID:contact:tele:detail:images:videos:delegate:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,6 +120,38 @@
             startingLineNumber = "182"
             endingLineNumber = "182"
             landmarkName = "+setUserInfo:companyName:duty:email:address:block:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/Config/NetManager.m"
+            timestampString = "467845753.483871"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1090"
+            endingLineNumber = "1090"
+            landmarkName = "+faceback:tele:block:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MachineDataShow/Config/NetManager.m"
+            timestampString = "467845800.867861"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "663"
+            endingLineNumber = "663"
+            landmarkName = "+setEquipmentRepairID:contact:tele:detail:images:videos:delegate:block:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

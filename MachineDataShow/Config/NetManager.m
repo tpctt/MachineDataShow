@@ -606,6 +606,8 @@
             
             [imageDatass appendData:imageData];
             
+            
+            
         }else if (i<images.count+videos.count){
             
             /*
@@ -625,11 +627,13 @@
             [requestParams setValue:@(vide.length) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
 
             [videoDatass appendData:vide];
-
+            
             
         }else{
+            
             [requestParams setValue:@"" forKey:[NSString stringWithFormat:@"File%dType",i+1 ]];
             [requestParams setValue:@(0) forKey:[NSString stringWithFormat:@"File%dSize",i+1 ]];
+        
         }
         
        
@@ -658,7 +662,9 @@
     //    [data getBytes:&size length:4];
     [data appendData:data0];
     [data appendData:requData];
-    [data appendData:imageDatass];
+    if(imageDatass)
+        [data appendData:imageDatass];
+    
     [data appendData:videoDatass];
     
     
