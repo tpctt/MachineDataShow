@@ -354,6 +354,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
         
         
         
+        
 //        [self.withVC presentViewController:picker animated:YES completion:^{
 //            //        NSLog(@" 显示 picker  的view");
 //        }];
@@ -420,11 +421,12 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
         if (_isVideo) {
             NSURL *url = info[UIImagePickerControllerMediaURL];
 //            UISaveVideoAtPathToSavedPhotosAlbum(url.absoluteString, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-            BOOL compatible = UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([url path]);
-            if (compatible)
-            {
-                UISaveVideoAtPathToSavedPhotosAlbum([url path], self, nil, NULL);
-                
+            ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+            NSURL *recordedVideoURL= [info objectForKey:UIImagePickerControllerMediaURL];
+            if ([library videoAtPathIsCompatibleWithSavedPhotosAlbum:recordedVideoURL]) {
+                [library writeVideoAtPathToSavedPhotosAlbum:recordedVideoURL
+                                            completionBlock:^(NSURL *assetURL, NSError *error){}
+                 ];
             }
             
         }else{
