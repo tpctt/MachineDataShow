@@ -587,7 +587,9 @@
     [requestParams setValue:tele forKey:@"tele"];
     [requestParams setValue:detail forKey:@"detail"];
     [requestParams setValue:[TimeTool formatDateSinceNow:0 formatWith:@"YYYYMMdd"]forKey:@"time"];
-    [requestParams setValue:@(images.count) forKey:@"filesNum"];
+    [requestParams setValue:@(images.count+videos.count) forKey:@"filesNum"];
+    
+    
     NSLog(@"设备保修uid：%@,设备id：%@",[[UserObject sharedInstance] uid],equipmentId);
     for(int i = 0;i < 5 ;i ++){
         if (i < images.count) {
