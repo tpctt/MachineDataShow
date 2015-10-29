@@ -299,6 +299,7 @@
 -(void)showDataFor:(int)index
 {
     [self updatevules];
+    [self.tableview reloadData];
 }
 ///
 -(void)updatevules
