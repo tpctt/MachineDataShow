@@ -96,7 +96,7 @@
     [barChart setXLabels:@[@"SEP 1"]];
     [barChart setYValues:@[@0]];
     [barChart strokeChart];
-    
+   barChart.labelTextColor = [UIColor whiteColor];
     
     
     ///饼状图
@@ -299,7 +299,7 @@
 -(void)showDataFor:(int)index
 {
     [self updatevules];
-    [self.tableview reloadData];
+    [self.mtable reloadData];
 }
 ///
 -(void)updatevules

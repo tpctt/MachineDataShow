@@ -422,6 +422,7 @@
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(x + beforeLabel, y, labelsize.width, labelsize.height)];
         label.text = pdata.textDescription;
         label.textColor = self.legendFontColor ? self.legendFontColor : [UIColor blackColor];
+        
         label.font = self.legendFont ? self.legendFont : [UIFont systemFontOfSize:12.0f];
         label.lineBreakMode = NSLineBreakByWordWrapping;
         label.numberOfLines = 0;
