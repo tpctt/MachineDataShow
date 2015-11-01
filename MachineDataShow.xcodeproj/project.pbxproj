@@ -32,6 +32,9 @@
 		2284E9071B9B4A140017DF8F /* Statuecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2284E9051B9B4A140017DF8F /* Statuecell.xib */; };
 		229020131B87C6DB009A6782 /* SuggestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 229020121B87C6DB009A6782 /* SuggestViewController.m */; };
 		22A116591B9A596A003C4104 /* YuyueTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A116581B9A596A003C4104 /* YuyueTableViewController.m */; };
+		22C9CB421BE51E8B00538EAB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464D41B7C2A34007FD1D4 /* Info.plist */; };
+		22C9CB441BE5236600538EAB /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22C9CB431BE5236600538EAB /* Entitlements.plist */; };
+		22C9CB461BE5253400538EAB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 22C9CB451BE5253400538EAB /* Default-568h@2x.png */; };
 		22E897B81BC87BE200B1C6DF /* WEIXIU_P1.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B51BC87BE200B1C6DF /* WEIXIU_P1.png */; };
 		22E897B91BC87BE200B1C6DF /* WEIXIU_P2.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B61BC87BE200B1C6DF /* WEIXIU_P2.png */; };
 		22E897BA1BC87BE200B1C6DF /* WEIXIU_P3.png in Resources */ = {isa = PBXBuildFile; fileRef = 22E897B71BC87BE200B1C6DF /* WEIXIU_P3.png */; };
@@ -72,7 +75,6 @@
 		7A2464DF1B7C2A34007FD1D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464DD1B7C2A34007FD1D4 /* Main.storyboard */; };
 		7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464E01B7C2A34007FD1D4 /* Images.xcassets */; };
 		7A2464E41B7C2A34007FD1D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A2464E21B7C2A34007FD1D4 /* LaunchScreen.xib */; };
-		7A2464F01B7C2A34007FD1D4 /* MachineDataShowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A2464EF1B7C2A34007FD1D4 /* MachineDataShowTests.m */; };
 		7A743BE91B86F359002095F4 /* HomeAD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A743BE81B86F359002095F4 /* HomeAD.m */; };
 		7A7561641B7C4A3A00BA2B69 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75615D1B7C4A3A00BA2B69 /* BaseViewController.m */; };
 		7A7561651B7C4A3A00BA2B69 /* NavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A75615F1B7C4A3A00BA2B69 /* NavViewController.m */; };
@@ -168,16 +170,6 @@
 		9AFB03561BC8C22600611452 /* nav_button_mine_pressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AFB03541BC8C22600611452 /* nav_button_mine_pressed@2x.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7A2464EA1B7C2A34007FD1D4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7A2464C81B7C2A34007FD1D4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7A2464CF1B7C2A34007FD1D4;
-			remoteInfo = MachineDataShow;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		220B5A2C1B9B044A001FF2D6 /* SQyuyueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQyuyueViewController.h; sourceTree = "<group>"; };
 		220B5A2D1B9B044A001FF2D6 /* SQyuyueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQyuyueViewController.m; sourceTree = "<group>"; };
@@ -217,6 +209,8 @@
 		229020121B87C6DB009A6782 /* SuggestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestViewController.m; sourceTree = "<group>"; };
 		22A116571B9A596A003C4104 /* YuyueTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YuyueTableViewController.h; sourceTree = "<group>"; };
 		22A116581B9A596A003C4104 /* YuyueTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YuyueTableViewController.m; sourceTree = "<group>"; };
+		22C9CB431BE5236600538EAB /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		22C9CB451BE5253400538EAB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		22E897B51BC87BE200B1C6DF /* WEIXIU_P1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P1.png; sourceTree = "<group>"; };
 		22E897B61BC87BE200B1C6DF /* WEIXIU_P2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P2.png; sourceTree = "<group>"; };
 		22E897B71BC87BE200B1C6DF /* WEIXIU_P3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WEIXIU_P3.png; sourceTree = "<group>"; };
@@ -265,7 +259,6 @@
 		7A2464DE1B7C2A34007FD1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A2464E01B7C2A34007FD1D4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A2464E31B7C2A34007FD1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		7A2464E91B7C2A34007FD1D4 /* MachineDataShowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MachineDataShowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2464EE1B7C2A34007FD1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A2464EF1B7C2A34007FD1D4 /* MachineDataShowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MachineDataShowTests.m; sourceTree = "<group>"; };
 		7A743BE71B86F359002095F4 /* HomeAD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeAD.h; sourceTree = "<group>"; };
@@ -419,13 +412,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A2464E61B7C2A34007FD1D4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -463,7 +449,6 @@
 			isa = PBXGroup;
 			children = (
 				7A2464D01B7C2A34007FD1D4 /* MachineDataShow.app */,
-				7A2464E91B7C2A34007FD1D4 /* MachineDataShowTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -471,6 +456,7 @@
 		7A2464D21B7C2A34007FD1D4 /* MachineDataShow */ = {
 			isa = PBXGroup;
 			children = (
+				22C9CB451BE5253400538EAB /* Default-568h@2x.png */,
 				9AFB03531BC8C22600611452 /* nav_button_kf_pressed@2x.png */,
 				9AFB03541BC8C22600611452 /* nav_button_mine_pressed@2x.png */,
 				9AFB03511BC8C0E400611452 /* nav_button_home_pressed@2x.png */,
@@ -514,6 +500,7 @@
 				7A7561851B7C4BB500BA2B69 /* 64@2x.png */,
 				7A7561681B7C4A5400BA2B69 /* Config */,
 				7A2464D41B7C2A34007FD1D4 /* Info.plist */,
+				22C9CB431BE5236600538EAB /* Entitlements.plist */,
 				7A2464D51B7C2A34007FD1D4 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -811,24 +798,6 @@
 			productReference = 7A2464D01B7C2A34007FD1D4 /* MachineDataShow.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7A2464E81B7C2A34007FD1D4 /* MachineDataShowTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7A2464F61B7C2A34007FD1D4 /* Build configuration list for PBXNativeTarget "MachineDataShowTests" */;
-			buildPhases = (
-				7A2464E51B7C2A34007FD1D4 /* Sources */,
-				7A2464E61B7C2A34007FD1D4 /* Frameworks */,
-				7A2464E71B7C2A34007FD1D4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7A2464EB1B7C2A34007FD1D4 /* PBXTargetDependency */,
-			);
-			name = MachineDataShowTests;
-			productName = MachineDataShowTests;
-			productReference = 7A2464E91B7C2A34007FD1D4 /* MachineDataShowTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -840,12 +809,7 @@
 				TargetAttributes = {
 					7A2464CF1B7C2A34007FD1D4 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = TGZ32BA6KS;
-					};
-					7A2464E81B7C2A34007FD1D4 = {
-						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = TGZ32BA6KS;
-						TestTargetID = 7A2464CF1B7C2A34007FD1D4;
+						DevelopmentTeam = Z7N8VQ896C;
 					};
 				};
 			};
@@ -863,7 +827,6 @@
 			projectRoot = "";
 			targets = (
 				7A2464CF1B7C2A34007FD1D4 /* MachineDataShow */,
-				7A2464E81B7C2A34007FD1D4 /* MachineDataShowTests */,
 			);
 		};
 /* End PBXProject section */
@@ -901,6 +864,7 @@
 				22E897D41BC87D7600B1C6DF /* tab_button_link_default_wegoma cloud.png in Resources */,
 				7A7561ED1B7C5F9900BA2B69 /* link_2@2x.png in Resources */,
 				7A7561D51B7C5F9900BA2B69 /* button_checkin@2x.png in Resources */,
+				22C9CB421BE51E8B00538EAB /* Info.plist in Resources */,
 				7A75620F1B7C6E0C00BA2B69 /* HomeViewController.xib in Resources */,
 				7A7561D61B7C5F9900BA2B69 /* button_immediately@2x.png in Resources */,
 				22E897EA1BC87ED700B1C6DF /* tab_icon_suggest.png in Resources */,
@@ -909,6 +873,7 @@
 				7A7561F61B7C5F9900BA2B69 /* vip.png in Resources */,
 				9AFB03561BC8C22600611452 /* nav_button_mine_pressed@2x.png in Resources */,
 				7A7561F41B7C5F9900BA2B69 /* repair.png in Resources */,
+				22C9CB461BE5253400538EAB /* Default-568h@2x.png in Resources */,
 				7A7561E71B7C5F9900BA2B69 /* icon_share@2x.png in Resources */,
 				7A756AEF1B85DDBC004BB943 /* button_bg_long_gray@2x.png in Resources */,
 				22E897DC1BC87E4C00B1C6DF /* image_my code副本.png in Resources */,
@@ -944,6 +909,7 @@
 				7A75622A1B7C841C00BA2B69 /* cell_go@2x.png in Resources */,
 				22E897D31BC87D7600B1C6DF /* tab_button_link_default_visit.png in Resources */,
 				7A2464E11B7C2A34007FD1D4 /* Images.xcassets in Resources */,
+				22C9CB441BE5236600538EAB /* Entitlements.plist in Resources */,
 				22E897DD1BC87E4C00B1C6DF /* image_my order副本.png in Resources */,
 				7A7561EA1B7C5F9900BA2B69 /* icon_user_name@2x.png in Resources */,
 				22E897C01BC87C4F00B1C6DF /* image_button_pressed.png in Resources */,
@@ -967,13 +933,6 @@
 				22E897DF1BC87E4C00B1C6DF /* image_sales副本.png in Resources */,
 				7A7561F71B7C5F9900BA2B69 /* vip_blue@2x.png in Resources */,
 				7A7561861B7C4BB500BA2B69 /* 64@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7A2464E71B7C2A34007FD1D4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1072,23 +1031,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7A2464E51B7C2A34007FD1D4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7A2464F01B7C2A34007FD1D4 /* MachineDataShowTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7A2464EB1B7C2A34007FD1D4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7A2464CF1B7C2A34007FD1D4 /* MachineDataShow */;
-			targetProxy = 7A2464EA1B7C2A34007FD1D4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7A2464DD1B7C2A34007FD1D4 /* Main.storyboard */ = {
@@ -1127,8 +1070,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1150,7 +1093,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8d34fe55-374a-4c84-8a6e-0df0910770f7";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1172,8 +1115,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1188,7 +1131,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8d34fe55-374a-4c84-8a6e-0df0910770f7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1199,15 +1142,16 @@
 			baseConfigurationReference = 8B77AB21671CCE1208B70498 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = MachineDataShow/Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MachineDataShow/PrefixHeader.pch;
 				INFOPLIST_FILE = MachineDataShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8d34fe55-374a-4c84-8a6e-0df0910770f7";
 			};
 			name = Debug;
 		};
@@ -1216,55 +1160,16 @@
 			baseConfigurationReference = 916D73ADFE4D5F44E29852E6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_ENTITLEMENTS = MachineDataShow/Entitlements.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MachineDataShow/PrefixHeader.pch;
 				INFOPLIST_FILE = MachineDataShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-			};
-			name = Release;
-		};
-		7A2464F71B7C2A34007FD1D4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MachineDataShowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MachineDataShow.app/MachineDataShow";
-			};
-			name = Debug;
-		};
-		7A2464F81B7C2A34007FD1D4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = MachineDataShowTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MachineDataShow.app/MachineDataShow";
+				PROVISIONING_PROFILE = "8d34fe55-374a-4c84-8a6e-0df0910770f7";
 			};
 			name = Release;
 		};
@@ -1285,15 +1190,6 @@
 			buildConfigurations = (
 				7A2464F41B7C2A34007FD1D4 /* Debug */,
 				7A2464F51B7C2A34007FD1D4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7A2464F61B7C2A34007FD1D4 /* Build configuration list for PBXNativeTarget "MachineDataShowTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7A2464F71B7C2A34007FD1D4 /* Debug */,
-				7A2464F81B7C2A34007FD1D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
