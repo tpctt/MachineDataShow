@@ -118,55 +118,9 @@
     
     
     [self.view bringSubviewToFront:self.selectionList];
+ 
     
-    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
-        [[GCDQueue mainQueue ]queueBlock:^{
-            [self showDataFor:self.index];
-            
-        }];
-        
-    }];
-    
-    [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
-        
-        for(GCYSSB_Object *obj in self.dataArray){
-            
-            NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
-            for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
-                if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    obj.status_obj = stateObj;
-                    
-                }
-            }
-            
-            for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
-                if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    obj.PRODUCT_obj = productObj;
-                    
-                }
-            }
-            
-            for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
-                
-                if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    
-                    if (obj.deveice_state_ARRAY==nil) {
-                        obj.deveice_state_ARRAY =  [NSMutableArray array ];
-                    }
-                    
-                    if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
-                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
-
-                    }else{
-                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
-                    }
-                    
-                }
-            }
-            
-        }
-        
-        
+    [RACObserve([CLJ_object sharedInstance], receviceDataDealFlag)subscribeNext:^(id x) {
         
         
         [[GCDQueue mainQueue]queueBlock:^{
@@ -176,8 +130,11 @@
             //            self.statusArray = SE
             [self.mtable reloadData];
             [self updatevules  ];
-            
+//            [self showDataFor:self.index];
+
         }];
+        
+        
         
         
     }];

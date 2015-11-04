@@ -159,8 +159,10 @@
     rightLabel.textAlignment = NSTextAlignmentCenter;
 //    [self.navigationController.navigationBar addSubview: rightLabel];
     
-    [[CLJ_object sharedInstance]start];
+//    [[CLJ_object sharedInstance]start];
     //NSLog(@"设备数:%d",[self.vm.allDataArray count]);
+    
+    
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
         for(GCYSSB_Object *obj in self.vm.allDataArray){
             //NSLog(@"ssssssssssss");
@@ -198,6 +200,8 @@
             
         }
         
+        [CLJ_object sharedInstance].receviceDataDealFlag = @(![[CLJ_object sharedInstance].receviceDataDealFlag boolValue]);
+       
         
         
         
@@ -219,7 +223,7 @@
     
     self.mytable.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.vm loadFirstPage ];
-        [[CLJ_object sharedInstance]start];//工厂设备页面，为了下拉刷新进行长连接重连增加这一行at 2015-10-26
+        [[CLJ_object sharedInstance]start:YES];//工厂设备页面，为了下拉刷新进行长连接重连增加这一行at 2015-10-26
     }];
     self.mytable.footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [self.vm loadNextPage];

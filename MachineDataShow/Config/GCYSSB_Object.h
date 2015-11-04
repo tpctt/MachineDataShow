@@ -17,11 +17,13 @@
 @property (strong,nonatomic) NSMutableArray *DEVICE_STATE_Array;
 
 @property (strong,nonatomic) NSNumber *receviceIndex;
+@property (strong,nonatomic) NSNumber *receviceDataDealFlag;
+
 @property(nonatomic,strong)NSMutableData *responseData;
 @property(nonatomic,strong) CLJ_presonObj* presonObj;
 
 AS_SINGLETON(CLJ_object)
--(void)start;
+-(void)start:(BOOL)force;
 -(void)stop;
 
 @end

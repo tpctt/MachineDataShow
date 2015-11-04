@@ -15,6 +15,7 @@
 }
 @property (strong,nonatomic)NSURLConnection *conn;
 @property (assign,nonatomic)BOOL isEnd;
+@property (strong, nonatomic)   RACDisposable *timer;
 
 @end
 
@@ -36,11 +37,16 @@ DEF_SINGLETON(CLJ_object)
     return self;
 }
 
--(void)start
+-(void)start:(BOOL)force
 {
-    if ( _isEnd == NO) {
-        //return;//工厂设备页面，为了下拉刷新进行长连接重连将这行注释掉at 2015-10-26
+    if(force == YES ){
+    
+    }else{
+        if ( _isEnd == NO ) {
+            return;//工厂设备页面，为了下拉刷新进行长连接重连将这行注释掉at 2015-10-26
+        }
     }
+    
     dispatch_queue_t mainQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
     asyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:mainQueue];
     NSString *host = @"112.74.18.72";
@@ -51,7 +57,16 @@ DEF_SINGLETON(CLJ_object)
     {
         
     }
+    _stateArray  = [NSMutableArray array ];
+    _productArray  = [NSMutableArray array ];
+    _DEVICE_STATE_Array  = [NSMutableArray array ];
+    
+    
+    
     _isEnd = NO;
+    
+    
+    [self TIMER];
     
     
     return;
@@ -97,7 +112,9 @@ DEF_SINGLETON(CLJ_object)
         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         string = [[NSString alloc] initWithData:data encoding:encode];
     }
-    if ([string hasPrefix:@"MachineStatus"]) {
+    
+    
+    if ([string containsString:@"MachineStatus"]) {
         //         MachineState|801112|Connected
         //         State :Connected/Ready/Busy/Error
         //     Connected:绿色  .
@@ -131,10 +148,20 @@ DEF_SINGLETON(CLJ_object)
             obj.State = State;
             
         }
-        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
+//        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
         
     }
-    else if ([string hasPrefix:@"HumanResource"]){
+    else if ([string containsString:@"HumanResource"]){
         //         e.g.
         //         HumanResource|GM|5|3|QC|2|2|OP|32|20
         //
@@ -187,11 +214,21 @@ DEF_SINGLETON(CLJ_object)
         
         self.presonObj = obj;
         
-        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
+//        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
         
         
     }
-    else if ([string hasPrefix:@"ProduceState"]) {
+    else if ([string containsString:@"ProduceState"]) {
         //         ProduceState |801234|BR1209|1203|500|499|BA0043|403|BA0054|502|BA0052|298
         
         
@@ -212,7 +249,7 @@ DEF_SINGLETON(CLJ_object)
         
         CLJ_productObj *obj = nil;
         for (CLJ_productObj *PRO_Obj in self.productArray) {
-            NSLog(@"产品数据========:%@|%@|%d",[PRO_Obj.MachineID lowercaseString],[MachineID lowercaseString],[[PRO_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]);
+//            NSLog(@"产品数据========:%@|%@|%d",[PRO_Obj.MachineID lowercaseString],[MachineID lowercaseString],[[PRO_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]);
 
             if ([[PRO_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
                obj = PRO_Obj;
@@ -283,9 +320,21 @@ DEF_SINGLETON(CLJ_object)
             
             
         }
-        self.receviceIndex = @(![self.receviceIndex boolValue]);
         
-    }else if ([string hasPrefix:@"PartState"]) {
+        
+        
+        
+//        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }else if ([string containsString:@"PartState"]) {
         //         MachineState|801112|Connected
         //         State :Connected/Ready/Busy/Error
         //     Connected:绿色  .
@@ -333,9 +382,67 @@ DEF_SINGLETON(CLJ_object)
             obj.Note = Note;
             
         }
-        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+//        self.receviceIndex = @(![self.receviceIndex boolValue]);
+        
+        
+        
+        
+        
+        
+        
         
     }
+    
+    
+    self.receviceIndex = @(![self.receviceIndex boolValue]);
+
+    
+//    for(GCYSSB_Object *obj in self.vm.allDataArray){
+//        //NSLog(@"ssssssssssss");
+//        
+//        //NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
+//        NSString *MachineID =   [NSString stringWithFormat:@"%@",obj.serial];
+//        for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
+//            if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+//                obj.status_obj = stateObj;
+//                
+//            }
+//        }
+//        
+//        for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
+//            if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+//                obj.PRODUCT_obj = productObj;
+//                
+//            }
+//        }
+//        for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
+//            if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+//                if (obj.deveice_state_ARRAY==nil) {
+//                    obj.deveice_state_ARRAY =  [NSMutableArray array ];
+//                }
+//                
+//                if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
+//                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+//                    
+//                }else{
+//                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+//                }
+//                
+//            }
+//        }
+//        
+//    }
+    
+    
+    
+    
+    
+    
+    
     
    // [DialogUtil showDlgAlert:string];
     
@@ -352,7 +459,7 @@ DEF_SINGLETON(CLJ_object)
 {
     NSLog(@"服务器的数据加载完毕");
     _isEnd = YES;
-    [self start];
+    [self start:YES];
     
     //处理服务器返回的所有数据
     NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:nil];
@@ -377,8 +484,28 @@ DEF_SINGLETON(CLJ_object)
     //     NSLog(@"请求错误");
     //隐藏HUD
     
+    
 }
+-(void)TIMER
+{
+  
+        
+        self.timer = [[RACScheduler scheduler] after:[NSDate date] repeatingEvery:5 withLeeway:1 schedule:^{
+            [[GCDQueue mainQueue]queueBlock:^{
+                
+                if (self.isEnd == YES) {
+                    [self.conn start];
+                    
+                }
+                
+            }];
+        }];
+   
+    
+    
+    
 
+}
 
 
 

@@ -112,7 +112,7 @@
     _v1 = [self getCellWithClass:[HomeCell class]];
     
     
-    [[CLJ_object sharedInstance]start];
+//    [[CLJ_object sharedInstance]start];
     
     UIButton *bnt = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
     bnt.backgroundColor = [UIColor redColor];

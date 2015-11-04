@@ -10,8 +10,8 @@
 #import "TabbarViewController.h"
 
 //#define AppHostAddress @"http://182.92.159.22/"
-#define AppHostAddress @"http://112.74.18.72/wgmSrv/Service1.svc/"
-#define TempAppHostAddress @"http://121.40.239.56/"
+#define AppHostAddress @"http://139.196.168.62/wgmSrv/Service1.svc/"
+#define TempAppHostAddress @"http://139.196.168.62/"
 #define USENormalPush 0
 
 
