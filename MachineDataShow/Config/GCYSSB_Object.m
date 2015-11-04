@@ -7,6 +7,8 @@
 //
 
 #import "GCYSSB_Object.h"
+#import <CocoaAsyncSocket/CocoaAsyncSocket.h>
+#import <CocoaAsyncSocket/AsyncSocket.h>
 
 @interface CLJ_object()<GCDAsyncSocketDelegate>
 {
@@ -131,7 +133,10 @@ DEF_SINGLETON(CLJ_object)
         default:
             break;
     }
-    NSString *AA = [NSString stringWithFormat:@"PartState|801110-HERMES|信息谢谢师傅|%d|%@|停机",NUM,str];
+    
+    static int index = 0;
+    
+    NSString *AA = [NSString stringWithFormat:@"PartState|801110-HERMES|信息谢谢I=%d|%d|%@|停机",index++,NUM,str];
     string = AA;
     
     NSLog(@"aa= %@",string);
@@ -519,8 +524,10 @@ DEF_SINGLETON(CLJ_object)
         self.timer = [[RACScheduler scheduler] after:[NSDate date] repeatingEvery:5 withLeeway:1 schedule:^{
             [[GCDQueue mainQueue]queueBlock:^{
                 
-                if (self.isEnd == YES) {
-                    [self.conn start];
+                if (asyncSocket.isConnected == NO) {
+                    self.isEnd = 1;
+                    
+                    [self start:1];
                     
                 }
                 
@@ -643,12 +650,20 @@ static long preTag = -1;
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    if(preTag != tag){
-        [self connection:nil didReceiveData:data];
+    if(preTag != tag ){
+        
+        if (tag%3==0) {
+            [self connection:nil didReceiveData:data];
+            
+        }
+        
         preTag = tag;
         
     }
-    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:tag];
+    
+    [sock readDataToData:[sock unreadData]
+             withTimeout:-1
+                     tag:tag+1];
     
 }
 

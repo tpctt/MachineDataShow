@@ -51,7 +51,7 @@
                   symbolName = "-[MeViewController takePhotoFromAlbum:isPhoto:]"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "468342817.640055"
+                  timestampString = "468343322.849663"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
@@ -65,7 +65,7 @@
                   symbolName = "__47-[MeViewController takePhotoFromAlbum:isPhoto:]_block_invoke_2"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "468342817.640505"
+                  timestampString = "468343322.852061"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
@@ -162,11 +162,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/GCYSSB_Object.m"
-            timestampString = "468341288.45176"
+            timestampString = "468343129.502755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
             landmarkName = "-connection:didReceiveData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -178,28 +178,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/GCYSSB_Object.m"
-            timestampString = "468341950.973453"
+            timestampString = "468343129.502755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "387"
-            endingLineNumber = "387"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "-connection:didReceiveData:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MachineDataShow/home1/Statuecell.m"
-            timestampString = "468342004.681609"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-setOBJ:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -210,11 +194,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/GCYSSB_Object.m"
-            timestampString = "468342260.298367"
+            timestampString = "468343129.502755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "401"
-            endingLineNumber = "401"
+            startingLineNumber = "404"
+            endingLineNumber = "404"
             landmarkName = "-connection:didReceiveData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -226,11 +210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/GCYSSB_Object.m"
-            timestampString = "468342750.587807"
+            timestampString = "468343177.688452"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "648"
-            endingLineNumber = "648"
+            startingLineNumber = "649"
+            endingLineNumber = "649"
             landmarkName = "-socket:didReadData:withTag:"
             landmarkType = "5">
          </BreakpointContent>
