@@ -164,52 +164,7 @@
     
     
     [RACObserve([CLJ_object sharedInstance], receviceIndex)subscribeNext:^(id x) {
-        for(GCYSSB_Object *obj in self.vm.allDataArray){
-            //NSLog(@"ssssssssssss");
-  
-            //NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
-            NSString *MachineID =   [NSString stringWithFormat:@"%@",obj.serial];
-            for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
-                if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    obj.status_obj = stateObj;
-                    
-                }
-            }
-            
-            for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
-                if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    obj.PRODUCT_obj = productObj;
-                    
-                }
-            }
-            for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
-                if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                    if (obj.deveice_state_ARRAY==nil) {
-                        obj.deveice_state_ARRAY =  [NSMutableArray array ];
-                    }
-                    
-                    if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
-                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
-
-                    }else{
-                        [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
-                    }
-                    
-                }
-            }
-            
-        }
-        
-        [CLJ_object sharedInstance].receviceDataDealFlag = @(![[CLJ_object sharedInstance].receviceDataDealFlag boolValue]);
-       
-        
-        
-        
-        [[GCDQueue mainQueue]queueBlock:^{
-            
-            [self.mytable reloadData];
-            
-        }];
+        [self doSomething];
         
         
     }];
@@ -236,7 +191,8 @@
       }]
      subscribeNext:^(NSArray *value) {
          @strongify(self);
-         
+         [self doSomething];
+
          [self.mytable reloadData];
          [self.mytable.header endRefreshing ];
          [self.mytable.footer endRefreshing ];
@@ -261,7 +217,59 @@
     
     
 }
-
+-(void)doSomething
+{
+    for(GCYSSB_Object *obj in self.vm.allDataArray){
+        //NSLog(@"ssssssssssss");
+        
+        //NSString *MachineID =   [NSString stringWithFormat:@"%@%@",obj.model,obj.serial];
+        NSString *MachineID =   [NSString stringWithFormat:@"%@",obj.serial];
+        for (CLJ_deviceObj *stateObj in [[CLJ_object sharedInstance]stateArray]) {
+            if ([[stateObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                obj.status_obj = stateObj;
+                
+            }
+        }
+        
+        for (CLJ_productObj *productObj in [[CLJ_object sharedInstance]productArray]) {
+            if ([[productObj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                obj.PRODUCT_obj = productObj;
+                
+            }
+        }
+        
+        
+        
+        ///TODO
+        for (CLJ_deveice_state_Obj *device_state_obj in [[CLJ_object sharedInstance]DEVICE_STATE_Array]) {
+            if ([[device_state_obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+                if (obj.deveice_state_ARRAY==nil) {
+                    obj.deveice_state_ARRAY =  [NSMutableArray array ];
+                }
+                
+                if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
+                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+                    
+                }else{
+                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+                }
+                
+            }
+        }
+        
+    }
+    
+    [CLJ_object sharedInstance].receviceDataDealFlag = @(![[CLJ_object sharedInstance].receviceDataDealFlag boolValue]);
+    
+    
+    
+    
+    [[GCDQueue mainQueue]queueBlock:^{
+        
+        [self.mytable reloadData];
+        
+    }];
+}
 //为了在头部右侧增加英文
 -(NSString*)tableView:(UITableView *)tableView  viewForHeaderInSection:(NSInteger)section {
     

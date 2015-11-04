@@ -111,7 +111,30 @@ DEF_SINGLETON(CLJ_object)
     if(string.length==0){
         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         string = [[NSString alloc] initWithData:data encoding:encode];
+    
     }
+    
+    
+    
+    int NUM = arc4random()%3;
+    NSString *str = @"OK";
+    switch (NUM) {
+        case 0:
+            str = @"ok";
+            break;
+        case 1:
+            str = @"alarm";
+            break;
+        case 2:
+            str = @"stop";
+            break;
+        default:
+            break;
+    }
+    NSString *AA = [NSString stringWithFormat:@"PartState|801110-HERMES|信息谢谢师傅|%d|%@|停机",NUM,str];
+    string = AA;
+    
+    NSLog(@"aa= %@",string);
     
     
     if ([string containsString:@"MachineStatus"]) {
@@ -340,7 +363,7 @@ DEF_SINGLETON(CLJ_object)
         //     Connected:绿色  .
         //         默认红色,其他三态保留
         
-        NSArray *ARRAY = [string componentsSeparatedByString:@"|"];
+        NSArray *ARRAY = [[string componentsSeparatedByString:@"|"] copy];
         NSString *MachineID = [ARRAY safeObjectAtIndex:1];
         NSString *PartName = [ARRAY safeObjectAtIndex:2];
         NSString *StateClass = [ARRAY safeObjectAtIndex:3];
@@ -353,16 +376,19 @@ DEF_SINGLETON(CLJ_object)
         }
         
         CLJ_deveice_state_Obj *obj = nil;
-        for (CLJ_deveice_state_Obj *dev_Obj in self.DEVICE_STATE_Array) {
-          if ([[dev_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
-                NSLog(@"备件:%@|%@",[dev_Obj.MachineID lowercaseString],[MachineID lowercaseString]);
-                obj = dev_Obj;
-                
-            }
-        }
+        
+//        for (CLJ_deveice_state_Obj *dev_Obj in self.DEVICE_STATE_Array) {
+//          if ([[dev_Obj.MachineID lowercaseString] isEqualToString:[MachineID lowercaseString]]) {
+//                NSLog(@"备件:%@|%@",[dev_Obj.MachineID lowercaseString],[MachineID lowercaseString]);
+//                obj = dev_Obj;
+//                
+//            }
+//        }
         
         //         CLJ_deviceObj *obj = [[self.stateArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:[NSString stringWithFormat:@"MachineID = %@",MachineID]]] firstObject];
-        if(obj==nil){
+
+        if(obj==nil ||  1 ){
+            
             obj = [[CLJ_deveice_state_Obj alloc] init];
             obj.MachineID = MachineID;
             obj.PartName = PartName;
@@ -613,12 +639,16 @@ DEF_SINGLETON(CLJ_object)
 {
     
 }
-
+static long preTag = -1;
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [self connection:nil didReceiveData:data];
-    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:0];
+    if(preTag != tag){
+        [self connection:nil didReceiveData:data];
+        preTag = tag;
+        
+    }
+    [sock readDataToData:[GCDAsyncSocket CRLFData] withTimeout:-1 tag:tag];
     
 }
 

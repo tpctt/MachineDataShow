@@ -212,6 +212,9 @@
             CELL.mj_h = 40;
         
         
+        
+        CELL.backgroundColor = [UIColor whiteColor];
+        
         return CELL;
         
         
