@@ -248,7 +248,7 @@
                 }
                 
                 if ([obj.deveice_state_ARRAY containsObject:device_state_obj]) {
-                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
+//                    [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];
                     
                 }else{
                     [obj.deveice_state_ARRAY insertObject:device_state_obj atIndex:0];

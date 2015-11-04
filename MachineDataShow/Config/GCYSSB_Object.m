@@ -103,6 +103,9 @@ DEF_SINGLETON(CLJ_object)
     NSLog(@"接收到服务器的数据22");
     
 }
+
+static int index22 = 0;
+
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     NSLog(@"接收到服务器的数据====");
@@ -113,7 +116,9 @@ DEF_SINGLETON(CLJ_object)
     if(string.length==0){
         unsigned long encode = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
         string = [[NSString alloc] initWithData:data encoding:encode];
-    
+        
+        
+        
     }
     
     
@@ -134,9 +139,8 @@ DEF_SINGLETON(CLJ_object)
             break;
     }
     
-    static int index = 0;
     
-    NSString *AA = [NSString stringWithFormat:@"PartState|801110-HERMES|信息谢谢I=%d|%d|%@|停机",index++,NUM,str];
+    NSString *AA = [NSString stringWithFormat:@"PartState|801110-HERMES|信息谢谢I=%d|%d|%@|停机",index22++,NUM,str];
     string = AA;
     
     NSLog(@"aa= %@",string);
@@ -647,9 +651,14 @@ DEF_SINGLETON(CLJ_object)
     
 }
 static long preTag = -1;
+static long SUM = 0 ;
+
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag
 {
     NSString *httpResponse = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    
+    
     if(preTag != tag ){
         
         if (tag%3==0) {
@@ -661,9 +670,11 @@ static long preTag = -1;
         
     }
     
-    [sock readDataToData:[sock unreadData]
+    [sock readDataToData:[GCDAsyncSocket CRLFData]
              withTimeout:-1
                      tag:tag+1];
+    
+    
     
 }
 
