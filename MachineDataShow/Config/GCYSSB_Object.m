@@ -308,7 +308,9 @@ static int index22 = 0;
             obj.OK = OK;
             
         }
-        
+        //
+        obj.preson_productArray = [NSMutableArray array];
+
         for (int i = 6; i<ARRAY.count ; ) {
             NSString *Person = [ARRAY safeObjectAtIndex:i ];
             NSString *Output = [ARRAY safeObjectAtIndex:i+1 ];
