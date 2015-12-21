@@ -546,6 +546,8 @@ static int index22 = 0;
 
 }
 
+#define AuthString  @"AUTH 11238971233axwnbsdka0xm1a"
+//#define AuthString  @"telnet 112.74.18.72\r\n\r\n"
 
 
 #pragma mark Socket Delegate
@@ -630,7 +632,7 @@ static int index22 = 0;
 #endif
     
     //模拟发送一条数据
-    NSString *requestStr = [NSString stringWithFormat:@"telnet %@\r\n\r\n", @"112.74.18.72"];
+    NSString *requestStr = AuthString;
     NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
     
     [sock writeData:requestData withTimeout:2000. tag:1];
@@ -641,7 +643,7 @@ static int index22 = 0;
 - (void)socketDidSecure:(GCDAsyncSocket *)sock
 {
     
-    NSString *requestStr = [NSString stringWithFormat:@"telnet %@\r\n\r\n", @"112.74.18.72"];
+    NSString *requestStr = AuthString ;
     NSData *requestData = [requestStr dataUsingEncoding:NSUTF8StringEncoding];
     
     [sock writeData:requestData withTimeout:-1 tag:0];

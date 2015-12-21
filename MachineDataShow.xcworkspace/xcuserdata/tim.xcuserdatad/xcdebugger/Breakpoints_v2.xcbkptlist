@@ -51,12 +51,12 @@
                   symbolName = "-[MeViewController takePhotoFromAlbum:isPhoto:]"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "468344365.62246"
+                  timestampString = "472396449.696796"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "198"
                   endingLineNumber = "198"
-                  offsetFromSymbolStart = "752">
+                  offsetFromSymbolStart = "874">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -65,12 +65,12 @@
                   symbolName = "__47-[MeViewController takePhotoFromAlbum:isPhoto:]_block_invoke_2"
                   moduleName = "MachineDataShow"
                   urlString = "file:///Users/tim/Desktop/MachineDataShow/MachineDataShow/me1/MeViewController.m"
-                  timestampString = "468344365.622878"
+                  timestampString = "472396449.697022"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "200"
                   endingLineNumber = "200"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "6">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -210,11 +210,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MachineDataShow/Config/GCYSSB_Object.m"
-            timestampString = "468344569.634676"
+            timestampString = "472395812.507802"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "659"
-            endingLineNumber = "659"
+            startingLineNumber = "661"
+            endingLineNumber = "661"
             landmarkName = "-socket:didReadData:withTag:"
             landmarkType = "5">
          </BreakpointContent>

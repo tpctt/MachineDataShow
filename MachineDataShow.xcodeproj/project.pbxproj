@@ -1143,15 +1143,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MachineDataShow/Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: YangQing Cai (Z7N8VQ896C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Peng Liu (7LFHNQASYT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Peng Liu (7LFHNQASYT)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MachineDataShow/PrefixHeader.pch;
 				INFOPLIST_FILE = MachineDataShow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "8d34fe55-374a-4c84-8a6e-0df0910770f7";
+				PROVISIONING_PROFILE = "34030c3a-f45d-4cc6-8841-343b0efb1494";
 			};
 			name = Debug;
 		};
